@@ -1,0 +1,38 @@
+header {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.6)), url(../images/police_car.jpeg);
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0; }
+
+h1 {
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+  font-size: 50px;
+  color: white; }
+
+h4 {
+  font-size: 25px;
+  color: white; }
+
+#badge {
+  width: 35px; }
+
+.container-fluid {
+  padding: 0; }
+
+.navbar {
+  margin-bottom: 0; }
+
+.navbar-brand {
+  padding: 6px 15px; }
+
+.footer {
+  padding-top: 5px;
+  padding-right: 15px;
+  color: grey;
+  text-align: right;
+  font-size: 12px; }
