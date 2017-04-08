@@ -49,9 +49,13 @@ h4 {
   font-size: 12px; }
 
 body {
-  background-image: url(../images/car_lights.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1)), url(../images/car_lights.jpg);
   background-size: cover;
   height: 100vh; }
+
+.login-div {
+  align-content: center;
+  margin-top: 7%; }
 
 .etc-login-form {
   color: #919191;
@@ -92,9 +96,6 @@ body {
 .marginTops {
   margin-top: 15px; }
 
-.login-div {
-  align-content: center; }
-
 .login-button {
   position: absolute;
   right: -25px;
@@ -105,7 +106,7 @@ body {
   width: 50px;
   height: 50px;
   margin-top: -25px;
-  border: 5px solid #efefef;
+  border: 5px solid #12071C;
   border-radius: 50%;
   transition: all ease-in-out 500ms; }
 

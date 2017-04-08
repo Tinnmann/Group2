@@ -1,7 +1,7 @@
 
 //basic styling for each page:
 header
-  background:linear-gradient(rgba(0, 0, 0, 0.90),rgba(255, 255, 255, 1.0))
+  background:linear-gradient(rgba(0, 0, 0, 0.90),rgba(255, 255, 255, 0.60))
   background-color: lightgrey
   height: 100vh
   background-size: cover
@@ -13,9 +13,9 @@ header
   margin-bottom: 0
 
 .header
-    background:linear-gradient(rgba(0, 0, 0, 0.60),rgba(255, 255, 255, 0.60)), url(../images/police_car.jpeg)
-    height: 100vh
-    background-size: cover
+  background:linear-gradient(rgba(0, 0, 0, 0.60),rgba(255, 255, 255, 0.60)), url(../images/police_car.jpeg)
+  height: 100vh
+  background-size: cover
 
 h1
   padding-bottom: 10px
@@ -53,11 +53,15 @@ h4
   font-size: 12px
 
 body
-  background-image: url(../images/car_lights.jpg)
+  background-image: linear-gradient(rgba(0, 0, 0, 0.30),rgba(255, 255, 255, 0.10)),url(../images/car_lights.jpg)
   background-size: cover
   height: 100vh
 
 //login page styling:
+.login-div
+  align-content: center
+  margin-top: 7%
+
 .etc-login-form
   color: #919191
   padding: 10px 20px
@@ -98,11 +102,6 @@ body
 .marginTops
   margin-top: 15px
 
-.login-div
-  
-  align-content: center
-
-
 //login button styling and animation:
 .login-button
   position: absolute
@@ -114,7 +113,7 @@ body
   width: 50px
   height: 50px
   margin-top: -25px
-  border: 5px solid #efefef
+  border: 5px solid #12071C
   border-radius: 50%
   transition: all ease-in-out 500ms
 
