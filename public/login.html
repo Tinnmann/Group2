@@ -16,24 +16,40 @@
         <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html"><img src="images/sheriff.svg" alt="Police logo" id="badge"></a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse1">
+        <ul class="nav navbar-nav navbar-right"></ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="login.html">Login</a></li>
           <li><a href="#">Reports</a></li>
           <li><a href="#">Statistics</a></li>
           <li><a href="#">Hotspots</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
       </div>
-      <div class="container-fluid">
-        <header class="header">
-          <h1 class="text-center" id="h1">Cape Watch</h1>
-          <h4 class="text-center">Cape Town Police System and Statistics </h4>
-        </header>
-        <footer class="footer">
-          <p>&copy 2017 Xmeagol</p>
-        </footer>
-      </div>
     </nav>
+    <div class="container">
+      <div class="login-div">                   
+        <div class="text-center">
+          <h1 class="text-center">Login</h1>
+          <div class="login-form-1">
+            <form class="text-left" id="login-form">
+              <div class="login-form-main-message"></div>
+              <div class="main-login-form">
+                <div class="login-group">
+                  <div class="form-group">
+                    <input class="form-control" type="email" placeholder="Email" id="llg_username">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="password" placeholder="password" id="lg_password">
+                  </div>
+                </div>
+                <button class="login-button" type="submit"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                <p class="marginTops text-center">new user?    <a href="#">create account</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
