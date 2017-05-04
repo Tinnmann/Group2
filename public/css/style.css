@@ -26,6 +26,9 @@ h4 {
   font-size: 25px;
   color: white; }
 
+h2 {
+  margin-top: 3%; }
+
 #badge {
   width: 35px; }
 
@@ -48,8 +51,13 @@ h4 {
   text-align: right;
   font-size: 12px; }
 
-body {
+.image-background {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1)), url(../images/car_lights.jpg);
+  background-size: cover;
+  height: 100vh; }
+
+.backgroundcolor {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.5)), #808080;
   background-size: cover;
   height: 100vh; }
 
@@ -125,3 +133,24 @@ body {
 
 .login-form-1 .login-button.clicked.error {
   color: #e74c3c; }
+
+.main-login {
+  background-color: #fff;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin-top: 2%; }
+
+.main-center {
+  margin: 0 auto;
+  max-width: 50%;
+  padding: 2% 2%;
+  overflow: auto;
+  margin-top: 2%; }
+
+.btn-register {
+  border-radius: 5px; }
+
+.table {
+  background-color: white;
+  border-radius: 5px; }

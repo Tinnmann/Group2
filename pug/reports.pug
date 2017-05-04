@@ -1,0 +1,55 @@
+html(lang="en")
+  head
+    include includes/head.pug
+    
+  body.backgroundcolor
+    include includes/nav.pug
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="index.html") Home
+        li
+          a(href="login.html") Login
+        li.active
+          a(href="reports.html") Reports
+        li
+          a(href="stats.html") Statistics
+        li
+          a(href="hotspots.html") Hotspots
+        li
+          a(href="contact.html") Contact Us
+          
+  .container 
+    .row
+      .col-sm-12
+        h3 Reports
+        .panel-body 
+           
+          table.table
+            thead
+              tr
+                th CrimeID
+                th Posted By:
+                th Date
+                th Location
+                th Time
+                th Crime Type
+                th Status
+            tbody
+              tr
+                td test
+                td test
+                td test
+                td test
+                td test
+                td test
+                td 
+                  span.label.label-danger Open
+              
+    
+          
+        
+          
+      
+        
+        
+      

@@ -1,0 +1,65 @@
+doctype html
+html(lang="en")
+  head
+    include includes/head.pug
+    
+  body.image-background
+    include includes/nav.pug
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="index.html") Home
+        li
+          a(href="login.html") Login
+        li
+          a(href="reports.html") Reports
+        li
+          a(href="stats.html") Statistics
+        li
+          a(href="hotspots.html") Hotspots
+        li
+          a(href="contact.html") Contact Us
+          
+          
+    .container
+      .row.main
+        .text-center
+          h2#whiteText Register
+              
+      .main-login.main-center
+        form(method="post" action="#")
+          
+            .form-group.col-sm-12
+              label(for="id").cols-sm-2.control-label Officer ID 
+              input(type="text" name="id" required).form-control
+                  
+            .form-group.col-sm-12
+              label(for="email").cols-sm-2.control-label Email   
+              input(type="email" name="email" required).form-control
+                  
+            .form-group.col-sm-12
+              label(for="password").cols-sm-2.control-label Password     
+              input(type="password" name="password" required).form-control
+            
+            .form-group.col-sm-6
+              label(for="name").cols-sm-2.control-label Name 
+              input(type="text" name="name" required).form-control
+                    
+            .form-group.col-sm-12.col-sm-6
+              label(for="surname").cols-sm-2.control-label Surname     
+              input(type="text" name="surname" required).form-control
+                            
+            .form-group.col-sm-12
+              label(for="department").cols-sm-2.control-label Police Station
+              input(type="text" name="department" required).form-control
+            
+            .form-group.col-sm-6
+              label(for="division").cols-sm-2.control-label Division    
+              input(type="text" name="division" required).form-control
+                
+            .form-group.col-sm-6
+              label(for="rank").cols-sm-2.control-label Rank
+              input(type="text" name="rank" required).form-control
+               
+            button(type="submit").btn.btn-primary.btn-register Submit
+              
+              
