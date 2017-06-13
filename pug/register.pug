@@ -21,45 +21,51 @@ html(lang="en")
           
           
     .container
-      .row.main
-        .text-center
-          h2#whiteText Register
-              
-      .main-login.main-center
-        form(method="post" action="#")
-          
-            .form-group.col-sm-12
-              label(for="id").cols-sm-2.control-label Officer ID 
-              input(type="text" name="id" required).form-control
+      .row
+        .col-lg-6.col-lg-push-3.col-md-12
+          h2#whiteText.text-center Register
+      
+          form(method="post" action="#").main-login.form-horizontal
+            .form-group
+              label(for="id").col-sm-2.control-label Officer ID
+              .col-sm-10
+                input(type="text" name="id" required).form-control
                   
-            .form-group.col-sm-12
-              label(for="email").cols-sm-2.control-label Email   
-              input(type="email" name="email" required).form-control
+            .form-group
+              label(for="email").col-sm-2.control-label Email
+              .col-sm-10
+                input(type="email" name="email" required).form-control
                   
-            .form-group.col-sm-12
-              label(for="password").cols-sm-2.control-label Password     
-              input(type="password" name="password" required).form-control
+            .form-group
+              label(for="password").col-sm-2.control-label Password
+              .col-sm-10  
+                input(type="password" name="password" required).form-control
             
-            .form-group.col-sm-6
-              label(for="name").cols-sm-2.control-label Name 
-              input(type="text" name="name" required).form-control
-                    
-            .form-group.col-sm-12.col-sm-6
-              label(for="surname").cols-sm-2.control-label Surname     
-              input(type="text" name="surname" required).form-control
-                            
-            .form-group.col-sm-12
-              label(for="department").cols-sm-2.control-label Police Station
-              input(type="text" name="department" required).form-control
-            
-            .form-group.col-sm-6
-              label(for="division").cols-sm-2.control-label Division    
-              input(type="text" name="division" required).form-control
+            .form-group
+              label(for="name").col-sm-2.control-label Name
+              .col-sm-4
+                input(type="text" name="name" required).form-control
                 
-            .form-group.col-sm-6
-              label(for="rank").cols-sm-2.control-label Rank
-              input(type="text" name="rank" required).form-control
-               
-            button(type="submit").btn.btn-primary.btn-register Submit
-              
-              
+              label(for="surname").col-sm-2.control-label Surname
+              .col-sm-4
+                input(type="text" name="surname" required).form-control
+                            
+            .form-group
+              label(for="department").col-sm-2.control-label Police Station
+              .col-sm-10
+                input(type="text" name="department" required).form-control
+            
+            .form-group
+              label(for="division").col-sm-2.control-label Division
+              .col-sm-4
+                input(type="text" name="division" required).form-control
+                
+              label(for="rank").col-sm-2.control-label Rank
+              .col-sm-4
+                input(type="text" name="rank" required).form-control
+                
+            .form-group
+              .col-sm-offset-3.col-sm-9
+                button(type="submit").btn.btn-primary.pull-right Submit
+                    
+                    
