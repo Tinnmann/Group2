@@ -29,47 +29,51 @@ html(lang="en")
       .col-sm-12
         h2.text-center#whiteText Reports
         .panel-body 
-          
-          .col-sm-3.col-sm-offset-9
-            form(action="#" method="get")
-              .input-group
-                input(type="text" name="q" placeholder="Search for" required).form-control#system-search
-                span.input-group-btn
-                  button(type="submit").btn.btn-default
-                    i.glyphicon.glyphicon-search
-                               
-          table.table.table-list-search
-            thead
-              tr
-                th CrimeID
-                th Posted By:
-                th Date
-                th Location
-                th Time
-                th Crime Type
-                th Status
-            tbody
-              tr
-                td test
-                td test
-                td test
-                td test
-                td test
-                td test
-                td 
-                  span.label.label-danger Open
-                  
-              tr
-                td stest
-                td test
-                td test
-                td test
-                td test
-                td test
-                td 
-                  span.label.label-primary closed
-                                
-          button(type="button" data-toggle="modal" data-target="#myModal").btn.btn-info.btn-lg submit a Report 
+          .row
+            .col-sm-3.col-sm-offset-9
+              form(action="#" method="get")
+                .input-group
+                  input(type="text" name="q" placeholder="Search for" required).form-control#system-search
+                  span.input-group-btn
+                    button(type="submit").btn.btn-default
+                      i.glyphicon.glyphicon-search
+            
+          .row
+            .col-sm-12
+              .table-responsive
+                table.table.table-list-search
+                  thead
+                    tr
+                      th CrimeID
+                      th Posted By:
+                      th Date
+                      th Location
+                      th Time
+                      th Crime Type
+                      th Status
+                  tbody
+                    tr
+                      td test
+                      td test
+                      td test
+                      td test
+                      td test
+                      td test
+                      td 
+                        span.label.label-danger Open
+                        
+                    tr
+                      td stest
+                      td test
+                      td test
+                      td test
+                      td test
+                      td test
+                      td 
+                        span.label.label-primary closed
+          .row
+            .col-sm-12
+              button(type="button" data-toggle="modal" data-target="#myModal").btn.btn-info.btn-lg submit a Report 
             
           div(role="dialog").modal.fade#myModal
             .modal-dialog
