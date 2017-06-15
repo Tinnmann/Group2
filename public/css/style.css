@@ -22,6 +22,10 @@ h1 {
   font-size: 50px;
   color: white; }
 
+#headerStyle {
+  font-size: 20px;
+  font-weight: bold; }
+
 h4 {
   font-size: 25px;
   color: white; }
@@ -34,6 +38,13 @@ h2 {
 
 #whiteText {
   color: white; }
+
+#link-color {
+  color: white; }
+
+#header {
+  font-size: 20px;
+  font-weight: bold; }
 
 .container-fluid {
   padding: 0; }
@@ -140,8 +151,8 @@ h2 {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   margin-top: 20px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 20px;
+  padding-bottom: 2px;
   padding-left: 15px;
   padding-right: 15px; }
 
@@ -151,6 +162,3 @@ h2 {
 .table {
   background-color: white;
   border-radius: 5px; }
-
-#link-color {
-  color: white; }

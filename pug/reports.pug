@@ -30,15 +30,14 @@ html(lang="en")
         h2.text-center#whiteText Reports
         .panel-body 
           
-          .col-sm-3
+          .col-sm-3.col-sm-offset-9
             form(action="#" method="get")
               .input-group
                 input(type="text" name="q" placeholder="Search for" required).form-control#system-search
                 span.input-group-btn
                   button(type="submit").btn.btn-default
                     i.glyphicon.glyphicon-search
-            
-                    
+                               
           table.table.table-list-search
             thead
               tr
@@ -68,18 +67,15 @@ html(lang="en")
                 td test
                 td test
                 td 
-                  span.label.label-danger Open 
-                    
-          p
-            | beeba the beeba 
-            
+                  span.label.label-primary closed
+                                
           button(type="button" data-toggle="modal" data-target="#myModal").btn.btn-info.btn-lg submit a Report 
             
           div(role="dialog").modal.fade#myModal
             .modal-dialog
               
               .modal-content
-                .modal-header Submit a report
+                .modal-header.text-center#header Submit a report
                   button(type="button" data-dismiss="modal").close &times
                         
                 .modal-body
