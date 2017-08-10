@@ -1,0 +1,106 @@
+doctype html
+html(lang="en")
+  head
+    include includes/head.pug
+    
+  body.image-background
+    include includes/nav.pug
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="index.html") Home
+        li
+          a(href="login.html") Login
+        li
+          a(href="profile.html") Profile
+        li
+          a(href="reports.html") Reports
+        li
+          a(href="stats.html") Statistics
+        li
+          a(href="hotspots.html") Hotspots
+        li
+          a(href="contact.html") Contact Us
+          
+          
+    .container
+      .row
+        .col-lg-6.col-lg-push-3.col-md-12
+          h2#whiteText.text-center Register
+      
+          form(method="post" action="#").main-login.form-horizontal
+            .form-group
+              label(for="id").col-sm-2.control-label Officer ID
+              .col-sm-10
+                input(type="text" name="id" required).form-control
+                  
+            .form-group
+              label(for="email").col-sm-2.control-label Email
+              .col-sm-10
+                input(type="email" name="email" required).form-control
+                  
+            .form-group
+              label(for="password").col-sm-2.control-label Password
+              .col-sm-10  
+                input(type="password" name="password" required).form-control
+                
+            .form-group
+              label(for="password").col-sm-2.control-label Confirm Password
+              .col-sm-10  
+                input(type="password" name="password" required).form-control
+            
+            .form-group
+              label(for="name").col-sm-2.control-label Name
+              .col-sm-4
+                input(type="text" name="name" required).form-control
+                
+              label(for="surname").col-sm-2.control-label Surname 
+              .col-sm-4
+                input(type="text" name="surname" required).form-control
+                            
+            .form-group
+              label(for="department").col-sm-2.control-label Police Station 
+              .col-sm-10
+                .dropdown
+                  button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true").btn.btn-default.dropdown-toggle#dropdownMenu1 Select Station
+                    span.caret
+                  ul(aria-labelledby="dropdownMenu1").dropdown-menu
+                    li
+                      a(href="#") Somehow
+                      a(href="#") this
+                      a(href="#") needs
+                      a(href="#") to be 
+                      a(href="#") dynamic
+
+                  
+            .form-group
+              label(for="division").col-sm-2.control-label Division 
+              .col-sm-4
+                .dropdown
+                  button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true").btn.btn-default.dropdown-toggle#dropdownMenu1 Select Division
+                    span.caret
+                  ul(aria-labelledby="dropdownMenu1").dropdown-menu
+                    li
+                      a(href="#") Somehow
+                      a(href="#") this
+                      a(href="#") needs
+                      a(href="#") to be 
+                      a(href="#") dynamic
+    
+              label(for="rank").col-sm-2.control-label Rank 
+              .col-sm-4
+                .dropdown
+                  button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true").btn.btn-default.dropdown-toggle#dropdownMenu1 Select Rank
+                    span.caret
+                  ul(aria-labelledby="dropdownMenu1").dropdown-menu
+                    li
+                      a(href="#") Somehow
+                      a(href="#") this
+                      a(href="#") needs
+                      a(href="#") to be 
+                      a(href="#") dynamic
+                
+            .form-group
+              .col-sm-offset-3.col-sm-4
+                button(type="submit").btn.btn-primary.pull-right Submit
+                    
+                    

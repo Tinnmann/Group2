@@ -1,5 +1,5 @@
 header {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.6)), url(../images/police_car.jpeg);
+  background-color: lightgrey;
   height: 100vh;
   background-size: cover;
   display: flex;
@@ -8,18 +8,47 @@ header {
   align-items: center;
   margin-bottom: 0; }
 
+.header {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.3)), url(../images/CT_city.jpg);
+  height: 100vh;
+  background-size: cover; }
+
+.navbar-inverse {
+  background-color: #191919 !important; }
+
 h1 {
+  padding-bottom: 10px; }
+
+#h1 {
   border-bottom: 1px solid white;
   padding-bottom: 10px;
   font-size: 50px;
-  color: white; }
+  color: white;
+  font-family: 'Roboto', sans-serif; }
+
+#headerStyle {
+  font-size: 20px;
+  font-weight: bold; }
 
 h4 {
   font-size: 25px;
   color: white; }
 
+h2 {
+  margin-top: 3%; }
+
 #badge {
   width: 35px; }
+
+#whiteText {
+  color: white; }
+
+#link-color {
+  color: white; }
+
+#header {
+  font-size: 20px;
+  font-weight: bold; }
 
 .container-fluid {
   padding: 0; }
@@ -36,3 +65,204 @@ h4 {
   color: grey;
   text-align: right;
   font-size: 12px; }
+
+.image-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1)), url(../images/car_lights.jpg);
+  background-size: cover;
+  height: 100vh; }
+
+.backgroundcolor {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.5)), #808080;
+  background-size: cover;
+  height: 100vh; }
+
+.login-div {
+  align-content: center;
+  margin-top: 7%; }
+
+.etc-login-form {
+  color: #919191;
+  padding: 10px 20px; }
+
+.login-form-1 {
+  max-width: 300px;
+  border-radius: 5px;
+  display: inline-block; }
+
+.main-login-form {
+  position: relative; }
+
+.login-form-1 .form-control {
+  border: 0;
+  box-shadow: 0 0 0;
+  border-radius: 0;
+  background: transparent;
+  color: #555555;
+  padding: 7px 0;
+  font-weight: bold; }
+
+.login-form-1 .form-group {
+  margin-bottom: 0;
+  border-bottom: 2px solid #efefef;
+  padding-right: 20px;
+  position: relative; }
+
+.login-form-1 .form-group:last-child {
+  border-bottom: 0; }
+
+.login-group {
+  background: #ffffff;
+  color: #999999;
+  border-radius: 8px;
+  padding: 10px 20px; }
+
+.marginTops {
+  margin-top: 15px; }
+
+.login-button {
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  background: #ffffff;
+  color: #999999;
+  padding: 11px 0;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  border: 5px solid #12071C;
+  border-radius: 50%;
+  transition: all ease-in-out 500ms; }
+
+.login-button:hover {
+  color: #555555;
+  transform: rotate(450deg); }
+
+.login-form-1 .login-button.clicked {
+  color: #555555; }
+
+.login-form-1 .login-button.clicked:hover {
+  transform: none; }
+
+.login-form-1 .login-button.clicked.success {
+  color: #2ecc71; }
+
+.login-form-1 .login-button.clicked.error {
+  color: #e74c3c; }
+
+.main-login {
+  background-color: #fff;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+#system-search {
+  height: 28px; }
+
+.table {
+  background-color: white;
+  border-radius: 5px; }
+
+.contactUS {
+  margin-bottom: 20px; }
+
+html {
+  height: 100%; }
+
+.world_background {
+  background-color: #222222;
+  background-image: url("http://artdnaswitchbd.com/componants/images/map-image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100%; }
+
+section {
+  padding: 30px 0px; }
+
+section#contact .section-heading {
+  color: white; }
+
+section#contact .form-group input,
+section#contact .form-group textarea {
+  padding: 20px; }
+
+section#contact .form-group input.form-control {
+  height: auto; }
+
+section#contact .form-group textarea.form-control {
+  height: 236px; }
+
+section#contact .form-control:focus {
+  border-color: #fed136;
+  box-shadow: none; }
+
+section#contact ::-webkit-input-placeholder {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #eeeeee; }
+
+section#contact :-moz-placeholder {
+  /* Firefox 18- */
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #eeeeee; }
+
+section#contact ::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #eeeeee; }
+
+section#contact :-ms-input-placeholder {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #eeeeee; }
+
+section#contact .text-danger {
+  color: #e74c3c; }
+
+#email {
+  border-radius: 5px; }
+
+.about_us {
+  text-align: center;
+  margin-bottom: 20px; }
+
+.about_us h1 {
+  font-size: 25px;
+  color: white; }
+
+.about_us p {
+  color: white; }
+
+.titleline-icon {
+  position: relative;
+  max-width: 100px;
+  border-top: 4px double #F99700;
+  margin: 20px auto 20px; }
+
+.titleline-icon:after {
+  position: absolute;
+  top: -11px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-family: 'Orbitron', sans-serif;
+  content: "\Xmeagol";
+  font-size: 10px;
+  line-height: 2;
+  color: #F99700;
+  text-align: center;
+  vertical-align: middle;
+  width: 50px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 5px; }

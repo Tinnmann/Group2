@@ -6,8 +6,10 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1")
         title Cape Watch
         link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
+        script(type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js")
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa'  crossorigin='anonymous')
         link(rel='stylesheet' href='css/style.css')
+        link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
         
     body
 
@@ -20,27 +22,29 @@ html(lang="en")
                   span.icon-bar
                   span.icon-bar
                 a(href="index.html").navbar-brand
-                  img(src="images/sheriff.svg", alt="Police logo")#badge 
+                  img(src="images/sheriff.svg", alt="Police logo")#badge  
                                   
-            .collapse.navbar-collapse#bs-example-navbar-collapse1
+            .collapse.navbar-collapse#navbar-links
               ul.nav.navbar-nav.navbar-right
                 li.active
                   a(href="index.html") Home
                 li
-                  a(href="#") Login
+                  a(href="login.html") Login
                 li
-                  a(href="#") Reports
+                  a(href="profile.html") Profile
                 li
-                  a(href="#") Statistics
+                  a(href="reports.html") Reports
                 li
-                  a(href="#") Hotspots
+                  a(href="statistics.html") Statistics
                 li
-                  a(href="#") Contact Us
+                  a(href="hotspots.html") Hotspots
+                li
+                  a(href="contact.html") Contact Us
 
             .container-fluid
-                    header
+                    header.header
                       
-                      h1.text-center Cape Watch
+                      h1.text-center#h1 Cape Watch
                       h4.text-center Cape Town Police System and Statistics 
                       
                     footer.footer

@@ -1,0 +1,222 @@
+html(lang="en")
+  head
+    include includes/head.pug
+    script(type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js")
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css")
+    script(type="text/javascript" src="js/datepicker.js")
+    script(type="text/javascript" src="js/tableFilter.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+
+  body.backgroundcolor
+    include includes/nav.pug
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="index.html") Home
+        li
+          a(href="login.html") Login
+        li
+          a(href="profile.html") Profile
+        li.active
+          a(href="reports.html") Reports
+        li
+          a(href="stats.html") Statistics
+        li
+          a(href="hotspots.html") Hotspots
+        li
+          a(href="contact.html") Contact Us
+          
+  .container 
+    .row
+      .col-sm-12
+        h2.text-center#whiteText Crime Reports
+        .panel-body 
+          .row
+            .col-sm-3.col-sm-offset-9
+              form(action="#" method="get")
+                .input-group
+                  input(type="text" name="q" placeholder="Search for" required).form-control#system-search
+                  span.input-group-btn
+                    button(type="submit").btn.btn-default
+                      i.glyphicon.glyphicon-search
+            
+          .row
+            .col-sm-12
+              .table-responsive
+                table.table.table-list-search
+                  thead
+                    tr
+                      th CrimeID
+                      th Posted By:
+                      th Date
+                      th Location
+                      th Time
+                      th Crime Type
+                      th Status
+                      th Details
+                      th Edit
+                  tbody
+                    tr
+                      td test
+                      td test
+                      td test
+                      td test
+                      td test
+                      td test
+                      td 
+                        span.label.label-danger Open
+                      td
+                        button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
+                          span.glyphicon.glyphicon-zoom-in
+                      td 
+                        button(type="button" data-title="Edit" data-toggle="modal" data-target="#editModal").btn.btn-warning.btn-xs 
+                          span.glyphicon.glyphicon-pencil
+                        
+                        
+                    tr
+                      td test
+                      td test
+                      td test
+                      td test
+                      td test
+                      td test
+                      td 
+                        span.label.label-primary closed
+                      td
+                          button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
+                            span.glyphicon.glyphicon-zoom-in
+                      td 
+                        button(type="button" data-title="Edit" data-toggle="modal" data-target="#editModal").btn.btn-warning.btn-xs 
+                          span.glyphicon.glyphicon-pencil
+          .row
+            .col-sm-6
+              button(type="button" data-toggle="modal" data-target="#myModal").btn.btn-info.btn-lg submit a Report 
+          br
+          .row
+            .col-sm-6
+              button(type="button").btn.btn-info.btn-lg upload a file
+    
+          div(role="dialog").modal.fade#myModal
+            .modal-dialog
+      
+              .modal-content
+                .modal-header.text-center#header Submit a report
+                  button(type="button" data-dismiss="modal").close &times
+                        
+                .modal-body
+                  form(method="post" action="#").form-horizontal
+                    
+                      .form-group
+                        label(for="date").col-sm-2.control-label Date
+                        .col-sm-4
+                          input(id="date" name="date" placeholder="MM/DD/YYYY" type="text" data-date-end-date="0d" required)
+                        
+                      
+                        label(for="location").col-sm-2.control-label Location
+                        .col-sm-4
+                          input(type="text" name="location" required)
+                          
+                      .form-group
+                        label(for="time").col-sm-2.control-label Time
+                        .col-sm-4
+                          input(type="time" name="time" required)
+                          
+                      
+                        label(for="crimeType").col-sm-2.control-label Crime Type
+                        .col-sm-4
+                          input(type="text" name="crimeType" required)
+                          
+                      .form-group
+                          label(for="status").col-sm-2.control-label Status
+                          .col-sm-4
+                            select
+                              option(value="open").label.label-danger open
+                              option(value="closed").label.label-primary closed          
+                      .form-group
+                        .col-sm-7.col-sm-offset-5   
+                          button(type="submit").btn.btn-default Submit
+                                                
+                          
+          div(role="dialog").modal.fade#editModal
+            .modal-dialog
+      
+              .modal-content
+                .modal-header.text-center#header Edit a report
+                  button(type="button" data-dismiss="modal").close &times
+                        
+                .modal-body
+                  form(method="post" action="#").form-horizontal
+                    
+                      .form-group
+                        label(for="date").col-sm-2.control-label Date
+                        .col-sm-4
+                          input(id="date" name="date" placeholder="MM/DD/YYYY" type="text" data-date-end-date="0d" required)    
+                        label(for="location").col-sm-2.control-label Location
+                        .col-sm-4
+                          input(type="text" name="location" required)
+                          
+                      .form-group
+                        label(for="time").col-sm-2.control-label Time
+                        .col-sm-4
+                          input(type="time" name="time" required)
+                          
+                      
+                        label(for="crimeType").col-sm-2.control-label Crime Type
+                        .col-sm-4
+                          input(type="text" name="crimeType" required)
+                          
+                      .form-group
+                          label(for="status").col-sm-2.control-label Status
+                          .col-sm-4
+                            select
+                              option(value="open").label.label-danger open
+                              option(value="closed").label.label-primary closed
+                      .form-group
+                        .col-sm-7.col-sm-offset-5   
+                          button(type="submit").btn.btn-default Submit
+                          
+          div(role="dialog").modal.fade#detailsModal
+            .modal-dialog
+              .modal-content
+                .modal-header.text-center#header More Details
+                  button(type="button" data-dismiss="modal").close &times
+                        
+                .modal-body      
+                  label.col-sm-2.control-label Date:
+                  .col-sm-4
+                    label(for="date") test
+                  
+                
+                  label.col-sm-2.control-label Location:
+                  .col-sm-4
+                    label(for="location") test          
+                
+                  label.col-sm-2.control-label Time:
+                  .col-sm-4
+                    label(for="time") test
+                    
+                
+                  label.col-sm-2.control-label Crime Type:
+                  .col-sm-4
+                    label(for="crimeType") test
+                    
+              
+                  label.col-sm-2.control-label Status:
+                  .col-sm-4
+                    label(for="status").label.label-danger Open
+                
+      
+                    
+                  
+                  
+  
+                          
+                      
+
+                
+              
+                
+      
+        
+          
+        
