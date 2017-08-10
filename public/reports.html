@@ -27,6 +27,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
           <li><a href="login.html">Login</a></li>
+          <li><a href="profile.html">Profile</a></li>
           <li class="active"><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
@@ -38,7 +39,7 @@
   <div class="container"> 
     <div class="row">
       <div class="col-sm-12">
-        <h2 class="text-center" id="whiteText">Reports</h2>
+        <h2 class="text-center" id="whiteText">Crime Reports</h2>
         <div class="panel-body"> 
           <div class="row">
             <div class="col-sm-3 col-sm-offset-9">
@@ -63,6 +64,8 @@
                       <th>Time</th>
                       <th>Crime Type</th>
                       <th>Status</th>
+                      <th>Details</th>
+                      <th>Edit</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -74,15 +77,27 @@
                       <td>test</td>
                       <td>test</td>
                       <td> <span class="label label-danger">Open</span></td>
+                      <td>
+                        <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
+                      </td>
+                      <td> 
+                        <button class="btn btn-warning btn-xs" type="button" data-title="Edit" data-toggle="modal" data-target="#editModal"> <span class="glyphicon glyphicon-pencil"></span></button>
+                      </td>
                     </tr>
                     <tr>
-                      <td>stest</td>
+                      <td>test</td>
                       <td>test</td>
                       <td>test</td>
                       <td>test</td>
                       <td>test</td>
                       <td>test</td>
                       <td> <span class="label label-primary">closed</span></td>
+                      <td>
+                        <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
+                      </td>
+                      <td> 
+                        <button class="btn btn-warning btn-xs" type="button" data-title="Edit" data-toggle="modal" data-target="#editModal"> <span class="glyphicon glyphicon-pencil"></span></button>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -90,14 +105,66 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
               <button class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#myModal">submit a Report </button>
+            </div>
+          </div><br/>
+          <div class="row">
+            <div class="col-sm-6">
+              <button class="btn btn-info btn-lg" type="button">upload a file</button>
             </div>
           </div>
           <div class="modal fade" role="dialog" id="myModal">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header text-center" id="header">Submit a report
+                  <button class="close" type="button" data-dismiss="modal">&times</button>
+                </div>
+                <div class="modal-body">
+                  <form class="form-horizontal" method="post" action="#">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="date">Date</label>
+                      <div class="col-sm-4">
+                        <input id="date" name="date" placeholder="MM/DD/YYYY" type="text" data-date-end-date="0d" required="required"/>
+                      </div>
+                      <label class="col-sm-2 control-label" for="location">Location</label>
+                      <div class="col-sm-4">
+                        <input type="text" name="location" required="required"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="time">Time</label>
+                      <div class="col-sm-4">
+                        <input type="time" name="time" required="required"/>
+                      </div>
+                      <label class="col-sm-2 control-label" for="crimeType">Crime Type</label>
+                      <div class="col-sm-4">
+                        <input type="text" name="crimeType" required="required"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="status">Status</label>
+                      <div class="col-sm-4">
+                        <select>
+                          <option class="label label-danger" value="open">open</option>
+                          <option class="label label-primary" value="closed">closed          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-7 col-sm-offset-5">  
+                        <button class="btn btn-default" type="submit">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" role="dialog" id="editModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header text-center" id="header">Edit a report
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
                 <div class="modal-body">
@@ -137,6 +204,37 @@
                       </div>
                     </div>
                   </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" role="dialog" id="detailsModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header text-center" id="header">More Details
+                  <button class="close" type="button" data-dismiss="modal">&times</button>
+                </div>
+                <div class="modal-body">     
+                  <label class="col-sm-2 control-label">Date:</label>
+                  <div class="col-sm-4">
+                    <label for="date">test</label>
+                  </div>
+                  <label class="col-sm-2 control-label">Location:</label>
+                  <div class="col-sm-4">
+                    <label for="location">test          </label>
+                  </div>
+                  <label class="col-sm-2 control-label">Time:</label>
+                  <div class="col-sm-4">
+                    <label for="time">test</label>
+                  </div>
+                  <label class="col-sm-2 control-label">Crime Type:</label>
+                  <div class="col-sm-4">
+                    <label for="crimeType">test</label>
+                  </div>
+                  <label class="col-sm-2 control-label">Status:</label>
+                  <div class="col-sm-4">
+                    <label class="label label-danger" for="status">Open</label>
+                  </div>
                 </div>
               </div>
             </div>

@@ -11,6 +11,8 @@ html(lang="en")
         li
           a(href="login.html") Login
         li
+          a(href="profile.html") Profile
+        li
           a(href="reports.html") Reports
         li
           a(href="stats.html") Statistics
@@ -40,32 +42,65 @@ html(lang="en")
               label(for="password").col-sm-2.control-label Password
               .col-sm-10  
                 input(type="password" name="password" required).form-control
+                
+            .form-group
+              label(for="password").col-sm-2.control-label Confirm Password
+              .col-sm-10  
+                input(type="password" name="password" required).form-control
             
             .form-group
               label(for="name").col-sm-2.control-label Name
               .col-sm-4
                 input(type="text" name="name" required).form-control
                 
-              label(for="surname").col-sm-2.control-label Surname
+              label(for="surname").col-sm-2.control-label Surname 
               .col-sm-4
                 input(type="text" name="surname" required).form-control
                             
             .form-group
-              label(for="department").col-sm-2.control-label Police Station
+              label(for="department").col-sm-2.control-label Police Station 
               .col-sm-10
-                input(type="text" name="department" required).form-control
-            
+                .dropdown
+                  button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true").btn.btn-default.dropdown-toggle#dropdownMenu1 Select Station
+                    span.caret
+                  ul(aria-labelledby="dropdownMenu1").dropdown-menu
+                    li
+                      a(href="#") Somehow
+                      a(href="#") this
+                      a(href="#") needs
+                      a(href="#") to be 
+                      a(href="#") dynamic
+
+                  
             .form-group
-              label(for="division").col-sm-2.control-label Division
+              label(for="division").col-sm-2.control-label Division 
               .col-sm-4
-                input(type="text" name="division" required).form-control
-                
-              label(for="rank").col-sm-2.control-label Rank
+                .dropdown
+                  button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true").btn.btn-default.dropdown-toggle#dropdownMenu1 Select Division
+                    span.caret
+                  ul(aria-labelledby="dropdownMenu1").dropdown-menu
+                    li
+                      a(href="#") Somehow
+                      a(href="#") this
+                      a(href="#") needs
+                      a(href="#") to be 
+                      a(href="#") dynamic
+    
+              label(for="rank").col-sm-2.control-label Rank 
               .col-sm-4
-                input(type="text" name="rank" required).form-control
+                .dropdown
+                  button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true").btn.btn-default.dropdown-toggle#dropdownMenu1 Select Rank
+                    span.caret
+                  ul(aria-labelledby="dropdownMenu1").dropdown-menu
+                    li
+                      a(href="#") Somehow
+                      a(href="#") this
+                      a(href="#") needs
+                      a(href="#") to be 
+                      a(href="#") dynamic
                 
             .form-group
-              .col-sm-offset-3.col-sm-9
+              .col-sm-offset-3.col-sm-4
                 button(type="submit").btn.btn-primary.pull-right Submit
                     
                     
