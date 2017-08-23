@@ -89,13 +89,12 @@ html(lang="en")
                         button(type="button" data-title="Edit" data-toggle="modal" data-target="#editModal").btn.btn-warning.btn-xs 
                           span.glyphicon.glyphicon-pencil
           .row
-            .col-sm-6
+            .col-sm-3
               button(type="button" data-toggle="modal" data-target="#myModal").btn.btn-info submit a Report 
-          br
-          .row
-            .col-sm-6
+            .col-sm-2.col-sm-offset-7
               button(type="button").btn.btn-info upload a file
-    
+            
+              
           div(role="dialog").modal.fade#myModal
             .modal-dialog
       
@@ -130,8 +129,8 @@ html(lang="en")
                           label(for="status").col-sm-2.control-label Status
                           .col-sm-4
                             select
-                              option(value="open").label.label-danger open
-                              option(value="closed").label.label-primary closed          
+                              option(value="open" name="open").label.label-danger open
+                              option(value="closed" name="closed").label.label-primary closed          
                       .form-group
                         .col-sm-7.col-sm-offset-5   
                           button(type="submit").btn.btn-default Submit

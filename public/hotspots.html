@@ -9,8 +9,11 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <script src="particles.js-master/particles.js"></script>
+    <script src="particles.js-master/demo/js/app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
   </head>
-  <body>
+  <body class="hotspots-background">
     <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid"></div>
       <div class="navbar-header">
@@ -29,5 +32,24 @@
         </ul>
       </div>
     </nav>
+    <h1 class="text-center" id="bold-h1">HOTSPOTS</h1>
+    <h3 class="text-center" id="white-H3">CRIME HOTSPOTS OF THE GREATER CAPE TOWN AREA
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+          <div id="map">
+            <script>
+              function initMap() {
+                var westernCape = {lat: -33.937666, lng: 18.442271};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 10,
+                  center: westernCape
+                });          
+              }
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initMap" type="text/javascript"></script>
+          </div>
+        </div>
+      </div>
+    </h3>
   </body>
 </html>
