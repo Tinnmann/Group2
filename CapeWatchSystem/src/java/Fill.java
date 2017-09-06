@@ -35,7 +35,7 @@ public class Fill extends HttpServlet{
         String connURL = "jdbc:mysql://127.0.0.1:3306/capewatchdb";
         Connection conn;
         try{
-            String reportID = request.getParameter("report ID"); 
+            String reportID = request.getParameter("Report ID"); 
             if (reportID==null){
                 reportID="";
             }
@@ -43,10 +43,10 @@ public class Fill extends HttpServlet{
             if (crimeID==null){
                 crimeID="";
             }
-            String victim = request.getParameter("Victim");
-            if (victim==null){
-                victim="";
-            }
+//            String victim = request.getParameter("Victim");
+//            if (victim==null){
+//                victim="";
+//            }
             String userID = request.getParameter("User ID");
             if (userID==null){
                 userID="";
@@ -74,16 +74,16 @@ public class Fill extends HttpServlet{
          
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(connURL, "root", "");
-            PreparedStatement statement = conn.prepareStatement("insert into Data(incident_day,incident_time,victim,victim_age,suspect,suspect_age,method_victim_capture,substance_abuse_suspected,suspect_disguised,incident_loc) values(?,?,?,?,?,?,?,?,?,?)");//Data is the name of the table
+            PreparedStatement statement = conn.prepareStatement("insert into crime_case(reportID,crimeID,userID,date,location,time,crimeType,status) values(?,?,?,?,?,?,?,?)");
             statement.setString(1,reportID);
             statement.setString(2,crimeID);      
-            statement.setString(3,victim);
-            statement.setString(4,userID);
-            statement.setString(5,date);
-            statement.setString(6,location);
-            statement.setString(7,time);
-            statement.setString(8,crimeType);
-            statement.setString(9,status);
+            //statement.setString(3,victim);
+            statement.setString(3,userID);
+            statement.setString(4,date);
+            statement.setString(5,location);
+            statement.setString(6,time);
+            statement.setString(7,crimeType);
+            statement.setString(8,status);
 
             int i = statement.executeUpdate();
             if(i!=0){
