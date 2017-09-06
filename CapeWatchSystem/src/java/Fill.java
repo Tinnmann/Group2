@@ -72,7 +72,7 @@ public class Fill extends HttpServlet{
                 status="";
             }
          
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(connURL, "root", "");
             PreparedStatement statement = conn.prepareStatement("insert into crime_case(reportID,crimeID,userID,date,location,time,crimeType,status) values(?,?,?,?,?,?,?,?)");
             statement.setString(1,reportID);
