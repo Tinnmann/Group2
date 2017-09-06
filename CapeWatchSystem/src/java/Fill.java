@@ -35,11 +35,31 @@ public class Fill extends HttpServlet{
         String connURL = "jdbc:mysql://127.0.0.1:3306/capewatchdb";
         Connection conn;
         try{
-            String reportID = request.getParameter("Report ID"); 
+            String date = request.getParameter("date");
+            if (date==null){
+                date="";
+            }  
+            String location = request.getParameter("location");
+            if (location==null){
+                location="";
+            }
+            String time = request.getParameter("time");
+                if (time==null){
+                time="";
+            }
+            String crimeType = request.getParameter("crimeType");
+            if (crimeType==null){
+                crimeType="";
+            }
+            String status = request.getParameter("status");
+            if (status==null){
+                status="";
+            }            
+            String reportID = request.getParameter("reportID"); 
             if (reportID==null){
                 reportID="";
             }
-            String crimeID = request.getParameter("Crime ID");
+            String crimeID = request.getParameter("crimeID");
             if (crimeID==null){
                 crimeID="";
             }
@@ -47,31 +67,12 @@ public class Fill extends HttpServlet{
 //            if (victim==null){
 //                victim="";
 //            }
-            String userID = request.getParameter("User ID");
+            String userID = request.getParameter("userID");
             if (userID==null){
                 userID="";
             }
-            String date = request.getParameter("Date");
-            if (date==null){
-                date="";
-            }
-            String location = request.getParameter("Location");
-            if (location==null){
-                location="";
-            }
-            String time = request.getParameter("Time");
-                if (time==null){
-                time="";
-            }
-            String crimeType = request.getParameter("Crime Type");
-            if (crimeType==null){
-                crimeType="";
-            }
-            String status = request.getParameter("Status");
-            if (status==null){
-                status="";
-            }
-         
+
+
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(connURL, "root", "");
             PreparedStatement statement = conn.prepareStatement("insert into crime_case(reportID,crimeID,userID,date,location,time,crimeType,status) values(?,?,?,?,?,?,?,?)");
