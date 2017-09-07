@@ -145,12 +145,26 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="status">Status</label>
                       <div class="col-sm-4">
-                        <select>
+                        <select name="status">
                           <option class="label label-danger" value="open">open</option>
                           <option class="label label-primary" value="closed">closed          </option>
                         </select>
                       </div>
+                      <label class="col-sm-2 control-label" for = "reportID">Report ID</label>
+                      <div class="col-sm-4">
+                          <input type ="text" name="reportID" required="required"/>
+                      </div>
                     </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="crimeID">Crime ID</label>
+                      <div class="col-sm-4">
+                        <input type="text" name="crimeID" required="required"/>
+                      </div>
+                      <label class="col-sm-2 control-label" for = "userID">User ID</label>
+                      <div class="col-sm-4">
+                          <input type ="text" name="userID" required="required"/>
+                      </div>
+                    </div>                      
                     <div class="form-group">
                       <div class="col-sm-7 col-sm-offset-5">  
                         <button class="btn btn-default" type="submit">Submit</button>
