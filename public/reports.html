@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Cape Watch</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css"/>
-    <script type="text/javascript" src="node_modules/jquery/dist/"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script type="text/javascript" src="js/datepicker.js"></script>
@@ -65,7 +64,7 @@
                       <th>Crime Type</th>
                       <th>Status</th>
                       <th>Details</th>
-                      <th>Edit</th>
+                      <th>Delete</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -76,12 +75,12 @@
                       <td>test</td>
                       <td>test</td>
                       <td>test</td>
-                      <td> <span class="label label-danger">Open</span></td>
+                      <td> <span class="label label-warning">Open</span></td>
                       <td>
                         <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
                       </td>
                       <td> 
-                        <button class="btn btn-warning btn-xs" type="button" data-title="Edit" data-toggle="modal" data-target="#editModal"> <span class="glyphicon glyphicon-pencil"></span></button>
+                        <button class="btn btn-danger btn-xs" type="button" name="delete"> <span class="glyphicon glyphicon-remove"></span></button>
                       </td>
                     </tr>
                     <tr>
@@ -96,7 +95,7 @@
                         <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
                       </td>
                       <td> 
-                        <button class="btn btn-warning btn-xs" type="button" data-title="Edit" data-toggle="modal" data-target="#editModal"> <span class="glyphicon glyphicon-pencil"></span></button>
+                        <button class="btn btn-danger btn-xs" type="button" name="delete"> <span class="glyphicon glyphicon-remove"></span></button>
                       </td>
                     </tr>
                   </tbody>
@@ -109,7 +108,7 @@
               <button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal">submit a Report </button>
             </div>
             <div class="col-sm-2 col-sm-offset-7">
-              <button class="btn btn-info" type="button">upload a file</button>
+              <button class="btn btn-info" type="button" data-toggle="modal" data-target="#uploadModal">upload a file</button>
             </div>
           </div>
           <div class="modal fade" role="dialog" id="myModal">
@@ -159,53 +158,6 @@
               </div>
             </div>
           </div>
-          <div class="modal fade" role="dialog" id="editModal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header text-center" id="header">Edit a report
-                  <button class="close" type="button" data-dismiss="modal">&times</button>
-                </div>
-                <div class="modal-body">
-                  <form class="form-horizontal" method="post" action="#">
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="date">Date</label>
-                      <div class="col-sm-4">
-                        <input id="date" name="date" placeholder="MM/DD/YYYY" type="text" data-date-end-date="0d" required="required"/>
-                      </div>
-                      <label class="col-sm-2 control-label" for="location">Location</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="location" required="required"/>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="time">Time</label>
-                      <div class="col-sm-4">
-                        <input type="time" name="time" required="required"/>
-                      </div>
-                      <label class="col-sm-2 control-label" for="crimeType">Crime Type</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="crimeType" required="required"/>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="status">Status</label>
-                      <div class="col-sm-4">
-                        <select>
-                          <option class="label label-danger" value="open">open</option>
-                          <option class="label label-primary" value="closed">closed</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-sm-7 col-sm-offset-5">  
-                        <button class="btn btn-default" type="submit">Submit</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="modal fade" role="dialog" id="detailsModal">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -233,6 +185,31 @@
                   <div class="col-sm-4">
                     <label class="label label-danger" for="status">Open</label>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" role="dialog" id="uploadModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header text-center" id="header">Select a file from your computer
+                  <button class="close" type="button" data-dismiss="modal">&times</button>
+                </div>
+                <div class="modal-body">
+                  <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+                    <div class="form-inline">
+                      <div class="form-group">
+                        <div class="col-sm-4">
+                          <input type="file" name="files[]" id="js-upload-files" multiple="multiple"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-4">
+                          <button class="btn btn-sm btn-primary" type="submit" id="js-upload-submit">Upload files</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>

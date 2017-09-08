@@ -1,7 +1,7 @@
 html(lang="en")
   head
     include includes/head.pug
-    script(type="text/javascript" src="node_modules/jquery/dist/")
+    script(type="text/javascript" src="jquery.min.js")
     script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css")
     script(type="text/javascript" src="js/datepicker.js")
@@ -54,7 +54,7 @@ html(lang="en")
                       th Crime Type
                       th Status
                       th Details
-                      th Edit
+                      th Delete
                   tbody
                     tr
                       td test
@@ -64,13 +64,13 @@ html(lang="en")
                       td test
                       td test
                       td 
-                        span.label.label-danger Open
+                        span.label.label-warning Open
                       td
                         button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
                           span.glyphicon.glyphicon-zoom-in
                       td 
-                        button(type="button" data-title="Edit" data-toggle="modal" data-target="#editModal").btn.btn-warning.btn-xs 
-                          span.glyphicon.glyphicon-pencil
+                        button(type="button" name="delete").btn.btn-danger.btn-xs 
+                          span.glyphicon.glyphicon-remove
                         
                         
                     tr
@@ -86,13 +86,13 @@ html(lang="en")
                           button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
                             span.glyphicon.glyphicon-zoom-in
                       td 
-                        button(type="button" data-title="Edit" data-toggle="modal" data-target="#editModal").btn.btn-warning.btn-xs 
-                          span.glyphicon.glyphicon-pencil
+                        button(type="button" name="delete").btn.btn-danger.btn-xs 
+                          span.glyphicon.glyphicon-remove
           .row
             .col-sm-3
               button(type="button" data-toggle="modal" data-target="#myModal").btn.btn-info submit a Report 
             .col-sm-2.col-sm-offset-7
-              button(type="button").btn.btn-info upload a file
+              button(type="button" data-toggle="modal" data-target="#uploadModal").btn.btn-info upload a file
             
               
           div(role="dialog").modal.fade#myModal
@@ -135,45 +135,6 @@ html(lang="en")
                         .col-sm-7.col-sm-offset-5   
                           button(type="submit").btn.btn-default Submit
                                                 
-                          
-          div(role="dialog").modal.fade#editModal
-            .modal-dialog
-      
-              .modal-content
-                .modal-header.text-center#header Edit a report
-                  button(type="button" data-dismiss="modal").close &times
-                        
-                .modal-body
-                  form(method="post" action="#").form-horizontal
-                    
-                      .form-group
-                        label(for="date").col-sm-2.control-label Date
-                        .col-sm-4
-                          input(id="date" name="date" placeholder="MM/DD/YYYY" type="text" data-date-end-date="0d" required)    
-                        label(for="location").col-sm-2.control-label Location
-                        .col-sm-4
-                          input(type="text" name="location" required)
-                          
-                      .form-group
-                        label(for="time").col-sm-2.control-label Time
-                        .col-sm-4
-                          input(type="time" name="time" required)
-                          
-                      
-                        label(for="crimeType").col-sm-2.control-label Crime Type
-                        .col-sm-4
-                          input(type="text" name="crimeType" required)
-                          
-                      .form-group
-                          label(for="status").col-sm-2.control-label Status
-                          .col-sm-4
-                            select
-                              option(value="open").label.label-danger open
-                              option(value="closed").label.label-primary closed
-                      .form-group
-                        .col-sm-7.col-sm-offset-5   
-                          button(type="submit").btn.btn-default Submit
-                          
           div(role="dialog").modal.fade#detailsModal
             .modal-dialog
               .modal-content
@@ -203,6 +164,22 @@ html(lang="en")
                   label.col-sm-2.control-label Status:
                   .col-sm-4
                     label(for="status").label.label-danger Open
+                    
+          div(role="dialog").modal.fade#uploadModal
+            .modal-dialog
+              .modal-content
+                .modal-header.text-center#header Select a file from your computer
+                  button(type="button" data-dismiss="modal").close &times
+                  
+                .modal-body
+                  form(action="" method="post" enctype="multipart/form-data" id="js-upload-form")
+                    .form-inline
+                      .form-group
+                        .col-sm-4
+                          input(type="file" name="files[]" id="js-upload-files" multiple)
+                      .form-group
+                        .col-sm-4
+                          button(type="submit" id="js-upload-submit").btn.btn-sm.btn-primary Upload files
                 
       
                     
