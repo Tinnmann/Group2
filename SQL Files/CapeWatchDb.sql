@@ -102,32 +102,6 @@ INSERT INTO `injured_party` VALUES ('0123456789','15','coloured','female','Athlo
 UNLOCK TABLES;
 
 --
--- Table structure for table `login_details`
---
-
-DROP TABLE IF EXISTS `login_details`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `login_details` (
-  `userID` varchar(10) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  PRIMARY KEY (`userID`),
-  UNIQUE KEY `useriD` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `login_details`
---
-
-LOCK TABLES `login_details` WRITE;
-/*!40000 ALTER TABLE `login_details` DISABLE KEYS */;
-INSERT INTO `login_details` VALUES ('ABC123','tylergray207@gmail.com','1996TG');
-/*!40000 ALTER TABLE `login_details` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `police_station`
 --
 
@@ -162,15 +136,16 @@ DROP TABLE IF EXISTS `police_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `police_user` (
-  `userID` varchar(10) NOT NULL,
   `name` varchar(20) NOT NULL,
   `surname` varchar(20) NOT NULL,
   `division` varchar(100) NOT NULL,
   `rank` varchar(100) NOT NULL,
   `policeStation` varchar(100) NOT NULL,
-  PRIMARY KEY (`userID`),
-  UNIQUE KEY `userID` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `email` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `OfficerID` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`OfficerID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +154,7 @@ CREATE TABLE `police_user` (
 
 LOCK TABLES `police_user` WRITE;
 /*!40000 ALTER TABLE `police_user` DISABLE KEYS */;
-INSERT INTO `police_user` VALUES ('ABC123','Tyler','Gray','Combanting and Investigation Division','Genral','Athlone Police Station');
+INSERT INTO `police_user` VALUES ('Tyler','Gray','Combanting and Investigation Division','Genral','Athlone Police Station','','',1);
 /*!40000 ALTER TABLE `police_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,4 +201,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-16  9:35:43
+-- Dump completed on 2017-09-08 11:15:22
