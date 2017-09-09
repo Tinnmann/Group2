@@ -141,29 +141,41 @@ html(lang="en")
                 .modal-header.text-center#header More Details
                   button(type="button" data-dismiss="modal").close &times
                         
-                .modal-body      
-                  label.col-sm-2.control-label Date:
-                  .col-sm-4
-                    label(for="date") test
+                .modal-body 
+                  .row
+                    .col-sm-6
+                      label.control-label Date:
+                      label(for="date" name="date").detailsLabel test
                   
-                
-                  label.col-sm-2.control-label Location:
-                  .col-sm-4
-                    label(for="location") test          
-                
-                  label.col-sm-2.control-label Time:
-                  .col-sm-4
-                    label(for="time") test
-                    
-                
-                  label.col-sm-2.control-label Crime Type:
-                  .col-sm-4
-                    label(for="crimeType") test
-                    
+                    .col-sm-6
+                      label.control-label Location:
+                      label(for="location" name="location").detailsLabel test 
+                  
+                  .row
+                    .col-sm-6
+                      label.control-label Injured party age:
+                      label(for="time" name="time").detailsLabel test
+                    .col-sm-6
+                      label.control-label Injured party race:
+                      label(for="time" name="time").detailsLabel test
+                  
               
-                  label.col-sm-2.control-label Status:
-                  .col-sm-4
-                    label(for="status").label.label-danger Open
+                  .row
+                    .col-sm-6
+                      label.control-label Injured party gender:
+                      label(for="time" name="time").detailsLabel test
+                      
+                    .col-sm-6
+                      label.control-label Crime Type:
+                      label(for="crimeType" name="crimeType").detailsLabel test
+                      
+                  .row  
+                    .col-sm-6
+                      label.control-label Status:
+                      label(for="status" name="status").detailsLabel Open
+                    
+                .modal-footer
+                  button(type="button" data-dismiss="modal"  role="button").btn.btn-default Close
                     
           div(role="dialog").modal.fade#uploadModal
             .modal-dialog
