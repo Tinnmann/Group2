@@ -318,3 +318,55 @@ section#contact .text-danger
 .row
   margin-right: 0
   margin-left: 0
+
+//stats page styling
+.general-background
+  background-image: linear-gradient(rgba(0, 0, 0, 0.80),rgba(255, 255, 255, 0.10))
+  background-size: cover
+  height: 100vh
+
+#headings
+  background-image: linear-gradient(rgba(0, 0, 0, 0.30),rgba(0, 0, 0, 0.30)), url(../statBackground.jpg)
+  filter: grayscale(70%)
+  background-position: center
+  background-size: cover
+  width: 100%
+  height: 300px
+
+#header-center-white
+  text-align: center
+  color: white
+  margin-top: 0
+  line-height: 300px
+  font-family: 'Open Sans', sans-serif
+
+.search-bar
+  margin-top: 25px
+  margin-bottom: 25px
+  font-family: 'Open Sans', sans-serif
+
+//stats search bar
+#sidebar-wrapper
+  z-index: 1
+  position: fixed
+  width: 0
+  height: 100%
+  overflow-y: hidden
+  background: #EAEAEA
+
+#wrapper.menuDisplayed #sidebar-wrapper
+  width: 250px
+
+#wrapper.menuDisplayed #page-content-wrapper
+  padding-left: 250px
+
+.sidebar-nav
+  padding: 0
+  list-style: none
+
+.sidebar-nav li
+  text-indent: 20px
+  line-height: 40px
+  display: block
+  text-decoration: none
+  color: black

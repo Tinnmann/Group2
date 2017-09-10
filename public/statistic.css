@@ -6,28 +6,28 @@
     height: 100%;
     overflow-y: hidden;
     background: #EAEAEA;
-    
-    
+
+
 }
 
 /* Main Content */
 #page-content-wrapper {
-    
+
     width: 100%;
     position: absolute;
     padding-top: 15px;
-    
+
 }
 
 /* Change width of the sidebar to display */
 
 #wrapper.menuDisplayed #sidebar-wrapper {
-    
+
     width: 250px;
 }
 
 #wrapper.menuDisplayed #page-content-wrapper {
-    
+
     padding-left: 250px;
 }
 
@@ -35,8 +35,6 @@
     padding: 0;
     list-style: none;
 }
-
-
 
 .sidebar-nav li {
     text-indent: 20px;
@@ -47,7 +45,7 @@
 }
 
 #statPage{
-    
+
     background-color: #F1F1F1;
 }
 
@@ -80,8 +78,8 @@ h4{
 }
 
 #searchDiv {
-    
-    
+
+
     display: none;
 }
 
@@ -89,7 +87,7 @@ h4{
     width: 100px;
     height: 25px;
     padding: 125px;
-    
+
 }
 
 #footer{
@@ -97,12 +95,12 @@ h4{
     color: white;
     margin: 200px 0 0 0 !important;
     padding: 10px 10px 1px 10px;
-    
+
 }
 h5{
     opacity: 0.9;
     padding:25px 0px 0px 25px;
-   
+
 }
 
 .Footerinfo {
@@ -112,11 +110,10 @@ h5{
 }
 
 .copywrite{
-    
+
     opacity: 0.7;
     font-size: 12px;
     letter-spacing: 7px;
     text-align: center;
-     
-}
 
+}
