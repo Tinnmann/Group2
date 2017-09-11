@@ -304,10 +304,10 @@ section#contact .text-danger {
 .general-background {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1));
   background-size: cover;
-  height: 100vh; }
+  height: 100%; }
 
 #headings {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../statBackground.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../statBackground.jpg);
   filter: grayscale(70%);
   background-position: center;
   background-size: cover;
@@ -350,3 +350,7 @@ section#contact .text-danger {
   display: block;
   text-decoration: none;
   color: black; }
+
+#regionmap {
+  width: 320px;
+  height: 310px; }

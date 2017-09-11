@@ -43,7 +43,7 @@
     </nav>
 
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-sm-12">
 
           <!-- searchbar can go here -->
             <div class="search-bar">
@@ -52,7 +52,7 @@
                 Search Menu
               </a>
             </div>
-            <!-- Seacrh bar -->
+            <!--
             <div id="sidebar-wrapper">
               <ul class="sidebar-nav" style="text-align:center; padding-top:82px;">
                 <br>
@@ -64,7 +64,7 @@
                   </li>
                 <hr>
                 <br>
-                  <!-- Search Area sideBar -->
+
               <form method="post">
                 <li>
                   <p>Enter the name of a suburb</p>
@@ -87,11 +87,9 @@
               </form>
                 </ul>
             </div>
-
-
+          -->
           <div class="container" id="headings">
           <h1 id="header-center-white">STATISTICS</h1>
-
           </div>
         </div>
       </div>
