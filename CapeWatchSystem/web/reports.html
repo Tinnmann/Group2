@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Cape Watch</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script type="text/javascript" src="js/datepicker.js"></script>
@@ -29,7 +29,7 @@
           <li><a href="login.html">Login</a></li>
           <li><a href="profile.html">Profile</a></li>
           <li class="active"><a href="reports.html">Reports</a></li>
-          <li><a href="stats.html">Statistics</a></li>
+          <li><a href="Statistics/statistic.php">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -65,7 +65,7 @@
                       <th>Crime Type</th>
                       <th>Status</th>
                       <th>Details</th>
-                      <th>Edit</th>
+                      <th>Delete</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -76,12 +76,12 @@
                       <td>test</td>
                       <td>test</td>
                       <td>test</td>
-                      <td> <span class="label label-danger">Open</span></td>
+                      <td> <span class="label label-warning">Open</span></td>
                       <td>
                         <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
                       </td>
                       <td> 
-                        <button class="btn btn-warning btn-xs" type="button" data-title="Edit" data-toggle="modal" data-target="#editModal"> <span class="glyphicon glyphicon-pencil"></span></button>
+                        <button class="btn btn-danger btn-xs" type="button" name="delete"> <span class="glyphicon glyphicon-remove"></span></button>
                       </td>
                     </tr>
                     <tr>
@@ -96,7 +96,7 @@
                         <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
                       </td>
                       <td> 
-                        <button class="btn btn-warning btn-xs" type="button" data-title="Edit" data-toggle="modal" data-target="#editModal"> <span class="glyphicon glyphicon-pencil"></span></button>
+                        <button class="btn btn-danger btn-xs" type="button" name="delete"> <span class="glyphicon glyphicon-remove"></span></button>
                       </td>
                     </tr>
                   </tbody>
@@ -105,13 +105,11 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-3">
               <button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal">submit a Report </button>
             </div>
-          </div><br/>
-          <div class="row">
-            <div class="col-sm-6">
-              <button class="btn btn-info" type="button">upload a file</button>
+            <div class="col-sm-2 col-sm-offset-7">
+              <button class="btn btn-info" type="button" data-toggle="modal" data-target="#uploadModal">upload a file</button>
             </div>
           </div>
           <div class="modal fade" role="dialog" id="myModal">
@@ -121,57 +119,6 @@
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
                 <div class="modal-body">
-<<<<<<< HEAD
-                  <form class="form-horizontal" method="post" action="#">
-=======
-                  <form class="form-horizontal" method="post" action="Fill">
->>>>>>> 881fccdab9a760ffaba37d893a1efc1b25688b56
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="date">Date</label>
-                      <div class="col-sm-4">
-                        <input id="date" name="date" placeholder="MM/DD/YYYY" type="text" data-date-end-date="0d" required="required"/>
-                      </div>
-                      <label class="col-sm-2 control-label" for="location">Location</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="location" required="required"/>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="time">Time</label>
-                      <div class="col-sm-4">
-                        <input type="time" name="time" required="required"/>
-                      </div>
-                      <label class="col-sm-2 control-label" for="crimeType">Crime Type</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="crimeType" required="required"/>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="status">Status</label>
-                      <div class="col-sm-4">
-                        <select>
-                          <option class="label label-danger" value="open">open</option>
-                          <option class="label label-primary" value="closed">closed          </option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-sm-7 col-sm-offset-5">  
-                        <button class="btn btn-default" type="submit">Submit</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal fade" role="dialog" id="editModal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header text-center" id="header">Edit a report
-                  <button class="close" type="button" data-dismiss="modal">&times</button>
-                </div>
-                <div class="modal-body">
                   <form class="form-horizontal" method="post" action="#">
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="date">Date</label>
@@ -197,8 +144,8 @@
                       <label class="col-sm-2 control-label" for="status">Status</label>
                       <div class="col-sm-4">
                         <select>
-                          <option class="label label-danger" value="open">open</option>
-                          <option class="label label-primary" value="closed">closed</option>
+                          <option class="label label-danger" value="open" name="open">open</option>
+                          <option class="label label-primary" value="closed" name="closed">closed          </option>
                         </select>
                       </div>
                     </div>
@@ -218,27 +165,71 @@
                 <div class="modal-header text-center" id="header">More Details
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
-                <div class="modal-body">     
-                  <label class="col-sm-2 control-label">Date:</label>
-                  <div class="col-sm-4">
-                    <label for="date">test</label>
+                <div class="modal-body"> 
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label class="control-label">Date:</label>
+                      <label class="detailsLabel" for="date" name="date">test</label>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="control-label">Location:</label>
+                      <label class="detailsLabel" for="location" name="location">test </label>
+                    </div>
                   </div>
-                  <label class="col-sm-2 control-label">Location:</label>
-                  <div class="col-sm-4">
-                    <label for="location">test          </label>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label class="control-label">Injured party age:</label>
+                      <label class="detailsLabel" for="time" name="time">test</label>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="control-label">Injured party race:</label>
+                      <label class="detailsLabel" for="time" name="time">test</label>
+                    </div>
                   </div>
-                  <label class="col-sm-2 control-label">Time:</label>
-                  <div class="col-sm-4">
-                    <label for="time">test</label>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label class="control-label">Injured party gender:</label>
+                      <label class="detailsLabel" for="time" name="time">test</label>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="control-label">Crime Type:</label>
+                      <label class="detailsLabel" for="crimeType" name="crimeType">test</label>
+                    </div>
                   </div>
-                  <label class="col-sm-2 control-label">Crime Type:</label>
-                  <div class="col-sm-4">
-                    <label for="crimeType">test</label>
+                  <div class="row"> 
+                    <div class="col-sm-6">
+                      <label class="control-label">Status:</label>
+                      <label class="detailsLabel" for="status" name="status">Open</label>
+                    </div>
                   </div>
-                  <label class="col-sm-2 control-label">Status:</label>
-                  <div class="col-sm-4">
-                    <label class="label label-danger" for="status">Open</label>
-                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-default" type="button" data-dismiss="modal" role="button">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" role="dialog" id="uploadModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header text-center" id="header">Select a file from your computer
+                  <button class="close" type="button" data-dismiss="modal">&times</button>
+                </div>
+                <div class="modal-body">
+                  <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+                    <div class="form-inline">
+                      <div class="form-group">
+                        <div class="col-sm-4">
+                          <input type="file" name="file"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-4">
+                          <button class="btn btn-sm btn-primary" type="submit" id="js-upload-submit">Upload files</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
