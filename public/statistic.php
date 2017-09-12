@@ -131,11 +131,12 @@
                                         <tbody>
 
                                             <!--Fill table according to database -->
-                                            <?php while($row = mysqli_fetch_array($result)) { echo"<tr>
-                                                                                                <td>".$row[0]. "</td>
-                                                                                                <td>" .$row[1] . "</td>
-                                                                                                </tr>";
-                                                                                            }
+                                            <?php while($row = mysqli_fetch_array($result))
+                                            { echo"<tr>
+                                                <td>".$row[0]. "</td>
+                                                <td>" .$row[1] . "</td>
+                                                </tr>";
+                                            }
                                             ?>
 
                                         </tbody>
@@ -174,20 +175,20 @@
                         </div>
 
                     </div>
-
-
             </div>
 
                     <!-- After search section -->
 
              <div class="container-fluid" id="searchDiv">
-                            <canvas id="mycanvas2" class="widgetcanvas"></canvas>
+              <canvas id="mycanvas2" class="widgetcanvas"></canvas>
             </div>
 
                       <!-- Full size on click Feed Section -->
             <div id="modal" class="modal" onclick="this.style.display='none'" style="background-color:white; opacity:0.94; overflow-y:scroll;">
 
-            <span class="btn btn-default" title="Close content" role="button" style="margin-bottom:10px;"><i class="fa fa-times" aria-hidden="true" style="position:fixed; background-color:beige;opacity:0.7; width:20px;"></i></span>
+            <span class="btn btn-default" title="Close content" role="button" style="margin-bottom:10px;">
+              <i class="fa fa-times" aria-hidden="true" style="position:fixed; background-color:beige;opacity:0.7; width:20px;"></i>
+            </span>
 
                 <table class="table">
 
@@ -225,15 +226,12 @@
             </div>
 
 
-
-
                         </div>
 
 
                     </div>
 
                 </div>
-
 
                   <!--footer -->
 
@@ -246,32 +244,20 @@
                         <h5>Head Office Address</h5>
                         <p class="Footerinfo">11 Imam Haron Road<br>Claremont<br>Cape-Town  <br>7708<br>South Africa<br>+27 (0)711-711-711</p>
 
-
-
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
 
                         <h5 style="float:right; padding-right:20px !important;"> Where we stay <br> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.3746314959844!2d18.467969950155833!3d-33.982909880529675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc42d744c835bf%3A0xd27135616b9ed72!2sBrookside+Office+Park%2C+11+Imam+Haron+Rd%2C+Claremont%2C+Cape+Town%2C+7708!5e0!3m2!1sen!2sza!4v1502104444977" width="200" height="117" frameborder="0" style="border:0; margin-top:25px;" allowfullscreen></iframe> </h5>
 
-
-
-
                     </div>
-
-
 
                 </div>
 
                 <p class="copywrite"><em>&copy; Copywrite - Xmeagol - 2017</em></p>
 
-
             </div>
 
-            </div>
-
-
-
-
+          </div>
 
         </div>
 
@@ -350,7 +336,6 @@
                         total.push(data[i].total);
 
                     }
-
 
                     var chartdata = {
                         labels: Precinct,
