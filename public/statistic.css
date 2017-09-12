@@ -117,3 +117,10 @@ h5{
     text-align: center;
 
 }
+
+#allcrime-btn{
+float:right;
+border:none;
+background-color:transparent;
+letter-spacing:2px;
+}

@@ -89,16 +89,13 @@
                   <div class="container" id="headings" style="margin-top:92px;">
                   <h4><em>STATISTICS</em></h4>
                   </div>
-                  
+
                 <!-- Region / Feeds section -->
                 <div class="container-fluid" style="padding-top:64px; width:100%;">
-
                     <div class="row">
-
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
                             <h5 style="font-size:19px;">Region Concerned</h3>
                             <img src="region.png" id="regionmap" style="padding-top:20px;">
-
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -145,9 +142,12 @@
 
                                 </table>
 
-                             <button type="button" id="allcrime-btn" class="btn btn-secondary" style="float:right; border:none; background-color:transparent; letter-spacing:2px;"><i class="fa fa-plus" aria-hidden="true" ></i><em> Show More</em></button>
 
-
+                                //
+                             <button type="button" id="allcrime-btn" class="btn btn-secondary">
+                               <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+                               <em> Show More</em>
+                             </button>
 
                           </div>
                         </div>
@@ -161,18 +161,17 @@
             <div>
 
                 <h5 style="margin-top:64px; padding-bottom:42px; text-align:center;font-family: 'Oxygen', sans-serif;">General Stats By Precincts</h5>
-
                     <div class="row">
 
                         <div class="col-lg-12" id="PrecinctStats">
                                     <!--  New query  found in precinct.php-->
                                     <!-- Chart section by Precinct -->
-                                <canvas id="mycanvas" class="widgetcanvas"></canvas>
-
-                            <button type="button" id="crimeRelated" class="btn btn-secondary" style="float:right; border:none; background-color:transparent; letter-spacing:2px;"><i class="fa fa-plus" aria-hidden="true" ></i><em> Related Crimes </em></button>
+                            <canvas id="mycanvas" class="widgetcanvas"></canvas>
+                            <button type="button" id="crimeRelated" class="btn btn-secondary" style="float:right; border:none; background-color:transparent; letter-spacing:2px;">
+                              <i class="fa fa-plus" aria-hidden="true" ></i>
+                              <em> Related Crimes </em>
+                            </button>
                         </div>
-
-
 
                     </div>
 
@@ -182,24 +181,8 @@
                     <!-- After search section -->
 
              <div class="container-fluid" id="searchDiv">
-
-
-
                             <canvas id="mycanvas2" class="widgetcanvas"></canvas>
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
-
 
                       <!-- Full size on click Feed Section -->
             <div id="modal" class="modal" onclick="this.style.display='none'" style="background-color:white; opacity:0.94; overflow-y:scroll;">

@@ -20,6 +20,9 @@ header
 
 .navbar-inverse
   background-color: #191919 !important
+
+.navbar
+  border-radius: 0
 //basic styling for each page:
 h1
   padding-bottom: 10px
@@ -320,10 +323,8 @@ section#contact .text-danger
   margin-left: 0
 
 //stats page styling
-.general-background
+.container-fluid
   background-image: linear-gradient(rgba(0, 0, 0, 0.80),rgba(255, 255, 255, 0.10))
-  background-size: cover
-  height: 100%
 
 #headings
   background-image: linear-gradient(rgba(0, 0, 0, 0.40),rgba(0, 0, 0, 0.40)), url(../statBackground.jpg)
@@ -339,6 +340,7 @@ section#contact .text-danger
   margin-top: 0
   line-height: 300px
   font-family: 'Open Sans', sans-serif
+  font-size: 40px
 
 .search-bar
   margin-top: 25px
@@ -372,5 +374,9 @@ section#contact .text-danger
   color: black
 
 #regionmap
-  width: 320px
-  height: 310px
+  width: 100%
+  height: auto
+
+button:hover
+  opacity: 0.5
+  cursor: pointer

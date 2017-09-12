@@ -16,6 +16,9 @@ header {
 .navbar-inverse {
   background-color: #191919 !important; }
 
+.navbar {
+  border-radius: 0; }
+
 h1 {
   padding-bottom: 10px; }
 
@@ -301,10 +304,8 @@ section#contact .text-danger {
   margin-right: 0;
   margin-left: 0; }
 
-.general-background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1));
-  background-size: cover;
-  height: 100%; }
+.container-fluid {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1)); }
 
 #headings {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../statBackground.jpg);
@@ -319,7 +320,8 @@ section#contact .text-danger {
   color: white;
   margin-top: 0;
   line-height: 300px;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px; }
 
 .search-bar {
   margin-top: 25px;
@@ -352,5 +354,9 @@ section#contact .text-danger {
   color: black; }
 
 #regionmap {
-  width: 320px;
-  height: 310px; }
+  width: 100%;
+  height: auto; }
+
+button:hover {
+  opacity: 0.5;
+  cursor: pointer; }
