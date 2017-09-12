@@ -8,6 +8,10 @@
         <servlet-name>LogServlet</servlet-name>
         <servlet-class>LogServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>registerServlet</servlet-name>
+        <servlet-class>registerServlet</servlet-class>
+    </servlet>    
     <servlet-mapping>
         <servlet-name>Fill</servlet-name>
         <url-pattern>/Fill</url-pattern>
@@ -16,6 +20,10 @@
         <servlet-name>LogServlet</servlet-name>
         <url-pattern>/LogServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registerServlet</servlet-name>
+        <url-pattern>/registerServlet</url-pattern>
+    </servlet-mapping>    
     <session-config>
         <session-timeout>
             30

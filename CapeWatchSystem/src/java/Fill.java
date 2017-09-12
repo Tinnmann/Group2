@@ -72,10 +72,25 @@ public class Fill extends HttpServlet{
                 userID="";
             }
 
+            String age = request.getParameter("age");
+            if (age==null){
+                age="";
+            }            
 
+            String race = request.getParameter("race");
+            if (race==null){
+                race="";
+            }
+
+            String gender = request.getParameter("gender");
+            if (gender==null){
+                gender="";
+            }            
+            
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(connURL, "root", "");
             PreparedStatement statement = conn.prepareStatement("insert into crime_case(reportID,crimeID,userID,date,location,time,crimeType,status) values(?,?,?,?,?,?,?,?)");
+        //    PreparedStatement statement2 = conn.prepareStatement("insert into injured_party(reportID,age,race,gender,area) values(?,?,?,?,?)");
             statement.setString(1,reportID);
             statement.setString(2,crimeID);      
             //statement.setString(3,victim);
@@ -85,14 +100,22 @@ public class Fill extends HttpServlet{
             statement.setString(6,time);
             statement.setString(7,crimeType);
             statement.setString(8,status);
+            
+//            statement2.setString(1,reportID);
+//            statement2.setString(2,age);
+//            statement2.setString(3,race);
+//            statement2.setString(4,gender);
+//            statement2.setString(5,location);
 
             int i = statement.executeUpdate();
-            if(i!=0){
-                writer.println("<br>Successfully inserted!");
+            //int j = statement2.executeUpdate();
+            if((i!=0)/* && (j!=0)*/){
+                writer.println("<br>Successfully inserted into crime case!");
             }
             else{
                 writer.println("Failed to insert");
             }
+            
         }
         catch (Exception e){
             writer.println(e);
