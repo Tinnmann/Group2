@@ -8,7 +8,7 @@ session_start();
 if (isset($_COOKIE['id'])  ) {
     
     $_SESSION['id'] = $_COOKIE['id'];
-    
+   
 }
 
 if(array_key_exists("id", $_SESSION)) {
@@ -56,7 +56,7 @@ $rank = $row['rank'];
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
+  <body style="background: linear-gradient(black, white); background-repeat: no-repeat;">
     <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid"></div>
       <div class="navbar-header">
@@ -81,7 +81,7 @@ $rank = $row['rank'];
             
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
             
-                <h1 style="text-align:center;">Welcome Back <?php print_r($name)?></h1>
+                <h1 style="text-align:center; color:white;">Welcome Back <?php print_r($name)?></h1>
                 
                 <div class="card" style="width: 50rem;">
                   <div class="card-body">
@@ -95,8 +95,104 @@ $rank = $row['rank'];
                     <p class="card-text list-group-item"><b>Rank:</b> <?php print_r($rank)?></p>
                       
                       <br>
-                    <a href="#" class="card-link">Edit Profile</a>
+                    <button type="button" class="btn btn-muted" data-toggle="modal" data-target="#exampleModal" style="color:white; border:black solid 0.5px;">Edit Profile</button>
                     <a href="#" class="card-link"><?php print_r($logout)?></a>
+                  </div>
+                </div>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Change Profile</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form class="form-horizontal" method="post" action="updateProfile.php">
+                            <div class="form-group">
+                                  <label class="col-sm-2 control-label" for="date">Name</label>
+                                  <div class="col-sm-4">
+                                    <input name="name" placeholder="<?php print_r($name)?>" type="text"/>
+                                  </div>
+                                  <label class="col-sm-2 control-label" for="location">Surname</label>
+                                  <div class="col-sm-4">
+                                    <input name="surname" placeholder="<?php print_r($surname)?>" type="text"/>
+                                  </div>
+                            </div>
+                            <div class="form-group">
+                                  <label class="col-sm-2 control-label" for="time">Email</label>
+                                  <div class="col-sm-4">
+                                    <input type="email" placeholder="<?php print_r($email)?>" name="email"/>
+                                  </div>
+                                  <label class="col-sm-2 control-label" for="crimeType">Division</label>
+                                  <div class="col-sm-4">
+                                    <div class="dropdown dropdown-content">
+                    
+                                        <select class="form-control" name="rank" style="width: 150px;">
+                                            
+                                            <option value=""></option>
+                                            <option value="prevention">Prevention</option>
+                                            <option value="criminalRecord">Criminal Record</option>
+                                            <option value="forensicScience">Forensic Science</option>
+                                            <option value="management">Management</option>  
+                                            <option value="operational response">Operational Response</option>
+                                            <option value="protectionSecurity">Protection and Security</option>
+                                        </select>
+                                    </div>
+                                  </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                  <label class="col-sm-2 control-label" for="status">Rank</label>
+                                  <div class="col-sm-4">
+                                    <div class="dropdown dropdown-content">
+                    
+                                        <select class="form-control" name="rank" style="width: 150px;">
+                                            <option value=""></option>
+                                            <option value="chef">General</option>
+                                            <option value="lieutnantGeneral">Lieutnant-General</option>
+                                            <option value="majorGeneral">Major-General</option>
+                                            <option value="brigadier">Brigadier</option>
+                                            <option value="colonel">Colonel</option>
+                                            <option value="major">Major</option>
+                                            <option value="lieutenant">Lieutenant</option>
+                                            <option value="sergeant">Sergeant</option>
+                                        </select>
+                                    </div>
+                                  </div>
+                                <label class="col-sm-2 control-label" >Police Station </label>
+                                  <div class="col-sm-4">
+                                    <div class="dropdown">
+                                      <select class="form-control" style="width:150px;" name="policeStation">
+                                          <option value=""></option>  
+                                          <?php 
+
+                                                $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
+
+                                                $query = "SELECT policestation FROM `police_station`";
+
+                                                $result = mysqli_query($link, $query)  or die('Query fail: ' . mysqli_error());
+
+                                                while($row = mysqli_fetch_array($result)){
+                                                    echo "<option value=".$row['policestation'].">".$row['policestation']."<option>";
+                                                }
+
+                                            ?>
+                                        </select>
+                                    </div>
+                                  </div>
+                            </div>
+                          
+                    </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" name="save">Save changes</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
@@ -116,7 +212,9 @@ $rank = $row['rank'];
                     </div>
                 </div>
             
-            </div>  
+            </div>
+            
+            
              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
             
                 <iframe style="height:1000px; padding:10px;" src="https://www.iol.co.za/dailynews"></iframe>
