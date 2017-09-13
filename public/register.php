@@ -7,100 +7,100 @@ $error ="";
 
 
 if (array_key_exists("submit", $_POST)){
-    
+
     $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
-    
+
     if(mysqli_connect_error()){
-        
+
         die("Datbase Connection Error");
     }
-    
-    
+
+
     if (!$_POST["officerId"]){
-        
+
         $error.= "An Officer ID is required<br>";
     }
-    
+
     if (!$_POST["email"]){
-        
+
         $error.= "An email address is required<br>";
     }
-    
+
     if (!$_POST["password"]){
-        
+
         $error.= "A password is required<br>";
     }
-    
+
     if (!$_POST["name"]){
-        
+
         $error.= "A name is required<br>";
     }
-    
+
     if (!$_POST["surname"]){
-        
+
         $error.= "Your surname is required<br>";
     }
-    
+
     if (!$_POST["policeStation"]){
-        
+
         $error.= "A police Station is required<br>";
     }
-    
+
     if (!$_POST["division"]){
-        
+
         $error.= "A division is required<br>";
     }
-    
+
     if (!$_POST["rank"]){
-        
+
         $error.= "A rank is required<br>";
     }
-    
-    
-    
+
+
+
     if($error != ""){
         $error = "<p> There were error(s) in your form:</p>".$error;
-        
+
     } else {
-        
+
         $query = "SELECT id FROM `police_user` WHERE email = '".mysqli_real_escape_string($link, $_POST['email'])."' LIMIT 1";
-        
+
         $result = mysqli_query($link, $query);
-        
+
         if(mysqli_num_rows($result) > 0){
-            
+
             $error = "- The user already exists";
-            
+
         } else {
-            
+
             $query = "INSERT INTO `police_user` (`officierID`, `email`, `password`, `name`, `surname`, `policeStation`, `division`, `rank`) VALUES ('".mysqli_real_escape_string($link, $_POST['officierId'])."', '".mysqli_real_escape_string($link, $_POST['email'])."', '".mysqli_real_escape_string($link, $_POST['password'])."', '".mysqli_real_escape_string($link, $_POST['name'])."', '".mysqli_real_escape_string($link, $_POST['surname'])."', '".mysqli_real_escape_string($link, $_POST['policeStation'])."',
             '".mysqli_real_escape_string($link, $_POST['division'])."',
             '".mysqli_real_escape_string($link, $_POST['rank'])."' )";
-            
+
             if (!mysqli_query($link, $query)){
-                
+
                 $error = "<p> Could not signed you up - Please try again later.</p>";
             } else {
-                
+
                 $query = "UPDATE `police_user` SET password = '".md5(md5(mysqli_insert_id($link)).$_POST['password'])."' WHERE id = ".mysqli_insert_id($link)." LIMIT 1";
-                
+
                 mysqli_query($link, $query);
-                
+
                 $_SESSION['id'] = mysqli_insert_id($link);
-                
+
                 if ($_POST['StayLoggedIn'] == "1" ){
-                    
+
                     setcookie('id', mysqli_insert_id($link), time() + 60*60*24*365);
                 }
-                
+
                 header("Location: profile.php");
-                
-               
+
+
             }
         }
     }
-    
-    
+
+
 }
 
 ?>
@@ -156,13 +156,13 @@ if (array_key_exists("submit", $_POST)){
             </div>
             <div class="form-group">
               <label class="col-sm-2 control-label" for="password">Password</label>
-              <div class="col-sm-10"> 
+              <div class="col-sm-10">
                 <input class="form-control" type="password" name="password" >
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-2 control-label" for="password">Confirm Password</label>
-              <div class="col-sm-10"> 
+              <div class="col-sm-10">
                 <input class="form-control" type="password" name="password" >
               </div>
             </div>
@@ -181,15 +181,15 @@ if (array_key_exists("submit", $_POST)){
               <div class="col-sm-10">
                 <div class="dropdown">
                   <select class="form-control" style="width:37%;" name="policeStation">
-                       
-                      <?php 
+
+                      <?php
 
                             $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
 
                             $query = "SELECT policestation FROM `police_station`";
 
                             $result = mysqli_query($link, $query)  or die('Query fail: ' . mysqli_error());
-                        
+
                             while($row = mysqli_fetch_array($result)){
                                 echo "<option value=\"rank1\">".$row['policestation']."<option>";
                             }
@@ -199,8 +199,8 @@ if (array_key_exists("submit", $_POST)){
                 </div>
               </div>
             </div>
-              
-              
+
+
             <div class="form-group">
               <label class="col-sm-2 control-label">Division </label>
               <div class="col-sm-4">
@@ -210,17 +210,17 @@ if (array_key_exists("submit", $_POST)){
                         <option value="prevention">Prevention</option>
                         <option value="criminalRecord">Criminal Record</option>
                         <option value="forensicScience">Forensic Science</option>
-                        <option value="management">Management</option>  
+                        <option value="management">Management</option>
                         <option value="operational response">Operational Response</option>
                         <option value="protectionSecurity">Protection and Security</option>
-                        
+
                     </select>
                 </div>
               </div>
               <label class="col-sm-2 control-label">Rank </label>
               <div class="col-sm-4">
                 <div class="dropdown dropdown-content">
-                    
+
                     <select class="form-control" name="rank">
                         <option value=""></option>
                         <option value="Chef">General</option>
@@ -239,42 +239,42 @@ if (array_key_exists("submit", $_POST)){
                   <label class="col-sm-2 control-label">Stay Logged in </label>
                     <div class="col-sm-4">
                         <input style="color:white" type="checkbox" name="StayLoggedIn" value=1>
-                  </div> 
+                  </div>
                 </div>
-              
+
             <div class="form-group">
               <div class="col-sm-offset-3 col-sm-4">
                 <button class="btn btn-primary pull-right" type="submit" name="submit">Submit</button>
               </div>
             </div>
-              
+
               <div class="form-group">
                 <button class="btn btn-primary pull-right" type="submit"><a href="login.php" style="color:white;"><i class="fa fa-arrow-left" aria-hidden="true"></i>   Go Back !</a></button>
               </div>
           </form>
-            
+
              <br>
             <div id="error" style="text-align:center; width:250px; margin:0 auto;"><?php if ($error!="") {
-    
+
                     echo '<div class="alert alert-danger" role="alert">'.$error.'</div>';
-    
+
             } ?></div>
-        
-            
-            
-            
+
+
+
+
         </div>
-          
+
       </div>
-        
-        
-          
-          
-        
+
+
+
+
+
         <br>
-          
+
     </div>
-      
-     
+
+
   </body>
 </html>
