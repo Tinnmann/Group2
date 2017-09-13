@@ -18,8 +18,8 @@
         ContactUs contactUs = new ContactUs();
         contactUs.setMailServerProperties();
 
-        String emailSubject = "New Message From Cape Watch System";
-        String emailBody = "Sender Name: " + name + "\n\nSender Email Address: " + email + "\n\nMessage: \n" + message;
+        String emailSubject = "--NEW MESSAGE - CAPE WATCH--";
+        String emailBody = "Name: " + name + "\n\nEmail Address: " + email + "\n\nMessage:" + message;
 
         /*if (request.getParameter("name") != null){
             emailBody = "Sender Name: " + name;
