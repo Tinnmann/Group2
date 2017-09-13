@@ -19,7 +19,7 @@ if (array_key_exists("logout", $_GET)){
 
 if (array_key_exists("submit", $_POST)){
     
-    $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
+    $link = mysqli_connect("localhost", "root", " ", "capewatchdb");
     
     if(mysqli_connect_error()){
         

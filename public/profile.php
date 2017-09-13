@@ -20,7 +20,7 @@ if(array_key_exists("id", $_SESSION)) {
     header("Location: login.php");
 }
 
- $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
+ $link = mysqli_connect("localhost", "root", "", "capewatchdb");
 
 $query = "SELECT * FROM `police_user` WHERE email = '".mysqli_real_escape_string($link, $_POST['email'])."'";
         
