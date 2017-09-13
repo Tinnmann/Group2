@@ -181,27 +181,26 @@ if (array_key_exists("submit", $_POST)){
               <div class="col-sm-10">
                 <div class="dropdown">
                   <select class="form-control" style="width:37%;" name="policeStation">
-                      <option value=""></option>  
-                      <option value="centralPoliceStation">Central Police Station</option>
-                        <option value="oceanView">Ocean View</option>
-                        <option value="pinelands">Pinelands SAPS</option>
-                        <option value="rondebosch">Rondebosch</option>
-                        <option value="claremont">Claremont</option>  
-                        <option value="Wynberg">Wynberg</option>
-                        <option value="goodwood">Goodwood</option>
-                        <option value="parow">Parow</option>  
-                        <option value="nyanga">Nyanga</option>
-                        <option value="steenberg">Steenberg SAPS</option>
-                        <option value="strandfontein">Strandfontein</option>
-                        <option value="lingelethuWest">Lingelethu-West</option>
-                        <option value="delft">Delft</option>
-                        <option value="steenberg">Belhar</option>
-                        <option value="kuilsrivier">Kuilsrivier</option>
-                        <option value="brackenfell">Brackenfell</option>
+                       
+                      <?php 
+
+                            $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
+
+                            $query = "SELECT policestation FROM `police_station`";
+
+                            $result = mysqli_query($link, $query)  or die('Query fail: ' . mysqli_error());
+                        
+                            while($row = mysqli_fetch_array($result)){
+                                echo "<option value=\"rank1\">".$row['policestation']."<option>";
+                            }
+
+                        ?>
                     </select>
                 </div>
               </div>
             </div>
+              
+              
             <div class="form-group">
               <label class="col-sm-2 control-label">Division </label>
               <div class="col-sm-4">
@@ -224,14 +223,14 @@ if (array_key_exists("submit", $_POST)){
                     
                     <select class="form-control" name="rank">
                         <option value=""></option>
-                        <option value="chef">General</option>
-                        <option value="lieutnantGeneral">Lieutnant-General</option>
-                        <option value="majorGeneral">Major-General</option>
-                        <option value="brigadier">Brigadier</option>
-                        <option value="colonel">Colonel</option>
-                        <option value="major">Major</option>
-                        <option value="lieutenant">Lieutenant</option>
-                        <option value="sergeant">Sergeant</option>
+                        <option value="Chef">General</option>
+                        <option value="Lieutnant-General">Lieutnant-General</option>
+                        <option value="MajorGeneral">Major-General</option>
+                        <option value="Brigadier">Brigadier</option>
+                        <option value="Colonel">Colonel</option>
+                        <option value="Major">Major</option>
+                        <option value="Lieutenant">Lieutenant</option>
+                        <option value="Sergeant">Sergeant</option>
                     </select>
                 </div>
               </div>
@@ -248,20 +247,32 @@ if (array_key_exists("submit", $_POST)){
                 <button class="btn btn-primary pull-right" type="submit" name="submit">Submit</button>
               </div>
             </div>
-          </form>
-        </div>
-          
-        
-         
-          
-           <br>
-                  <?php print_r($error)?>
-                  <br>
-      </div>
-         <br>
-          <div class="container">
+              
+              <div class="form-group">
                 <button class="btn btn-primary pull-right" type="submit"><a href="login.php" style="color:white;"><i class="fa fa-arrow-left" aria-hidden="true"></i>   Go Back !</a></button>
               </div>
+          </form>
+            
+             <br>
+            <div id="error" style="text-align:center; width:250px; margin:0 auto;"><?php if ($error!="") {
+    
+                    echo '<div class="alert alert-danger" role="alert">'.$error.'</div>';
+    
+            } ?></div>
+        
+            
+            
+            
+        </div>
+          
+      </div>
+        
+        
+          
+          
+        
+        <br>
+          
     </div>
       
      
