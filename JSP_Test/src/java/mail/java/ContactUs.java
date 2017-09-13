@@ -2,8 +2,6 @@
 package mail.java;
 
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -23,7 +21,7 @@ public class ContactUs {
     
     //declare email details
     String emailHost = "smtp.gmail.com";
-    String emailPort = "587";// gmail's default smtp port
+    String emailPort = "587"; //gmail's default smtp port
     String fromUser = "xmeagolsoftware";
     String fromUserEmailPassword = "Xmeagol1";
     
@@ -51,7 +49,7 @@ public class ContactUs {
         }
 
         emailMessage.setSubject(emailSubject);
-        emailMessage.setContent(emailBody, "text/html");
+        emailMessage.setText(emailBody);
     }
     
     public void sendEmail() throws AddressException, MessagingException {
