@@ -29,7 +29,7 @@
           <li><a href="login.html">Login</a></li>
           <li><a href="profile.html">Profile</a></li>
           <li class="active"><a href="reports.html">Reports</a></li>
-          <li><a href="Statistics/statistic.php">Statistics</a></li>
+          <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -54,7 +54,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="table-responsive">
-                <table class="table table-list-search">
+                <table class="table table-list-search" id="reportTable">
                   <thead>
                     <tr>
                       <th>CrimeID</th>
@@ -119,7 +119,7 @@
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
                 <div class="modal-body">
-                  <form class="form-horizontal" method="post" action="Fill">
+                  <form class="form-horizontal" method="post" action="#">
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="date">Date</label>
                       <div class="col-sm-4">
@@ -143,38 +143,12 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="status">Status</label>
                       <div class="col-sm-4">
-                        <select id="status">
+                        <select>
                           <option class="label label-danger" value="open" name="open">open</option>
                           <option class="label label-primary" value="closed" name="closed">closed          </option>
                         </select>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="race">Race</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="race" required="required"/>
-                      </div>
-                      <label class="col-sm-2 control-label" for="gender">Gender</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="gender" required="required"/>
-                      </div>
-                    </div>  
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="reportID">Report ID</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="reportID" required="required"/>
-                      </div>
-                      <label class="col-sm-2 control-label" for="crimeID">Crime ID</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="crimeID" required="required"/>
-                      </div>
-                    </div>   
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="userID">User ID</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="userID" required="required"/>
-                      </div>
-                    </div>                      
                     <div class="form-group">
                       <div class="col-sm-7 col-sm-offset-5">  
                         <button class="btn btn-default" type="submit">Submit</button>

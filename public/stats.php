@@ -4,18 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cape Watch</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/Chart.min.js"></script>
-    <script type="text/javascript" src="js/stats.js"></script>
     <link rel="stylesheet" href="css/style.css">
-
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -61,42 +53,6 @@
                 Search Menu
               </a>
             </div>
-  <!-- searchbar can go here
-            <div id="sidebar-wrapper">
-              <ul class="sidebar-nav" style="text-align:center; padding-top:82px;">
-                <br>
-                <hr>
-                  <li>
-                    <p>
-                      <em>Search Area</em>
-                    </p>
-                  </li>
-                <hr>
-                <br>
-
-              <form method="post">
-                <li>
-                  <p>Enter the name of a suburb</p>
-                </li>
-                <li style="margin-left:55px;">
-                  <input type="text" class="form-control txt-auto" name="city" id="city" placeholder="e.g. Sea Point" style="text-align:center; width:80%; border-radius:5px;">
-                </li>
-                <br>
-                <li>
-                  <p>Type of Crime</p>
-                </li>
-                <li style="margin-left:55px;">
-                  <input type="text" class="form-control txt-auto" name="city" id="city" placeholder="e.g. Murder" style="text-align:center; width:80%; border-radius:5px;">
-                </li>
-                <div id="cityList"></div>
-                    <br>
-                <li style="padding-top:42px;">
-                  <button type="button" class="btn btn-sm btn-secondary" onclick="showDiv()">Submit</button>
-                </li>
-              </form>
-                </ul>
-            </div>
-          -->
 
           <!-- Heading -->
           <div id="headings">
@@ -120,11 +76,10 @@
                       <th>Numbers</th>
                   </tr>
             </thead>
-            <!-- PHP for DB connect -->
             <tbody>
-            <!-- PHP for table rows -->
+            <!-- these rows need to be dynamic -->
               <tr>
-                <td>row 1</td>
+                <td name="Stats-Row">row 1</td>
                 <td>" row 2 "</td>
               </tr>
             </tbody>
@@ -144,7 +99,7 @@
             <!--  New query  found in precinct.php-->
             <!-- Chart section by Precinct -->
           <canvas id="mycanvas" class="widgetcanvas"></canvas>
-          
+
           <button type="button" id="crimeRelated" class="btn btn-secondary" style="border:none; background-color:transparent; letter-spacing:2px;">
             <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
             Related Crimes
@@ -153,7 +108,7 @@
     </div>
 
     <div id="searchDiv">
-      <canvas id="mycanvas2" class="widgetcanvas"></canvas>
+      <div id="graph" name="graph"></div>
     </div>
     <!-- where is the modal code? -->
     <div id="modal" class="modal" onclick="this.style.display='none'">

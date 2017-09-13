@@ -1,4 +1,5 @@
 header {
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.6));
   background-color: lightgrey;
   height: 100vh;
   background-size: cover;
@@ -359,15 +360,11 @@ section#contact .text-danger {
   width: 100%;
   height: auto; }
 
-button:hover {
-  opacity: 0.5;
-  cursor: pointer; }
-
-#searchDiv {
+#filter-menu {
   display: none; }
 
 #footer2 {
-  background: #292B2C;
+  background: #101010;
   color: white;
   padding: 10px 10px 1px 10px; }
 
