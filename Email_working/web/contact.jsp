@@ -1,3 +1,45 @@
+<%-- 
+    Document   : contact
+    Created on : 13 Sep 2017, 12:18:09 PM
+    Author     : Sydney Twigg
+--%>
+
+<%@ page import="mail.java.ContactUs"%>
+<%@ page import="javax.mail.MessagingException;"%>
+
+<%
+    String serverMessage = null;
+    String status = null;
+    String name =  request.getParameter("name");
+    String email = request.getParameter("email");
+    String message = request.getParameter("message");
+    
+    if (request.getParameter("submit") != null){
+        ContactUs contactUs = new ContactUs();
+        contactUs.setMailServerProperties();
+
+        String emailSubject = "--NEW MESSAGE - CAPE WATCH--";
+        String emailBody = "Name: " + name + "\n\nEmail Address: " + email + "\n\nMessage:" + message;
+
+        /*if (request.getParameter("name") != null){
+            emailBody = "Sender Name: " + name;
+        } 
+        if (request.getParameter("email") != null){
+            emailBody = "\nSender Email: " + email;
+        }
+        if (request.getParameter("message") != null){
+            emailBody = "\nMessage: \n" + message;
+        }*/
+
+        contactUs.createEmailMessage(emailSubject, emailBody);
+            try {
+                contactUs.sendEmail();
+        } catch (MessagingException me) {
+                serverMessage = "Error in Sending Email!" + me.toString();
+        }
+}
+
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -46,15 +88,15 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input class="form-control" type="text" placeholder="Enter your name" required="" data-validation-required-message="Please enter your name." name="name" id="name">
+                      <input class="form-control" type="text" placeholder="Enter your name" required="" data-validation-required-message="Please enter your name." id="name" name="name">
                     </div>
                     <div class="form-group">
-                      <input type="email" placeholder="Enter your email" required="" data-validation-required-message="Please enter your E-mail address" name="email" id="email">
+                      <input type="email" placeholder="Enter your email" required="" data-validation-required-message="Please enter your E-mail address" id="email" name="email">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <textarea class="form-control" placeholder="Your message..." required="" data-validation-required-message="Please enter a message" name="message" id="message"></textarea>
+                      <textarea class="form-control" placeholder="Your message..." required="" data-validation-required-message="Please enter a message" id="message" name="message"></textarea>
                     </div>
                   </div>
                   <div class="col-lg-12 text-center col-sm-offset-3">
@@ -62,7 +104,18 @@
                       <button class="btn btn-xl get btn-warning" type="submit" name="submit">Send Message</button>
                     </div>
                   </div>
-                </div>
+                </div>  
+                  
+                  
+              <!--Test
+              <%
+                if (null != serverMessage) {
+                        out.println("<div class='" + status + "'>"
+                                        + serverMessage + "</div>");
+                }
+		%>
+             -->
+                  
               </form>
             </div>
           </div>

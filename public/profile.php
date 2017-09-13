@@ -5,44 +5,48 @@ session_start();
 
 
 
-if (isset($_COOKIE['id'])  ) {
-    
-    $_SESSION['id'] = $_COOKIE['id'];
-   
-}
+//if (isset($_COOKIE['id'])  ) {
 
-if(array_key_exists("id", $_SESSION)) {
-    
-    $logout= "<p><a href='login.php?logout=1'>Log out</a></p>";
-    
-} else {
-    
-    header("Location: login.php");
-}
+  //  $_SESSION['id'] = $_COOKIE['id'];
 
+<<<<<<< HEAD
  $link = mysqli_connect("localhost", "root", "", "capewatchdb");
+=======
+//}
+>>>>>>> 44a4080aad5cde064f70b61d1942f74f21ab62d0
 
-$query = "SELECT * FROM `police_user` WHERE email = '".mysqli_real_escape_string($link, $_POST['email'])."'";
-        
-        $result = mysqli_query($link, $query);
-        
-        
-        $row = mysqli_fetch_array($result);
+//if(array_key_exists("id", $_SESSION)) {
 
-$officierID = $row['officierID'];
-$email = $row['email'];
-$password = $row['password'];
-$name = $row['name'];
-$surname = $row['surname'];
-$policeStation = $row['name'];
-$division = $row['division'];
-$rank = $row['rank'];
+  //  $logout= "<p><a href='login.php?logout=1'>Log out</a></p>";
 
+//} else {
+
+//    header("Location: login.php");
+//}
+
+// $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
+
+//$query = "SELECT * FROM `police_user` WHERE email = '".mysqli_real_escape_string($link, $_POST['email'])."'";
+
+  //      $result = mysqli_query($link, $query);
 
 
+    //    $row = mysqli_fetch_array($result);
+
+//$officierID = $row['officierID'];
+//$email = $row['email'];
+//$password = $row['password'];
+//$name = $row['name'];
+//$surname = $row['surname'];
+//$policeStation = $row['name'];
+//$division = $row['division'];
+//$rank = $row['rank'];
 
 
-?>
+
+
+
+//?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +60,7 @@ $rank = $row['rank'];
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body style="background: linear-gradient(black, white); background-repeat: no-repeat;">
+  <body style="background-image: linear-gradient(rgba(0, 0, 0, 0.80),rgba(255, 255, 255, 0.10))">
     <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid"></div>
       <div class="navbar-header">
@@ -69,7 +73,7 @@ $rank = $row['rank'];
           <li><a href="login.php">Login</a></li>
           <li class="active"><a href="profile.php">Profile</a></li>
           <li><a href="reports.html">Reports</a></li>
-          <li><a href="Statistics/statistic.php">Statistics</a></li>
+          <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -78,37 +82,39 @@ $rank = $row['rank'];
     <section>
       <div class="container">
         <div class="row">
-            
-            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-            
-                <h1 style="text-align:center; color:white;">Welcome Back <?php print_r($name)?></h1>
-                
-                <div class="card" style="width: 50rem;">
+
+            <div class="col-sm-6">
+
+                <div style="background-color: rgb(136, 23, 27); padding-left: 5px; border-radius: 10px">
+                <h1 style="color:white;"> Welcome Back, <?php print_r($name)?></h1>
+                </div>
+
+                <div class="card" style="width: 100%;">
                   <div class="card-body">
-                    <h4 class="card-title" style="color:black; opacity:0.8;"><em><?php print_r($name." ".$surname)?></em></h4>
-                    <h6 class="card-subtitle mb-2 text-muted" id="date" style="text-align:right;"></h6>
-                    <p class="card-text list-group-item"><b>Officier ID:</b> <?php print_r($officierID)?></p>
+                    <h4 class="card-title" style="color:black; opacity:0.8;"><i class="glyphicon glyphicon-user" style="color: white"></i><em><?php print_r($name." ".$surname)?></em></h4>
+                    <h6 class="card-subtitle mb-2 text-muted" id="date" style="text-align:right; color: white"></h6>
+                    <p class="card-text list-group-item"><b>Officier ID: </b> <?php print_r($officierID)?></p>
                     <p class="card-text list-group-item"><b>Name :</b> <?php print_r($name)?></p>
                     <p class="card-text list-group-item"><b>Surame:</b> <?php print_r($surname)?></p>
                     <p class="card-text list-group-item"><b>Email:</b> <?php print_r($email)?></p>
                     <p class="card-text list-group-item"><b>Division:</b> <?php print_r($division)?></p>
                     <p class="card-text list-group-item"><b>Rank:</b> <?php print_r($rank)?></p>
-                      
+
                       <br>
-                    <button type="button" class="btn btn-muted" data-toggle="modal" data-target="#exampleModal" style="color:white; border:black solid 0.5px;">Edit Profile</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="background-color: #9D0D0D; border-color: rgb(136, 23, 27)">Edit Profile</button>
                     <a href="#" class="card-link"><?php print_r($logout)?></a>
                   </div>
                 </div>
-                
+
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Change Profile</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
+                        <h4 class="modal-title text-center" id="exampleModalLabel" style="color: black">Edit Profile</h4>
                       </div>
                       <div class="modal-body">
                         <form class="form-horizontal" method="post" action="updateProfile.php">
@@ -130,26 +136,26 @@ $rank = $row['rank'];
                                   <label class="col-sm-2 control-label" for="crimeType">Division</label>
                                   <div class="col-sm-4">
                                     <div class="dropdown dropdown-content">
-                    
+
                                         <select class="form-control" name="rank" style="width: 150px;">
-                                            
+
                                             <option value=""></option>
                                             <option value="prevention">Prevention</option>
                                             <option value="criminalRecord">Criminal Record</option>
                                             <option value="forensicScience">Forensic Science</option>
-                                            <option value="management">Management</option>  
+                                            <option value="management">Management</option>
                                             <option value="operational response">Operational Response</option>
                                             <option value="protectionSecurity">Protection and Security</option>
                                         </select>
                                     </div>
                                   </div>
                             </div>
-                            
+
                             <div class="form-group">
                                   <label class="col-sm-2 control-label" for="status">Rank</label>
                                   <div class="col-sm-4">
                                     <div class="dropdown dropdown-content">
-                    
+
                                         <select class="form-control" name="rank" style="width: 150px;">
                                             <option value=""></option>
                                             <option value="chef">General</option>
@@ -167,76 +173,109 @@ $rank = $row['rank'];
                                   <div class="col-sm-4">
                                     <div class="dropdown">
                                       <select class="form-control" style="width:150px;" name="policeStation">
-                                          <option value=""></option>  
-                                          <?php 
+                                          <option value=""></option>
+                                          <?php
 
-                                                $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
+                                              //  $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
 
-                                                $query = "SELECT policestation FROM `police_station`";
+                                              //  $query = "SELECT policestation FROM `police_station`";
 
-                                                $result = mysqli_query($link, $query)  or die('Query fail: ' . mysqli_error());
+                                              //  $result = mysqli_query($link, $query)  or die('Query fail: ' . mysqli_error());
 
-                                                while($row = mysqli_fetch_array($result)){
-                                                    echo "<option value=".$row['policestation'].">".$row['policestation']."<option>";
-                                                }
+                                            //    while($row = mysqli_fetch_array($result)){
+                                              //      echo "<option value=".$row['policestation'].">".$row['policestation']."<option>";
+                                                //}
 
                                             ?>
                                         </select>
                                     </div>
                                   </div>
                             </div>
-                          
+
                     </form>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" name="save">Save changes</button>
+                        <button type="button" class="btn btn-danger" name="save">Save changes</button>
                       </div>
                     </div>
                   </div>
                 </div>
-                
-                
+
+
                 <br>
-                <div class="container-fluid">
-                    
-                    <div class="card" style="width:20rem; border:gainsboro solid 1px; padding:10px; border-radius:10px;">
-                        
-                      <p style="text-align:center;"><img class="card-img-top" src="images/reports.jpg" alt="Card image cap" style="width:60%;"></p>
+                <div class="card-div">
+                    <div class="card-1 col-sm-3 col-sm-offset-1" style="margin-top: 10px; width:20rem; border:black solid 1px; padding:10px; background-color: white; border-radius:10px;">
+                      <p style="text-align:center;"><img class="card-img-top" src="images/reports.png" alt="Card image cap" style="width:50%;"></p>
                         <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          
+                          <div class="card-title">
+                            <h4 style="color: #9D0D0D">Reports</h4>
+                          </div>
+                            <p class="card-text">Go to the <b>Reports</b> page to view reports or file a new case report</p>
+                            <a href="reports.html" class="btn btn-danger">Reports  <i class="glyphicon glyphicon-share-alt"></i></a>
+
                         </div>
                     </div>
+
+                    <div class="card-2 col-sm-3 col-sm-offset-1" style="margin-top: 10px; width:20rem; border:black solid 1px; padding:10px; background-color: white; border-radius:10px;">
+                      <p style="text-align:center;"><img class="card-img-top" src="images/icon-graph.png" alt="Card image cap" style="width:50%;"></p>
+                        <div class="card-body">
+                          <div class="card-title">
+                            <h4 style="color: #9D0D0D">Statistics</h4>
+                          </div>
+                            <p class="card-text">View the current <b>crime statistics</b> of the greater Cape Town area</p>
+                            <a href="stats.html" class="btn btn-danger">Statistics  <i class="glyphicon glyphicon-share-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="card-3 col-sm-3 col-sm-offset-1" style="margin-top: 20px; width:20rem; border:black solid 1px; padding:10px; background-color: white; border-radius:10px;">
+                      <p style="text-align:center;"><img class="card-img-top" src="images/alert-icon.png" alt="Card image cap" style="width:50%;"></p>
+                        <div class="card-body">
+                          <div class="card-title">
+                            <h4 style="color: #9D0D0D">Hotspots</h4>
+                          </div>
+                            <p class="card-text">View the latest crime rates per area on the <b>hotspots</b> page</p>
+                            <a href="hotspots.html" class="btn btn-danger">Hotspots  <i class="glyphicon glyphicon-share-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="card-4 col-sm-3 col-sm-offset-1" style=" margin-top: 20px; width:20rem; border:black solid 1px; padding:10px; background-color: white; border-radius:10px;">
+                      <p style="text-align:center;"><img class="card-img-top" src="images/contact-icon.png" alt="Card image cap" style="width:50%;"></p>
+                        <div class="card-body">
+                          <div class="card-title">
+                            <h4 style="color: #9D0D0D">Contact Us</h4>
+                          </div>
+                            <p class="card-text"> Visit the <b>contact us</b> page to get in touch with the developers</p>
+                            <a href="contact.html" class="btn btn-danger">Contact Us  <i class="glyphicon glyphicon-share-alt"></i></a>
+                        </div>
+                    </div>
+
                 </div>
-            
             </div>
-            
-            
-             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-            
-                <iframe style="height:1000px; padding:10px;" src="https://www.iol.co.za/dailynews"></iframe>
-            
-            </div>  
-                
+
+
+             <div class="col-sm-4 col-sm-offset-2">
+               <h2 id="whiteText" class="text-center">News Feed</h2>
+                <iframe style="width: 100%; height: 100rem; padding:10px; border: none; background-color: white; border-radius: 10px" src="https://www.iol.co.za/dailynews"></iframe>
+
+            </div>
+
         </div>
         <div class="row">
           <div class="profileContent"></div>
         </div>
       </div>
     </section>
-      
+
       <script type="text/javascript">
-      
+
           n =  new Date();
           y = n.getFullYear();
           m = n.getMonth() + 1;
           d = n.getDate();
           document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-      
-      
+
+
       </script>
   </body>
 </html>
