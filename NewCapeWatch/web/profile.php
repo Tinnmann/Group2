@@ -1,3 +1,53 @@
+<?php
+
+session_start();
+
+
+
+
+//if (isset($_COOKIE['id'])  ) {
+
+  //  $_SESSION['id'] = $_COOKIE['id'];
+
+<<<<<<< HEAD
+ $link = mysqli_connect("localhost", "root", "", "capewatchdb");
+=======
+//}
+>>>>>>> 44a4080aad5cde064f70b61d1942f74f21ab62d0
+
+//if(array_key_exists("id", $_SESSION)) {
+
+  //  $logout= "<p><a href='login.php?logout=1'>Log out</a></p>";
+
+//} else {
+
+//    header("Location: login.php");
+//}
+
+// $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
+
+//$query = "SELECT * FROM `police_user` WHERE email = '".mysqli_real_escape_string($link, $_POST['email'])."'";
+
+  //      $result = mysqli_query($link, $query);
+
+
+    //    $row = mysqli_fetch_array($result);
+
+//$officierID = $row['officierID'];
+//$email = $row['email'];
+//$password = $row['password'];
+//$name = $row['name'];
+//$surname = $row['surname'];
+//$policeStation = $row['name'];
+//$division = $row['division'];
+//$rank = $row['rank'];
+
+
+
+
+
+//?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,23 +86,23 @@
             <div class="col-sm-6">
 
                 <div style="background-color: rgb(136, 23, 27); padding-left: 5px; border-radius: 10px">
-                <h1 style="color:white;"> Welcome Back, // </h1>
+                <h1 style="color:white;"> Welcome Back, <?php print_r($name)?></h1>
                 </div>
 
                 <div class="card" style="width: 100%;">
                   <div class="card-body">
                     <h4 class="card-title" style="color:black; opacity:0.8;"><i class="glyphicon glyphicon-user" style="color: white"></i><em><?php print_r($name." ".$surname)?></em></h4>
                     <h6 class="card-subtitle mb-2 text-muted" id="date" style="text-align:right; color: white"></h6>
-                    <p class="card-text list-group-item"><b>Officier ID: </b> </p>
-                    <p class="card-text list-group-item"><b>Name :</b> </p>
-                    <p class="card-text list-group-item"><b>Surame:</b> </p>
-                    <p class="card-text list-group-item"><b>Email:</b> </p>
-                    <p class="card-text list-group-item"><b>Division:</b> </p>
-                    <p class="card-text list-group-item"><b>Rank:</b> </p>
+                    <p class="card-text list-group-item"><b>Officier ID: </b> <?php print_r($officierID)?></p>
+                    <p class="card-text list-group-item"><b>Name :</b> <?php print_r($name)?></p>
+                    <p class="card-text list-group-item"><b>Surame:</b> <?php print_r($surname)?></p>
+                    <p class="card-text list-group-item"><b>Email:</b> <?php print_r($email)?></p>
+                    <p class="card-text list-group-item"><b>Division:</b> <?php print_r($division)?></p>
+                    <p class="card-text list-group-item"><b>Rank:</b> <?php print_r($rank)?></p>
 
                       <br>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="background-color: #9D0D0D; border-color: rgb(136, 23, 27)">Edit Profile</button>
-                    <a href="#" class="card-link"> </a>
+                    <a href="#" class="card-link"><?php print_r($logout)?></a>
                   </div>
                 </div>
 
@@ -124,7 +174,19 @@
                                     <div class="dropdown">
                                       <select class="form-control" style="width:150px;" name="policeStation">
                                           <option value=""></option>
-                                        //
+                                          <?php
+
+                                              //  $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
+
+                                              //  $query = "SELECT policestation FROM `police_station`";
+
+                                              //  $result = mysqli_query($link, $query)  or die('Query fail: ' . mysqli_error());
+
+                                            //    while($row = mysqli_fetch_array($result)){
+                                              //      echo "<option value=".$row['policestation'].">".$row['policestation']."<option>";
+                                                //}
+
+                                            ?>
                                         </select>
                                     </div>
                                   </div>
