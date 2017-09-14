@@ -8,16 +8,16 @@ const SITE_DIR = 'public',
     SASS_DIR = 'sass',
     CSS_DIR = 'public/css';
 
-/**
- * pug compiler
 
+ /** pug compiler
+**/
 gulp.task('pug', function(){
     gulp.src('pug/*.pug')
         .pipe(pug({pretty: true}))
         .pipe(gulp.dest(SITE_DIR))
         .pipe(browserSync.reload({stream: true}))
 })
-*/
+
 /**
  * sass compiler
  */

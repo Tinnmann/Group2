@@ -12,7 +12,7 @@
     <script src="particles.js-master/demo/js/app.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
   </head>
-  <body >
+  <body class="hotspots-background">
     <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid"></div>
       <div class="navbar-header">
@@ -31,7 +31,6 @@
         </ul>
       </div>
     </nav>
-    <div class="hotspots-background">
     <h1 class="text-center" id="bold-h1">HOTSPOTS</h1>
     <h3 class="text-center" id="white-H3">CRIME HOTSPOTS OF THE GREATER CAPE TOWN AREA
       <div class="row">
@@ -43,7 +42,7 @@
                 var map = new google.maps.Map(document.getElementById('map'), {
                   zoom: 10,
                   center: westernCape
-                });
+                });          
               }
             </script>
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initMap" type="text/javascript"></script>
@@ -51,23 +50,5 @@
         </div>
       </div>
     </h3>
-  </div>
-
-    <div class="col-sm-12" style="padding: 0">
-    <div id="footer2">
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <h5>Head Office Address</h5>
-          <p class="Footerinfo">11 Imam Haron Road<br>Claremont<br>Cape-Town <br>7708<br>South Africa<br>+27 (0)711-711-711</p>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <h5 style="float:right; padding-right:20px !important;"> Where we stay <br> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.3746314959844!2d18.467969950155833!3d-33.982909880529675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc42d744c835bf%3A0xd27135616b9ed72!2sBrookside+Office+Park%2C+11+Imam+Haron+Rd%2C+Claremont%2C+Cape+Town%2C+7708!5e0!3m2!1sen!2sza!4v1502104444977" width="200" height="117" frameborder="0" style="border:0; margin-top:25px;" allowfullscreen></iframe>
-                    </h5>
-        </div>
-      </div>
-      <p class="copywrite"> &copy; Copywrite - Xmeagol - 2017</p>
-    </div>
-  </div>
-
   </body>
 </html>
