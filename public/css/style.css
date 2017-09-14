@@ -282,7 +282,7 @@ section#contact .text-danger {
 #bold-h1 {
   font-weight: bold;
   font-size: 35px;
-  margin-top: 20px;
+  margin-top: 0;
   color: #ddd226;
   font-family: 'Jura', sans-serif;
   text-shadow: 2px 2px 8px #000000; }

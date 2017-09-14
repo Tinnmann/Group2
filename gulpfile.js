@@ -10,14 +10,14 @@ const SITE_DIR = 'public',
 
 /**
  * pug compiler
- */
+
 gulp.task('pug', function(){
     gulp.src('pug/*.pug')
         .pipe(pug({pretty: true}))
         .pipe(gulp.dest(SITE_DIR))
         .pipe(browserSync.reload({stream: true}))
 })
-
+*/
 /**
  * sass compiler
  */

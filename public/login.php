@@ -115,7 +115,7 @@ if (array_key_exists("submit", $_POST)){
           <li class="active"><a href="login.php">Login</a></li>
           <li><a href="profile.php">Profile</a></li>
           <li><a href="reports.html">Reports</a></li>
-          <li><a href="Statistics/statistic.php">Statistics</a></li>
+          <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>

@@ -129,7 +129,7 @@ if (array_key_exists("submit", $_POST)){
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
           <li><a href="login.php">Login</a></li>
-          <li><a href="profile.html">Profile</a></li>
+          <li><a href="profile.php">Profile</a></li>
           <li><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
