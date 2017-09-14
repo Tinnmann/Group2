@@ -170,6 +170,15 @@ h2 {
   padding-left: 15px;
   padding-right: 15px; }
 
+select {
+  height: 40px;
+  width: 420px; }
+
+@media all and (max-width: 600px) {
+  select {
+    width: 420px;
+    max-width: 100%; } }
+
 #system-search {
   height: 28px; }
 
