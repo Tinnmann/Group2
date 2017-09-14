@@ -9,7 +9,11 @@ session_start();
 
   //  $_SESSION['id'] = $_COOKIE['id'];
 
+<<<<<<< HEAD
+ $link = mysqli_connect("localhost", "root", "", "capewatchdb");
+=======
 //}
+>>>>>>> 44a4080aad5cde064f70b61d1942f74f21ab62d0
 
 //if(array_key_exists("id", $_SESSION)) {
 

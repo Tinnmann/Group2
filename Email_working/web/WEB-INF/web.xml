@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>MyFirstServlet</display-name>
+  <welcome-file-list>
+    <welcome-file>ContactUs.html</welcome-file>
+    <welcome-file>ContactUs.htm</welcome-file>
+    <welcome-file>contact.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description>new</description>
+    <display-name>GrettingServlet</display-name>
+    <servlet-name>GrettingServlet</servlet-name>
+    <servlet-class>GrettingServlet</servlet-class>
+  </servlet>
+</web-app>

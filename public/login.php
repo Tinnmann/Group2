@@ -18,9 +18,15 @@ $error ="";
 }
 */
 if (array_key_exists("submit", $_POST)){
+<<<<<<< HEAD
+    
+    $link = mysqli_connect("localhost", "root", " ", "capewatchdb");
+    
+=======
 
     $link = mysqli_connect("localhost", "root", "root", "capewatchdb");
 
+>>>>>>> 44a4080aad5cde064f70b61d1942f74f21ab62d0
     if(mysqli_connect_error()){
 
         die("Datbase Connection Error");
