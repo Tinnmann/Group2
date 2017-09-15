@@ -73,9 +73,9 @@
                       <td>AR1</td>
                       <td>1</td>
                       <td>03/15/2017</td>
+                      <td>Athlone</td>
                       <td>02:21</td>
                       <td>Carjacking</td>
-                      <td>test</td>
                       <td> <span class="label label-warning">Open</span></td>
                       <td>
                         <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
@@ -156,7 +156,10 @@
                       </div>
                       <label class="col-sm-2 control-label" for="gender">Gender</label>
                       <div class="col-sm-4">
-                        <input type="text" name="gender" required="required"/>
+                        <select name="gender">
+                          <option  value="male" >Male</option>
+                          <option  value="female" >Female          </option>
+                        </select>
                       </div>
                     </div>  
                     <div class="form-group">
