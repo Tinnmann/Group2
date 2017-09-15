@@ -1,3 +1,33 @@
+<%-- 
+    Document   : login
+    Created on : 14 Sep 2017, 9:56:01 PM
+    Author     : Sydney Twigg
+--%>
+<%@page import="java.sql.*;"%>
+<%@page import="javax.sql.*;"%>
+<%@page import="login.java.LoginDB"%>
+
+<%
+    String email = request.getParameter("email");
+    session.putValue("email", email);
+    String password = request.getParameter("password");
+    Class.forName("com.mysql.jdbc.Driver");
+    java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/capewatchdb","root","sqlPass");
+    Statement st = conn.createStatement();
+    
+ResultSet rs = st.executeQuery("SELECT * FROM police_user WHERE email='"+email+"'");
+
+if(rs.next()){
+    if(rs.getString(7).equals(password)){
+        out.println("Welcome" + email);
+    }
+    else{
+        out.println("Invalid password");
+    }
+}
+%>
+    
+    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,8 +54,8 @@
           <li><a href="profile.html">Profile</a></li>
           <li><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
-          <li><a href="hotspots.html">Hotspots</a></li>
-          <li><a href="contact.jsp">Contact Us</a></li>
+          <li><a href="../NewCapewatch/web/hotspots.html">Hotspots</a></li>
+          <li><a href="../NewCapewatch/web/contact.jsp">Contact Us</a></li>
         </ul>
       </div>
     </nav>
@@ -34,7 +64,7 @@
         <div class="text-center">
           <h4>Login</h4>
           <div class="login-form-1">
-            <form class="text-left" id="login-form" role = "form">
+            <form class="text-left" id="login-form">
               <div class="login-form-main-message"></div>
               <div class="main-login-form">
                 <div class="login-group">
