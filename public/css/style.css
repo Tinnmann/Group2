@@ -179,6 +179,10 @@ select {
     width: 420px;
     max-width: 100%; } }
 
+#modal-select {
+  height: 40px;
+  width: 100%; }
+
 #system-search {
   height: 28px; }
 

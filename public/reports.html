@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script type="text/javascript" src="js/datepicker.js"></script>
     <script type="text/javascript" src="js/tableFilter.js"></script>
+    <script type="text/javascript" src="js/reset.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body class="backgroundcolor">
@@ -119,7 +120,13 @@
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
                 <div class="modal-body">
-                  <form class="form-horizontal" method="post" action="#">
+                  <form class="form-horizontal" method="post" action="#" name="report-form" id="report-form">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="officerID">Officer ID</label>
+                      <div class="col-sm-4">
+                        <input type="text" name="officerID" required="required"/>
+                      </div>
+                    </div>
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="date">Date</label>
                       <div class="col-sm-4">
@@ -135,22 +142,84 @@
                       <div class="col-sm-4">
                         <input type="time" name="time" required="required"/>
                       </div>
-                      <label class="col-sm-2 control-label" for="crimeType">Crime Type</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="crimeType" required="required"/>
-                      </div>
-                    </div>
-                    <div class="form-group">
                       <label class="col-sm-2 control-label" for="status">Status</label>
                       <div class="col-sm-4">
-                        <select>
-                          <option class="label label-danger" value="open" name="open">open</option>
-                          <option class="label label-primary" value="closed" name="closed">closed          </option>
+                        <select id="modal-select">
+                          <option value="open" name="open">open</option>
+                          <option value="closed" name="closed">closed</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
-                      <div class="col-sm-7 col-sm-offset-5">  
+                      <label class="col-sm-2 control-label" for="crimeType">Crime Type</label>
+                      <div class="col-sm-10">
+                        <select name="crimeType" id="modal-select">
+                          <optgroup label="Contact Crimes (Crimes against the person)">
+                            <option>Murder</option>
+                            <option>Sexual offences</option>
+                            <option>Attempted Murder</option>
+                            <option>Assault with the intent to inflict grievous bodily</option>
+                            <option>Common assault</option>
+                            <option>Common robbery</option>
+                            <option>Robbery with aggravating circumstances</option>
+                          </optgroup>
+                          <optgroup label="Contact related crimes">
+                            <option>Arson</option>
+                            <option>Malicious damage to property</option>
+                          </optgroup>
+                          <optgroup label="Property Related crimes">
+                            <option>Burglary at non-residential premises</option>
+                            <option>Burglary at residential premises</option>
+                            <option>Theft of motor vehicle and motorcycle</option>
+                            <option>Theft out of or from motor vehicle</option>
+                            <option>Stock-theft</option>
+                          </optgroup>
+                          <optgroup label="Crime detected as a result of police action">
+                            <option>Illegal possession of firearms and ammunition</option>
+                            <option>Drug related crime</option>
+                            <option>Driving under the influence of alcohol or drugs</option>
+                            <option>Sexual offences as a result of police action</option>
+                          </optgroup>
+                          <optgroup label="Other serious crimes">
+                            <option>All theft not mentioned elsewhere</option>
+                            <option>Commercial crime</option>
+                            <option>Shoplifting</option>
+                          </optgroup>
+                          <optgroup label="Subcategories of aggravated robbery">
+                            <option>Carjacking</option>
+                            <option>Truck hijacking</option>
+                            <option>Robbery at residential premises</option>
+                            <option>Robbery at non-residential premises</option>
+                            <option>Bank robbery</option>
+                            <option>Robbery of cash in transit</option>
+                          </optgroup>
+                          <optgroup label="Other ">
+                            <option>Culpable homicide</option>
+                            <option>Public violence</option>
+                            <option>Crimen injuria</option>
+                            <option>Neglect and ill-treatment of children</option>
+                            <option>Kidnapping</option>
+                          </optgroup>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <h3 class="col-sm-12 text-center" id="header">Injured Party (optional)</h3>
+                      <label class="col-sm-2 control-label" for="gender">Gender</label>
+                      <div class="col-sm-4">
+                        <select id="modal-select">
+                          <option value="female" name="female">female</option>
+                          <option value="male" name="male">male</option>
+                          <option value="other" name="other">other</option>
+                        </select>
+                      </div>
+                      <label class="col-sm-2 control-label" for="race">Race</label>
+                      <div class="col-sm-4">
+                        <input type="text" name="race"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-2 col-sm-offset-5">  
                         <button class="btn btn-default" type="submit">Submit</button>
                       </div>
                     </div>

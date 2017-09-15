@@ -6,6 +6,7 @@ html(lang="en")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css")
     script(type="text/javascript" src="js/datepicker.js")
     script(type="text/javascript" src="js/tableFilter.js")
+    script(type="text/javascript" src="js/reset.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
 
   body.backgroundcolor
@@ -103,8 +104,13 @@ html(lang="en")
                   button(type="button" data-dismiss="modal").close &times
                         
                 .modal-body
-                  form(method="post" action="#").form-horizontal
+                  form(method="post" action="#" name="report-form")#report-form.form-horizontal
                     
+                      .form-group
+                        label(for ="officerID").col-sm-2.control-label Officer ID
+                        .col-sm-4
+                          input(type="text" name="officerID" required)
+                         
                       .form-group
                         label(for="date").col-sm-2.control-label Date
                         .col-sm-4
@@ -119,20 +125,73 @@ html(lang="en")
                         label(for="time").col-sm-2.control-label Time
                         .col-sm-4
                           input(type="time" name="time" required)
-                          
                       
-                        label(for="crimeType").col-sm-2.control-label Crime Type
+                        label(for="status").col-sm-2.control-label Status
                         .col-sm-4
-                          input(type="text" name="crimeType" required)
+                          select#modal-select
+                            option(value="open" name="open") open
+                            option(value="closed" name="closed") closed
+                      
+                      .form-group
+                        label(for="crimeType").col-sm-2.control-label Crime Type
+                        .col-sm-10
+                          select(name = "crimeType")#modal-select
+                            optgroup(label="Contact Crimes (Crimes against the person)")
+                              option Murder
+                              option Sexual offences
+                              option Attempted Murder
+                              option Assault with the intent to inflict grievous bodily
+                              option Common assault
+                              option Common robbery
+                              option Robbery with aggravating circumstances
+                            optgroup(label="Contact related crimes")
+                              option Arson
+                              option Malicious damage to property
+                            optgroup(label="Property Related crimes")
+                              option Burglary at non-residential premises
+                              option Burglary at residential premises
+                              option Theft of motor vehicle and motorcycle
+                              option Theft out of or from motor vehicle
+                              option Stock-theft
+                            optgroup(label="Crime detected as a result of police action")
+                              option Illegal possession of firearms and ammunition
+                              option Drug related crime
+                              option Driving under the influence of alcohol or drugs
+                              option Sexual offences as a result of police action
+                            optgroup(label="Other serious crimes")
+                              option All theft not mentioned elsewhere
+                              option Commercial crime
+                              option Shoplifting
+                            optgroup(label="Subcategories of aggravated robbery")
+                              option Carjacking
+                              option Truck hijacking
+                              option Robbery at residential premises
+                              option Robbery at non-residential premises
+                              option Bank robbery
+                              option Robbery of cash in transit
+                            optgroup(label="Other ")
+                              option Culpable homicide
+                              option Public violence
+                              option Crimen injuria
+                              option Neglect and ill-treatment of children
+                              option Kidnapping
+                                              
+                      .form-group
+                        h3.col-sm-12.text-center#header Injured Party (optional)
+                 
+                        label(for="gender").col-sm-2.control-label Gender
+                        .col-sm-4
+                          select#modal-select
+                            option(value="female" name="female") female
+                            option(value="male" name="male") male
+                            option(value="other" name="other") other
+          
+                        label(for="race").col-sm-2.control-label Race
+                        .col-sm-4
+                          input(type="text" name="race") 
                           
                       .form-group
-                          label(for="status").col-sm-2.control-label Status
-                          .col-sm-4
-                            select
-                              option(value="open" name="open").label.label-danger open
-                              option(value="closed" name="closed").label.label-primary closed          
-                      .form-group
-                        .col-sm-7.col-sm-offset-5   
+                        .col-sm-2.col-sm-offset-5   
                           button(type="submit").btn.btn-default Submit
                                                 
           div(role="dialog").modal.fade#detailsModal
