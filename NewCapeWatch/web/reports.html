@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script type="text/javascript" src="js/datepicker.js"></script>
     <script type="text/javascript" src="js/tableFilter.js"></script>
+    <script type="text/javascript" src="js/reset.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body class="backgroundcolor">
@@ -30,8 +31,8 @@
           <li><a href="profile.html">Profile</a></li>
           <li class="active"><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
-          <li><a href="hotspots.html">Hotspots</a></li>
-          <li><a href="contact.jsp">Contact Us</a></li>
+          <li><a href="../NewCapewatch/web/hotspots.html">Hotspots</a></li>
+          <li><a href="../NewCapewatch/web/contact/jsp">Contact Us</a></li>
         </ul>
       </div>
     </nav>
@@ -54,7 +55,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="table-responsive">
-                <table class="table table-list-search">
+                <table class="table table-list-search" id="reportTable">
                   <thead>
                     <tr>
                       <th>CrimeID</th>
@@ -70,12 +71,12 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>AR1</td>
-                      <td>1</td>
-                      <td>03/15/2017</td>
-                      <td>Athlone</td>
-                      <td>02:21</td>
-                      <td>Carjacking</td>
+                      <td>test</td>
+                      <td>test</td>
+                      <td>test</td>
+                      <td>test</td>
+                      <td>test</td>
+                      <td>test</td>
                       <td> <span class="label label-warning">Open</span></td>
                       <td>
                         <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
@@ -119,7 +120,13 @@
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
                 <div class="modal-body">
-                  <form class="form-horizontal" method="post" action="Fill">
+                  <form class="form-horizontal" method="post" action="#" name="report-form" id="report-form">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="officerID">Officer ID</label>
+                      <div class="col-sm-4">
+                        <input type="text" name="officerID" required="required"/>
+                      </div>
+                    </div>
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="date">Date</label>
                       <div class="col-sm-4">
@@ -135,56 +142,85 @@
                       <div class="col-sm-4">
                         <input type="time" name="time" required="required"/>
                       </div>
-                      <label class="col-sm-2 control-label" for="crimeType">Crime Type</label>
+                      <label class="col-sm-2 control-label" for="status">Status</label>
                       <div class="col-sm-4">
-                        <input type="text" name="crimeType" required="required"/>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="stat">Status</label>
-                      <div class="col-sm-4">
-                        <select name="status">
-                          <option  value="open" >open</option>
-                          <option  value="closed" >closed          </option>
+                        <select id="modal-select">
+                          <option value="open" name="open">open</option>
+                          <option value="closed" name="closed">closed</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-2 control-label" for="race">Race</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="race" required="required"/>
+                      <label class="col-sm-2 control-label" for="crimeType">Crime Type</label>
+                      <div class="col-sm-10">
+                        <select name="crimeType" id="modal-select">
+                          <optgroup label="Contact Crimes (Crimes against the person)">
+                            <option>Murder</option>
+                            <option>Sexual offences</option>
+                            <option>Attempted Murder</option>
+                            <option>Assault with the intent to inflict grievous bodily</option>
+                            <option>Common assault</option>
+                            <option>Common robbery</option>
+                            <option>Robbery with aggravating circumstances</option>
+                          </optgroup>
+                          <optgroup label="Contact related crimes">
+                            <option>Arson</option>
+                            <option>Malicious damage to property</option>
+                          </optgroup>
+                          <optgroup label="Property Related crimes">
+                            <option>Burglary at non-residential premises</option>
+                            <option>Burglary at residential premises</option>
+                            <option>Theft of motor vehicle and motorcycle</option>
+                            <option>Theft out of or from motor vehicle</option>
+                            <option>Stock-theft</option>
+                          </optgroup>
+                          <optgroup label="Crime detected as a result of police action">
+                            <option>Illegal possession of firearms and ammunition</option>
+                            <option>Drug related crime</option>
+                            <option>Driving under the influence of alcohol or drugs</option>
+                            <option>Sexual offences as a result of police action</option>
+                          </optgroup>
+                          <optgroup label="Other serious crimes">
+                            <option>All theft not mentioned elsewhere</option>
+                            <option>Commercial crime</option>
+                            <option>Shoplifting</option>
+                          </optgroup>
+                          <optgroup label="Subcategories of aggravated robbery">
+                            <option>Carjacking</option>
+                            <option>Truck hijacking</option>
+                            <option>Robbery at residential premises</option>
+                            <option>Robbery at non-residential premises</option>
+                            <option>Bank robbery</option>
+                            <option>Robbery of cash in transit</option>
+                          </optgroup>
+                          <optgroup label="Other ">
+                            <option>Culpable homicide</option>
+                            <option>Public violence</option>
+                            <option>Crimen injuria</option>
+                            <option>Neglect and ill-treatment of children</option>
+                            <option>Kidnapping</option>
+                          </optgroup>
+                        </select>
                       </div>
+                    </div>
+                    <div class="form-group">
+                      <h3 class="col-sm-12 text-center" id="header">Injured Party (optional)</h3>
                       <label class="col-sm-2 control-label" for="gender">Gender</label>
                       <div class="col-sm-4">
-                        <select name="gender">
-                          <option  value="male" >Male</option>
-                          <option  value="female" >Female          </option>
+                        <select id="modal-select">
+                          <option value="female" name="female">female</option>
+                          <option value="male" name="male">male</option>
+                          <option value="other" name="other">other</option>
                         </select>
                       </div>
-                    </div>  
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="age">Age</label>
+                      <label class="col-sm-2 control-label" for="race">Race</label>
                       <div class="col-sm-4">
-                        <input type="text" name="age" required="required"/>
+                        <input type="text" name="race"/>
                       </div>
-                      <label class="col-sm-2 control-label" for="crimeID">Crime ID</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="crimeID" required="required"/>
-                      </div>
-                    </div>   
+                    </div>
                     <div class="form-group">
-                      <label class="col-sm-2 control-label" for="reportID">Report ID</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="reportID" required="required"/>
-                      </div>                        
-                      <label class="col-sm-2 control-label" for="userID">User ID</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="userID" required="required"/>
-                      </div>
-                    </div>                      
-                    <div class="form-group">
-                      <div class="col-sm-7 col-sm-offset-5">  
-                        <button class="btn btn-default" type="submit">Submit</button>
+                      <div class="col-sm-2 col-sm-offset-5">  
+                        <button class="btn btn-default" type="submit" onclick="submitForm()">Submit</button>
                       </div>
                     </div>
                   </form>
