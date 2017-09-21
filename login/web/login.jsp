@@ -19,7 +19,7 @@ ResultSet rs = st.executeQuery("SELECT * FROM police_user WHERE email='"+email+"
 
 if(rs.next()){
     if(rs.getString(7).equals(password)){
-        out.println("Welcome" + email);
+        response.sendRedirect("profile.html");
     }
     else{
         out.println("Invalid password");
