@@ -20,6 +20,12 @@ header {
 .navbar {
   border-radius: 0; }
 
+.navbar-brand {
+  padding-right: 0px !important; }
+
+.navbar-text {
+  margin-left: 0px; }
+
 html {
   overflow: auto; }
 

@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : contact
     Created on : 13 Sep 2017, 12:18:09 PM
     Author     : Sydney Twigg
@@ -13,7 +13,7 @@
     String name =  request.getParameter("name");
     String email = request.getParameter("email");
     String message = request.getParameter("message");
-    
+
     if (request.getParameter("submit") != null){
         ContactUs contactUs = new ContactUs();
         contactUs.setMailServerProperties();
@@ -23,7 +23,7 @@
 
         /*if (request.getParameter("name") != null){
             emailBody = "Sender Name: " + name;
-        } 
+        }
         if (request.getParameter("email") != null){
             emailBody = "\nSender Email: " + email;
         }
@@ -57,25 +57,26 @@
     <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid"></div>
       <div class="navbar-header">
-        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html"><img src="images/sheriff.svg" alt="Police logo" id="badge"></a>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html"><img src="images/CapeWatchLogo.png" alt="Police logo" id="badge"></a>
+        <a class="navbar-text" href="index." id="whiteText">Cape Watch</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-links">
         <ul class="nav navbar-nav navbar-right"></ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="profile.html">Profile</a></li>
+          <li><a href="login.jsp">Login</a></li>
+          <li><a href="profile.jsp">Profile</a></li>
           <li><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
-          <li class="active"><a href="contact.html">Contact Us</a></li>
+          <li class="active"><a href="contact.jsp">Contact Us</a></li>
         </ul>
       </div>
     </nav>
-    <section id="contact">     
+    <section id="contact">
       <div class="container">
-        <div class="row">   
-          <div class="about_us"> 
+        <div class="row">
+          <div class="about_us">
             <h1>Contact Us</h1>
             <div class="titleline-icon"></div>
             <p>Send us a message </p>
@@ -104,9 +105,9 @@
                       <button class="btn btn-xl get btn-warning" type="submit" name="submit">Send Message</button>
                     </div>
                   </div>
-                </div>  
-                  
-                  
+                </div>
+
+
               <!--Test
               <%
                 if (null != serverMessage) {
@@ -115,13 +116,13 @@
                 }
 		%>
              -->
-                  
+
               </form>
             </div>
           </div>
           <div class="col-md-4" id="whiteText">
             <p>
-              Xmeagol is a website and software solutions company based in Cape Town, South Africa. Created due to a group project.</p><br>We offer services in: 
+              Xmeagol is a website and software solutions company based in Cape Town, South Africa. Created due to a group project.</p><br>We offer services in:
             <ul>
               <li>Web design</li>
               <li>Web development</li>
