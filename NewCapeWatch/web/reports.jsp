@@ -1,4 +1,13 @@
+<%-- 
+    Document   : reports
+    Created on : 21 Sep 2017, 5:07:29 PM
+    Author     : TINASHE
+--%>
 
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.sql.*"%>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
@@ -29,7 +38,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="login.html">Login</a></li>
           <li><a href="profile.html">Profile</a></li>
-          <li class="active"><a href="reports.html">Reports</a></li>
+          <li class="active"><a href="reports.jsp">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
@@ -56,60 +65,77 @@
             <div class="col-sm-12">
               <div class="table-responsive">
                 <table class="table table-list-search" id="reportTable">
-                  <thead>
-                    <tr>
-                      <th>CrimeID</th>
-                      <th>Posted By:</th>
-                      <th>Date</th>
-                      <th>Location</th>
-                      <th>Time</th>
-                      <th>Crime Type</th>
-                      <th>Status</th>
-                      <th>Details</th>
-                      <th>Delete</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>test</td>
-                      <td>test</td>
-                      <td>test</td>
-                      <td>test</td>
-                      <td>test</td>
-                      <td>test</td>
-                      <td> 
-                        <div class="currentStatus"><span class="label label-warning">Open</span>
-                          <button class="btn btn-default" type="button" name="editButton" id="editButton"><i class="glyphicon glyphicon-pencil"></i></button>
-                        </div>
-                      </td>
-                      <td>
-                        <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
-                      </td>
-                      <td> 
-                        <button class="btn btn-danger btn-xs" type="button" name="delete"> <span class="glyphicon glyphicon-remove"></span></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>test</td>
-                      <td>test</td>
-                      <td>test</td>
-                      <td>test</td>
-                      <td>test</td>
-                      <td>test</td>
-                      <td> 
-                        <div class="currentStatus"><span class="label label-primary">closed</span>
-                          <button class="btn btn-default" type="button" name="editButton" id="editButton"><i class="glyphicon glyphicon-pencil"></i></button>
-                        </div>
-                      </td>
-                      <td>
-                        <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
-                      </td>
-                      <td> 
-                        <button class="btn btn-danger btn-xs" type="button" name="delete"> <span class="glyphicon glyphicon-remove"></span></button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                    <%
+                        try{
+                            Class.forName("com.mysql.jdbc.Driver").newInstance();
+                            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/capewatchdb", "root", "");
+                            String q = "SELECT * FROM crime_case";
+                            Statement st = conn.createStatement();
+                            ResultSet rs = st.executeQuery(q);
+                            
+                            String crimeID = "";
+                            String postedBy= "";
+                            String date= "";
+                            String location= "";
+                            String time= "";
+                            String crimeType= "";
+                            String status= "";
+                            
+                            while (rs.next()){
+                                crimeID = rs.getString(2);
+                                postedBy = rs.getString(3);
+                                date = rs.getString(4);
+                                location = rs.getString(5);
+                                time = rs.getString(6);
+                                crimeType = rs.getString(7);
+                                status = rs.getString(8);
+                            }
+                        
+                    %>
+
+                        <thead>
+                        <tr>
+                            <th>CrimeID</th>
+                            <th>Posted By:</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Time</th>
+                            <th>Crime Type</th>
+                            <th>Status</th>
+                            <th>Details</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td> <% out.println(crimeID);%></td>
+                            <td><% out.println(postedBy); %>; </td>
+                            <td><% out.println(date); %></td>
+                            <td><% out.println(location); %></td>
+                            <td> <% out.println(time); %></td>
+                            <td> <% out.println(crimeType); %></td>
+                            <td> 
+                            <div class="currentStatus"><span class="label label-warning"><% out.println(status); %></span>
+                                <button class="btn btn-default" type="button" name="editButton" id="editButton"><i class="glyphicon glyphicon-pencil"></i></button>
+                            </div>
+                            </td>
+                            <td>
+                                <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
+                            </td>
+                            <td> 
+                                <button class="btn btn-danger btn-xs" type="button" name="delete"> <span class="glyphicon glyphicon-remove"></span></button>
+                            </td>
+                        </tr>
+                    
+                        </tbody>
+                        <%
+                        }
+                        
+                        catch(Exception e){
+                            System.out.println(e);
+                        }
+                        %>                        
+                    </table>
               </div>
             </div>
           </div>
