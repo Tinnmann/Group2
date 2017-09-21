@@ -201,6 +201,9 @@ select {
 .detailsLabel {
   margin-left: 10px; }
 
+#editButton {
+  border: none; }
+
 .contactUS {
   margin-bottom: 20px; }
 

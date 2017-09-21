@@ -7,6 +7,7 @@ html(lang="en")
     script(type="text/javascript" src="js/datepicker.js")
     script(type="text/javascript" src="js/tableFilter.js")
     script(type="text/javascript" src="js/reset.js")
+    script(type="text/javascript" src="js/displayButton.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
 
   body.backgroundcolor
@@ -65,7 +66,10 @@ html(lang="en")
                       td test
                       td test
                       td 
-                        span.label.label-warning Open
+                        .currentStatus
+                          span.label.label-warning Open
+                          button(type = "button" name="editButton").btn.btn-default#editButton
+                            i.glyphicon.glyphicon-pencil
                       td
                         button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
                           span.glyphicon.glyphicon-zoom-in
@@ -82,7 +86,10 @@ html(lang="en")
                       td test
                       td test
                       td 
-                        span.label.label-primary closed
+                        .currentStatus
+                          span.label.label-primary closed
+                          button(type = "button" name="editButton").btn.btn-default#editButton
+                            i.glyphicon.glyphicon-pencil
                       td
                           button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
                             span.glyphicon.glyphicon-zoom-in
