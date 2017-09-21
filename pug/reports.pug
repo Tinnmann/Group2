@@ -23,9 +23,9 @@ html(lang="en")
         li
           a(href="stats.html") Statistics
         li
-          a(href="../NewCapewatch/web/hotspots.html") Hotspots
+          a(href="hotspots.html") Hotspots
         li
-          a(href="../NewCapewatch/web/contact/jsp") Contact Us
+          a(href="contact.jsp") Contact Us
           
   .container 
     .row
@@ -115,8 +115,7 @@ html(lang="en")
                         label(for="date").col-sm-2.control-label Date
                         .col-sm-4
                           input(id="date" name="date" placeholder="MM/DD/YYYY" type="text" data-date-end-date="0d" required)
-                        
-                      
+                            
                         label(for="location").col-sm-2.control-label Location
                         .col-sm-4
                           input(type="text" name="location" required)
@@ -217,7 +216,7 @@ html(lang="en")
                   .row
                     .col-sm-6
                       label.control-label Injured party age:
-                      label(for="time" name="time").detailsLabel test
+                      label(for="time" name="time" min="0" max="100").detailsLabel test
                     .col-sm-6
                       label.control-label Injured party race:
                       label(for="time" name="time").detailsLabel test

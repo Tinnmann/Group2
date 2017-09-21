@@ -14,7 +14,7 @@ html(lang="en")
         li
           a(href="login.html") Login
         li
-          a(href="profile.html") Profile
+          a(href="profile.jsp") Profile
         li
           a(href="reports.html") Reports
         li
@@ -22,7 +22,7 @@ html(lang="en")
         li.active
           a(href="hotspots.html") Hotspots
         li
-          a(href="contact.html") Contact Us
+          a(href="contact.jsp") Contact Us
     
     h1.text-center#bold-h1 HOTSPOTS
     h3.text-center#white-H3 CRIME HOTSPOTS OF THE GREATER CAPE TOWN AREA
@@ -40,3 +40,7 @@ html(lang="en")
             script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&callback=initMap"
             type="text/javascript")
         
+      .row
+        a(href="relatedCrimes.html").btn.btn-warning#yellow
+          |Related Crimes  
+          i.glyphicon.glyphicon-share-alt

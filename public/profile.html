@@ -24,8 +24,8 @@
           <li class="active"><a href="profile.html">Profile</a></li>
           <li><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
-          <li><a href="../NewCapewatch/web/hotspots.html">Hotspots</a></li>
-          <li><a href="../NewCapeWatch/web/contact.jsp">Contact Us</a></li>
+          <li><a href="hotspots.html">Hotspots</a></li>
+          <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
       </div>
     </nav>
@@ -68,19 +68,30 @@
                       <div class="modal-body">
                         <form class="form-horizontal" method="post" action="updateProfile.php">
                             <div class="form-group">
-                                  <label class="col-sm-2 control-label" for="date">Name</label>
+                                  <label class="col-sm-2 control-label" for="name">Name</label>
                                   <div class="col-sm-4">
-                                    <input name="name" placeholder="<?php print_r($name)?>" type="text"/>
+                                    <input name="name" placeholder="" type="text"/>
                                   </div>
-                                  <label class="col-sm-2 control-label" for="location">Surname</label>
+                                  <label class="col-sm-2 control-label" for="surname">Surname</label>
                                   <div class="col-sm-4">
-                                    <input name="surname" placeholder="<?php print_r($surname)?>" type="text"/>
+                                    <input name="surname" placeholder="" type="text"/>
                                   </div>
                             </div>
                             <div class="form-group">
+                                  <label class="col-sm-2 control-label" for="password">New Password</label>
+                                  <div class="col-sm-4">
+                                    <input name="password" placeholder="" type="password"/>
+                                  </div>
+                                  <label class="col-sm-2 control-label" for="location">Re-enter Password</label>
+                                  <div class="col-sm-4">
+                                    <input name="password" placeholder="" type="password"/>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
                                   <label class="col-sm-2 control-label" for="time">Email</label>
                                   <div class="col-sm-4">
-                                    <input type="email" placeholder="<?php print_r($email)?>" name="email"/>
+                                    <input type="email" placeholder="" name="email"/>
                                   </div>
                                   <label class="col-sm-2 control-label" for="crimeType">Division</label>
                                   <div class="col-sm-4">
@@ -149,7 +160,7 @@
                             <h4 style="color: #9D0D0D">Reports</h4>
                           </div>
                             <p class="card-text">Go to the <b>Reports</b> page to view reports or file a new case report</p>
-                            <a href="reports.html" class="btn btn-danger">Reports  <i class="glyphicon glyphicon-share-alt"></i></a>
+                            <a href="reports.html" class="btn btn-danger" style="margin-left: 39px">Reports  <i class="glyphicon glyphicon-share-alt"></i></a>
 
                         </div>
                     </div>
@@ -161,7 +172,7 @@
                             <h4 style="color: #9D0D0D">Statistics</h4>
                           </div>
                             <p class="card-text">View the current <b>crime statistics</b> of the greater Cape Town area</p>
-                            <a href="stats.html" class="btn btn-danger">Statistics  <i class="glyphicon glyphicon-share-alt"></i></a>
+                            <a href="stats.html" class="btn btn-danger" style="margin-left: 39px">Statistics  <i class="glyphicon glyphicon-share-alt"></i></a>
                         </div>
                     </div>
 
@@ -172,7 +183,7 @@
                             <h4 style="color: #9D0D0D">Hotspots</h4>
                           </div>
                             <p class="card-text">View the latest crime rates per area on the <b>hotspots</b> page</p>
-                            <a href="hotspots.html" class="btn btn-danger">Hotspots  <i class="glyphicon glyphicon-share-alt"></i></a>
+                            <a href="hotspots.html" class="btn btn-danger" style="margin-left: 39px">Hotspots  <i class="glyphicon glyphicon-share-alt"></i></a>
                         </div>
                     </div>
 
@@ -183,7 +194,7 @@
                             <h4 style="color: #9D0D0D">Contact Us</h4>
                           </div>
                             <p class="card-text"> Visit the <b>contact us</b> page to get in touch with the developers</p>
-                            <a href="contact.html" class="btn btn-danger">Contact Us  <i class="glyphicon glyphicon-share-alt"></i></a>
+                            <a href="contact.html" class="btn btn-danger" style="margin-left: 35px">Contact Us  <i class="glyphicon glyphicon-share-alt"></i></a>
                         </div>
                     </div>
 

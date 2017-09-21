@@ -1,0 +1,49 @@
+html(lang="en")
+  head
+    include includes/head.pug
+    
+    
+  body.image-background
+    include includes/nav.pug
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="index.html") Home
+        li.active
+          a(href="login.html") Login
+        li
+          a(href="profile.jsp") Profile
+        li
+          a(href="reports.html") Reports
+        li
+          a(href="stats.html") Statistics
+        li
+          a(href="hotspots.html") Hotspots
+        li
+          a(href="contact.jsp") Contact Us
+      
+    .container
+      
+      .login-div                    
+        .text-center
+          h4#forgot Forgot Password
+          
+          h5#subtext Please enter your e-mail and Officer ID 
+          
+          .login-form-1
+            form(id="login-form").text-left
+              .login-form-main-message
+              .main-login-form
+                .login-group
+                
+                  .form-group
+                  
+                    input(type="email" placeholder="Email" name="email").form-control#lg_email
+                  
+                  .form-group
+                  
+                    input(type="text" placeholder="Officer ID" name="officerID").form-control#lg_password
+                    
+                button(type="submit" name="submit").login-button
+                  i.glyphicon.glyphicon-chevron-right
+
+                  

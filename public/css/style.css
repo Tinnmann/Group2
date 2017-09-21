@@ -159,6 +159,14 @@ h2 {
 .login-form-1 .login-button.clicked.error {
   color: #e74c3c; }
 
+#forgot {
+  margin-bottom: 15px; }
+
+#subtext {
+  color: white;
+  margin-bottom: 25px;
+  font-family: 'Open Sans', sans-serif; }
+
 .main-login {
   background-color: #fff;
   -moz-border-radius: 10px;
@@ -226,24 +234,24 @@ section#contact .form-control:focus {
 section#contact ::-webkit-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: #eeeeee; }
+  color: #686a6d; }
 
 section#contact :-moz-placeholder {
   /* Firefox 18- */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: #eeeeee; }
+  color: #686a6d; }
 
 section#contact ::-moz-placeholder {
   /* Firefox 19+ */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: #eeeeee; }
+  color: #686a6d; }
 
 section#contact :-ms-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: #eeeeee; }
+  color: #686a6d; }
 
 section#contact .text-danger {
   color: #e74c3c; }
@@ -314,6 +322,11 @@ section#contact .text-danger {
 .row {
   margin-right: 0;
   margin-left: 0; }
+
+#yellow {
+  background-color: #101010;
+  border-color: black;
+  margin-top: 20px; }
 
 .container-fluid {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1));
