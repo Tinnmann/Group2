@@ -7,6 +7,7 @@ html(lang="en")
     script(type="text/javascript" src="js/datepicker.js")
     script(type="text/javascript" src="js/tableFilter.js")
     script(type="text/javascript" src="js/reset.js")
+    script(type="text/javascript" src="js/addVictim.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
 
   body.backgroundcolor
@@ -25,6 +26,8 @@ html(lang="en")
         li
           a(href="hotspots.html") Hotspots
         li
+          a(href="relatedCrimes.html") Hotspots
+        li
           a(href="contact.jsp") Contact Us
           
   .container 
@@ -40,67 +43,65 @@ html(lang="en")
                   span.input-group-btn
                     button(type="submit").btn.btn-default
                       i.glyphicon.glyphicon-search
-            
-          .row
-            .col-sm-12
-              .table-responsive
-                table.table.table-list-search#reportTable
-                  thead
-                    tr
-                      th CrimeID
-                      th Posted By:
-                      th Date
-                      th Location
-                      th Time
-                      th Crime Type
-                      th Status
-                      th Details
-                      th Delete
-                  tbody
-                    tr
-                      td test
-                      td test
-                      td test
-                      td test
-                      td test
-                      td test
-                      td 
-                        .currentStatus
-                          span.label.label-warning Open
-                          button(type = "button" name="editButton").btn.btn-default#editButton
-                            i.glyphicon.glyphicon-pencil
-                      td
-                        button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
-                          span.glyphicon.glyphicon-zoom-in
-                      td 
-                        button(type="button" name="delete").btn.btn-danger.btn-xs 
-                          span.glyphicon.glyphicon-remove
-                        
-                        
-                    tr
-                      td test
-                      td test
-                      td test
-                      td test
-                      td test
-                      td test
-                      td 
-                        .currentStatus
-                          span.label.label-primary closed
-                          button(type = "button" name="editButton").btn.btn-default#editButton
-                            i.glyphicon.glyphicon-pencil
-                      td
+          
+          .span3  
+            .row
+              .col-sm-12
+                .table-responsive
+                  table.table.table-list-search#reportTable
+                    thead
+                      tr
+                        th CrimeID
+                        th Posted By:
+                        th Date
+                        th Location
+                        th Time
+                        th Crime Type
+                        th Status
+                        th Details
+                        th Delete
+                    tbody
+                      tr
+                        td test
+                        td test
+                        td test
+                        td test
+                        td test
+                        td test
+                        td 
+                          .currentStatus
+                            span.label.label-warning Open
+                            button(type = "button" name="editButton" data-toggle="modal" data-target="#editModal").btn.btn-default#editButton
+                              i.glyphicon.glyphicon-pencil
+                        td
                           button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
                             span.glyphicon.glyphicon-zoom-in
-                      td 
-                        button(type="button" name="delete").btn.btn-danger.btn-xs 
-                          span.glyphicon.glyphicon-remove
+                        td 
+                          button(type="button" name="delete").btn.btn-danger.btn-xs 
+                            span.glyphicon.glyphicon-remove
+                          
+                          
+                      tr
+                        td test
+                        td test
+                        td test
+                        td test
+                        td test
+                        td test
+                        td 
+                          .currentStatus
+                            span.label.label-primary closed
+                            button(type = "button" name="editButton" data-toggle="modal" data-target="#editModal").btn.btn-default#editButton
+                              i.glyphicon.glyphicon-pencil
+                        td
+                            button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
+                              span.glyphicon.glyphicon-zoom-in
+                        td 
+                          button(type="button" name="delete").btn.btn-danger.btn-xs 
+                            span.glyphicon.glyphicon-remove
           .row
             .col-sm-3
               button(type="button" data-toggle="modal" data-target="#myModal").btn.btn-info submit a Report 
-            .col-sm-2.col-sm-offset-7
-              button(type="button" data-toggle="modal" data-target="#uploadModal").btn.btn-info upload a file
-            
               
           div(role="dialog").modal.fade#myModal
             .modal-dialog
@@ -124,8 +125,66 @@ html(lang="en")
                             
                         label(for="location").col-sm-2.control-label Location
                         .col-sm-4
-                          input(type="text" name="location" required)
-                          
+                          select(name="location" required)#modal-select
+                            option Athlone
+                            option Belhar
+                            option Bellville
+                            option Bellville South
+                            option Bishop Lavis
+                            option Bothasig
+                            option Brackenfell
+                            option Camps Bay
+                            option Cape Town Central
+                            option Cape Town Central
+                            option Claremont
+                            option Delft
+                            option Diep Rivier
+                            option Durbanville
+                            option Elsies River
+                            option Fish Hoek
+                            option Goodwood
+                            option Grassy Park
+                            option Gugulethu
+                            option Harare
+                            option Hout Bay
+                            option Kensington
+                            option Khayelitsha
+                            option Kirstenhof
+                            option Kleinvlei
+                            option Kraaifontein
+                            option Kuils Rivier
+                            option Langa
+                            option Lansdowne
+                            option Lingelethu-West
+                            option Macassar
+                            option Maitland
+                            option Manenberg
+                            option Mfuleni
+                            option Milnerton
+                            option Mitchells Plain
+                            option Mowbray
+                            option Muizenberg
+                            option Nyanga
+                            option Ocean View
+                            option Parow
+                            option Philippi
+                            option Philippi East
+                            option Pinelands
+                            option Ravensmead
+                            option Rondebosch
+                            option Sea Point
+                            option Simon’s Town
+                            option Somerset West
+                            option Somerset West
+                            option Steenberg
+                            option Stellenbosch
+                            option Strand
+                            option Strandfontein
+                            option Table Bay Harbour
+                            option Table View
+                            option Woodstock
+                            option Wynberg
+                        
                       .form-group
                         label(for="time").col-sm-2.control-label Time
                         .col-sm-4
@@ -145,7 +204,7 @@ html(lang="en")
                               option Murder
                               option Sexual offences
                               option Attempted Murder
-                              option Assault with the intent to inflict grievous bodily
+                              option Assault with the intent to inflict grievous bodily harm
                               option Common assault
                               option Common robbery
                               option Robbery with aggravating circumstances
@@ -182,7 +241,7 @@ html(lang="en")
                               option Kidnapping
                                               
                       .form-group
-                        h3.col-sm-12.text-center#header Injured Party (optional)
+                        h3.col-sm-12.text-center#header2 Injured Party (optional)
                  
                         label(for="gender").col-sm-2.control-label Gender
                         .col-sm-4
@@ -199,6 +258,34 @@ html(lang="en")
                         .col-sm-4
                           input(type="number" name="age") 
                           
+                      .form-group
+                        label.btn#button-toggle
+                          i(aria-hidden="true").glyphicon.glyphicon-plus#icon-padding
+                          |Add Injured Party
+                          
+                      div#victim-menu
+                        .form-group
+                          label(for="gender").col-sm-2.control-label Gender
+                          .col-sm-4
+                            select#modal-select
+                              option(value="female" name="female") female
+                              option(value="male" name="male") male
+                              option(value="other" name="other") other
+            
+                          label(for="race").col-sm-2.control-label Race
+                          .col-sm-4
+                            input(type="text" name="race") 
+                            
+                        .form-group
+                          label(for="age").col-sm-2.control-label Age 
+                          .col-sm-4
+                            input(type="number" name="age") 
+                                
+                        .form-group
+                          label.btn#button-toggle
+                            i(aria-hidden="true").glyphicon.glyphicon-plus#icon-padding
+                            |Add Injured Party
+                            
                       .form-group
                         .col-sm-2.col-sm-offset-5   
                           button(type="submit" onclick="submitForm()").btn.btn-default Submit
@@ -245,22 +332,24 @@ html(lang="en")
                 .modal-footer
                   button(type="button" data-dismiss="modal"  role="button").btn.btn-default Close
                     
-          div(role="dialog").modal.fade#uploadModal
+          div(role="dialog").modal.fade#editModal
             .modal-dialog
               .modal-content
-                .modal-header.text-center#header Select a file from your computer
+                .modal-header.text-center#header Edit Status
                   button(type="button" data-dismiss="modal").close &times
                   
                 .modal-body
-                  form(action="" method="post" enctype="multipart/form-data" id="js-upload-form")
-                    .form-inline
+                  form(action="" method="post" name="Status-form")
+                    .row
                       .form-group
+                        label(for="status").col-sm-2.control-label.status-font Status
                         .col-sm-4
-                          input(type="file" name="file")
-                      .form-group
-                        .col-sm-4
-                          button(type="submit" id="js-upload-submit").btn.btn-sm.btn-primary Upload files
-                
+                          select#modal-select
+                            option(value="open" name="open") open
+                            option(value="closed" name="closed") closed
+                            
+                        .col-sm-2.col-sm-offset-2
+                            button(type="submit" onclick="submitForm()").btn.btn-default Submit
       
                     
                   

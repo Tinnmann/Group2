@@ -9,10 +9,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src="particles.js-master/demo/js/app.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
   </head>
-  <body class="hotspots-background">
+  <body class="image-background">
     <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid"></div>
       <div class="navbar-header">
@@ -22,33 +20,37 @@
         <ul class="nav navbar-nav navbar-right"></ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="profile.jsp">Profile</a></li>
+          <li class="active"><a href="login.html">Login</a></li>
+          <li><a href="profile.html">Profile</a></li>
           <li><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
-          <li class="active"><a href="hotspots.html">Hotspots</a></li>
+          <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
       </div>
     </nav>
-    <h1 class="text-center" id="bold-h1">HOTSPOTS</h1>
-    <h3 class="text-center" id="white-H3">CRIME HOTSPOTS OF THE GREATER CAPE TOWN AREA
-      <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
-          <div id="map">
-            <script>
-              function initMap() {
-                var westernCape = {lat: -33.937666, lng: 18.442271};
-                var map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 10,
-                  center: westernCape
-                });          
-              }
-            </script>
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initMap" type="text/javascript"></script>
+    <div class="container">
+      <div class="login-div">
+        <div class="text-center">
+          <h4>Create New Password</h4>
+          <div class="login-form-1">
+            <form class="text-left" id="login-form">
+              <div class="login-form-main-message"></div>
+              <div class="main-login-form">
+                <div class="login-group">
+                  <div class="form-group">
+                    <input class="form-control" type="password" placeholder="New Password" name="password">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="password" placeholder="Re-enter Password" name="password">
+                  </div>
+                </div>
+                <button class="login-button" type="submit" name="submit"><i class="glyphicon glyphicon-chevron-right"></i></button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </h3>
+    </div>
   </body>
 </html>

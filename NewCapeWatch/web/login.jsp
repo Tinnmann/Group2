@@ -84,6 +84,7 @@ if(rs.next()){
           <li><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
+          <li><a href="relatedCrimes.html">Related Crimes</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
       </div>

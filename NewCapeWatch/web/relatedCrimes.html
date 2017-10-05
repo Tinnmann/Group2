@@ -12,7 +12,7 @@
     <script src="particles.js-master/demo/js/app.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
   </head>
-  <body class="hotspots-background">
+  <body class="related-background">
     <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid"></div>
       <div class="navbar-header">
@@ -26,13 +26,14 @@
           <li><a href="profile.jsp">Profile</a></li>
           <li><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
-          <li class="active"><a href="hotspots.html">Hotspots</a></li>
+          <li><a href="hotspots.html">Hotspots</a></li>
+          <li class="active"><a href="relatedCrimes.html">Related Crimes</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
       </div>
     </nav>
-    <h1 class="text-center" id="bold-h1">HOTSPOTS</h1>
-    <h3 class="text-center" id="white-H3">CRIME HOTSPOTS OF THE GREATER CAPE TOWN AREA
+    <h1 class="text-center open-sans" id="whiteText" style="text-shadow: 1px 1px 5px #66b3ff; padding-bottom: 0px">Related Crimes </h1>
+    <h3 class="text-center" id="whiteText" style="margin-top: 0px; font-family: 'Jura', sans-serif">for the Greater Cape Town Area
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
           <div id="map">
@@ -42,7 +43,7 @@
                 var map = new google.maps.Map(document.getElementById('map'), {
                   zoom: 10,
                   center: westernCape
-                });          
+                });
               }
             </script>
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initMap" type="text/javascript"></script>

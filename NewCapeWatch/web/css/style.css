@@ -20,6 +20,12 @@ header {
 .navbar {
   border-radius: 0; }
 
+.navbar-brand {
+  padding-right: 0px !important; }
+
+.navbar-text {
+  margin-left: 0px; }
+
 html {
   overflow: auto; }
 
@@ -62,6 +68,10 @@ h2 {
 #header {
   font-size: 20px;
   font-weight: bold; }
+
+#header2 {
+  font-size: 16px;
+  margin-bottom: 18px; }
 
 .navbar {
   margin-bottom: 0; }
@@ -159,6 +169,14 @@ h2 {
 .login-form-1 .login-button.clicked.error {
   color: #e74c3c; }
 
+#forgot {
+  margin-bottom: 15px; }
+
+#subtext {
+  color: white;
+  margin-bottom: 25px;
+  font-family: 'Open Sans', sans-serif; }
+
 .main-login {
   background-color: #fff;
   -moz-border-radius: 10px;
@@ -170,6 +188,19 @@ h2 {
   padding-left: 15px;
   padding-right: 15px; }
 
+select {
+  height: 40px;
+  width: 420px; }
+
+@media all and (max-width: 600px) {
+  select {
+    width: 420px;
+    max-width: 100%; } }
+
+#modal-select {
+  height: 40px;
+  width: 100%; }
+
 #system-search {
   height: 28px; }
 
@@ -179,6 +210,22 @@ h2 {
 
 .detailsLabel {
   margin-left: 10px; }
+
+#editButton {
+  border: none; }
+
+.status-font {
+  margin-top: 7px; }
+
+.span3 {
+  height: 100% auto !important;
+  overflow: scroll; }
+
+#icon-padding {
+  padding-right: 8px; }
+
+#victim-menu {
+  display: none; }
 
 .contactUS {
   margin-bottom: 20px; }
@@ -213,24 +260,24 @@ section#contact .form-control:focus {
 section#contact ::-webkit-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: #eeeeee; }
+  color: #686a6d; }
 
 section#contact :-moz-placeholder {
   /* Firefox 18- */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: #eeeeee; }
+  color: #686a6d; }
 
 section#contact ::-moz-placeholder {
   /* Firefox 19+ */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: #eeeeee; }
+  color: #686a6d; }
 
 section#contact :-ms-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: #eeeeee; }
+  color: #686a6d; }
 
 section#contact .text-danger {
   color: #e74c3c; }
@@ -282,7 +329,7 @@ section#contact .text-danger {
 #bold-h1 {
   font-weight: bold;
   font-size: 35px;
-  margin-top: 20px;
+  margin-top: 0;
   color: #ddd226;
   font-family: 'Jura', sans-serif;
   text-shadow: 2px 2px 8px #000000; }
@@ -302,6 +349,11 @@ section#contact .text-danger {
   margin-right: 0;
   margin-left: 0; }
 
+#yellow {
+  background-color: #101010;
+  border-color: black;
+  margin-top: 20px; }
+
 .container-fluid {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1));
   padding: 0; }
@@ -311,10 +363,6 @@ section#contact .text-danger {
   filter: grayscale(70%);
   background-position: center;
   background-size: cover;
-  width: 100%;
-  height: 300px; }
-
-#particles-js {
   width: 100%;
   height: 300px; }
 
@@ -362,6 +410,14 @@ section#contact .text-danger {
 
 #filter-menu {
   display: none; }
+
+.related-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 89, 179, 0.3)),url(../images/crimeScene.jpg);
+  background-size: cover;
+  height: 100vh; }
+
+.open-sans {
+  font-family: 'Open Sans', sans-serif; }
 
 #footer2 {
   background: #101010;
