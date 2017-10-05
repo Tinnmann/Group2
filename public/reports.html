@@ -33,7 +33,7 @@
           <li class="active"><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
-          <li><a href="relatedCrimes.html">Hotspots</a></li>
+          <li><a href="relatedCrimes.html">Related Crime</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
       </div>
@@ -273,52 +273,36 @@
                     </div>
                     <div class="form-group">
                       <h3 class="col-sm-12 text-center" id="header2">Injured Party (optional)</h3>
-                      <label class="col-sm-2 control-label" for="gender">Gender</label>
-                      <div class="col-sm-4">
-                        <select id="modal-select">
-                          <option value="female" name="female">female</option>
-                          <option value="male" name="male">male</option>
-                          <option value="other" name="other">other</option>
-                        </select>
-                      </div>
-                      <label class="col-sm-2 control-label" for="race">Race</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="race"/>
-                      </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-2 control-label" for="age">Age </label>
-                      <div class="col-sm-4">
-                        <input type="number" name="age"/>
+                      <input type="hidden" name="counter" value="1"/>
+                      <div id="victim-menu">
+                        <div id="victim">
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label" for="gender">Gender</label>
+                            <div class="col-sm-4">
+                              <select id="modal-select">
+                                <option value="female" name="female">female</option>
+                                <option value="male" name="male">male</option>
+                                <option value="other" name="other">other</option>
+                              </select>
+                            </div>
+                            <label class="col-sm-2 control-label" for="race">Race</label>
+                            <div class="col-sm-4">
+                              <input type="text" name="race"/>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label" for="age">Age </label>
+                            <div class="col-sm-4">
+                              <input type="number" name="age"/>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="btn" id="button-toggle"><i class="glyphicon glyphicon-plus" aria-hidden="true" id="icon-padding"></i>Add Injured Party</label>
-                    </div>
-                    <div id="victim-menu">
-                      <div class="form-group">
-                        <label class="col-sm-2 control-label" for="gender">Gender</label>
-                        <div class="col-sm-4">
-                          <select id="modal-select">
-                            <option value="female" name="female">female</option>
-                            <option value="male" name="male">male</option>
-                            <option value="other" name="other">other</option>
-                          </select>
-                        </div>
-                        <label class="col-sm-2 control-label" for="race">Race</label>
-                        <div class="col-sm-4">
-                          <input type="text" name="race"/>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-sm-2 control-label" for="age">Age </label>
-                        <div class="col-sm-4">
-                          <input type="number" name="age"/>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="btn" id="button-toggle"><i class="glyphicon glyphicon-plus" aria-hidden="true" id="icon-padding"></i>Add Injured Party</label>
-                      </div>
                     </div>
                     <div class="form-group">
                       <div class="col-sm-2 col-sm-offset-5">  

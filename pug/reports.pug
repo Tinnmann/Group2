@@ -26,7 +26,7 @@ html(lang="en")
         li
           a(href="hotspots.html") Hotspots
         li
-          a(href="relatedCrimes.html") Hotspots
+          a(href="relatedCrimes.html") Related Crime
         li
           a(href="contact.jsp") Contact Us
           
@@ -242,50 +242,32 @@ html(lang="en")
                                               
                       .form-group
                         h3.col-sm-12.text-center#header2 Injured Party (optional)
-                 
-                        label(for="gender").col-sm-2.control-label Gender
-                        .col-sm-4
-                          select#modal-select
-                            option(value="female" name="female") female
-                            option(value="male" name="male") male
-                            option(value="other" name="other") other
-          
-                        label(for="race").col-sm-2.control-label Race
-                        .col-sm-4
-                          input(type="text" name="race") 
+                                  
                       .form-group
-                        label(for="age").col-sm-2.control-label Age 
-                        .col-sm-4
-                          input(type="number" name="age") 
-                          
+                        input(type="hidden" name="counter" value="1")
+                        #victim-menu
+                          #victim
+                            .form-group
+                              label(for="gender").col-sm-2.control-label Gender
+                              .col-sm-4
+                                select#modal-select
+                                  option(value="female" name="female") female
+                                  option(value="male" name="male") male
+                                  option(value="other" name="other") other
+                
+                              label(for="race").col-sm-2.control-label Race
+                              .col-sm-4
+                                input(type="text" name="race") 
+                            .form-group
+                              label(for="age").col-sm-2.control-label Age 
+                              .col-sm-4
+                                input(type="number" name="age") 
+                      
                       .form-group
                         label.btn#button-toggle
                           i(aria-hidden="true").glyphicon.glyphicon-plus#icon-padding
                           |Add Injured Party
                           
-                      div#victim-menu
-                        .form-group
-                          label(for="gender").col-sm-2.control-label Gender
-                          .col-sm-4
-                            select#modal-select
-                              option(value="female" name="female") female
-                              option(value="male" name="male") male
-                              option(value="other" name="other") other
-            
-                          label(for="race").col-sm-2.control-label Race
-                          .col-sm-4
-                            input(type="text" name="race") 
-                            
-                        .form-group
-                          label(for="age").col-sm-2.control-label Age 
-                          .col-sm-4
-                            input(type="number" name="age") 
-                                
-                        .form-group
-                          label.btn#button-toggle
-                            i(aria-hidden="true").glyphicon.glyphicon-plus#icon-padding
-                            |Add Injured Party
-                            
                       .form-group
                         .col-sm-2.col-sm-offset-5   
                           button(type="submit" onclick="submitForm()").btn.btn-default Submit

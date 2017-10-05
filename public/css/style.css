@@ -224,9 +224,6 @@ select {
 #icon-padding {
   padding-right: 8px; }
 
-#victim-menu {
-  display: none; }
-
 .contactUS {
   margin-bottom: 20px; }
 
@@ -329,9 +326,9 @@ section#contact .text-danger {
 #bold-h1 {
   font-weight: bold;
   font-size: 35px;
-  margin-top: 0;
+  margin-top: 20px;
   color: #ddd226;
-  font-family: 'Jura', sans-serif;
+  font-family: 'Open sans', sans-serif;
   text-shadow: 2px 2px 8px #000000; }
 
 #white-H3 {
