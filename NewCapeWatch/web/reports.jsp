@@ -1,6 +1,6 @@
 <%-- 
     Document   : reports
-    Created on : 21 Sep 2017, 5:07:29 PM
+    Created on : 06 Oct 2017, 1:05:07 PM
     Author     : TINASHE
 --%>
 
@@ -8,6 +8,7 @@
 <%@page import="java.sql.*"%>
 <%@page import="javax.sql.*"%>
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
@@ -24,6 +25,7 @@
     <script type="text/javascript" src="js/datepicker.js"></script>
     <script type="text/javascript" src="js/tableFilter.js"></script>
     <script type="text/javascript" src="js/reset.js"></script>
+    <script type="text/javascript" src="js/addVictim.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body class="backgroundcolor">
@@ -38,9 +40,10 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="login.html">Login</a></li>
           <li><a href="profile.html">Profile</a></li>
-          <li class="active"><a href="reports.jsp">Reports</a></li>
+          <li class="active"><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
+          <li><a href="relatedCrimes.html">Related Crime</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
       </div>
@@ -61,11 +64,12 @@
               </form>
             </div>
           </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="table-responsive">
-                <table class="table table-list-search" id="reportTable">
-                    <%
+          <div class="span3"> 
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="table-responsive">
+                  <table class="table table-list-search" id="reportTable">
+                            <%
                         try{
                             Class.forName("com.mysql.jdbc.Driver").newInstance();
                             Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/capewatchdb", "root", "");
@@ -81,6 +85,8 @@
                             String crimeType= "";
                             String status= "";
                             
+                            out.println("<tr><th>CrimeID</th><th>Posted By:</th><th>Date</th><th>Location</th><th>Time</th><th>Crime Type</th><th>Status</th><th>Details</th><th>Delete</th><tr>");
+                            
                             while (rs.next()){
                                 crimeID = rs.getString(2);
                                 postedBy = rs.getString(3);
@@ -89,45 +95,12 @@
                                 time = rs.getString(6);
                                 crimeType = rs.getString(7);
                                 status = rs.getString(8);
+                                out.println("<tr><td>" + crimeID + "</td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-warning'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td><td>"+" <button class='btn btn-danger btn-xs' type='button' name='delete'> <span class='glyphicon glyphicon-remove'></span></button></td></tr>"); 
                             }
                         
                     %>
 
-                        <thead>
-                        <tr>
-                            <th>CrimeID</th>
-                            <th>Posted By:</th>
-                            <th>Date</th>
-                            <th>Location</th>
-                            <th>Time</th>
-                            <th>Crime Type</th>
-                            <th>Status</th>
-                            <th>Details</th>
-                            <th>Delete</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td> <% out.println(crimeID);%></td>
-                            <td><% out.println(postedBy); %>; </td>
-                            <td><% out.println(date); %></td>
-                            <td><% out.println(location); %></td>
-                            <td> <% out.println(time); %></td>
-                            <td> <% out.println(crimeType); %></td>
-                            <td> 
-                            <div class="currentStatus"><span class="label label-warning"><% out.println(status); %></span>
-                                <button class="btn btn-default" type="button" name="editButton" id="editButton"><i class="glyphicon glyphicon-pencil"></i></button>
-                            </div>
-                            </td>
-                            <td>
-                                <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
-                            </td>
-                            <td> 
-                                <button class="btn btn-danger btn-xs" type="button" name="delete"> <span class="glyphicon glyphicon-remove"></span></button>
-                            </td>
-                        </tr>
-                    
-                        </tbody>
+
                         <%
                         }
                         
@@ -135,16 +108,14 @@
                             System.out.println(e);
                         }
                         %>                        
-                    </table>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-3">
               <button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal">submit a Report </button>
-            </div>
-            <div class="col-sm-2 col-sm-offset-7">
-              <button class="btn btn-info" type="button" data-toggle="modal" data-target="#uploadModal">upload a file</button>
             </div>
           </div>
           <div class="modal fade" role="dialog" id="myModal">
@@ -154,7 +125,7 @@
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
                 <div class="modal-body">
-                  <form class="form-horizontal" method="post" action="Fill" name="report-form" id="report-form">
+                  <form class="form-horizontal" method="post" action="#" name="report-form" id="report-form">
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="officerID">Officer ID</label>
                       <div class="col-sm-4">
@@ -168,7 +139,66 @@
                       </div>
                       <label class="col-sm-2 control-label" for="location">Location</label>
                       <div class="col-sm-4">
-                        <input type="text" name="location" required="required"/>
+                        <select name="location" required="required" id="modal-select">
+                          <option>Athlone</option>
+                          <option>Belhar</option>
+                          <option>Bellville</option>
+                          <option>Bellville South</option>
+                          <option>Bishop Lavis</option>
+                          <option>Bothasig</option>
+                          <option>Brackenfell</option>
+                          <option>Camps Bay</option>
+                          <option>Cape Town Central</option>
+                          <option>Cape Town Central</option>
+                          <option>Claremont</option>
+                          <option>Delft</option>
+                          <option>Diep Rivier</option>
+                          <option>Durbanville</option>
+                          <option>Elsies River</option>
+                          <option>Fish Hoek</option>
+                          <option>Goodwood</option>
+                          <option>Grassy Park</option>
+                          <option>Gugulethu</option>
+                          <option>Harare</option>
+                          <option>Hout Bay</option>
+                          <option>Kensington</option>
+                          <option>Khayelitsha</option>
+                          <option>Kirstenhof</option>
+                          <option>Kleinvlei</option>
+                          <option>Kraaifontein</option>
+                          <option>Kuils Rivier</option>
+                          <option>Langa</option>
+                          <option>Lansdowne</option>
+                          <option>Lingelethu-West</option>
+                          <option>Macassar</option>
+                          <option>Maitland</option>
+                          <option>Manenberg</option>
+                          <option>Mfuleni</option>
+                          <option>Milnerton</option>
+                          <option>Mitchells Plain</option>
+                          <option>Mowbray</option>
+                          <option>Muizenberg</option>
+                          <option>Nyanga</option>
+                          <option>Ocean View</option>
+                          <option>Parow</option>
+                          <option>Philippi</option>
+                          <option>Philippi East</option>
+                          <option>Pinelands</option>
+                          <option>Ravensmead</option>
+                          <option>Rondebosch</option>
+                          <option>Sea Point</option>
+                          <option>Simon’s Town</option>
+                          <option>Somerset West</option>
+                          <option>Somerset West</option>
+                          <option>Steenberg</option>
+                          <option>Stellenbosch</option>
+                          <option>Strand</option>
+                          <option>Strandfontein</option>
+                          <option>Table Bay Harbour</option>
+                          <option>Table View</option>
+                          <option>Woodstock</option>
+                          <option>Wynberg</option>
+                        </select>
                       </div>
                     </div>
                     <div class="form-group">
@@ -192,7 +222,7 @@
                             <option>Murder</option>
                             <option>Sexual offences</option>
                             <option>Attempted Murder</option>
-                            <option>Assault with the intent to inflict grievous bodily</option>
+                            <option>Assault with the intent to inflict grievous bodily harm</option>
                             <option>Common assault</option>
                             <option>Common robbery</option>
                             <option>Robbery with aggravating circumstances</option>
@@ -238,25 +268,37 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <h3 class="col-sm-12 text-center" id="header">Injured Party (optional)</h3>
-                      <label class="col-sm-2 control-label" for="gender">Gender</label>
-                      <div class="col-sm-4">
-                        <select id="modal-select">
-                          <option value="female" name="female">female</option>
-                          <option value="male" name="male">male</option>
-                          <option value="other" name="other">other</option>
-                        </select>
-                      </div>
-                      <label class="col-sm-2 control-label" for="race">Race</label>
-                      <div class="col-sm-4">
-                        <input type="text" name="race"/>
+                      <h3 class="col-sm-12 text-center" id="header2">Injured Party (optional)</h3>
+                    </div>
+                    <div class="form-group">
+                      <input type="hidden" name="counter" value="1"/>
+                      <div id="victim-menu">
+                        <div id="victim">
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label" for="gender">Gender</label>
+                            <div class="col-sm-4">
+                              <select id="modal-select">
+                                <option value="female" name="female">female</option>
+                                <option value="male" name="male">male</option>
+                                <option value="other" name="other">other</option>
+                              </select>
+                            </div>
+                            <label class="col-sm-2 control-label" for="race">Race</label>
+                            <div class="col-sm-4">
+                              <input type="text" name="race"/>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label" for="age">Age </label>
+                            <div class="col-sm-4">
+                              <input type="number" name="age"/>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-2 control-label" for="age">Age </label>
-                      <div class="col-sm-4">
-                        <input type="number" name="age"/>
-                      </div>
+                      <label class="btn" id="button-toggle"><i class="glyphicon glyphicon-plus" aria-hidden="true" id="icon-padding"></i>Add Injured Party</label>
                     </div>
                     <div class="form-group">
                       <div class="col-sm-2 col-sm-offset-5">  
@@ -318,23 +360,25 @@
               </div>
             </div>
           </div>
-          <div class="modal fade" role="dialog" id="uploadModal">
+          <div class="modal fade" role="dialog" id="editModal">
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header text-center" id="header">Select a file from your computer
+                <div class="modal-header text-center" id="header">Edit Status
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
                 <div class="modal-body">
-                  <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
-                    <div class="form-inline">
+                  <form action="" method="post" name="Status-form">
+                    <div class="row">
                       <div class="form-group">
+                        <label class="col-sm-2 control-label status-font" for="status">Status</label>
                         <div class="col-sm-4">
-                          <input type="file" name="file"/>
+                          <select id="modal-select">
+                            <option value="open" name="open">open</option>
+                            <option value="closed" name="closed">closed</option>
+                          </select>
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-4">
-                          <button class="btn btn-sm btn-primary" type="submit" id="js-upload-submit">Upload files</button>
+                        <div class="col-sm-2 col-sm-offset-2">
+                          <button class="btn btn-default" type="submit" onclick="submitForm()">Submit</button>
                         </div>
                       </div>
                     </div>
