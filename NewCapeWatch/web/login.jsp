@@ -15,13 +15,15 @@
 
 <title>Insert title here</title>
 </head>
-<body>
+<body class="image-background">
 
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 
 
 <%
+
+
 
 String email = request.getParameter("email");
 session.putValue("email", email);
@@ -54,19 +56,28 @@ if(password.isEmpty()){
 
 if(rs.next()){
 
-	if (rs.getString(9).equals(password) && rs.getString(8).equals(email)){
+	if (rs.getString(8).equals(password) && rs.getString(7).equals(email)){
 
 	response.sendRedirect("profile.jsp");
-	String name = rs.getString(5);
+	String name = rs.getString(2);
 	String id = rs.getString(1);
+	session = request.getSession();
 	session.setAttribute("username", id);
 
-	} else if(rs.getString(8).equals(email) && password.isEmpty() == false){
+	} else if(rs.getString(7).equals(email) && password.isEmpty() == false){
 
 		error = error + "<p>Wrong Password</p>";
 
 	}
 }
+
+if(session.getAttribute("mustlogIn") != null ){
+	
+	error = error + session.getAttribute("mustlogIn").toString();
+	session.invalidate();
+}
+
+
 %>
 
 <nav class="navbar navbar-default navbar-inverse">
@@ -81,7 +92,7 @@ if(rs.next()){
           <li><a href="index.html">Home</a></li>
           <li class="active"><a href="login.jsp">Login</a></li>
           <li><a href="profile.jsp">Profile</a></li>
-          <li><a href="reports.html">Reports</a></li>
+          <li><a href="reports.jsp">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="relatedCrimes.html">Related Crimes</a></li>
@@ -113,9 +124,12 @@ if(rs.next()){
             </form>
           </div>
           <br>
-          <div class="container alert alert-danger" style="width:120px; margin-top:10px;">
-          <% out.println(error);%>
-          </div>
+          
+          <% if(!error.isEmpty()){ 
+        	  out.println("<div class='container alert alert-danger' style='width:120px; margin-top:10px;'>" + error +"'</div>'");
+          }
+        	  %>
+
         </div>
       </div>
     </div>

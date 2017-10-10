@@ -55,10 +55,10 @@ public class Fill extends HttpServlet{
             if (status==null){
                 status="";
             }            
-            String reportID = request.getParameter("reportID"); 
-            if (reportID==null){
-                reportID="";
-            }
+            //int reportID = request.getParameter("reportID"); 
+            //if (reportID==null){
+              //  reportID="";
+            //}
             String crimeID = request.getParameter("crimeID");
             if (crimeID==null){
                 crimeID="";
@@ -89,23 +89,25 @@ public class Fill extends HttpServlet{
             
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(connURL, "root", "");
-            PreparedStatement statement = conn.prepareStatement("insert into crime_case(reportID,crimeID,userID,date,location,time,crimeType,status) values(?,?,?,?,?,?,?,?)");
-            PreparedStatement statement2 = conn.prepareStatement("insert into injured_party(reportID,age,race,gender,area) values(?,?,?,?,?)");
-            statement.setString(1,reportID);
-            statement.setString(2,crimeID);      
+            PreparedStatement statement = conn.prepareStatement("insert into crime_case(crimeID,userID,date,location,time,crimeType,status) values(?,?,?,?,?,?,?)");
+            PreparedStatement statement2 = conn.prepareStatement("insert into injured_party(age,race,gender,area) values(?,?,?,?)");
+           // statement.setInt(1,reportID);
+           // statement.setString(1,crimeID);      
             //statement.setString(3,victim);
-            statement.setString(3,userID);
-            statement.setString(4,date);
-            statement.setString(5,location);
-            statement.setString(6,time);
-            statement.setString(7,crimeType);
-            statement.setString(8,status);
+            statement.setString(1,crimeID);
+            statement.setString(2,userID);
+            statement.setString(3,date);
+            statement.setString(4,location);
+            statement.setString(5,time);
+            statement.setString(6,crimeType);
+            statement.setString(7,status);
             
-            statement2.setString(1,reportID);
-            statement2.setString(2,age);
-            statement2.setString(3,race);
-            statement2.setString(4,gender);
-            statement2.setString(5,location);
+            //statement2.setString(1,reportID);
+            statement2.setString(1,age);
+            statement2.setString(2,race);
+            statement2.setString(3,gender);
+            statement2.setString(4,location);
+            
 
             int i = statement.executeUpdate();
             int j = statement2.executeUpdate();
