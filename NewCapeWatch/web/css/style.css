@@ -218,8 +218,12 @@ select {
   margin-top: 7px; }
 
 .span3 {
-  height: 100% auto !important;
-  overflow: scroll; }
+  height: 80% auto !important;
+}
+
+#submitBtn{
+  margin-top: 5%;
+}
 
 #icon-padding {
   padding-right: 8px; }

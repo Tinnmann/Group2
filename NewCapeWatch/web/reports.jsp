@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : reports
     Created on : 21 Sep 2017, 5:07:29 PM
     Author     : TINASHE
@@ -46,11 +46,11 @@
       </div>
     </nav>
   </body>
-  <div class="container"> 
+  <div class="container">
     <div class="row">
       <div class="col-sm-12">
         <h2 class="text-center" id="whiteText">Crime Reports</h2>
-        <div class="panel-body"> 
+        <div class="panel-body">
           <div class="row">
             <div class="col-sm-3 col-sm-offset-9">
               <form action="#" method="get">
@@ -72,7 +72,7 @@
                             String q = "SELECT * FROM crime_case";
                             Statement st = conn.createStatement();
                             ResultSet rs = st.executeQuery(q);
-                            
+
                             String crimeID = "";
                             String postedBy= "";
                             String date= "";
@@ -80,7 +80,7 @@
                             String time= "";
                             String crimeType= "";
                             String status= "";
-                            
+
                             while (rs.next()){
                                 crimeID = rs.getString(2);
                                 postedBy = rs.getString(3);
@@ -90,13 +90,13 @@
                                 crimeType = rs.getString(7);
                                 status = rs.getString(8);
                             }
-                        
+
                     %>
 
                         <thead>
                         <tr>
-                            <th>CrimeID</th>
-                            <th>Posted By:</th>
+                            <th>Reports ID</th>
+                            <th>Officer ID</th>
                             <th>Date</th>
                             <th>Location</th>
                             <th>Time</th>
@@ -114,7 +114,7 @@
                             <td><% out.println(location); %></td>
                             <td> <% out.println(time); %></td>
                             <td> <% out.println(crimeType); %></td>
-                            <td> 
+                            <td>
                             <div class="currentStatus"><span class="label label-warning"><% out.println(status); %></span>
                                 <button class="btn btn-default" type="button" name="editButton" id="editButton"><i class="glyphicon glyphicon-pencil"></i></button>
                             </div>
@@ -122,26 +122,26 @@
                             <td>
                                 <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
                             </td>
-                            <td> 
+                            <td>
                                 <button class="btn btn-danger btn-xs" type="button" name="delete"> <span class="glyphicon glyphicon-remove"></span></button>
                             </td>
                         </tr>
-                    
+
                         </tbody>
                         <%
                         }
-                        
+
                         catch(Exception e){
                             System.out.println(e);
                         }
-                        %>                        
+                        %>
                     </table>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-3">
-              <button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal">submit a Report </button>
+              <button class="btn btn-info" id="submitBtn"type="button" data-toggle="modal" data-target="#myModal">submit a Report </button>
             </div>
             <div class="col-sm-2 col-sm-offset-7">
               <button class="btn btn-info" type="button" data-toggle="modal" data-target="#uploadModal">upload a file</button>
@@ -255,11 +255,11 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="age">Age </label>
                       <div class="col-sm-4">
-                        <input type="number" name="age"/>
+                        <input type="number" min="1" max="100" name="age"/>
                       </div>
                     </div>
                     <div class="form-group">
-                      <div class="col-sm-2 col-sm-offset-5">  
+                      <div class="col-sm-2 col-sm-offset-5">
                         <button class="btn btn-default" type="submit" onclick="submitForm()">Submit</button>
                       </div>
                     </div>
@@ -274,7 +274,7 @@
                 <div class="modal-header text-center" id="header">More Details
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
-                <div class="modal-body"> 
+                <div class="modal-body">
                   <div class="row">
                     <div class="col-sm-6">
                       <label class="control-label">Date:</label>
@@ -305,7 +305,7 @@
                       <label class="detailsLabel" for="crimeType" name="crimeType">test</label>
                     </div>
                   </div>
-                  <div class="row"> 
+                  <div class="row">
                     <div class="col-sm-6">
                       <label class="control-label">Status:</label>
                       <label class="detailsLabel" for="status" name="status">Open</label>
