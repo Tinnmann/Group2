@@ -38,8 +38,8 @@
         <ul class="nav navbar-nav navbar-right"></ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="profile.html">Profile</a></li>
+          <li><a href="login.jsp">Login</a></li>
+          <li><a href="profile.jsp">Profile</a></li>
           <li class="active"><a href="reports.jsp">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
@@ -86,7 +86,7 @@
                             String crimeType= "";
                             String status= "";
                             
-                            out.println("<tr><th>CrimeID</th><th>Posted By:</th><th>Date</th><th>Location</th><th>Time</th><th>Crime Type</th><th>Status</th><th>Details</th><th>Delete</th><tr>");
+                            out.println("<tr><th>Report ID</th><th>Officer ID:</th><th>Date</th><th>Location</th><th>Time</th><th>Crime Type</th><th>Status</th><th>Details</th><tr>");
                             
                             while (rs.next()){
                                 reportID = rs.getInt(1);
@@ -97,7 +97,7 @@
                                 time = rs.getString(6);
                                 crimeType = rs.getString(7);
                                 status = rs.getString(8);
-                                out.println("<tr><td>" + crimeID + "</td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-primary'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td><td>"+" <button class='btn btn-danger btn-xs' type='button' name='delete'> <span class='glyphicon glyphicon-remove'></span></button></td></tr>"); 
+                                out.println("<tr><td>" + reportID + "</td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-primary'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td></tr>"); 
                             }
                         
                     %>
@@ -266,7 +266,8 @@
                           </optgroup>
                         </select>
                       </div>
-                      <div>
+                      <label class="col-sm-2 control-label" for="crimeType">Crime ID</label>
+                      <div class="col-sm-10">
                         <select name="crimeID" id="modal-select">
                           <optgroup label="Contact Crimes (Crimes against the person)">
                             <option value="CC1">Murder</option>
@@ -363,48 +364,6 @@
           <div class="modal fade" role="dialog" id="detailsModal">  
             <div class="modal-dialog">
               <div class="modal-content">
-                   <%
-                        try{
-                            Class.forName("com.mysql.jdbc.Driver").newInstance();
-                            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/capewatchdb", "root", "");
-                            String q = "SELECT * FROM crime_case";
-                            String r="SELECT * FROM injured_party WHERE crime_case.reportID=injured_party.reportID";
-                            Statement st = conn.createStatement();
-                            ResultSet rs = st.executeQuery(q);
-                            ResultSet rt= st.executeQuery(r);
-                            
-                            
-                            int reportID;
-                            String crimeID = "";
-                            String date= "";
-                            String location= "";
-                            String crimeType= "";
-                            String status= "";
-                            String age="";
-                            String race="";
-                            String gender="";
-                            
-                            //out.println("<tr><th>CrimeID</th><th>Posted By:</th><th>Date</th><th>Location</th><th>Time</th><th>Crime Type</th><th>Status</th><th>Details</th><th>Delete</th><tr>");
-                            
-                            while (rs.next()){
-                                crimeID = rs.getString(2);
-                                date = rs.getString(4);
-                                location = rs.getString(5);
-                                crimeType = rs.getString(7);
-                                status = rs.getString(8);
-                                reportID=rt.getInt(1);
-                                age = rt.getString(2);
-                                race = rt.getString(3);
-                                gender = rt.getString(4);
-                                //out.println("<tr><td>" + crimeID + "</td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-primary'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td><td>"+" <button class='btn btn-danger btn-xs' type='button' name='delete'> <span class='glyphicon glyphicon-remove'></span></button></td></tr>"); 
-                            }
-                           
-                        }
-                        
-                        catch(Exception e){
-                            System.out.println(e);
-                        }                        
-                    %>                  
                 <div class="modal-header text-center" id="header">More Details
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
@@ -412,7 +371,7 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <label class="control-label">Date:</label>
-                      <label class="detailsLabel" for="date" name="date">date</label>
+                      <label class="detailsLabel" for="date" name="date">test</label>
                     </div>
                     <div class="col-sm-6">
                       <label class="control-label">Location:</label>
@@ -459,7 +418,7 @@
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
                 <div class="modal-body">
-                  <form action="Edit.java" method="post" name="Status-form">
+                  <form action="#" method="post" name="Status-form">
                     <div class="row">
                       <div class="form-group">
                         <label class="col-sm-2 control-label status-font" for="status">Status</label>
