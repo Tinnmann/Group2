@@ -257,11 +257,17 @@ html(lang="en")
                 
                               label(for="race").col-sm-2.control-label Race
                               .col-sm-4
-                                input(type="text" name="race") 
+                                select#modal-select
+                                  option(value="white" name="white") white
+                                  option(value="black" name="black") black
+                                  option(value="coloured" name="coloured") coloured
+                                  option(value="asian" name="asian") asian
+                                  option(value="indian" name="indian") indian
+                                  option(value="other" name="other") other
                             .form-group
                               label(for="age").col-sm-2.control-label Age 
                               .col-sm-4
-                                input(type="number" name="age") 
+                                input(type="number" min="1" max="100" name="age") 
                       
                       .form-group
                         label.btn#button-toggle

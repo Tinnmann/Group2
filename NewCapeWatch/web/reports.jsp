@@ -58,8 +58,12 @@
             <div class="col-sm-3 col-sm-offset-9">
               <form action="#" method="get">
                 <div class="input-group">
-                  <input class="form-control" type="text" name="q" placeholder="Search for" required="required" id="system-search"/><span class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button></span>
+                  <input class="form-control" type="text" name="q" placeholder="Search for" required="required" id="system-search"/>
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
                 </div>
               </form>
             </div>
@@ -76,7 +80,7 @@
                             String q = "SELECT * FROM crime_case";
                             Statement st = conn.createStatement();
                             ResultSet rs = st.executeQuery(q);
-                            
+
                             int reportID;
                             String crimeID = "";
                             String postedBy= "";
@@ -330,7 +334,7 @@
                           </optgroup>
                           <optgroup label="Other serious crimes">
                             <option value="OS1">All theft not mentioned elsewhere</option>
-                            <option value=OS2">Commercial crime</option>
+                            <option value="OS2">Commercial crime</option>
                             <option value="OS3">Shoplifting</option>
                           </optgroup>
                           <optgroup label="Subcategories of aggravated robbery">
@@ -355,14 +359,37 @@
                       <h3 class="col-sm-12 text-center" id="header2">Injured Party (optional)</h3>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-2 control-label" for="age">Age </label>
-                      <div class="col-sm-4">
-                        <input type="number" min="1" max="100" name="age"/>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-sm-2 col-sm-offset-5">
-                        <button class="btn btn-default" type="submit" onclick="submitForm()">Submit</button>
+                      <input type="hidden" name="counter" value="1"/>
+                      <div id="victim-menu">
+                        <div id="victim">
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label" for="gender">Gender</label>
+                            <div class="col-sm-4">
+                              <select id="modal-select">
+                                <option value="female" name="female">female</option>
+                                <option value="male" name="male">male</option>
+                                <option value="other" name="other">other</option>
+                              </select>
+                            </div>
+                            <label class="col-sm-2 control-label" for="race">Race</label>
+                            <div class="col-sm-4">
+                              <select id="modal-select">
+                                <option value="white" name="white">white</option>
+                                <option value="black" name="black">black</option>
+                                <option value="coloured" name="coloured">coloured</option>
+                                <option value="asian" name="asian">asian</option>
+                                <option value="indian" name="indian">indian</option>
+                                <option value="other" name="other">other</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label" for="age">Age </label>
+                            <div class="col-sm-4">
+                              <input type="number" min="1" max="100" name="age"/>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </form>
