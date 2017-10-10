@@ -116,14 +116,15 @@ public class Register extends HttpServlet {
             }
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(connURL, "root", "");
-            PreparedStatement statement = conn.prepareStatement("insert into police_user(officerID,name,surname,division,rank,policeStation,password) values(?,?,?,?,?,?,?,?)");
+            PreparedStatement statement = conn.prepareStatement("insert into police_user(officerID,email,name,surname,division,rank,policeStation,password) values(?,?,?,?,?,?,?,?)");
             statement.setString(1, officerID);
-            statement.setString(2, name);
-            statement.setString(3, surname);
-            statement.setString(4, division);
-            statement.setString(5, rank);
-            statement.setString(6, policeStation);
-            statement.setString(7, password);
+            statement.setString(2, email);
+            statement.setString(3, name);
+            statement.setString(4, surname);
+            statement.setString(5, division);
+            statement.setString(6, rank);
+            statement.setString(7, policeStation);
+            statement.setString(8, password);
             
             int i = statement.executeUpdate();
             if(i!=0){
