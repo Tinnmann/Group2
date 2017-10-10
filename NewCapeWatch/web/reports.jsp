@@ -40,7 +40,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="login.html">Login</a></li>
           <li><a href="profile.html">Profile</a></li>
-          <li class="active"><a href="reports.html">Reports</a></li>
+          <li class="active"><a href="reports.jsp">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="relatedCrimes.html">Related Crime</a></li>
@@ -77,6 +77,7 @@
                             Statement st = conn.createStatement();
                             ResultSet rs = st.executeQuery(q);
                             
+                            int reportID;
                             String crimeID = "";
                             String postedBy= "";
                             String date= "";
@@ -88,6 +89,7 @@
                             out.println("<tr><th>CrimeID</th><th>Posted By:</th><th>Date</th><th>Location</th><th>Time</th><th>Crime Type</th><th>Status</th><th>Details</th><th>Delete</th><tr>");
                             
                             while (rs.next()){
+                                reportID = rs.getInt(1);
                                 crimeID = rs.getString(2);
                                 postedBy = rs.getString(3);
                                 date = rs.getString(4);
@@ -95,7 +97,7 @@
                                 time = rs.getString(6);
                                 crimeType = rs.getString(7);
                                 status = rs.getString(8);
-                                out.println("<tr><td>" + crimeID + "</td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-warning'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td><td>"+" <button class='btn btn-danger btn-xs' type='button' name='delete'> <span class='glyphicon glyphicon-remove'></span></button></td></tr>"); 
+                                out.println("<tr><td>" + crimeID + "</td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-primary'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td><td>"+" <button class='btn btn-danger btn-xs' type='button' name='delete'> <span class='glyphicon glyphicon-remove'></span></button></td></tr>"); 
                             }
                         
                     %>
@@ -125,11 +127,11 @@
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
                 <div class="modal-body">
-                  <form class="form-horizontal" method="post" action="#" name="report-form" id="report-form">
+                  <form class="form-horizontal" method="post" action="Fill" name="report-form" id="report-form">
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="officerID">Officer ID</label>
                       <div class="col-sm-4">
-                        <input type="text" name="officerID" required="required"/>
+                        <input type="text" name="userID" required="required"/>
                       </div>
                     </div>
                     <div class="form-group">
@@ -140,64 +142,62 @@
                       <label class="col-sm-2 control-label" for="location">Location</label>
                       <div class="col-sm-4">
                         <select name="location" required="required" id="modal-select">
-                          <option>Athlone</option>
-                          <option>Belhar</option>
-                          <option>Bellville</option>
-                          <option>Bellville South</option>
-                          <option>Bishop Lavis</option>
-                          <option>Bothasig</option>
-                          <option>Brackenfell</option>
-                          <option>Camps Bay</option>
-                          <option>Cape Town Central</option>
-                          <option>Cape Town Central</option>
-                          <option>Claremont</option>
-                          <option>Delft</option>
-                          <option>Diep Rivier</option>
-                          <option>Durbanville</option>
-                          <option>Elsies River</option>
-                          <option>Fish Hoek</option>
-                          <option>Goodwood</option>
-                          <option>Grassy Park</option>
-                          <option>Gugulethu</option>
-                          <option>Harare</option>
-                          <option>Hout Bay</option>
-                          <option>Kensington</option>
-                          <option>Khayelitsha</option>
-                          <option>Kirstenhof</option>
-                          <option>Kleinvlei</option>
-                          <option>Kraaifontein</option>
-                          <option>Kuils Rivier</option>
-                          <option>Langa</option>
-                          <option>Lansdowne</option>
-                          <option>Lingelethu-West</option>
-                          <option>Macassar</option>
-                          <option>Maitland</option>
-                          <option>Manenberg</option>
-                          <option>Mfuleni</option>
-                          <option>Milnerton</option>
-                          <option>Mitchells Plain</option>
-                          <option>Mowbray</option>
-                          <option>Muizenberg</option>
-                          <option>Nyanga</option>
-                          <option>Ocean View</option>
-                          <option>Parow</option>
-                          <option>Philippi</option>
-                          <option>Philippi East</option>
-                          <option>Pinelands</option>
-                          <option>Ravensmead</option>
-                          <option>Rondebosch</option>
-                          <option>Sea Point</option>
-                          <option>Simon’s Town</option>
-                          <option>Somerset West</option>
-                          <option>Somerset West</option>
-                          <option>Steenberg</option>
-                          <option>Stellenbosch</option>
-                          <option>Strand</option>
-                          <option>Strandfontein</option>
-                          <option>Table Bay Harbour</option>
-                          <option>Table View</option>
-                          <option>Woodstock</option>
-                          <option>Wynberg</option>
+                          <option value="Athlone">Athlone</option>
+                          <option value="Belhar">Belhar</option>
+                          <option value="Bellville">Bellville</option>
+                          <option value="Bellville South">Bellville South</option>
+                          <option value="Bishop Lavis">Bishop Lavis</option>
+                          <option value="Bothasig">Bothasig</option>
+                          <option value="Brackenfell">Brackenfell</option>
+                          <option value="Camps Bay">Camps Bay</option>
+                          <option value="Cape Town Central">Cape Town Central</option>
+                          <option value="Claremont">Claremont</option>
+                          <option value="Delft">Delft</option>
+                          <option value="Diep Rivier">Diep Rivier</option>
+                          <option value="Durbanville">Durbanville</option>
+                          <option value="Elsies River">Elsies River</option>
+                          <option value="Fish Hoek">Fish Hoek</option>
+                          <option value="Goodwood">Goodwood</option>
+                          <option value="Grassy Park">Grassy Park</option>
+                          <option value="Gugulethu">Gugulethu</option>
+                          <option value="Harare">Harare</option>
+                          <option value="Hout Bay">Hout Bay</option>
+                          <option value="Kensington">Kensington</option>
+                          <option value="Khayelitsha">Khayelitsha</option>
+                          <option value="Kirstenhof">Kirstenhof</option>
+                          <option value="Kleinvlei">Kleinvlei</option>
+                          <option value="Kraaifontein">Kraaifontein</option>
+                          <option value="Kuils Rivier">Kuils Rivier</option>
+                          <option value="Langa">Langa</option>
+                          <option value="Lansdowne">Lansdowne</option>
+                          <option value="Lingelethu-West">Lingelethu-West</option>
+                          <option value="Macassar">Macassar</option>
+                          <option value="Maitland">Maitland</option>
+                          <option value="Manenberg">Manenberg</option>
+                          <option value="Mfuleni">Mfuleni</option>
+                          <option value="Milnerton">Milnerton</option>
+                          <option value="Mitchells Plain">Mitchells Plain</option>
+                          <option value="Mowbray">Mowbray</option>
+                          <option value="Muizenberg">Muizenberg</option>
+                          <option value="Nyanga">Nyanga</option>
+                          <option value="Ocean View">Ocean View</option>
+                          <option value="Parow">Parow</option>
+                          <option value="Philippi">Philippi</option>
+                          <option value="Philippi East">Philippi East</option>
+                          <option value="Pinelands">Pinelands</option>
+                          <option value="Ravensmead">Ravensmead</option>
+                          <option value="Rondebosch">Rondebosch</option>
+                          <option value="Sea Point">Sea Point</option>
+                          <option value="Simon's Town">Simon’s Town</option>
+                          <option value="Somerset West">Somerset West</option>
+                          <option value="Steenberg">Steenberg</option>
+                          <option value="Stellenbosch">Stellenbosch</option>
+                          <option value="Strand">Strand</option>
+                          <option value="Strandfontein">Strandfontein</option>
+                          <option value="Table Bay Harbour">Table Bay Harbour</option>
+                          <option value="Table View">Table View</option>
+                          <option value="Woodstock">Woodstock</option>
+                          <option value="Wynberg">Wynberg</option>
                         </select>
                       </div>
                     </div>
@@ -208,7 +208,7 @@
                       </div>
                       <label class="col-sm-2 control-label" for="status">Status</label>
                       <div class="col-sm-4">
-                        <select id="modal-select">
+                        <select name="status" id="modal-select">
                           <option value="open" name="open">open</option>
                           <option value="closed" name="closed">closed</option>
                         </select>
@@ -219,52 +219,102 @@
                       <div class="col-sm-10">
                         <select name="crimeType" id="modal-select">
                           <optgroup label="Contact Crimes (Crimes against the person)">
-                            <option>Murder</option>
-                            <option>Sexual offences</option>
-                            <option>Attempted Murder</option>
-                            <option>Assault with the intent to inflict grievous bodily harm</option>
-                            <option>Common assault</option>
-                            <option>Common robbery</option>
-                            <option>Robbery with aggravating circumstances</option>
+                            <option value="Murder">Murder</option>
+                            <option value="Sexual Offence">Sexual offences</option>
+                            <option value="Attempted murder">Attempted Murder</option>
+                            <option value="Assault">Assault with the intent to inflict grievous bodily harm</option>
+                            <option value="Common Assault">Common assault</option>
+                            <option value="Common Robbery">Common robbery</option>
+                            <option value="Robbery">Robbery with aggravating circumstances</option>
                           </optgroup>
                           <optgroup label="Contact related crimes">
-                            <option>Arson</option>
-                            <option>Malicious damage to property</option>
+                            <option value="Arson">Arson</option>
+                            <option value="Property Damage">Malicious damage to property</option>
                           </optgroup>
                           <optgroup label="Property Related crimes">
-                            <option>Burglary at non-residential premises</option>
-                            <option>Burglary at residential premises</option>
-                            <option>Theft of motor vehicle and motorcycle</option>
-                            <option>Theft out of or from motor vehicle</option>
-                            <option>Stock-theft</option>
+                            <option value="Burglary non-res">Burglary at non-residential premises</option>
+                            <option value="Burglary res">Burglary at residential premises</option>
+                            <option value="Vehicle theft">Theft of motor vehicle and motorcycle</option>
+                            <option value="Theft from vehicle">Theft out of or from motor vehicle</option>
+                            <option value="Stock-theft">Stock-theft</option>
                           </optgroup>
                           <optgroup label="Crime detected as a result of police action">
-                            <option>Illegal possession of firearms and ammunition</option>
-                            <option>Drug related crime</option>
-                            <option>Driving under the influence of alcohol or drugs</option>
-                            <option>Sexual offences as a result of police action</option>
+                            <option value="Illegal Firearms">Illegal possession of firearms and ammunition</option>
+                            <option value="Drug related">Drug related crime</option>
+                            <option value="Driving Alcohol">Driving under the influence of alcohol or drugs</option>
+                            <option value="Sexual Off Police">Sexual offences as a result of police action</option>
                           </optgroup>
                           <optgroup label="Other serious crimes">
-                            <option>All theft not mentioned elsewhere</option>
-                            <option>Commercial crime</option>
-                            <option>Shoplifting</option>
+                            <option value="Theft">All theft not mentioned elsewhere</option>
+                            <option value="Commercial Crime">Commercial crime</option>
+                            <option value="Shoplifting">Shoplifting</option>
                           </optgroup>
                           <optgroup label="Subcategories of aggravated robbery">
-                            <option>Carjacking</option>
-                            <option>Truck hijacking</option>
-                            <option>Robbery at residential premises</option>
-                            <option>Robbery at non-residential premises</option>
-                            <option>Bank robbery</option>
-                            <option>Robbery of cash in transit</option>
+                            <option value="Carjacking">Carjacking</option>
+                            <option value="Truck Hijacking">Truck hijacking</option>
+                            <option value="Robbery res">Robbery at residential premises</option>
+                            <option value="Robbery non-res">Robbery at non-residential premises</option>
+                            <option value="Bank robbery">Bank robbery</option>
+                            <option value="Robbery trans">Robbery of cash in transit</option>
                           </optgroup>
                           <optgroup label="Other ">
-                            <option>Culpable homicide</option>
-                            <option>Public violence</option>
-                            <option>Crimen injuria</option>
-                            <option>Neglect and ill-treatment of children</option>
-                            <option>Kidnapping</option>
+                            <option value="Culpable homicide">Culpable homicide</option>
+                            <option value="Public violence">Public violence</option>
+                            <option value="Crimen Injuria">Crimen injuria</option>
+                            <option value="Child Neglect">Neglect and ill-treatment of children</option>
+                            <option value="Kidnapping">Kidnapping</option>
                           </optgroup>
                         </select>
+                      </div>
+                      <div>
+                        <select name="crimeID" id="modal-select">
+                          <optgroup label="Contact Crimes (Crimes against the person)">
+                            <option value="CC1">Murder</option>
+                            <option value="CC2">Sexual offences</option>
+                            <option value="CC3">Attempted Murder</option>
+                            <option value="CC4">Assault with the intent to inflict grievous bodily harm</option>
+                            <option value="CC5">Common assault</option>
+                            <option value="CC6">Common robbery</option>
+                            <option value="CC7">Robbery with aggravating circumstances</option>
+                          </optgroup>
+                          <optgroup label="Contact related crimes">
+                            <option value="CR1">Arson</option>
+                            <option value="CR2">Malicious damage to property</option>
+                          </optgroup>
+                          <optgroup label="Property Related crimes">
+                            <option value="PR1">Burglary at non-residential premises</option>
+                            <option value="PR2">Burglary at residential premises</option>
+                            <option value="PR3">Theft of motor vehicle and motorcycle</option>
+                            <option value="PR4">Theft out of or from motor vehicle</option>
+                            <option value="PR5">Stock-theft</option>
+                          </optgroup>
+                          <optgroup label="Crime detected as a result of police action">
+                            <option value="CPA1">Illegal possession of firearms and ammunition</option>
+                            <option value="CPA2">Drug related crime</option>
+                            <option value="CPA3">Driving under the influence of alcohol or drugs</option>
+                            <option value="CPA4">Sexual offences as a result of police action</option>
+                          </optgroup>
+                          <optgroup label="Other serious crimes">
+                            <option value="OS1">All theft not mentioned elsewhere</option>
+                            <option value=OS2">Commercial crime</option>
+                            <option value="OS3">Shoplifting</option>
+                          </optgroup>
+                          <optgroup label="Subcategories of aggravated robbery">
+                            <option value="AR1">Carjacking</option>
+                            <option value="AR2">Truck hijacking</option>
+                            <option value="AR3">Robbery at residential premises</option>
+                            <option value="AR4">Robbery at non-residential premises</option>
+                            <option value="AR5">Bank robbery</option>
+                            <option value="AR6">Robbery of cash in transit</option>
+                          </optgroup>
+                          <optgroup label="Other ">
+                            <option value="OC1">Culpable homicide</option>
+                            <option value="OC2">Public violence</option>
+                            <option value="OC3">Crimen injuria</option>
+                            <option value="OC4">Neglect and ill-treatment of children</option>
+                            <option value="OC5">Kidnapping</option>
+                          </optgroup>
+                        </select>                          
                       </div>
                     </div>
                     <div class="form-group">
@@ -277,7 +327,7 @@
                           <div class="form-group">
                             <label class="col-sm-2 control-label" for="gender">Gender</label>
                             <div class="col-sm-4">
-                              <select id="modal-select">
+                              <select name="gender" id="modal-select">
                                 <option value="female" name="female">female</option>
                                 <option value="male" name="male">male</option>
                                 <option value="other" name="other">other</option>
@@ -310,9 +360,51 @@
               </div>
             </div>
           </div>
-          <div class="modal fade" role="dialog" id="detailsModal">
+          <div class="modal fade" role="dialog" id="detailsModal">  
             <div class="modal-dialog">
               <div class="modal-content">
+                   <%
+                        try{
+                            Class.forName("com.mysql.jdbc.Driver").newInstance();
+                            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/capewatchdb", "root", "");
+                            String q = "SELECT * FROM crime_case";
+                            String r="SELECT * FROM injured_party WHERE crime_case.reportID=injured_party.reportID";
+                            Statement st = conn.createStatement();
+                            ResultSet rs = st.executeQuery(q);
+                            ResultSet rt= st.executeQuery(r);
+                            
+                            
+                            int reportID;
+                            String crimeID = "";
+                            String date= "";
+                            String location= "";
+                            String crimeType= "";
+                            String status= "";
+                            String age="";
+                            String race="";
+                            String gender="";
+                            
+                            //out.println("<tr><th>CrimeID</th><th>Posted By:</th><th>Date</th><th>Location</th><th>Time</th><th>Crime Type</th><th>Status</th><th>Details</th><th>Delete</th><tr>");
+                            
+                            while (rs.next()){
+                                crimeID = rs.getString(2);
+                                date = rs.getString(4);
+                                location = rs.getString(5);
+                                crimeType = rs.getString(7);
+                                status = rs.getString(8);
+                                reportID=rt.getInt(1);
+                                age = rt.getString(2);
+                                race = rt.getString(3);
+                                gender = rt.getString(4);
+                                //out.println("<tr><td>" + crimeID + "</td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-primary'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td><td>"+" <button class='btn btn-danger btn-xs' type='button' name='delete'> <span class='glyphicon glyphicon-remove'></span></button></td></tr>"); 
+                            }
+                           
+                        }
+                        
+                        catch(Exception e){
+                            System.out.println(e);
+                        }                        
+                    %>                  
                 <div class="modal-header text-center" id="header">More Details
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
@@ -320,7 +412,7 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <label class="control-label">Date:</label>
-                      <label class="detailsLabel" for="date" name="date">test</label>
+                      <label class="detailsLabel" for="date" name="date">date</label>
                     </div>
                     <div class="col-sm-6">
                       <label class="control-label">Location:</label>
@@ -367,12 +459,12 @@
                   <button class="close" type="button" data-dismiss="modal">&times</button>
                 </div>
                 <div class="modal-body">
-                  <form action="" method="post" name="Status-form">
+                  <form action="Edit.java" method="post" name="Status-form">
                     <div class="row">
                       <div class="form-group">
                         <label class="col-sm-2 control-label status-font" for="status">Status</label>
                         <div class="col-sm-4">
-                          <select id="modal-select">
+                          <select name="status" id="modal-select">
                             <option value="open" name="open">open</option>
                             <option value="closed" name="closed">closed</option>
                           </select>
