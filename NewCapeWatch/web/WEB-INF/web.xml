@@ -20,6 +20,10 @@
         <servlet-name>LgServlet</servlet-name>
         <servlet-class>LgServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Edit</servlet-name>
+        <servlet-class>Edit</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Fill</servlet-name>
         <url-pattern>/Fill</url-pattern>
@@ -43,6 +47,10 @@
     <servlet-mapping>
         <servlet-name>LgServlet</servlet-name>
         <url-pattern>/LgServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Edit</servlet-name>
+        <url-pattern>/Edit</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
