@@ -19,15 +19,8 @@
 	<%@ page import="javax.sql.*" %>
 	<%
 
-		String id = session.getAttribute("username").toString();
-
-	String user= "root";
-	String pass= "";
-	Class.forName("com.mysql.jdbc.Driver");
-	java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/capewatchdb", user, pass);
-	Statement st= conn.createStatement();
-	ResultSet rs = st.executeQuery("SELECT * FROM police_user where id='"+ id+"'");
-
+		session = request.getSession(false);
+	
 	String name="";
 	String officerID ="";
 	String surname="";
@@ -35,20 +28,116 @@
 	String division="";
 	String rank="";
 	String policeStation = "";
+	String password = "";
+	
+	String error="";
+	
+	String name1="";
+	String officerID1 ="";
+	String surname1="";
+	String email1="";
+	String division1="";
+	String rank1="";
+	String policeStation1 = "";
+	String password1 = "";
+	String password2 = "";
+	
+		if(session.getAttribute("username") != null ) {
+			String id = session.getAttribute("username").toString();
 
-	while(rs.next()){
+			String user= "root";
+			String pass= "";
+			Class.forName("com.mysql.jdbc.Driver");
+			java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/capewatchdb", user, pass);
+			Statement st= conn.createStatement();
+			ResultSet rs = st.executeQuery("SELECT * FROM police_user where officerID='"+ id+"'");
 
-		officerID= rs.getString(2);
-		name = rs.getString(3);
-         surname = rs.getString(4);
-         email = rs.getString(8);
-         division = rs.getString(5);
-         rank = rs.getString(6);
-         policeStation = rs.getString(7);
-	}
+			
+
+			while(rs.next()){
+
+			officerID= rs.getString(1);
+			name = rs.getString(2);
+		         surname = rs.getString(3);
+		         email = rs.getString(7);
+		         division = rs.getString(4);
+		         rank = rs.getString(5);
+		         policeStation = rs.getString(6);
+		         password = rs.getString(8);
+			}
 
 
-	%>
+			
+		String save = request.getParameter("submit");
+
+		 name1 = request.getParameter("name1");
+		 surname1 = request.getParameter("surname1");
+		 division1 = request.getParameter("division1");
+		 email1 = request.getParameter("email1");
+		 rank1 = request.getParameter("rank1");
+		 policeStation1 = request.getParameter("policeStation1");
+		 password1 = request.getParameter("password1");
+		 password2 = request.getParameter("password2");
+
+		
+
+
+		if ("confirm".equals(save)){
+
+			if(name1.isEmpty() == false){
+
+				st.executeUpdate("UPDATE police_user SET name='" + name1 +"' where officerID='"+id+"'");
+
+			}else if(surname1.isEmpty() == false){
+
+				st.executeUpdate("UPDATE police_user SET surname='" + surname1 +"' where officerID='"+id+"'");
+
+			}else if(email1.isEmpty() == false){
+
+			st.executeUpdate("UPDATE police_user SET email='" + email1 +"' where officerID='"+id+"'");
+
+		}else if(division1.isEmpty() == false){
+
+			st.executeUpdate("UPDATE police_user SET division='" + division1 +"' where officerID='"+id+"'");
+
+		} if(rank1.isEmpty() == false){
+
+			st.executeUpdate("UPDATE police_user SET rank='" + rank1 +"' where officerID='"+id+"'");
+
+		} if(policeStation1.isEmpty() == false){
+
+			st.executeUpdate("UPDATE police_user SET policeStation='" + policeStation1 +"' where officerID='"+id+"'");
+
+		}
+
+
+		if (password1.isEmpty() == false && password2.isEmpty()== false && password1.equals(password2)){
+			
+			
+			st.executeUpdate("UPDATE police_user SET password='" + password1 +"' where officerID='"+id+"'");
+			
+			
+		} else if(password1.isEmpty() == false && password2.isEmpty()== false && !password1.equals(password2)){
+			
+			
+			error = error + "<p>Passwords were not the same - Please try again</p>";
+			
+		}
+
+
+
+		}
+
+		} else {
+			String mustlogIn = "You must log in to access your profile!";
+			session = request.getSession();
+			session.setAttribute("mustlogIn", mustlogIn);
+			response.sendRedirect("login.jsp");
+			
+		}
+		
+
+%>
 
 
 
@@ -72,7 +161,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="login.jsp">Login</a></li>
           <li class="active"><a href="profile.jsp">Profile</a></li>
-          <li><a href="reports.html">Reports</a></li>
+          <li><a href="reports.jsp">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="relatedCrimes.html">Related Crimes</a></li>
@@ -105,6 +194,12 @@
 
                       <br>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="background-color: #9D0D0D; border-color: rgb(136, 23, 27)">Edit Profile</button>
+                    <br>
+                      <% if(!error.isEmpty()){ 
+        	  out.println("<div class='container alert alert-danger' style='width:220px;text-align:center; margin-top:10px;height:70px;'>" + error +"'</div>'");
+          }
+        	  %>
+                            <br>
                     <a href="#" class="card-link"> </a>
                   </div>
                 </div>
@@ -118,7 +213,9 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                         <h4 class="modal-title text-center" id="exampleModalLabel" style="color: black">Edit Profile</h4>
+                        
                       </div>
+                      
                       <div class="modal-body">
                         <form class="form-horizontal" method="post" action="profile.jsp">
                             <div class="form-group">
@@ -134,11 +231,11 @@
                             <div class="form-group">
                                   <label class="col-sm-2 control-label" for="password">New Password</label>
                                   <div class="col-sm-4">
-                                    <input name="password" placeholder="" type="password"/>
+                                    <input name="password1" placeholder=""  type="password"/>
                                   </div>
                                   <label class="col-sm-2 control-label" for="location">Re-enter Password</label>
                                   <div class="col-sm-4">
-                                    <input name="password" placeholder="" type="password"/>
+                                    <input name="password2" placeholder="" type="password"/>
                                   </div>
                             </div>
                             <div class="form-group">
@@ -188,6 +285,11 @@
                                       <select class="form-control" style="width:150px;" name="policeStation1">
                                           <option value="<% out.println(policeStation); %>"></option>
 <%
+String user= "root";
+String pass= "";
+Class.forName("com.mysql.jdbc.Driver");
+java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/capewatchdb", user, pass);
+Statement st= conn.createStatement();
 ResultSet rs1 = st.executeQuery("SELECT policestation FROM police_station");
 
 while(rs1.next()){
@@ -204,9 +306,10 @@ while(rs1.next()){
                             </div>
 
                             <br>
+                             
 
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button class="btn btn-danger" value="confirm" name="submit" type="submit"  >Save changes</button>
+                        <button class="btn btn-danger" id="save" value="confirm" name="submit" type="submit" >Save changes</button>
                       </div>
 
                     </form>
@@ -216,51 +319,7 @@ while(rs1.next()){
                     </div>
                   </div>
                 </div>
-<%
-String save = request.getParameter("submit");
 
-String name1 = request.getParameter("name1");
-String surname1 = request.getParameter("surname1");
-String division1 = request.getParameter("division1");
-String email1 = request.getParameter("email1");
-String rank1 = request.getParameter("rank1");
-String policeStation1 = request.getParameter("policeStation1");
-
-
-if ("confirm".equals(save)){
-
-	if(name1.isEmpty() == false){
-
-		st.executeUpdate("UPDATE police_user SET name='" + name1 +"' where id='"+id+"'");
-
-	}else if(surname1.isEmpty() == false){
-
-		st.executeUpdate("UPDATE police_user SET surname='" + surname1 +"' where id='"+id+"'");
-
-	}else if(email1.isEmpty() == false){
-
-	st.executeUpdate("UPDATE police_user SET email='" + email1 +"' where id='"+id+"'");
-
-}else if(division1.isEmpty() == false){
-
-	st.executeUpdate("UPDATE police_user SET division='" + division1 +"' where id='"+id+"'");
-
-} if(rank1.isEmpty() == false){
-
-	st.executeUpdate("UPDATE police_user SET rank='" + rank1 +"' where id='"+id+"'");
-
-} if(policeStation1.isEmpty() == false){
-
-	st.executeUpdate("UPDATE police_user SET policeStation='" + policeStation1 +"' where id='"+id+"'");
-
-}
-
-
-
-}
-
-
-%>
 
                 <br>
                 <div class="card-div">
@@ -271,7 +330,7 @@ if ("confirm".equals(save)){
                             <h4 style="color: #9D0D0D">Reports</h4>
                           </div>
                             <p class="card-text text-center">Go to the <b>Reports</b> page to view reports or file a new case report</p>
-                            <a href="reports.html" class="btn btn-danger" style="margin-left: 39px">Reports  <i class="glyphicon glyphicon-share-alt"></i></a>
+                            <a href="reports.jsp" class="btn btn-danger" style="margin-left: 39px">Reports  <i class="glyphicon glyphicon-share-alt"></i></a>
 
                         </div>
                     </div>
@@ -305,7 +364,7 @@ if ("confirm".equals(save)){
                             <h4 style="color: #9D0D0D">Contact Us</h4>
                           </div>
                             <p class="card-text"> Visit the <b>contact us</b> page to get in touch with the developers</p>
-                            <a href="contact.html" class="btn btn-danger" style="margin-left: 35px">Contact Us  <i class="glyphicon glyphicon-share-alt"></i></a>
+                            <a href="contact.jsp" class="btn btn-danger" style="margin-left: 35px">Contact Us  <i class="glyphicon glyphicon-share-alt"></i></a>
                         </div>
                     </div>
 
@@ -333,9 +392,9 @@ if ("confirm".equals(save)){
           m = n.getMonth() + 1;
           d = n.getDate();
           document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-
-
-
+          
       </script>
+      
+      
   </body>
 </html>
