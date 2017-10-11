@@ -6,6 +6,7 @@
 package forgotPassword.servlet;
 
 import forgotPassword.db.DBConnect;
+import forgotPassword.mail.SendResetMail;
 import forgotPassword.setup.CreateHash;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +14,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,8 +34,17 @@ public class ForgotPassword extends HttpServlet {
         //get email and password from the user input
         String inputEmail = request.getParameter("email");
         String officerID = request.getParameter("officerID");
+ 
+        try {
+            String hash = CreateHash.prepareRandomString(30);
         
-        String hash = CreateHash.prepareRandomString(30);
+            updateVerificationReset(inputEmail, hash, officerID);
+        
+            //send mail
+            SendResetMail.sendResetPasswordLink(officerID, inputEmail, hash);
+        } catch (MessagingException ex) {
+            Logger.getLogger(ForgotPassword.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void updateVerificationReset(String email, String hash, String id){
