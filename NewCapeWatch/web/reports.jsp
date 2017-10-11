@@ -392,6 +392,14 @@
                         </div>
                       </div>
                     </div>
+                    <div class="form-group">
+                      <label class="btn" id="button-toggle"><i class="glyphicon glyphicon-plus" aria-hidden="true" id="icon-padding"></i>Add Injured Party</label>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-2 col-sm-offset-5">
+                        <button class="btn btn-default" type="submit" onclick="submitForm()">Submit</button>
+                      </div>
+                    </div>
                   </form>
                 </div>
               </div>
