@@ -5,8 +5,14 @@
  */
 package forgotPassword.servlet;
 
+import forgotPassword.db.DBConnect;
+import forgotPassword.setup.CreateHash;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,70 +25,29 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ForgotPassword", urlPatterns = {"/ForgotPassword"})
 public class ForgotPassword extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ForgotPassword</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ForgotPassword at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        //get email and password from the user input
+        String inputEmail = request.getParameter("email");
+        String officerID = request.getParameter("officerID");
+        
+        String hash = CreateHash.prepareRandomString(30);
+    }
+    
+    public static void updateVerificationReset(String email, String hash, String id){
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try{
+            conn = DBConnect.getConnection();
+            ps = conn.prepareStatement("UPDATE police_user SET password=" + hash +" WHERE email =" + email + " AND officerID=" + id);
+            ps.executeUpdate();
+            DBConnect.close(conn, ps, rs);
+        }
+        catch (ClassNotFoundException | SQLException e) {
+            DBConnect.close(conn, ps, rs);
+            System.out.println(e.getMessage());   
         }
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
