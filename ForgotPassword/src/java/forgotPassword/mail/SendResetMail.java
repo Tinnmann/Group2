@@ -26,8 +26,9 @@ import javax.mail.internet.MimeMessage;
  * @author Sydney Twigg
  */
 public class SendResetMail {
+    /*
     public static void main(String[] args) {
-        
+        String id, email;
         //test
         String id = "3";
         String email = "sydneytwigg@gmail.com";
@@ -38,37 +39,38 @@ public class SendResetMail {
             Logger.getLogger(SendResetMail.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+*/
+
+
     //sends email with verification link to reset password
     public static void sendResetPasswordLink(String id, String email, String hash) throws AddressException, MessagingException {
-        
+
         //define email properties
         Properties prop = new Properties();
         prop.put("mail.smtp.auth", "true");
         prop.put("mail.smtp.starttls.enable", "true");
         prop.put("mail.smtp.host", Setup.MAIL_SMTP_HOST); //smtp host fetched from Setup.java
-        
-        //authenticate email details 
+
+        //authenticate email details
         Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication(){
-                 return new PasswordAuthentication(Setup.MAIL_USERNAME, Setup.MAIL_PASSWORD);  
+                 return new PasswordAuthentication(Setup.MAIL_USERNAME, Setup.MAIL_PASSWORD);
             }
         });
-        
+
         //link to be sent to the user to reset their password
         String link = Setup.MAIL_LINK + "?scope=resetPassword&userId=" + id + "&hash=" + hash;
-        
+
         //create email body
         StringBuilder bodyText = new StringBuilder();
-        
+
         bodyText.append("<div>")
-                .append("To complete the password reset, click the below link: <br/><br/>")
-                .append("Please click <a href=\"")
-                .append(link)
-                .append("\"+>here</a> or open the link in the browser<br/>")
+                .append("<br/><br/>To reset your password please use the following temporary password to log in and change your existing password: ")
+                .append("<br/> ")
+                .append(hash)
+                .append("<br/> ")
                 .append("<br/><br/> Thanks, <br/> Xmeagol Software.");
-        
+
         //Send message
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress(Setup.MAIL_USERNAME));
@@ -77,8 +79,8 @@ public class SendResetMail {
         message.setContent(bodyText.toString(), "text/html; charset=utf-8");
         Transport.send(message);
     }
-    
-    
-   
+
+
+
 
 }

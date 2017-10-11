@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>MyFirstServlet</display-name>
-  <welcome-file-list>
-    <welcome-file>forgotPass.html</welcome-file>
-    <welcome-file>forgotPass.htm</welcome-file>
-    <welcome-file>ForgotPassword.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+
   <servlet>
-    <description>new</description>
-    <display-name>GrettingServlet</display-name>
-    <servlet-name>GrettingServlet</servlet-name>
-    <servlet-class>GrettingServlet</servlet-class>
+      <servlet-name>Forgot Password</servlet-name>
+      <servlet-class>forgotPassword.servlet.ForgotPassword</servlet-class>
   </servlet>
+  <servlet-mapping>
+      <servlet-name>Forgot Password</servlet-name>
+      <url-pattern>/ForgotPass.do</url-pattern>
+  </servlet-mapping>    
+  
 </web-app>
