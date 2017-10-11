@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2017 at 08:38 AM
+-- Generation Time: Oct 11, 2017 at 09:09 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -45,12 +45,13 @@ INSERT INTO `crime_case` (`reportID`, `crimeID`, `userID`, `date`, `location`, `
 (1, 'AR1', '1', '03/15/2017', 'Athlone', '02:21', 'Carjacking', 'open '),
 (2, 'AR2', '1', '08/07/2011', 'Bellville', '14:01', 'Truck Hijacking', 'closed '),
 (3, 'AR3', '2', '08/25/2016', 'Bellville South ', '02:00', 'Robbery res', 'open'),
-(34665685, 'CC1', '2', '09/26/2017', 'Elsies River', '02:17', 'Murder', 'open'),
+(34665682, 'PR5', '1', '10/09/2017', 'Bothasig', '05:00', 'Stock-theft', 'open'),
+(34665683, 'PR3', '1', '10/02/2017', 'Camps Bay', '18:01', 'Vehicle theft', 'closed '),
 (34665684, 'CC5', '2', '10/04/2017', 'Bellville', '15:01', 'Common Assault', 'open'),
+(34665685, 'CC1', '2', '09/26/2017', 'Elsies River', '02:17', 'Murder', 'open'),
 (34665686, 'CC7', '1', '09/28/2017', 'Delft', '15:04', 'Robbery', 'open'),
 (34665687, 'CPA4', '2', '10/01/2017', 'Brackenfell', '00:01', 'Sexual Off Police', 'open'),
-(34665683, 'PR3', '1', '10/02/2017', 'Camps Bay', '18:01', 'Vehicle theft', 'closed '),
-(34665682, 'PR5', '1', '10/09/2017', 'Bothasig', '05:00', 'Stock-theft', 'open');
+(34665689, 'CC1', '4', '09/25/2017', 'Bellville', '22:00', 'Murder', 'open');
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,8 @@ INSERT INTO `injured_party` (`reportID`, `age`, `race`, `gender`, `area`) VALUES
 (34665683, '26', 'Black', 'female', 'Bellville'),
 (34665684, '34', 'Coloured', 'male', 'Elsies River'),
 (34665685, '40', 'Black', 'female', 'Delft'),
-(34665686, '26', 'Black', 'female', 'Brackenfell');
+(34665686, '26', 'Black', 'female', 'Brackenfell'),
+(34665687, '29', '', '', 'Bellville');
 
 -- --------------------------------------------------------
 
@@ -281,7 +283,7 @@ INSERT INTO `type_of_crime` (`crimeID`, `crimeName`, `crimeCategory`) VALUES
 -- Indexes for table `crime_case`
 --
 ALTER TABLE `crime_case`
-  ADD PRIMARY KEY (`crimeID`),
+  ADD PRIMARY KEY (`reportID`),
   ADD UNIQUE KEY `reportID` (`reportID`);
 
 --
@@ -333,12 +335,12 @@ ALTER TABLE `type_of_crime`
 -- AUTO_INCREMENT for table `crime_case`
 --
 ALTER TABLE `crime_case`
-  MODIFY `reportID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34665688;
+  MODIFY `reportID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34665690;
 --
 -- AUTO_INCREMENT for table `injured_party`
 --
 ALTER TABLE `injured_party`
-  MODIFY `reportID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34665687;
+  MODIFY `reportID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34665688;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
