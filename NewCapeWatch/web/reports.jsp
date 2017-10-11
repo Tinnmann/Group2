@@ -90,7 +90,7 @@
                             String crimeType= "";
                             String status= "";
 
-                            out.println("<tr><th>Report ID</th><th>Officer ID:</th><th>Date</th><th>Location</th><th>Time</th><th>Crime Type</th><th>Status</th><th>Details</th><tr>");
+                            out.println("<thead><tr><th>Report ID</th><th>Officer ID:</th><th>Date</th><th>Location</th><th>Time</th><th>Crime Type</th><th>Status</th><th>Details</th><tr></thead>");
 
                             while (rs.next()){
                                 reportID = rs.getInt(1);
@@ -101,46 +101,13 @@
                                 time = rs.getString(6);
                                 crimeType = rs.getString(7);
                                 status = rs.getString(8);
-                                out.println("<tr><td>" + reportID + "</td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-primary'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td></tr>");
+                                out.println("<tbody><tr><td>" + reportID + "</td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-primary'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td></tr></tbody>");
                             }
 
                     %>
 
-                        <thead>
-                        <tr>
-                            <th>Reports ID</th>
-                            <th>Officer ID</th>
-                            <th>Date</th>
-                            <th>Location</th>
-                            <th>Time</th>
-                            <th>Crime Type</th>
-                            <th>Status</th>
-                            <th>Details</th>
-                            <th>Delete</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td> <% out.println(crimeID);%></td>
-                            <td><% out.println(postedBy); %>; </td>
-                            <td><% out.println(date); %></td>
-                            <td><% out.println(location); %></td>
-                            <td> <% out.println(time); %></td>
-                            <td> <% out.println(crimeType); %></td>
-                            <td>
-                            <div class="currentStatus"><span class="label label-warning"><% out.println(status); %></span>
-                                <button class="btn btn-default" type="button" name="editButton" id="editButton"><i class="glyphicon glyphicon-pencil"></i></button>
-                            </div>
-                            </td>
-                            <td>
-                                <button class="btn btn-success btn-xs" type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal"> <span class="glyphicon glyphicon-zoom-in"></span></button>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger btn-xs" type="button" name="delete"> <span class="glyphicon glyphicon-remove"></span></button>
-                            </td>
-                        </tr>
-
-                        </tbody>
+                        
+                        
                         <%
                         }
 
