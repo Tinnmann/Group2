@@ -7,7 +7,7 @@
   </servlet>
   <servlet-mapping>
       <servlet-name>Forgot Password</servlet-name>
-      <url-pattern>/ForgotPass.do</url-pattern>
+      <url-pattern>/ForgotPassword</url-pattern>
   </servlet-mapping>    
   
 </web-app>

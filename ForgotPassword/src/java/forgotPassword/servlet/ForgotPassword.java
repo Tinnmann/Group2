@@ -27,7 +27,6 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Sydney Twigg
  */
-@WebServlet(name = "ForgotPassword", urlPatterns = {"/ForgotPassword"})
 public class ForgotPassword extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
