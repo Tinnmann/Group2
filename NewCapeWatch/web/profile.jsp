@@ -20,7 +20,7 @@
 	<%
 
 		session = request.getSession(false);
-	
+
 	String name="";
 	String officerID ="";
 	String surname="";
@@ -29,9 +29,9 @@
 	String rank="";
 	String policeStation = "";
 	String password = "";
-	
+
 	String error="";
-	
+
 	String name1="";
 	String officerID1 ="";
 	String surname1="";
@@ -41,7 +41,7 @@
 	String policeStation1 = "";
 	String password1 = "";
 	String password2 = "";
-	
+
 		if(session.getAttribute("username") != null ) {
 			String id = session.getAttribute("username").toString();
 
@@ -52,7 +52,7 @@
 			Statement st= conn.createStatement();
 			ResultSet rs = st.executeQuery("SELECT * FROM police_user where officerID='"+ id+"'");
 
-			
+
 
 			while(rs.next()){
 
@@ -67,7 +67,7 @@
 			}
 
 
-			
+
 		String save = request.getParameter("submit");
 
 		 name1 = request.getParameter("name1");
@@ -79,7 +79,7 @@
 		 password1 = request.getParameter("password1");
 		 password2 = request.getParameter("password2");
 
-		
+
 
 
 		if ("confirm".equals(save)){
@@ -112,16 +112,16 @@
 
 
 		if (password1.isEmpty() == false && password2.isEmpty()== false && password1.equals(password2)){
-			
-			
+
+
 			st.executeUpdate("UPDATE police_user SET password='" + password1 +"' where officerID='"+id+"'");
-			
-			
+
+
 		} else if(password1.isEmpty() == false && password2.isEmpty()== false && !password1.equals(password2)){
-			
-			
+
+
 			error = error + "<p>Passwords were not the same - Please try again</p>";
-			
+
 		}
 
 
@@ -133,9 +133,9 @@
 			session = request.getSession();
 			session.setAttribute("mustlogIn", mustlogIn);
 			response.sendRedirect("login.jsp");
-			
+
 		}
-		
+
 
 %>
 
@@ -162,7 +162,7 @@
           <li><a href="login.jsp">Login</a></li>
           <li class="active"><a href="profile.jsp">Profile</a></li>
           <li><a href="reports.jsp">Reports</a></li>
-          <li><a href="stats.html">Statistics</a></li>
+          <li><a href="stats.jsp">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="relatedCrimes.html">Related Crimes</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
@@ -195,7 +195,7 @@
                       <br>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="background-color: #9D0D0D; border-color: rgb(136, 23, 27)">Edit Profile</button>
                     <br>
-                      <% if(!error.isEmpty()){ 
+                      <% if(!error.isEmpty()){
         	  out.println("<div class='container alert alert-danger' style='width:220px;text-align:center; margin-top:10px;height:70px;'>" + error +"'</div>'");
           }
         	  %>
@@ -213,9 +213,9 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                         <h4 class="modal-title text-center" id="exampleModalLabel" style="color: black">Edit Profile</h4>
-                        
+
                       </div>
-                      
+
                       <div class="modal-body">
                         <form class="form-horizontal" method="post" action="profile.jsp">
                             <div class="form-group">
@@ -306,7 +306,7 @@ while(rs1.next()){
                             </div>
 
                             <br>
-                             
+
 
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button class="btn btn-danger" id="save" value="confirm" name="submit" type="submit" >Save changes</button>
@@ -342,7 +342,7 @@ while(rs1.next()){
                             <h4 style="color: #9D0D0D">Statistics</h4>
                           </div>
                             <p class="card-text">View the current <b>crime statistics</b> of the greater Cape Town area</p>
-                            <a href="stats.html" class="btn btn-danger" style="margin-left: 39px">Statistics  <i class="glyphicon glyphicon-share-alt"></i></a>
+                            <a href="stats.jsp" class="btn btn-danger" style="margin-left: 39px">Statistics  <i class="glyphicon glyphicon-share-alt"></i></a>
                         </div>
                     </div>
 
@@ -392,9 +392,9 @@ while(rs1.next()){
           m = n.getMonth() + 1;
           d = n.getDate();
           document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-          
+
       </script>
-      
-      
+
+
   </body>
 </html>
