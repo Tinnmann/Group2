@@ -224,7 +224,7 @@
                         <select name="crimeType" id="modal-select">
                           <optgroup label="Contact Crimes (Crimes against the person)">
                             <option value="Murder">Murder</option>
-                            <option value="Sexual Offence">Sexual offences</option>
+                            <option value="Sexual Offences">Sexual offences</option>
                             <option value="Attempted murder">Attempted Murder</option>
                             <option value="Assault">Assault with the intent to inflict grievous bodily harm</option>
                             <option value="Common Assault">Common assault</option>
@@ -246,7 +246,7 @@
                             <option value="Illegal Firearms">Illegal possession of firearms and ammunition</option>
                             <option value="Drug related">Drug related crime</option>
                             <option value="Driving Alcohol">Driving under the influence of alcohol or drugs</option>
-                            <option value="Sexual Off Police">Sexual offences as a result of police action</option>
+                            <option value="Sexual Offence Police">Sexual offences as a result of police action</option>
                           </optgroup>
                           <optgroup label="Other serious crimes">
                             <option value="Theft">All theft not mentioned elsewhere</option>
