@@ -343,6 +343,10 @@ hr{
   margin-top: 3px;
 }
 
+#hr2{
+  width: 300px;
+}
+
 #white-H3 {
   color: white;
   font-family: 'Jura', sans-serif;
