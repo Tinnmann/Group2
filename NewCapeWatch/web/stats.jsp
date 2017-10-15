@@ -45,7 +45,6 @@
       <a class="navbar-text" href="index." id="whiteText">Cape Watch</a>
     </div>
     <div class="collapse navbar-collapse" id="navbar-links">
-      <ul class="nav navbar-nav navbar-right"></ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.html">Home</a></li>
         <li><a href="login.jsp">Login</a></li>

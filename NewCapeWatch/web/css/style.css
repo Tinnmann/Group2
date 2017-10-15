@@ -330,11 +330,18 @@ section#contact .text-danger {
 
 #bold-h1 {
   font-weight: bold;
-  font-size: 35px;
+  font-size: 40px;
   margin-top: 20px;
-  color: #ddd226;
-  font-family: 'Open sans', sans-serif;
-  text-shadow: 2px 2px 8px #000000; }
+  color: white;
+  font-family: 'Jura', sans-serif;
+  text-shadow: 2px 2px 8px #000000;
+  margin-bottom: 0;
+}
+
+hr{
+  width: 350px;
+  margin-top: 3px;
+}
 
 #white-H3 {
   color: white;
@@ -343,7 +350,7 @@ section#contact .text-danger {
   text-shadow: 2px 2px 8px #000000; }
 
 .hotspots-background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1)), url(../images/belYellow.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1)), url(../images/ct-black.jpeg);
   background-size: cover;
   height: 100vh; }
 
@@ -435,3 +442,16 @@ section#contact .text-danger {
   height: 117;
   border: 0;
   margin-top: 25px; }
+
+
+
+#particles-js{
+  height: 100%;
+}
+
+canvas {
+  display:block;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1)),#333333;
+  position: fixed;
+  z-index: -1;
+}
