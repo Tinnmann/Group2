@@ -24,6 +24,10 @@
         <servlet-name>Edit</servlet-name>
         <servlet-class>Edit</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DriverClass</servlet-name>
+        <servlet-class>DriverClass</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Fill</servlet-name>
         <url-pattern>/Fill</url-pattern>
@@ -51,6 +55,10 @@
     <servlet-mapping>
         <servlet-name>Edit</servlet-name>
         <url-pattern>/Edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DriverClass</servlet-name>
+        <url-pattern>/DriverClass</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -115,7 +115,7 @@ public class Fill extends HttpServlet{
                 writer.println("<br>Successfully inserted!");
             }
             else{
-                writer.println("Failed to insert");
+                writer.println("Failed to insert!");
             }
             
         }

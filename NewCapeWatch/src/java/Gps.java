@@ -13,7 +13,8 @@ import java.util.*;
 
 public class Gps {
     private static HashMap<String, String> mapCoord = new HashMap<>();
-    
+    private static ArrayList<CrimeCase> c = new ArrayList<CrimeCase>();
+    private static Graph graph = new Graph();    
     public static void process(){
         mapCoord.put("Athlone","-33.96526 18.501795");
         mapCoord.put("Belhar"," -33.943634 18.6235");
@@ -69,11 +70,20 @@ public class Gps {
         mapCoord.put("Table View","-33.827537 18.494799");
         mapCoord.put("Woodstock","-33.924158 18.454311");
         mapCoord.put("Wynberg","-34.00845 18.46618");
+        
+        CollectCrimes crimeData = new CollectCrimes();
+        crimeData.createGraph();
+        graph = crimeData.getGraph();
+        c = crimeData.getCrimeCases();          
     }
     
+
     
-    
-    public HashMap<String,String> getLocations(){
+    public static HashMap<String,String> getLocations(){
         return mapCoord;
     }
+    
+    public static Graph getGraph(){
+    	return graph;
+    }    
 }

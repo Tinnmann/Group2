@@ -14,5 +14,8 @@
     "gulp-sass": "^3.1.0",
     "gulp-pug": "^3.2.0",
     "gulp-cssmin": "^0.1.7"
+  },
+  "dependencies": {
+    "particlesjs": "^2.0.2"
   }
 }
