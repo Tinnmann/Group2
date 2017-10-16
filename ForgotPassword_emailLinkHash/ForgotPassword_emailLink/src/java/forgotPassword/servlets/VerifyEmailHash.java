@@ -48,17 +48,24 @@ public class VerifyEmailHash extends HttpServlet {
         String scope = request.getParameter("scope");
         String message = null;
         
+        //forgot password
         try{
             //verify with database
            if(scope.equals("resetPassword") && UserDAO.verifyEmailHash(officerID, hash)){
-                //update status as active
+                //update status to active
                 UserDAO.updateStatus(officerID, "active");
                 //add a session
                 request.getSession().setAttribute("user", officerID);
                 request.getSession().setAttribute("isResetPasswordVerified", "yes");
                 //forward request
                 request.getRequestDispatcher("/createPass.html").forward(request, response);
-            }
+            } else if(scope.equals("new") && UserDAO.verifyEmailHash(officerID, hash)){
+                //update status to active
+                UserDAO.updateStatus(officerID, "active");
+                UserDAO.updateEmailVerificationHash(officerID, null);
+                //forward request
+                //request.getRequestDispatcher("/login.html").forward(request, response);
+            }                
             else {
                 message = "Wrong email validation input";
             }
@@ -68,7 +75,7 @@ public class VerifyEmailHash extends HttpServlet {
         }
         if (message != null){
             request.setAttribute("message", message);
-            			request.getRequestDispatcher("/messageToUser.jsp").forward(request, response);	
+            request.getRequestDispatcher("/messageToUser.jsp").forward(request, response);	
 
         }
         }

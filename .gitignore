@@ -21,3 +21,5 @@
 /ForgotPassword/build/
 /ForgotPassword/dist/
 /ForgotPassword/nbproject/private/
+/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/build/
+/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/dist/

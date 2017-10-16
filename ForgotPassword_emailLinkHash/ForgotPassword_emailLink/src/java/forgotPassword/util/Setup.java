@@ -21,7 +21,7 @@ public class Setup {
     public static final String MAIL_SMTP_PORT = "587";
     
     //link redirect
-    public static final String MAIL_LINK = "http://localhost:8080/CW_ForgotPassword/VerifyEmailHash";
+    public static final String MAIL_LINK = "http://localhost:8080/ForgotPassword_emailLink/VerifyEmailHash";
     
 public static final String SALT = "$2a$10$DOWSDz/CyKaJ40hslrk5fe";
 
