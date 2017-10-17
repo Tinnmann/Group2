@@ -14,6 +14,8 @@ import forgotPassword.util.Setup;
 import forgotPassword.util.Utils;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +26,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author Sydney Twigg
  */
 public class login extends HttpServlet {
+    private static final Logger LOGGER = Logger.getLogger( login.class.getName() );
+
     public login(){
         super();
     }
@@ -31,11 +35,10 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //get email and password from form
-        String email = request.getParameter("lg_email");
-        String password = BCrypt.hashpw(request.getParameter("lg_password"), Setup.SALT);
+        String email = request.getParameter("email");
+        String password = BCrypt.hashpw(request.getParameter("password"), Setup.SALT);
         
         StatusPojo sp = new StatusPojo();
-        
         
         try{
             //get user details 
@@ -64,6 +67,8 @@ public class login extends HttpServlet {
         } catch (DBException e){
             sp.setCode(-1);
             sp.setMessage(e.getMessage());
+            LOGGER.log( Level.SEVERE, e.toString(), e );
+
         }
         PrintWriter pw = response.getWriter();
         pw.write(Utils.toJson(sp));

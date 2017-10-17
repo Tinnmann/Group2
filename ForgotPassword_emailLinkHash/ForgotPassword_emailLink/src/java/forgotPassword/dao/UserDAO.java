@@ -125,7 +125,7 @@ public class UserDAO {
         return verified;
     }
     
-    public static void updateStatus(String ID, String status) throws DBException{
+    public static void updateStatus(String officerID, String status) throws DBException{
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -134,7 +134,7 @@ public class UserDAO {
             conn = DBConnect.getConnection();
             ps = conn.prepareStatement("update police_user set password_status = ? where OfficerID = ?");
             ps.setString(1,status);
-            ps.setString(2,ID);
+            ps.setString(2,officerID);
             ps.executeUpdate();
             DBConnect.close(conn, ps, rs);
         } catch (ClassNotFoundException | SQLException e) {
@@ -149,7 +149,7 @@ public class UserDAO {
         ResultSet rs = null;
         try {
             conn = DBConnect.getConnection();
-            ps = conn.prepareStatement("update police_user set email_verification_hash = ? where PoliceID = ?");
+            ps = conn.prepareStatement("update police_user set email_verification_hash = ? where OfficerID = ?");
             ps.setString(1,hash);
             ps.setString(2,ID);
             ps.executeUpdate();
@@ -194,20 +194,21 @@ public class UserDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String id = null;
+        String id = user.getOFFICERID();
         
         try{
             conn = DBConnect.getConnection();
             conn.setAutoCommit(false);
-            ps = conn.prepareStatement("INSERT INTO police_user(officerID,email,name,surname,division,rank,policeStation,password) VALUES (?,?,?,?,?,?,?,?)");
-            ps.setString(1, user.getOFFICERID());
-            ps.setString(2, user.getEMAIL());
-            ps.setString(3, user.getNAME());
-            ps.setString(4, user.getSURNAME());
-            ps.setString(5, user.getDIVISION());
-            ps.setString(6, user.getRANK());
-            ps.setString(7, user.getPOLICESTATION());
-            ps.setString(8, user.getPASSWORD());
+            ps = conn.prepareStatement("INSERT INTO police_user(name, surname, division, rank, policeStation, email, password, officerID, email_verification_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            ps.setString(1, user.getNAME());
+            ps.setString(2, user.getSURNAME());
+            ps.setString(3, user.getDIVISION());
+            ps.setString(4, user.getRANK());
+            ps.setString(5, user.getPOLICESTATION());
+            ps.setString(6, user.getEMAIL());
+            ps.setString(7, user.getPASSWORD());
+            ps.setString(8, user.getOFFICERID());
+            ps.setString(9, user.getEMAILVERIFICATIONHASH());
             
             ps.executeUpdate();
             
@@ -232,7 +233,7 @@ public class UserDAO {
         
         try{
             conn = DBConnect.getConnection();
-            ps = conn.prepareStatement("SELECT officerID, email, name, surname ,division, rank, policeStation, password_status FROM police_user WHERE email=? AND password=?");
+            ps = conn.prepareStatement("SELECT name, surname, division, rank, policeStation, email, officerID, password_status FROM police_user WHERE email=? AND password=?");
             ps.setString(1, email);
             ps.setString(2, password);
             
@@ -241,14 +242,15 @@ public class UserDAO {
             if(rs != null){
                 while (rs.next()){
                     user = new UserPojo();
-                    user.setOFFICERID(rs.getString(8)); //column indices are weird
-                    user.setEMAIL(rs.getString(6));
+                    
                     user.setNAME(rs.getString(1));
                     user.setSURNAME(rs.getString(2));
                     user.setDIVISION(rs.getString(3));
                     user.setRANK(rs.getString(4));
                     user.setPOLICESTATION(rs.getString(5));
-                    user.setSTATUS(rs.getString(10));
+                    user.setEMAIL(rs.getString(6));
+                    user.setOFFICERID(rs.getString(7)); //there are 10 columns but if you say 10 it breaks
+                    user.setSTATUS(rs.getString(8));
                 }    
             }
             

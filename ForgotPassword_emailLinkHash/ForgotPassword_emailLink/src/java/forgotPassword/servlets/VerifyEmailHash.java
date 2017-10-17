@@ -59,7 +59,7 @@ public class VerifyEmailHash extends HttpServlet {
                 request.getSession().setAttribute("isResetPasswordVerified", "yes");
                 //forward request
                 request.getRequestDispatcher("/createPass.html").forward(request, response);
-            } else if(scope.equals("new") && UserDAO.verifyEmailHash(officerID, hash)){
+            } else if(scope.equals("activation") && UserDAO.verifyEmailHash(officerID, hash)){
                 //update status to active
                 UserDAO.updateStatus(officerID, "active");
                 UserDAO.updateEmailVerificationHash(officerID, null);
@@ -67,7 +67,7 @@ public class VerifyEmailHash extends HttpServlet {
                 //request.getRequestDispatcher("/login.html").forward(request, response);
             }                
             else {
-                message = "Wrong email validation input";
+                message = "Wrong email address???";
             }
         } catch (DBException ex) {
             Logger.getLogger(VerifyEmailHash.class.getName()).log(Level.SEVERE, null, ex);
