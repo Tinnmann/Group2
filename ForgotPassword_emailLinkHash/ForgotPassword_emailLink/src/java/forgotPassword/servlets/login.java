@@ -67,7 +67,7 @@ public class login extends HttpServlet {
         } catch (DBException e){
             sp.setCode(-1);
             sp.setMessage(e.getMessage());
-                LOGGER.log( Level.SEVERE, e.toString(), e );
+            LOGGER.log( Level.SEVERE, e.toString(), e );
 
         }
         PrintWriter pw = response.getWriter();

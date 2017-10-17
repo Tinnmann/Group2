@@ -199,15 +199,15 @@ public class UserDAO {
         try{
             conn = DBConnect.getConnection();
             conn.setAutoCommit(false);
-            ps = conn.prepareStatement("INSERT INTO police_user(officerID,email,name,surname,division,rank,policeStation,password) VALUES (?,?,?,?,?,?,?,?)");
-            ps.setString(1, user.getOFFICERID());
-            ps.setString(2, user.getEMAIL());
-            ps.setString(3, user.getNAME());
-            ps.setString(4, user.getSURNAME());
-            ps.setString(5, user.getDIVISION());
-            ps.setString(6, user.getRANK());
-            ps.setString(7, user.getPOLICESTATION());
-            ps.setString(8, user.getPASSWORD());
+            ps = conn.prepareStatement("INSERT INTO police_user(name, surname, division, rank, policeStation, email, password, officerID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            ps.setString(1, user.getNAME());
+            ps.setString(2, user.getSURNAME());
+            ps.setString(3, user.getDIVISION());
+            ps.setString(4, user.getRANK());
+            ps.setString(5, user.getPOLICESTATION());
+            ps.setString(6, user.getEMAIL());
+            ps.setString(7, user.getPASSWORD());
+            ps.setString(8, user.getOFFICERID());
             
             ps.executeUpdate();
             
@@ -248,7 +248,7 @@ public class UserDAO {
                     user.setRANK(rs.getString(4));
                     user.setPOLICESTATION(rs.getString(5));
                     user.setEMAIL(rs.getString(6));
-                    user.setOFFICERID(rs.getString(7)); //column indices are weird
+                    user.setOFFICERID(rs.getString(7)); //there are 10 columns but if you say 10 it breaks
                     user.setSTATUS(rs.getString(8));
                 }    
             }

@@ -38,7 +38,7 @@ public class RegisterUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //get values from form
-        String officerID = request.getParameter("id");
+        String officerID = request.getParameter("OfficerID");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmpassword");
