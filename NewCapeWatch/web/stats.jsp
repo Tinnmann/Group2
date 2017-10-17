@@ -52,6 +52,11 @@
         <li><a href="profile.jsp">Profile</a></li>
         <li><a href="reports.jsp">Reports</a></li>
         <li class="active"><a href="stats.jsp">Statistics</a></li>
+        <li>
+                         <a href="#" onclick= "document.getElementById('DriverClass').submit(); ">
+                                                <i class="fa fa-fw fa-desktop"></i> Process Data</a>
+                        <form id="DriverClass" action="DriverClass" method="post" role="form"></form>            
+        </li>
         <li><a href="hotspots.html">Hotspots</a></li>
         <li><a href="relatedCrimes.html">Related Crimes</a></li>
         <li><a href="contact.jsp">Contact Us</a></li>
@@ -168,13 +173,13 @@
                 data: [{
                   dataPoints: [
                     { x: 1, y: 297571, label: "Murder"},
-                    { x: 2, y: 267017,  label: "Saudi" },
-                    { x: 3, y: 175200,  label: "Canada"},
-                    { x: 4, y: 154580,  label: "Iran"},
-                    { x: 5, y: 116000,  label: "Russia"},
-                    { x: 6, y: 97800, label: "UAE"},
-                    { x: 7, y: 20682,  label: "US"},
-                    { x: 8, y: 20350,  label: "China"}
+                    { x: 2, y: 267017,  label: "Assault" },
+                    { x: 3, y: 175200,  label: "Carjacking"},
+                    { x: 4, y: 154580,  label: "Vehicle theft"},
+                    { x: 5, y: 116000,  label: "Robbery"},
+                    { x: 6, y: 97800, label: "Arson"},
+                    { x: 7, y: 20682,  label: "Property Damage"},
+                    { x: 8, y: 20350,  label: "Attempted Murder"}
                   ]
                 }]
               });

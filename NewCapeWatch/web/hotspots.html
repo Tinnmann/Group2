@@ -9,8 +9,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src="particles.js-master/demo/js/app.js"></script>
+    <!--script src="particles.js-master/demo/js/app.js"></script-->
     <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/st.js"></script>
   </head>
   <body class="hotspots-background">
     <nav class="navbar navbar-default navbar-inverse">
@@ -32,103 +34,53 @@
           <li><a href="login.jsp">Login</a></li>
           <li><a href="profile.jsp">Profile</a></li>
           <li><a href="reports.html">Reports</a></li>
-          <li><a href="stats.html">Statistics</a></li>
+          <li><a href="stats.jsp">Statistics</a></li>
           <li class="active"><a href="hotspots.html">Hotspots</a></li>
           <li><a href="relatedCrimes.html">Related Crimes</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
+        <ul class="nav navbar-nav side-nav">
+            
+            <li class="dropdown">
+                <a class="dropdown-toggle" id="time-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <i class="fa fa-fw fa-bar-chart-o"></i>Time
+                  <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="time-menu">
+                    <li ><a href="#Time" onclick="showGraphStatistics('morning');">Morning</a></li>
+                    <li ><a href="#Time" onclick="showGraphStatistics('noon');">Noon</a></li>
+                    <li ><a href="#Time" onclick="showGraphStatistics('evening');">Evening</a></li>
+                    <li ><a href="#Time" onclick="showGraphStatistics('night');">Night</a></li>
+                </ul>
+            </li>
+
+            <li >
+                    <a href="#Crimes" onclick="showGraphStatistics('crimes');">Crimes</a>
+            </li>
+
+            <li >
+                    <a href="#Clusters" onclick="showClusterStatistics();">Clusters</a>
+            </li>
+
+        </ul>        
       </div>
     </nav>
     <h1 class="text-center" id="bold-h1">HOTSPOTS</h1>
     <h3 class="text-center" id="white-H3">CRIME HOTSPOTS OF THE GREATER CAPE TOWN AREA
+        
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-          <div id="map">
-            <script>
-              function initMap() {
-                var westernCape = {lat: -33.937666, lng: 18.442271};
-                var map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 10,
-                  center: westernCape
-                });
-                var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                var markers = locations.map(function(location, i) {
-                    return new google.maps.Marker({
-                        position: location,
-                        label: labels[i % labels.length]
-                    });
-                });
-
-                var markerCluster = new MarkerClusterer(map, markers,
-                    {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-
-            }
-                  var locations = [
-                    {lat: -33.96526, lng: 18.501795},
-                    {lat: -33.943634, lng: 18.6235},
-                    {lat: -33.894269, lng: 18.629438},
-                    {lat: -33.922112, lng: 18.645026},
-                    {lat: -33.94789, lng: 18.57897},
-                    {lat: -33.85966, lng: 18.54038},
-                    {lat: -33.878675, lng: 18.694762},
-                    {lat: -33.951298, lng: 18.383098},
-                    {lat: -33.924269, lng: 18.418703},
-                    {lat: -33.98600, lng: 18.47212},
-                    {lat: -33.96144, lng: 18.64725},
-                    {lat: -34.03423, lng: 18.46470},
-                    {lat: -33.825941, lng: 18.653191},
-                    {lat: -33.93571, lng: 18.58357},
-                    {lat: -34.13409, lng: 18.41870},
-                    {lat: -33.91167, lng: 18.55225},
-                    {lat: -34.06339, lng: 18.51070},
-                    {lat: -33.98207, lng: 18.57971},
-                    {lat: -34.05829, lng: 18.67249},
-                    {lat: -34.02087, lng: 18.36826},
-                    {lat: -33.910505, lng: 18.507731},
-                    {lat: -34.037444, lng: 18.676945},
-                    {lat: -34.069448, lng: 18.454311},
-                    {lat: -33.987274, lng: 18.714064},
-                    {lat: -33.853419, lng: 18.718518},
-                    {lat: -33.941385, lng: 18.70664},
-                    {lat: -33.938945, lng: 18.52973},
-                    {lat: -33.98567, lng: 18.500311},
-                    {lat: -34.041414, lng: 18.660111},
-                    {lat: -34.047738, lng: 18.748217},
-                    {lat: -33.920618, lng: 18.503279},
-                    {lat: -33.983866, lng: 18.555222},
-                    {lat: -34.006485, lng: 18.685853},
-                    {lat: -33.865968, lng: 18.534443},
-                    {lat: -34.048595, lng: 18.605687},
-                    {lat: -33.950033, lng: 18.495859},
-                    {lat: -34.089885, lng: 18.495859},
-                    {lat: -33.995381, lng: 18.584906},
-                    {lat: -34.14954, lng: 18.353431},
-                    {lat: -33.906792, lng: 18.580811},
-                    {lat: -34.034498, lng: 18.55819},
-                    {lat: -33.937426, lng: 18.507731},
-                    {lat: -33.922659, lng: 18.602719},
-                    {lat: -33.965788, lng: 18.48102},
-                    {lat: -33.916949, lng: 18.387549},
-                    {lat: -34.193765, lng: 18.435665},
-                    {lat: -34.07569, lng: 18.843266},
-                    {lat: -34.07364, lng: 18.470633},
-                    {lat: -33.932104, lng: 18.860152},
-                    {lat: -34.11232, lng: 18.849207},
-                    {lat: -34.077876, lng: 18.573032},
-                    {lat: -33.827537, lng: 18.494799},
-                    {lat: -33.924158, lng: 18.454311},
-                    {lat: -34.00845, lng: 18.46618}
-                  ]
-
-            </script>
-            <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-            </script>
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initMap" type="text/javascript"></script>
+          <div class="map" id="map">
+               <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initialize" type="text/javascript"></script>
           </div>
         </div>
       </div>
 
     </h3>
-  </div>
+    <script type="text/javascript" >
+            //alert ('setting the map');
+            google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
   </body>
 </html>

@@ -435,3 +435,20 @@ section#contact .text-danger {
   height: 117;
   border: 0;
   margin-top: 25px; }
+
+nav ul li {
+    display:  block;
+    float: left;
+}
+nav ul ul {
+    display: none;  
+}
+nav ul li:hover > ul {
+    display: block;
+    position: absolute;
+    margin-left: -30px;
+}
+nav ul ul li {
+    display: block; 
+    float: none;
+}
