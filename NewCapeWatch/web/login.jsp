@@ -46,11 +46,11 @@ if(email.isEmpty()){
 
 }
 
-if(password.isEmpty()){
+  if(password.isEmpty()){
 
-	error = error + "<p>An password is required</p>";
+  	error = error + "<p>An password is required</p>";
 
-}
+  }
 
 }
 
@@ -76,7 +76,6 @@ if(session.getAttribute("mustlogIn") != null ){
 	error = error + session.getAttribute("mustlogIn").toString();
 	session.invalidate();
 }
-
 
 %>
 

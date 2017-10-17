@@ -427,27 +427,12 @@ hr{
 .related-background {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 89, 179, 0.3)),url(../images/crimeScene.jpg);
   background-size: cover;
-  height: 100vh; }
+  height: 100vh;
+}
 
 .open-sans {
-  font-family: 'Open Sans', sans-serif; }
-
-#footer2 {
-  background: #101010;
-  color: #d9d9d9;
-  padding: 10px 10px 1px 10px; }
-
-#WhereWeStay {
-  float: right;
-  padding-right: 20px !important; }
-
-#UsMap {
-  width: 200;
-  height: 117;
-  border: 0;
-  margin-top: 25px; }
-
-
+  font-family: 'Open Sans', sans-serif;
+}
 
 #particles-js{
   height: 100%;
