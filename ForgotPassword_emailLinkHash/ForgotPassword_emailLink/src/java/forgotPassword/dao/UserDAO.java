@@ -5,6 +5,7 @@ import static com.sun.xml.ws.spi.db.BindingContextFactory.LOGGER;
 import forgotPassword.db.DBConnect;
 import forgotPassword.db.DBException;
 import forgotPassword.model.UserPojo;
+import forgotPassword.servlets.RegisterUser;
 import forgotPassword.servlets.VerifyEmailHash;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,32 +18,7 @@ import java.util.logging.Logger;
  *
  * @author Sydney Twigg
  */
-public class UserDAO {
-    //methods to implement
-    
-    //selectUser - is this needed??? 
-    /*
-    public static UserPojo selectUser(String officerID) throws DBException{
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        UserPojo pojo = null;
-        
-        try{
-            conn = DBConnect.getConnection();
-            ps = conn.prepareStatement("");
-        }
-        catch (ClassNotFoundException | SQLException e) {
-            DBConnect.close(conn, ps, rs);
-            System.out.println(e.getMessage());
-            throw new DBException("Error accessing database");
-        }
-        
-        
-        
-        
-        return pojo;
-    } */
+public class UserDAO {    
     //updatePassword
     	public static void updatePassword(String officerID, String password) throws DBException {
         Connection conn = null;
@@ -62,9 +38,7 @@ public class UserDAO {
                 throw new DBException("Excepion while accessing database");
         }
 	}
-    //updateStatus
-    //verifyEmailHash
-    //updateEmailVerificationHash
+
     //updateVerificationReset
     public static void updateVerificationReset(String inputEmail, String hash) throws DBException{
         Connection conn = null;
@@ -119,10 +93,6 @@ public class UserDAO {
             System.out.println(e.getMessage());
             throw new DBException("Error accessing database");
         }
-        
-        
-        
-        
         return pojo;
     }
     
@@ -174,22 +144,122 @@ public class UserDAO {
     }
     
     public static void updateEmailVerificationHash(String ID, String hash) throws DBException{
-		Connection conn = null;
-		PreparedStatement ps = null;
-                ResultSet rs = null;
-		try {
-			conn = DBConnect.getConnection();
-			ps = conn.prepareStatement("update police_user set email_verification_hash = ? where PoliceID = ?");
-			ps.setString(1,hash);
-			ps.setString(2,ID);
-			ps.executeUpdate();
-			DBConnect.close(conn, ps, rs);
-		} catch (ClassNotFoundException | SQLException e) {
-			DBConnect.close(conn, ps, rs);
-                                    Logger.getLogger(VerifyEmailHash.class.getName()).log(Level.SEVERE, null, e);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            conn = DBConnect.getConnection();
+            ps = conn.prepareStatement("update police_user set email_verification_hash = ? where PoliceID = ?");
+            ps.setString(1,hash);
+            ps.setString(2,ID);
+            ps.executeUpdate();
+            DBConnect.close(conn, ps, rs);
+        } catch (ClassNotFoundException | SQLException e) {
+            DBConnect.close(conn, ps, rs);
+            Logger.getLogger(VerifyEmailHash.class.getName()).log(Level.SEVERE, null, e);
+            throw new DBException("Excepion while accessing database");
+        }
+    }
+    
+    public static boolean emailExists(String email) throws DBException{
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        boolean verified = false;
+        
+        try{
+            conn = DBConnect.getConnection();
+            ps = conn.prepareStatement("SELECT 1 FROM police_user WHERE email=?");
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            
+            if (rs != null){
+                while (rs.next()){
+                    verified = true;
+                }
+            }
+            
+        } catch (ClassNotFoundException | SQLException e) {
+            DBConnect.close(conn, ps, rs);
+            Logger.getLogger(RegisterUser.class.getName()).log(Level.SEVERE, null, e);
+            throw new DBException("Excepion while accessing database");
+        }
+        
+        return verified;
+    }
+    
+    public static String insertNewUser(UserPojo user) throws DBException{
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
-			throw new DBException("Excepion while accessing database");
-		}
-	}
+        String id = null;
+        
+        try{
+            conn = DBConnect.getConnection();
+            conn.setAutoCommit(false);
+            ps = conn.prepareStatement("INSERT INTO police_user(officerID,email,name,surname,division,rank,policeStation,password) VALUES (?,?,?,?,?,?,?,?)");
+            ps.setString(1, user.getOFFICERID());
+            ps.setString(2, user.getEMAIL());
+            ps.setString(3, user.getNAME());
+            ps.setString(4, user.getSURNAME());
+            ps.setString(5, user.getDIVISION());
+            ps.setString(6, user.getRANK());
+            ps.setString(7, user.getPOLICESTATION());
+            ps.setString(8, user.getPASSWORD());
+            
+            ps.executeUpdate();
+            
+            
+            conn.commit();
+            DBConnect.close(conn, ps, rs);
+        } catch (ClassNotFoundException | SQLException e) {
+            DBConnect.close(conn, ps, rs);
+            Logger.getLogger(RegisterUser.class.getName()).log(Level.SEVERE, null, e);
+            throw new DBException("Excepion while accessing database");
+        }
+        
+        return id;
+    }
+    
+    public static UserPojo verifyLogin(String email, String password) throws DBException{
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        UserPojo user = null;
+        
+        try{
+            conn = DBConnect.getConnection();
+            ps = conn.prepareStatement("SELECT officerID, email, name, surname ,division, rank, policeStation, password_status FROM police_user WHERE email=? AND password=?");
+            ps.setString(1, email);
+            ps.setString(2, password);
+            
+            rs = ps.executeQuery();
+            
+            if(rs != null){
+                while (rs.next()){
+                    user = new UserPojo();
+                    user.setOFFICERID(rs.getString(8)); //column indices are weird
+                    user.setEMAIL(rs.getString(6));
+                    user.setNAME(rs.getString(1));
+                    user.setSURNAME(rs.getString(2));
+                    user.setDIVISION(rs.getString(3));
+                    user.setRANK(rs.getString(4));
+                    user.setPOLICESTATION(rs.getString(5));
+                    user.setSTATUS(rs.getString(10));
+                }    
+            }
+            
+            DBConnect.close(conn, ps, rs);
+        } catch (ClassNotFoundException | SQLException e) {
+            DBConnect.close(conn, ps, rs);
+            Logger.getLogger(RegisterUser.class.getName()).log(Level.SEVERE, null, e);
+            throw new DBException("Excepion while accessing database");
+        }
+        
+        return user;
+    }
 	
 }
