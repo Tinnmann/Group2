@@ -149,7 +149,7 @@ public class UserDAO {
         ResultSet rs = null;
         try {
             conn = DBConnect.getConnection();
-            ps = conn.prepareStatement("update police_user set email_verification_hash = ? where PoliceID = ?");
+            ps = conn.prepareStatement("update police_user set email_verification_hash = ? where OfficerID = ?");
             ps.setString(1,hash);
             ps.setString(2,ID);
             ps.executeUpdate();
@@ -232,7 +232,7 @@ public class UserDAO {
         
         try{
             conn = DBConnect.getConnection();
-            ps = conn.prepareStatement("SELECT officerID, email, name, surname ,division, rank, policeStation, password_status FROM police_user WHERE email=? AND password=?");
+            ps = conn.prepareStatement("SELECT name, surname, division, rank, policeStation, email, officerID, password_status FROM police_user WHERE email=? AND password=?");
             ps.setString(1, email);
             ps.setString(2, password);
             
@@ -241,14 +241,15 @@ public class UserDAO {
             if(rs != null){
                 while (rs.next()){
                     user = new UserPojo();
-                    user.setOFFICERID(rs.getString(8)); //column indices are weird
-                    user.setEMAIL(rs.getString(6));
+                    
                     user.setNAME(rs.getString(1));
                     user.setSURNAME(rs.getString(2));
                     user.setDIVISION(rs.getString(3));
                     user.setRANK(rs.getString(4));
                     user.setPOLICESTATION(rs.getString(5));
-                    user.setSTATUS(rs.getString(10));
+                    user.setEMAIL(rs.getString(6));
+                    user.setOFFICERID(rs.getString(7)); //column indices are weird
+                    user.setSTATUS(rs.getString(8));
                 }    
             }
             
