@@ -163,13 +163,13 @@ public class CollectCrimes
 	public static void dropTables(Statement statement){
             System.out.println("Started deleting tables ...");
             int i = 0;
-//            loop:
+            loop:
 		while (true){
                     try{
                         String sql = "DROP TABLE graph"+i;
 			statement.executeUpdate(sql);
                     }catch(Exception e){
-                        break;
+                        break loop;
                     }
                     i++;
 		}

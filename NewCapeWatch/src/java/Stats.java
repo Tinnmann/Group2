@@ -25,7 +25,7 @@ public class Stats {
 			new HashMap<String,HashMap<String,ArrayList<CrimeCase> > >() ;
 	
 	//the key is the location and the list contains the clusters in that location
-//	private  HashMap<String,ArrayList<Cluster>> clusterStatistics = new HashMap<String,ArrayList<Cluster>>() ;
+	private  HashMap<String,ArrayList<Cluster>> clusterStatistics = new HashMap<String,ArrayList<Cluster>>() ;
 	
 	public Stats(ArrayList<Graph> clusters,ArrayList<CrimeCase> graph){
 		this.clusters = clusters;
@@ -42,7 +42,7 @@ public class Stats {
 		
 		//can create cluster statistics which shows each location with clusters present in it
 		
-//		createClusterStatistics();
+		createClusterStatistics();
 		
 		createGraphStatistics();
 		
@@ -50,35 +50,35 @@ public class Stats {
 		
 		printGraphStatistics(graphStatistics);
 		
-//		System.out.println("CLUSTER STATS\n");
+		System.out.println("CLUSTER STATS\n");
 		
-//		printClusterStatistics(clusterStatistics);
+		printClusterStatistics(clusterStatistics);
 	}
 	
-//	public void createClusterStatistics(){
-//		
-//		for (int i=0;i<clusters.size();i++){
-//			
-//			Cluster cluster = new Cluster(clusters.get(i).getCrimeNodes(),"gang"+i);
-//			
-//			//all the locations the cluster is working on
-//			HashMap<String,ArrayList<CrimeNode>> crimesCommitted = cluster.createStatistics();
-//			
-//			//iterate the locations putting the cluster in those
-//			for ( String key : crimesCommitted.keySet() ) {
-//			    //System.out.println( key );
-//			    if (clusterStatistics.containsKey(key)){
-//			    	clusterStatistics.get(key).add(cluster);
-//			    }else{
-//			    	ArrayList<Cluster> loc = new ArrayList<Cluster>();
-//			    	loc.add(cluster);
-//			    	clusterStatistics.put(key, loc);
-//			    }
-//			}
-//			
-//		}
-//		
-//	}
+	public void createClusterStatistics(){
+		
+		for (int i=0;i<clusters.size();i++){
+			
+			Cluster cluster = new Cluster(clusters.get(i).getCrimeCases(),"gang"+i);
+			
+			//all the locations the cluster is working on
+			HashMap<String,ArrayList<CrimeCase>> crimesCommitted = cluster.createStatistics();
+			
+			//iterate the locations putting the cluster in those
+			for ( String key : crimesCommitted.keySet() ) {
+			    //System.out.println( key );
+			    if (clusterStatistics.containsKey(key)){
+			    	clusterStatistics.get(key).add(cluster);
+			    }else{
+			    	ArrayList<Cluster> loc = new ArrayList<Cluster>();
+			    	loc.add(cluster);
+			    	clusterStatistics.put(key, loc);
+			    }
+			}
+			
+		}
+		
+	}
 	
 	public  void createGraphStatistics(){
 		//graphStatistics.put("location", new HashMap<String,ArrayList<CrimeNode> >());
@@ -105,14 +105,14 @@ public class Stats {
 				stats.put("evening", new ArrayList<CrimeCase>() );
 				stats.put("night", new ArrayList<CrimeCase>() );
 				
-				stats.put("Sunday", new ArrayList<CrimeCase>() );
-				stats.put("Monday", new ArrayList<CrimeCase>() );
-				stats.put("Tuesday", new ArrayList<CrimeCase>() );
-				stats.put("Wednesday", new ArrayList<CrimeCase>() );
-				stats.put("Thursday", new ArrayList<CrimeCase>() );
-				stats.put("Friday", new ArrayList<CrimeCase>() );
-				stats.put("Saturday", new ArrayList<CrimeCase>() );
-				
+//				stats.put("Sunday", new ArrayList<CrimeCase>() );
+//				stats.put("Monday", new ArrayList<CrimeCase>() );
+//				stats.put("Tuesday", new ArrayList<CrimeCase>() );
+//				stats.put("Wednesday", new ArrayList<CrimeCase>() );
+//				stats.put("Thursday", new ArrayList<CrimeCase>() );
+//				stats.put("Friday", new ArrayList<CrimeCase>() );
+//				stats.put("Saturday", new ArrayList<CrimeCase>() );
+//				
 				graphStatistics.put(crime.location, stats);
 				
 				//add to the crimes type
@@ -168,67 +168,67 @@ public class Stats {
 		
 	}
 	
-//	public void printClusterStatistics(HashMap<String,ArrayList<Cluster>> stats) throws FileNotFoundException{
-//		
-//		//make a string with variables e.g. var locs = {Rosebank : {gang1 :'100%'} };
-//		//for the javascript
-//		String script = "{";
-//		
-//		//iterate the locations putting the cluster in those
-//		for ( String location : clusterStatistics.keySet() ) {
-//		    //System.out.println( "\n******** "+location+" ********\n" );
-//		    
-//		    //get total crimes committed in a location
-//		    int crimeNo = getTotalCrimes(stats,location);
-//		    
-//		    ArrayList<Cluster> type = clusterStatistics.get(location);
-//		    
-//		    script = script +""+location.replaceAll("[^a-zA-Z]", "")+" : { ";
-//		    
-//		    for (int i=0;i<type.size();i++) {
-//		    	
-//		    	String html = type.get(i).getHTML();
-//		    	
-//		    	int locNo = type.get(i).getLocCrimes(location).size();
-//		    	
-//		    	//get percentage of crimes done by gang in this location
-//		    	double perc = ( (double)locNo/crimeNo )*100;
-//		    	
-//		    	//System.out.println( "-- "+type.get(i).clusterName+"\n");
-//		    	
-//		    	script = script+""+type.get(i).clusterName+" : {perc: '"+(int)perc+"',html:'"+html+"'},";
-//		    	//printCrimes(type.get(i).getCrimes());
-//		    }
-//		    
-//		    script = script.substring(0, script.length() -1);
-//		    script = script + "},";
-//		    
-//		    //System.out.println(script);
-//		}
-//		
-//		script = script.substring(0, script.length() -1);
-//	    script = script + "}";
-//	    
-//	    System.out.println(script);
-//	    
-//            //C:\Users\Tinnman\Desktop\Capstone-final\build\web\js
-//	    PrintWriter out = new PrintWriter("C:/Users/Tinnman/Desktop/Capstone-final/build/web/js/ClusterStatistics.txt");
-//	    out.println(script);
-//	    out.close();
-//		
-//	}
+	public void printClusterStatistics(HashMap<String,ArrayList<Cluster>> stats) throws FileNotFoundException{
+		
+		//make a string with variables e.g. var locs = {Rosebank : {gang1 :'100%'} };
+		//for the javascript
+		String script = "{";
+		
+		//iterate the locations putting the cluster in those
+		for ( String location : clusterStatistics.keySet() ) {
+		    //System.out.println( "\n******** "+location+" ********\n" );
+		    
+		    //get total crimes committed in a location
+		    int crimeNo = getTotalCrimes(stats,location);
+		    
+		    ArrayList<Cluster> type = clusterStatistics.get(location);
+		    
+		    script = script +""+location.replaceAll("[^a-zA-Z]", "")+" : { ";
+		    
+		    for (int i=0;i<type.size();i++) {
+		    	
+		    	String html = type.get(i).getHTML();
+		    	
+		    	int locNo = type.get(i).getLocCrimes(location).size();
+		    	
+		    	//get percentage of crimes done by gang in this location
+		    	double perc = ( (double)locNo/crimeNo )*100;
+		    	
+		    	//System.out.println( "-- "+type.get(i).clusterName+"\n");
+		    	
+		    	script = script+""+type.get(i).clusterName+" : {perc: '"+(int)perc+"',html:'"+html+"'},";
+		    	//printCrimes(type.get(i).getCrimes());
+		    }
+		    
+		    script = script.substring(0, script.length() -1);
+		    script = script + "},";
+		    
+		    //System.out.println(script);
+		}
+		
+		script = script.substring(0, script.length() -1);
+	    script = script + "}";
+	    
+	    System.out.println(script);
+	    
+            //C:\Users\Tinnman\Desktop\Capstone-final\build\web\js
+	    PrintWriter out = new PrintWriter("C:/Users/TINASHE/Desktop/Group2/NewCapeWatch/build/web/js/ClusterStatistics.txt");
+	    out.println(script);
+	    out.close();
+		
+	}
 	
-//	public int getTotalCrimes(HashMap<String,ArrayList<Cluster>> stats,String loc){
-//		int total = 0;
-//		
-//		ArrayList<Cluster> clusters = stats.get(loc);
-//		
-//		for (int i=0;i<clusters.size();i++){
-//			total = total + clusters.get(i).getLocCrimes(loc).size();
-//		}
-//		
-//		return total;
-//	}
+	public int getTotalCrimes(HashMap<String,ArrayList<Cluster>> stats,String loc){
+		int total = 0;
+		
+		ArrayList<Cluster> clusters = stats.get(loc);
+		
+		for (int i=0;i<clusters.size();i++){
+			total = total + clusters.get(i).getLocCrimes(loc).size();
+		}
+		
+		return total;
+	}
 	
 	public  void printGraphStatistics(HashMap<String,HashMap<String,ArrayList<CrimeCase> > > stats) throws FileNotFoundException{
 		//make a string with variables e.g. 
@@ -237,7 +237,7 @@ public class Stats {
 		
 		int crimes=0, morning=0,noon = 0,evening=0,night=0;
 		
-		int sunday=0,monday=0,tuesday=0,wednesday=0,thursday=0,friday=0,saturday=0;
+		//int sunday=0,monday=0,tuesday=0,wednesday=0,thursday=0,friday=0,saturday=0;
 		
 		String script = "{";
 		//iterate the locations putting the cluster in those
@@ -294,7 +294,7 @@ public class Stats {
 	    out.println(script);
 	    out.close();
 	    
-	    out = new PrintWriter("C:/Users/Tinnman/Desktop/Group2/NewCapeWatch/build/web/js/GraphTotals.txt");
+	    out = new PrintWriter("C:/Users/TINASHE/Desktop/Group2/NewCapeWatch/build/web/js/GraphTotals.txt");
 	    out.println(totals);
 	    out.close();
 	    
