@@ -70,8 +70,9 @@
           <div class="span3">
             <div class="row">
               <div class="col-sm-12">
-                <div class="table-responsive">
+                <div class="table-responsive" styl="height: 80%; overflow-y: scroll;">
                   <table class="table table-list-search" id="reportTable">
+                    <thead>
                             <%
                         try{
                             Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -89,7 +90,7 @@
                             String crimeType= "";
                             String status= "";
 
-                            out.println("<thead><tr><th>Report ID</th><th>Officer ID:</th><th>Date</th><th>Location</th><th>Time</th><th>Crime Type</th><th>Status</th><th>Details</th><tr></thead>");
+                            out.println("<tr><th>Report ID</th><th>Officer ID:</th><th>Date</th><th>Location</th><th>Time</th><th>Crime Type</th><th>Status</th><th>Details</th><tr>");
 
                             while (rs.next()){
                                 reportID = rs.getInt(1);
@@ -100,20 +101,16 @@
                                 time = rs.getString(6);
                                 crimeType = rs.getString(7);
                                 status = rs.getString(8);
-                                out.println("<tbody><tr><td>" + reportID + "</td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-primary'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td></tr></tbody>");
+                                out.println("<tbody><tr><td><label name="reportID">" + reportID + "</label></td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-primary'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td></tr></tbody>");
                             }
-
-                    %>
-
-
-
+                        %>
                         <%
                         }
-
                         catch(Exception e){
                             System.out.println(e);
                         }
                         %>
+                          </thead>
                     </table>
               </div>
             </div>

@@ -59,7 +59,7 @@ public class VerifyEmailHash extends HttpServlet {
                 request.getSession().setAttribute("isResetPasswordVerified", "yes");
                 //forward request
                 request.getRequestDispatcher("/createPass.html").forward(request, response);
-            } else if(scope.equals("new") && UserDAO.verifyEmailHash(officerID, hash)){
+            } else if(scope.equals("activation") && UserDAO.verifyEmailHash(officerID, hash)){
                 //update status to active
                 UserDAO.updateStatus(officerID, "active");
                 UserDAO.updateEmailVerificationHash(officerID, null);

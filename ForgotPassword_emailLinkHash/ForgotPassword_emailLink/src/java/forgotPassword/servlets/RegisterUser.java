@@ -32,13 +32,13 @@ public class RegisterUser extends HttpServlet {
     
 
     /*TO DO WHEN I'M MORE AWAKE
-        - Fix link: officerID=null
+        - Fix link: officerID=null DONE~
         - Make sure DB gets updated with hash
     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //get values from form
-        String officerID = request.getParameter("OfficerID");
+        String officerID = request.getParameter("officerID");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmpassword");
@@ -86,10 +86,10 @@ public class RegisterUser extends HttpServlet {
             try{
                 //check if email does not exist in DB before registering
                 if(!UserDAO.emailExists(email)){
-                    String id = UserDAO.insertNewUser(user);
+                    UserDAO.insertNewUser(user);
                     
                     //send verification mail
-                    MailUtil.sendRegistrationLink(id, email, hash);
+                    MailUtil.sendRegistrationLink(officerID, email, hash);
                     
                     sp.setCode(0);
                     sp.setMessage("Link sent");

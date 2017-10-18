@@ -125,7 +125,7 @@ public class UserDAO {
         return verified;
     }
     
-    public static void updateStatus(String ID, String status) throws DBException{
+    public static void updateStatus(String officerID, String status) throws DBException{
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -134,7 +134,7 @@ public class UserDAO {
             conn = DBConnect.getConnection();
             ps = conn.prepareStatement("update police_user set password_status = ? where OfficerID = ?");
             ps.setString(1,status);
-            ps.setString(2,ID);
+            ps.setString(2,officerID);
             ps.executeUpdate();
             DBConnect.close(conn, ps, rs);
         } catch (ClassNotFoundException | SQLException e) {
@@ -194,12 +194,12 @@ public class UserDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String id = null;
+        String id = user.getOFFICERID();
         
         try{
             conn = DBConnect.getConnection();
             conn.setAutoCommit(false);
-            ps = conn.prepareStatement("INSERT INTO police_user(name, surname, division, rank, policeStation, email, password, officerID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            ps = conn.prepareStatement("INSERT INTO police_user(name, surname, division, rank, policeStation, email, password, officerID, email_verification_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             ps.setString(1, user.getNAME());
             ps.setString(2, user.getSURNAME());
             ps.setString(3, user.getDIVISION());
@@ -208,6 +208,7 @@ public class UserDAO {
             ps.setString(6, user.getEMAIL());
             ps.setString(7, user.getPASSWORD());
             ps.setString(8, user.getOFFICERID());
+            ps.setString(9, user.getEMAILVERIFICATIONHASH());
             
             ps.executeUpdate();
             

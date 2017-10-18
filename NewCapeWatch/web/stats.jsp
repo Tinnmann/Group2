@@ -71,24 +71,13 @@
       <div class="col-sm-12">
 
         <div class="search-bar">
-          <label class="btn btn-link" id="menu-toggle" style="color: white">
-                <i class="glyphicon glyphicon-search" aria-hidden="true" style="padding-right:6px;"></i>
-                Search Menu
-              </a>
+          <label class="btn btn-default" id="menu-toggle">
+                <i aria-hidden="true" style="padding-right:6px;"></i>
+                Process data
             </div>
 
             <!-- Seacrh menu fields -->
-            <div id="filter-menu">
-              <form method="post">
-                <label class="control-label" style="color: white; border-top: 1px solid white; padding-top: 20px">Enter the name of a suburb</label>
-                <input type="text" class="form-control txt-auto" name="suburb" id="suburb" placeholder="e.g. Sea Point" style="text-align:center; width: 250px; border-radius:5px;">
-                <br>
-                <label class="control-label" style="color: white">Type of Crime</label>
-                <input type="text" class="form-control txt-auto" name="crime" id="crime" placeholder="e.g. Murder" style="text-align:center; width:250px; border-radius:5px;">
-                <br>
-                <button type="button" class="btn btn-sm btn-secondary" id="filter-btn">Submit</button>
-              </form>
-        </div>
+
         <!-- Heading -->
         <div id="headings">
           <h1 id="header-center-white">STATISTICS</h1>
