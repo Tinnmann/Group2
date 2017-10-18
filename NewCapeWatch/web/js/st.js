@@ -3,7 +3,11 @@
 						Dieprivier,Manenberg,Milnerton,Wynberg,Langa,Lansdowne,Athlone,Mowbray,Claremont,Pinelands,Maitland,Rondebosch,SeaPoint,
 						Woodstock,CapeTownCentral} */
 						
+<<<<<<< HEAD
 	var colors = {Atlantis:"",Strand:"",NoordHoek:"",FishHoek:"",Harare:"",Kraaifontein:"",LingelethuWest:"",Khayelitsha:"",Mfuleni:"",Delft:"",MitchellsPlain:"",PhillippiEast:"",Muizenberg:"",Steenberg:"",GrassyPark:"",Kirstenhof:"",Parow:"",Nyanga:"",ElsiesRiver:"",HoutBay:"",					  PhilippiCentral:"",BishopLavis:"",Gugulethu:"",Goodwood:"",Dieprivier:"",Manenberg:"",Milnerton:"",Wynberg:"",Langa:"",Lansdowne:"",					 Athlone:"",Mowbray:"",Claremont:"",Pinelands:"",Maitland:"",Rondebosch:"",SeaPoint:"",Woodstock:"",CapeTownCentral:""};
+=======
+	var colors = {Atlantis:"",Strand:"",NoordHoek:"",FishHoek:"",Harare:"",Kraaifontein:"",LingelethuWest:"",Khayelitsha:"",Mfuleni:"",Delft:"",MitchellsPlain:"",PhillippiEast:"",Muizenberg:"",Steenberg:"",GrassyPark:"",Kirstenhof:"",Parow:"",Nyanga:"",ElsiesRiver:"",HoutBay:"",					  PhilippiCentral:"",BishopLavis:"",Gugulethu:"",Goodwood:"",Dieprivier:"",Manenberg:"",Milnerton:"",Wynberg:"",Langa:"",Lansdowne:"",					 Athlone:"",Mowbray:"",Claremont:"",Pinelands:"",Maitland:"",Rondebosch:"",SeaPoint:"",Woodstock:"",CapeTownCentral:"",Belhar:"",                                  Bellville:"",BellvilleSouth:"",Bothasig:"",Brackenfell:"",CampsBay:"",Durbanville:"",Kensington:"",Kleinvlei:"",KuilsRivier:"",Macassar:"",                                   OceansView:"",Ravensmead:"",SimonsTown:"",SomersetWest:"",Stellenbosch:"",Strandfontein:"",TableView:""};
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 						
 	var coordinates = {Atlantis:{lat:{lat1:-33.471857, lat2:-33.608355},lng:{lng1:18.446434, lng2:18.520935}},
 					   Strand:{lat:{lat1:-34.095505, lat2:-34.136435},lng:{lng1:18.830722, lng2:18.862823}},
@@ -43,7 +47,30 @@
 					   Rondebosch:{lat:{lat1:-33.957765, lat2:-33.969369},lng:{lng1:18.475219, lng2:18.481313}},
 					   SeaPoint:{lat:{lat1:-33.923388, lat2:-33.910781},lng:{lng1:18.390588, lng2:18.386168}},
 					   Woodstock:{lat:{lat1:-33.927092, lat2:-33.927983},lng:{lng1:18.449554, lng2:18.452129}},
+<<<<<<< HEAD
 					   CapeTownCentral:{lat:{lat1:-33.928181, lat2:-33.915931},lng:{lng1:18.420294, lng2: 18.421968}}
+=======
+					   CapeTownCentral:{lat:{lat1:-33.928181, lat2:-33.915931},lng:{lng1:18.420294, lng2: 18.421968}},
+                                           SimonsTown:{lat:{lat1:-34.14349, lat2:-34.24289},lng:{lng1:18.34820, lng2: 18.51849}},
+                                           Belhar:{lat:{lat1:-33.91979, lat2:-33.96963},lng:{lng1:18.58329, lng2: 18.66843}},
+                                           Bellville:{lat:{lat1:-33.84818, lat2:-33.94792},lng:{lng1:18.54269, lng2: 18.71298}},
+                                           BellvilleSouth:{lat:{lat1:-33.89115, lat2:-33.94101},lng:{lng1:18.60191, lng2: 18.68706}},
+                                           Bothasig:{lat:{lat1:-33.83449, lat2:-33.88438},lng:{lng1:18.49857, lng2: 18.58372}},
+                                           Brackenfell:{lat:{lat1:-33.83321, lat2:-33.93296},lng:{lng1:18.61479, lng2: 18.78508}},
+                                           CampsBay:{lat:{lat1:-33.93004, lat2:-33.97988},lng:{lng1:18.33961, lng2: 18.42476}},
+                                           Durbanville:{lat:{lat1:-33.79042, lat2:-33.89022},lng:{lng1:18.56432, lng2: 18.73461}},
+                                           Kensington:{lat:{lat1:-33.89863, lat2:-33.92356},lng:{lng1:18.48424, lng2: 18.52681}},
+                                           Kleinvlei:{lat:{lat1:-33.96095, lat2:-34.01076},lng:{lng1:18.67187, lng2: 18.75701}},
+                                           KuilsRivier:{lat:{lat1:-33.85609, lat2:-33.88103},lng:{lng1:18.64822, lng2: 18.69079}},
+                                           Macassar:{lat:{lat1:-34.04121, lat2:-34.09098},lng:{lng1:18.72491, lng2: 18.81005}},
+                                           OceansView:{lat:{lat1:-33.90640, lat2:-33.90952},lng:{lng1:18.41498, lng2: 18.42030}},
+                                           Ravensmead:{lat:{lat1:-33.89621, lat2:-33.94607},lng:{lng1:18.56380, lng2: 18.64895}},
+                                           SomersetWest:{lat:{lat1:-34.03232, lat2:-34.13184},lng:{lng1:18.76413, lng2: 18.93442}},
+                                           Stellenbosch:{lat:{lat1:-33.88452, lat2:-33.98422},lng:{lng1:18.78405, lng2: 18.95433}},
+                                           TableView:{lat:{lat1:-33.79969, lat2:-33.84960},lng:{lng1:18.45205, lng2: 18.53720}},
+                                           Strandfontein:{lat:{lat1:-31.72999, lat2:-31.78108},lng:{lng1:18.18469, lng2: 18.26983}}
+                                           
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 					  };
 						
 	//variables to be used to show information on the map
@@ -79,7 +106,11 @@
                 
 		map = new google.maps.Map(mapCanvas, mapOptions);
 		
+<<<<<<< HEAD
 		getVariables("http://localhost:8080/Capstone-final/js/GraphTotals.txt","totals");
+=======
+		getVariables("http://localhost:8080/NewCapeWatch/js/GraphTotals.txt","totals");
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 		  
 	}
 	
@@ -128,8 +159,13 @@
                 }else if (type =="totals"){
                         createTotals(content);
 
+<<<<<<< HEAD
                         getVariables("http://localhost:8080/Capstone-final/js/GraphStatistics.txt","statistics");
                         getVariables("http://localhost:8080/Capstone-final/js/ClusterStatistics.txt","clusters");
+=======
+                        getVariables("http://localhost:8080/NewCapeWatch/js/GraphStatistics.txt","statistics");
+                        getVariables("http://localhost:8080/NewCapeWatch/js/ClusterStatistics.txt","clusters");
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
                 }
             }
         }
@@ -137,7 +173,11 @@
         textfile.send();
     }
 	
+<<<<<<< HEAD
 	function createTotals(totals){
+=======
+    function createTotals(totals){
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 		var lines = totals.split("\n");
         for (var i = 0, len = lines.length; i < len; i++) {
 			var line = lines[i].split("=");
@@ -153,6 +193,7 @@
 			}else if (line[0] == "night"){
 				night= parseInt(line[1]);
 				//alert("night "+night);
+<<<<<<< HEAD
 			}else if (line[0] == "sunday"){
 				Sunday= parseInt(line[1]);
 				//alert("sun "+sunday);
@@ -174,14 +215,22 @@
 			}else if (line[0] == "saturday"){
 				Saturday= parseInt(line[1]);
 				//alert("sat "+saturday);
+=======
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 			}else if (line[0] == "crimes"){
 				crimes= parseInt(line[1]);
 				//alert("sat "+saturday);
 			}
+<<<<<<< HEAD
             
         }
 		//alert('after tots');
 	}
+=======
+        }
+		//alert('after tots');
+    }
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 	
 
 function getMaxCrimes(type){
@@ -1262,6 +1311,83 @@ function getMaxCrimes(type){
 		{lat: -33.930208, lng:18.412616},
 		{lat: -33.927323, lng:18.413670}
 	];
+<<<<<<< HEAD
+=======
+        
+        
+        var BelharCoords = [
+         //   {lat: , lng:},
+        ];
+        
+        var BellvilleCoords = [
+            
+        ];
+        
+        var BellvilleSouthCoords = [
+            
+        ];        
+        
+        var BothasigCoords = [
+            
+        ];        
+        
+        var BrackenfellCoords = [
+            
+        ];
+        
+        var CampsBayCoords = [
+            
+        ];
+        
+        var DurbanvilleCoords = [
+            
+        ];
+        
+        var KensingtonCoords = [
+            
+        ];
+        
+        var KleinvleiCoords = [
+            
+        ];
+        
+        var KuilsRivierCoords = [
+            
+        ];
+        
+        var MacassarCoords = [
+            
+        ];
+        
+        var OceanViewCoords = [
+            
+        ];
+        
+        var RavensmeadCoords = [
+            
+        ];
+        
+        var SimonsTownCoords = [
+            
+        ];
+        
+        var SomersetWestCoords = [
+            
+        ];
+        
+        var StellenboschCoords = [
+            
+        ];
+        
+
+        var StrandfonteinCoords = [
+            
+        ];
+        
+        var TableViewCoords = [
+            
+        ];        
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 	/*
 	locationDist.put("Cape Town Central",0.65);
          */

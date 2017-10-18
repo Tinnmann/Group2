@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <%-- 
+=======
+<%--
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
     Document   : stats
     Created on : 11 Oct 2017, 5:40:41 AM
     Author     : TINASHE
@@ -45,7 +49,10 @@
       <a class="navbar-text" href="index." id="whiteText">Cape Watch</a>
     </div>
     <div class="collapse navbar-collapse" id="navbar-links">
+<<<<<<< HEAD
       <ul class="nav navbar-nav navbar-right"></ul>
+=======
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.html">Home</a></li>
         <li><a href="login.jsp">Login</a></li>
@@ -107,6 +114,7 @@
                     Statement st = conn.createStatement();
                     ResultSet rs = st.executeQuery(q);
                     //ResultSet rt= st.executeQuery(r);
+<<<<<<< HEAD
                     
                     String crimeType= "";
                     int count=0;
@@ -115,24 +123,45 @@
                     
                     out.println("<tr><th>Crimes</th><th>Numbers</th><tr>");
                     
+=======
+
+                    String crimeType= "";
+                    int count=0;
+                    String status="";
+
+
+                    out.println("<tr><th>Crimes</th><th>Numbers</th><tr>");
+
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
                     while(rs.next()){
                         crimeType=rs.getString(1);
                         //count = rt.getInt(1);
                         count=rs.getInt(2);
                         out.println("<tr><td>" + crimeType + "</td><td>" + count + "</td></tr>");
                     }
+<<<<<<< HEAD
                     
                     
                     
+=======
+
+
+
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
                   }catch(Exception e){
                       System.out.println(e);
                   }
               %>
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
           </table>
         </div>
       </div>
     </div>
+<<<<<<< HEAD
 
     <div class="row">
       <div class="col-sm-6" id="PrecinctStats">
@@ -204,3 +233,61 @@
 
 </html>
 
+=======
+    <div class="row">
+      <div class="col-sm-6" id="PrecinctStats">
+        <!-- Chart section by Precinct -->
+        <div name="graph" id="TypeOfCrime" style="margin: 20px 20px 20px 20px;">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div name="graph" id="locationCrime" style="margin: 20px 20px 20px 20px;">
+          <script>
+            window.onload = function() {
+              var chart = new CanvasJS.Chart("locationCrime", {
+                animationEnabled: true,
+                title: {
+                  text: "Location Crime"
+                },
+                data: [{
+                  type: "pie",
+                  startAngle: 240,
+                  yValueFormatString: "##0.00\"%\"",
+                  indexLabel: "{label} {y}",
+                  dataPoints: [
+                    {y: 79.45, label: "Camps Bay"},
+                    {y: 7.31, label: "Greenpoint"},
+                    {y: 7.06, label: "Milnerton"},
+                    {y: 4.91, label: "Wynberg"},
+                    {y: 1.26, label: "Others (etc.. thers so many)"}
+                  ]
+                }]
+              });
+              chart.render();
+              var cchart = new CanvasJS.Chart("TypeOfCrime", {
+                title:{ text: "Type of Crime"},
+                data: [{
+                  dataPoints: [
+                    { x: 1, y: 297571, label: "Murder"},
+                    { x: 2, y: 267017,  label: "Saudi" },
+                    { x: 3, y: 175200,  label: "Canada"},
+                    { x: 4, y: 154580,  label: "Iran"},
+                    { x: 5, y: 116000,  label: "Russia"},
+                    { x: 6, y: 97800, label: "UAE"},
+                    { x: 7, y: 20682,  label: "US"},
+                    { x: 8, y: 20350,  label: "China"}
+                  ]
+                }]
+              });
+              cchart.render();
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0

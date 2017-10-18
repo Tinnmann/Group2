@@ -46,11 +46,11 @@ if(email.isEmpty()){
 
 }
 
-if(password.isEmpty()){
+  if(password.isEmpty()){
 
-	error = error + "<p>An password is required</p>";
+  	error = error + "<p>An password is required</p>";
 
-}
+  }
 
 }
 
@@ -72,11 +72,10 @@ if(rs.next()){
 }
 
 if(session.getAttribute("mustlogIn") != null ){
-	
+
 	error = error + session.getAttribute("mustlogIn").toString();
 	session.invalidate();
 }
-
 
 %>
 
@@ -87,13 +86,12 @@ if(session.getAttribute("mustlogIn") != null ){
         <a class="navbar-text" href="index." id="whiteText">Cape Watch</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-links">
-        <ul class="nav navbar-nav navbar-right"></ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
           <li class="active"><a href="login.jsp">Login</a></li>
           <li><a href="profile.jsp">Profile</a></li>
           <li><a href="reports.jsp">Reports</a></li>
-          <li><a href="stats.html">Statistics</a></li>
+          <li><a href="stats.jsp">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="relatedCrimes.html">Related Crimes</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
@@ -124,8 +122,8 @@ if(session.getAttribute("mustlogIn") != null ){
             </form>
           </div>
           <br>
-          
-          <% if(!error.isEmpty()){ 
+
+          <% if(!error.isEmpty()){
         	  out.println("<div class='container alert alert-danger' style='width:120px; margin-top:10px;'>" + error +"'</div>'");
           }
         	  %>

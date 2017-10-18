@@ -50,7 +50,11 @@ public class Stats {
 		
 		printGraphStatistics(graphStatistics);
 		
+<<<<<<< HEAD
 		System.out.println("CLUSTER STATS\n");
+=======
+//		System.out.println("CLUSTER STATS\n");
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 		
 //		printClusterStatistics(clusterStatistics);
 	}
@@ -127,6 +131,7 @@ public class Stats {
 	}
 	
 	public  void putCrimeNode(CrimeCase crime){
+<<<<<<< HEAD
 		
 		//add the times array
 		if (crime.time.equals("morning"))
@@ -153,6 +158,46 @@ public class Stats {
 			graphStatistics.get(crime.location).get("Friday").add(crime);
 		else if (crime.date.equals("Saturday"))
 			graphStatistics.get(crime.location).get("Saturday").add(crime);
+=======
+            //add the times array
+		String t=crime.time;
+                int hours = Integer.parseInt(t.substring(0,2));
+                if(hours>=0 && hours <12){
+                    crime.time="morning";
+                    graphStatistics.get(crime.location).get("morning").add(crime);
+                }
+		else if (hours>=12 && hours<16){
+                    crime.time="noon";
+                    graphStatistics.get(crime.location).get("noon").add(crime);
+                }
+		else if (hours>=16 && hours<21){
+                    crime.time="evening";
+                    graphStatistics.get(crime.location).get("evening").add(crime);
+                }
+		else if (hours>=21 && hours<24){
+                    crime.time="night";
+                    graphStatistics.get(crime.location).get("night").add(crime);
+                }                
+                
+		
+		
+		
+		//add the days array
+//		if (crime.date.equals("Sunday"))
+//			graphStatistics.get(crime.location).get("Sunday").add(crime);
+//		else if (crime.date.equals("Monday"))
+//			graphStatistics.get(crime.location).get("Monday").add(crime);
+//		else if (crime.date.equals("Tuesday"))
+//			graphStatistics.get(crime.location).get("Tuesday").add(crime);
+//		else if (crime.date.equals("Wednesday"))
+//			graphStatistics.get(crime.location).get("Wednesday").add(crime);
+//		else if (crime.date.equals("Thursday"))
+//			graphStatistics.get(crime.location).get("Thursday").add(crime);
+//		else if (crime.date.equals("Friday"))
+//			graphStatistics.get(crime.location).get("Friday").add(crime);
+//		else if (crime.date.equals("Saturday"))
+//			graphStatistics.get(crime.location).get("Saturday").add(crime);
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 		
 	}
 	
@@ -223,9 +268,13 @@ public class Stats {
 		//var locationStatistics = {Rosebank : {morning : 5,..,night:5,sunday:5,..,saturday:5} };
 		//var crimes=300; var morning=10;..; var night=30; var sunday=30;..; saturday=20;
 		
+<<<<<<< HEAD
 		int crimes=0;
 		
 		int morning=0,noon = 0,evening=0,night=0;
+=======
+		int crimes=0, morning=0,noon = 0,evening=0,night=0;
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 		
 		int sunday=0,monday=0,tuesday=0,wednesday=0,thursday=0,friday=0,saturday=0;
 		
@@ -255,6 +304,7 @@ public class Stats {
 		    		case "night":
 		    			night += type.get(stat).size();
 		    			break;
+<<<<<<< HEAD
 		    		case "Sunday":
 		    			sunday += type.get(stat).size();
 		    			break;
@@ -276,6 +326,8 @@ public class Stats {
 		    		case "Saturday":
 		    			saturday += type.get(stat).size();
 		    			break;
+=======
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 		    		case "crimes":
 		    			crimes += type.get(stat).size();
 		    			break;
@@ -296,9 +348,13 @@ public class Stats {
 	    script = script + "}";
 	    
 	    String totals = "crimes="+crimes+"\n"+"morning="+morning+"\n"+"noon="+noon+"\n"+
+<<<<<<< HEAD
 				"evening="+evening+"\n"+"night="+night+"\n"+"sunday="+sunday+"\n"+
 				"monday="+monday+"\n"+"tuesday="+tuesday+"\n"+"wednesday="+wednesday+"\n"+
 				"thursday="+thursday+"\n"+"friday="+friday+"\n"+"saturday="+saturday+"\n";
+=======
+				"evening="+evening+"\n"+"night="+night+"\n";
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 
 	    System.out.println(script);
 	    System.out.println(totals);

@@ -35,13 +35,12 @@
         <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html"><img src="images/CapeWatchLogo.png" alt="Police logo" id="badge"/></a><a class="navbar-text" href="index." id="whiteText">Cape Watch </a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-links">
-        <ul class="nav navbar-nav navbar-right"></ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
           <li><a href="login.jsp">Login</a></li>
           <li><a href="profile.jsp">Profile</a></li>
           <li class="active"><a href="reports.jsp">Reports</a></li>
-          <li><a href="stats.html">Statistics</a></li>
+          <li><a href="stats.jsp">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="relatedCrimes.html">Related Crime</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
@@ -106,8 +105,8 @@
 
                     %>
 
-                        
-                        
+
+
                         <%
                         }
 
@@ -224,7 +223,7 @@
                         <select name="crimeType" id="modal-select">
                           <optgroup label="Contact Crimes (Crimes against the person)">
                             <option value="Murder">Murder</option>
-                            <option value="Sexual Offence">Sexual offences</option>
+                            <option value="Sexual Offences">Sexual offences</option>
                             <option value="Attempted murder">Attempted Murder</option>
                             <option value="Assault">Assault with the intent to inflict grievous bodily harm</option>
                             <option value="Common Assault">Common assault</option>
@@ -246,7 +245,7 @@
                             <option value="Illegal Firearms">Illegal possession of firearms and ammunition</option>
                             <option value="Drug related">Drug related crime</option>
                             <option value="Driving Alcohol">Driving under the influence of alcohol or drugs</option>
-                            <option value="Sexual Off Police">Sexual offences as a result of police action</option>
+                            <option value="Sexual Offence Police">Sexual offences as a result of police action</option>
                           </optgroup>
                           <optgroup label="Other serious crimes">
                             <option value="Theft">All theft not mentioned elsewhere</option>

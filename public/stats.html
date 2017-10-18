@@ -102,79 +102,60 @@
             </tbody>
           </table>
         </div>
-        <button type="button" id="allcrime-btn" class="btn btn-secondary">
-            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
-            Show More
-          </button>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6" id="PrecinctStats">
-        <!--  New query  found in precinct.php-->
         <!-- Chart section by Precinct -->
-        <div name="graph" id="TypeOfCrime" style="height: 300px; width: 100%; margin: 20px 0px 20px 0px">
-          <script type="text/javascript">
-          //chart graph for type of crime
-
-            window.onload = function () {
-            //Better to construct options first and then pass it as a parameter
-              	var options = {
-              		title: {
-              			text: "Type of Crime"
-              		},
-                              animationEnabled: true,
-              		data: [
-              		{
-              			type: "column", //change it to line, area, bar, pie, etc
-              			dataPoints: [
-              				{ x: 10, y: 10 },
-              				{ x: 20, y: 11 },
-              				{ x: 30, y: 14 },
-              				{ x: 40, y: 16 },
-              				{ x: 50, y: 19 },
-              				{ x: 60, y: 15 },
-              				{ x: 70, y: 12 },
-              				{ x: 80, y: 10 }
-              			]
-              		}
+        <div name="graph" id="TypeOfCrime" style="margin: 20px 20px 20px 20px;">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div name="graph" id="locationCrime" style="margin: 20px 20px 20px 20px;">
+          <script>
+            window.onload = function() {
+              var chart = new CanvasJS.Chart("locationCrime", {
+              	animationEnabled: true,
+              	title: {
+              		text: "Location Crime"
+              	},
+              	data: [{
+              		type: "pie",
+              		startAngle: 240,
+              		yValueFormatString: "##0.00\"%\"",
+              		indexLabel: "{label} {y}",
+              		dataPoints: [
+              			{y: 79.45, label: "Camps Bay"},
+              			{y: 7.31, label: "Greenpoint"},
+              			{y: 7.06, label: "Milnerton"},
+              			{y: 4.91, label: "Wynberg"},
+              			{y: 1.26, label: "Others (etc.. thers so many)"}
               		]
-              	};
-
-              	$("#TypeOfCrime").CanvasJSChart(options);
-
-              }
+              	}]
+              });
+              chart.render();
+              var cchart = new CanvasJS.Chart("TypeOfCrime", {
+                title:{ text: "Type of Crime"},
+                data: [{
+                  dataPoints: [
+                    { x: 1, y: 297571, label: "Murder"},
+                    { x: 2, y: 267017,  label: "Saudi" },
+                    { x: 3, y: 175200,  label: "Canada"},
+                    { x: 4, y: 154580,  label: "Iran"},
+                    { x: 5, y: 116000,  label: "Russia"},
+                    { x: 6, y: 97800, label: "UAE"},
+                    { x: 7, y: 20682,  label: "US"},
+                    { x: 8, y: 20350,  label: "China"}
+                  ]
+                }]
+              });
+              cchart.render();
+            }
           </script>
         </div>
-        <!--
-          <button type="button" id="crimeRelated" class="btn btn-secondary" style="border:none; background-color:transparent; letter-spacing:2px; color: white">
-            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
-            Related Crimes
-          </button>
-          -->
       </div>
     </div>
-
-    <div id="related-modal" class="related-modal">
-    </div>
-
-    <div id="footer2">
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <h5>Head Office Address</h5>
-          <p class="Footerinfo">11 Imam Haron Road<br>Claremont<br>Cape-Town <br>7708<br>South Africa<br>+27 (0)711-711-711</p>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <h5 style="float:right; padding-right:20px !important;"> Where we stay <br> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.3746314959844!2d18.467969950155833!3d-33.982909880529675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc42d744c835bf%3A0xd27135616b9ed72!2sBrookside+Office+Park%2C+11+Imam+Haron+Rd%2C+Claremont%2C+Cape+Town%2C+7708!5e0!3m2!1sen!2sza!4v1502104444977" width="200" height="117" frameborder="0" style="border:0; margin-top:25px;" allowfullscreen></iframe>
-                    </h5>
-        </div>
-      </div>
-      <p class="copywrite"> &copy; Copywrite - Xmeagol - 2017</p>
-    </div>
-
-  </div>
-  </div>
   </div>
 </body>
-
 </html>

@@ -9,10 +9,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src="particles.js-master/demo/js/app.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+
   </head>
-  <body class="hotspots-background">
+  <body> <!-- class="hotspots-background" -->
     <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid"></div>
       <div class="navbar-header">
@@ -26,26 +26,221 @@
           <img src="images/CapeWatchLogo.png" alt="Police logo" id="badge"></a><a class="navbar-text" href="index." id="whiteText">Cape Watch</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-links">
-        <ul class="nav navbar-nav navbar-right"></ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
           <li><a href="login.jsp">Login</a></li>
           <li><a href="profile.jsp">Profile</a></li>
-          <li><a href="reports.html">Reports</a></li>
-          <li><a href="stats.html">Statistics</a></li>
+          <li><a href="reports.jsp">Reports</a></li>
+          <li><a href="stats.jsp">Statistics</a></li>
           <li class="active"><a href="hotspots.html">Hotspots</a></li>
           <li><a href="relatedCrimes.html">Related Crimes</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
       </div>
     </nav>
+    <div id="particles-js"></div>
+    <script type="text/javascript" src="particles.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <div class="mainContent">
+
     <h1 class="text-center" id="bold-h1">HOTSPOTS</h1>
+    <hr />
     <h3 class="text-center" id="white-H3">CRIME HOTSPOTS OF THE GREATER CAPE TOWN AREA
+        </h3>
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
           <div id="map">
             <script>
               function initMap() {
+                var styledMapType = new google.maps.StyledMapType(
+                  [
+                    {
+                      "elementType": "geometry",
+                      "stylers": [
+                        {
+                          "color": "#212121"
+                        }
+                      ]
+                    },
+                    {
+                      "elementType": "labels.icon",
+                      "stylers": [
+                        {
+                          "visibility": "off"
+                        }
+                      ]
+                    },
+                    {
+                      "elementType": "labels.text.fill",
+                      "stylers": [
+                        {
+                          "color": "#757575"
+                        }
+                      ]
+                    },
+                    {
+                      "elementType": "labels.text.stroke",
+                      "stylers": [
+                        {
+                          "color": "#212121"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "administrative",
+                      "elementType": "geometry",
+                      "stylers": [
+                        {
+                          "color": "#757575"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "administrative.country",
+                      "elementType": "labels.text.fill",
+                      "stylers": [
+                        {
+                          "color": "#9e9e9e"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "administrative.land_parcel",
+                      "stylers": [
+                        {
+                          "visibility": "off"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "administrative.locality",
+                      "elementType": "labels.text.fill",
+                      "stylers": [
+                        {
+                          "color": "#bdbdbd"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "poi",
+                      "elementType": "labels.text.fill",
+                      "stylers": [
+                        {
+                          "color": "#757575"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "poi.park",
+                      "elementType": "geometry",
+                      "stylers": [
+                        {
+                          "color": "#181818"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "poi.park",
+                      "elementType": "labels.text.fill",
+                      "stylers": [
+                        {
+                          "color": "#616161"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "poi.park",
+                      "elementType": "labels.text.stroke",
+                      "stylers": [
+                        {
+                          "color": "#1b1b1b"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road",
+                      "elementType": "geometry.fill",
+                      "stylers": [
+                        {
+                          "color": "#2c2c2c"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road",
+                      "elementType": "labels.text.fill",
+                      "stylers": [
+                        {
+                          "color": "#8a8a8a"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road.arterial",
+                      "elementType": "geometry",
+                      "stylers": [
+                        {
+                          "color": "#373737"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road.highway",
+                      "elementType": "geometry",
+                      "stylers": [
+                        {
+                          "color": "#3c3c3c"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road.highway.controlled_access",
+                      "elementType": "geometry",
+                      "stylers": [
+                        {
+                          "color": "#4e4e4e"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road.local",
+                      "elementType": "labels.text.fill",
+                      "stylers": [
+                        {
+                          "color": "#616161"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "transit",
+                      "elementType": "labels.text.fill",
+                      "stylers": [
+                        {
+                          "color": "#757575"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "water",
+                      "elementType": "geometry",
+                      "stylers": [
+                        {
+                          "color": "#000000"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "water",
+                      "elementType": "labels.text.fill",
+                      "stylers": [
+                        {
+                          "color": "#3d3d3d"
+                        }
+                      ]
+                    }
+                  ],
+                  {name: 'Styled Map'});
                 var westernCape = {lat: -33.937666, lng: 18.442271};
                 var map = new google.maps.Map(document.getElementById('map'), {
                   zoom: 10,
@@ -62,6 +257,8 @@
                 var markerCluster = new MarkerClusterer(map, markers,
                     {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
             }
                   var locations = [
                     {lat: -33.96526, lng: 18.501795},
@@ -119,7 +316,6 @@
                     {lat: -33.924158, lng: 18.454311},
                     {lat: -34.00845, lng: 18.46618}
                   ]
-
             </script>
             <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
             </script>
@@ -127,8 +323,5 @@
           </div>
         </div>
       </div>
-
-    </h3>
-  </div>
   </body>
 </html>
