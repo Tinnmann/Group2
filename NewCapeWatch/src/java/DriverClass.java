@@ -120,7 +120,7 @@ public class DriverClass extends HttpServlet {
 		//HCS(testgraph,new CutGraph(),false);
 		
 		
-		Gps.process();
+		Gps.getData();
 		
 		Graph graph = Gps.getGraph();
 		
@@ -437,9 +437,9 @@ public class DriverClass extends HttpServlet {
 		
 		ArrayList<int[]> newEdges = new ArrayList<int[]>();
 		
-		ArrayList<CrimeCase> crimeNodes = graph.getCrimeCases();
+		ArrayList<CrimeCase> crimeCases = graph.getCrimeCases();
 		
-		ArrayList<CrimeCase> newCrimeNodes = new ArrayList<CrimeCase>();
+		ArrayList<CrimeCase> newCrimeCases = new ArrayList<CrimeCase>();
 		
 		
 		for (int i=0;i<distances.size();i++){
@@ -456,9 +456,9 @@ public class DriverClass extends HttpServlet {
 			newEdges.add(edge);
 		}
 		
-		for (int i=0;i<crimeNodes.size();i++){
+		for (int i=0;i<crimeCases.size();i++){
 			
-			CrimeCase oldcrime = crimeNodes.get(i);
+			CrimeCase oldcrime = crimeCases.get(i);
 			
 			CrimeCase newcrime = new CrimeCase(oldcrime.id);
 			
@@ -491,10 +491,10 @@ public class DriverClass extends HttpServlet {
 			}
 			
 			newcrime.MasterNode = supernode;
-			newCrimeNodes.add(newcrime);
+			newCrimeCases.add(newcrime);
 		}
 		
-		clone = new Graph (newCrimeNodes,newDistances);
+		clone = new Graph (newCrimeCases,newDistances);
 		clone.edges = newEdges;
 		
 		return clone;

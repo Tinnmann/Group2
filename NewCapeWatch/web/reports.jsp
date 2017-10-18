@@ -192,13 +192,12 @@
                           <option value="Ravensmead">Ravensmead</option>
                           <option value="Rondebosch">Rondebosch</option>
                           <option value="Sea Point">Sea Point</option>
-                          <option value="Simon's Town">Simon’s Town</option>
+                          <option value="Simons Town">Simon’s Town</option>
                           <option value="Somerset West">Somerset West</option>
                           <option value="Steenberg">Steenberg</option>
                           <option value="Stellenbosch">Stellenbosch</option>
                           <option value="Strand">Strand</option>
                           <option value="Strandfontein">Strandfontein</option>
-                          <option value="Table Bay Harbour">Table Bay Harbour</option>
                           <option value="Table View">Table View</option>
                           <option value="Woodstock">Woodstock</option>
                           <option value="Wynberg">Wynberg</option>

@@ -18,9 +18,9 @@ public class Graph {
 	
 	private ArrayList<ArrayList<Double> > distances = new ArrayList<ArrayList<Double> >(); ;
 	
-	public Graph(ArrayList<CrimeCase> crimeNodes,ArrayList<ArrayList<Double> > distances){
+	public Graph(ArrayList<CrimeCase> crimeCases,ArrayList<ArrayList<Double> > distances){
 		
-		this.crimeCases = crimeNodes;
+		this.crimeCases = crimeCases;
 		this.distances = distances;
 		
 	}

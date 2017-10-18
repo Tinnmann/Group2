@@ -129,7 +129,7 @@ public class Stats {
 	public  void putCrimeNode(CrimeCase crime){
             //add the times array
 		String t=crime.time;
-                int hours = Integer.parseInt(t.substring(0,2));
+                int hours = Integer.parseInt(t.substring(0,t.indexOf(":")));
                 if(hours>=0 && hours <12){
                     crime.time="morning";
                     graphStatistics.get(crime.location).get("morning").add(crime);

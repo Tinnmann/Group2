@@ -19,7 +19,7 @@ public class CollectCrimes
 	 //connecting to the crime database to retrieve data from the imported cvs file with all rape crimes
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	static final String DB_URL ="jdbc:mysql://127.0.0.1:3306/capewatchdb";
-	static final String DB_URL2 ="jdbc:mysql://127.0.0.1:3306/relateddb";
+	static final String DB_URL2 ="jdbc:mysql://127.0.0.1:3306/newrelateddb";
 	static final String username="root";
 	static final String pwd="";
 	static final String table = "table1";

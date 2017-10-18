@@ -16,11 +16,11 @@ public class Gps {
     private static ArrayList<int[]> edgeConnectivity = new ArrayList<int[]>();
     private static ArrayList<CrimeCase> c = new ArrayList<CrimeCase>();
     private static Graph graph = new Graph();    
-    public static void process(){
+    public static void getData(){
         mapCoord.put("Athlone","-33.96526 18.501795");
         mapCoord.put("Belhar","-33.943634 18.6235");
         mapCoord.put("Bellville","-33.894269 18.629438");
-        mapCoord.put("Bellville South",	"-33.922112 18.645026");
+        mapCoord.put("Bellville South","-33.922112 18.645026");
         mapCoord.put("Bishop Lavis","-33.94789 18.57897");
         mapCoord.put("Bothasig","-33.85966 18.54038");
         mapCoord.put("Brackenfell","-33.878675 18.694762");
@@ -39,22 +39,22 @@ public class Gps {
         mapCoord.put("Hout Bay","-34.02087 18.36826");
         mapCoord.put("Kensington","-33.910505 18.507731");
         mapCoord.put("Khayelitsha","-34.037444 18.676945");
-        mapCoord.put("Kirstenhof", "-34.069448 18.454311");
+        mapCoord.put("Kirstenhof","-34.069448 18.454311");
         mapCoord.put("Kleinvlei","-33.987274 18.714064");
         mapCoord.put("Kraaifontein","-33.853419 18.718518");
         mapCoord.put("Kuils Rivier","-33.941385 18.70664");
         mapCoord.put("Langa","-33.938945 18.52973");
         mapCoord.put("Lansdowne","-33.98567 18.500311");
-        mapCoord.put("Lingelethu-West", "-34.041414 18.660111");
+        mapCoord.put("Lingelethu-West","-34.041414 18.660111");
         mapCoord.put("Macassar","-34.047738 18.748217");
         mapCoord.put("Maitland","-33.920618 18.503279");
         mapCoord.put("Manenberg","-33.983866 18.555222");
         mapCoord.put("Mfuleni","-34.006485 18.685853");
         mapCoord.put("Milnerton","-33.865968 18.534443");
-        mapCoord.put("Mitchells Plain",	"-34.048595 18.605687");
+        mapCoord.put("Mitchells Plain","-34.048595 18.605687");
         mapCoord.put("Mowbray",	"-33.950033 18.495859");
         mapCoord.put("Muizenberg","-34.089885 18.495859");
-        mapCoord.put("Nyanga",	"-33.995381 18.584906");
+        mapCoord.put("Nyanga","-33.995381 18.584906");
         mapCoord.put("Ocean View","-34.14954 18.353431");
         mapCoord.put("Parow","-33.906792 18.580811");
         mapCoord.put("Philippi","-34.034498 18.55819");
@@ -62,7 +62,7 @@ public class Gps {
         mapCoord.put("Ravensmead","-33.922659 18.602719");
         mapCoord.put("Rondebosch","-33.965788 18.48102");
         mapCoord.put("Sea Point","-33.916949 18.387549");
-        mapCoord.put("Simon’s Town","-34.193765 18.435665");
+        mapCoord.put("Simons Town","-34.193765 18.435665");
         mapCoord.put("Somerset West","-34.07569 18.843266");
         mapCoord.put("Steenberg","-34.07364 18.470633");
         mapCoord.put("Stellenbosch","-33.932104 18.860152");
@@ -95,6 +95,7 @@ public class Gps {
         ArrayList<double[]> weights = new ArrayList<>();   //arraylist of arrays of weights to be used
         ArrayList<String[]> crimes = new ArrayList<>();    //arraylist of the crimes' useful attributes
         String numbers = "";
+
         double dist = 0;
         
         int size = c.size();
@@ -109,15 +110,17 @@ public class Gps {
             date = entry.date;
             time = entry.time;
             location = entry.location;
+
             crimes.add(new String[]{date,time,location});
             time = "";
             date = "";
             location = "";
         }
-        
+        System.out.println(crimes.size());
         for(String[] item:crimes)
         {
-            numbers = mapCoord.get(item[2]);    
+            System.out.println(item[0]+" "+item[1]+ " "+item[2]);
+            numbers = mapCoord.get(item[2]); 
             String[] coords = numbers.split(" ");//get coordinates from hashmap
             double c1 = Double.parseDouble(coords[0]);
             double c2 = Double.parseDouble(coords[1]);
