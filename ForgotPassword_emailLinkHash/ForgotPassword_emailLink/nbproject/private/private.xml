@@ -3,16 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Sydney%20Twigg/Documents/GitHub/Group2/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/src/java/forgotPassword/dao/UserDAO.java</file>
-            <file>file:/C:/Users/Sydney%20Twigg/Documents/GitHub/Group2/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/src/java/forgotPassword/servlets/RegisterUser.java</file>
-            <file>file:/C:/Users/Sydney%20Twigg/Documents/GitHub/Group2/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/src/java/forgotPassword/servlets/VerifyEmailHash.java</file>
-            <file>file:/C:/Users/Sydney%20Twigg/Documents/GitHub/Group2/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/src/java/forgotPassword/servlets/login.java</file>
-            <file>file:/C:/Users/Sydney%20Twigg/Documents/GitHub/Group2/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/src/java/forgotPassword/util/Setup.java</file>
-            <file>file:/C:/Users/Sydney%20Twigg/Documents/GitHub/Group2/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/src/java/forgotPassword/util/MailUtil.java</file>
-            <file>file:/C:/Users/Sydney%20Twigg/Documents/GitHub/Group2/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/web/login.html</file>
-            <file>file:/C:/Users/Sydney%20Twigg/Documents/GitHub/Group2/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/web/messageToUser.jsp</file>
-            <file>file:/C:/Users/Sydney%20Twigg/Documents/GitHub/Group2/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/src/java/forgotPassword/model/UserPojo.java</file>
-            <file>file:/C:/Users/Sydney%20Twigg/Documents/GitHub/Group2/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Sydney%20Twigg/Documents/GitHub/Group2/ForgotPassword_emailLinkHash/ForgotPassword_emailLink/web/register.html</file>
         </group>
     </open-files>
 </project-private>

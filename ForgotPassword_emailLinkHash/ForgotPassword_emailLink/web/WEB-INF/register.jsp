@@ -1,0 +1,193 @@
+<%-- 
+    Document   : register
+    Created on : 18 Oct 2017, 8:54:54 AM
+    Author     : Sydney Twigg
+--%>
+<%@page import="forgotPassword.model.StatusPojo" %>
+
+<%
+    StatusPojo status = new StatusPojo();
+    String error ="";
+    error = status.getMessage(); 
+%>
+     
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cape Watch</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  </head>
+  <body class="image-background">
+    <nav class="navbar navbar-default navbar-inverse">
+      <div class="container-fluid"></div>
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html"> <img src="images/CapeWatchLogo.png" alt="Police logo" id="badge"></a><a class="navbar-text" href="index." id="whiteText">Cape Watch</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-links">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.jsp">Login</a></li>
+          <li><a href="profile.jsp">Profile</a></li>
+          <li><a href="reports.jsp">Reports</a></li>
+          <li><a href="stats.jsp">Statistics</a></li>
+          <li><a href="hotspots.html">Hotspots</a></li>
+          <li><a href="relatedCrimes.html">Related Crimes</a></li>
+          <li><a href="contact.jsp">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-lg-push-3 col-md-12">
+          <h2 class="text-center" id="whiteText">Register</h2>
+          <form class="main-login form-horizontal" method="post" action="register">
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="officerID">Officer ID</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="officerID" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="email">Email</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="email" name="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="password">Password</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="password" name="password" required id="password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="password">Confirm Password</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="password" name="password" required id="confirmpassword">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="name">Name</label>
+              <div class="col-sm-4">
+                <input class="form-control" type="text" name="name" required>
+              </div>
+              <label class="col-sm-2 control-label" for="surname">Surname </label>
+              <div class="col-sm-4">
+                <input class="form-control" type="text" name="surname" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="policeStation">Police Station </label>
+              <div class="col-sm-10"></div>
+              <select name="policeStation">
+                <option>Athlone Police Station</option>
+                <option>Belhar Police Station (satellite)</option>
+                <option>Bellvile Police Station</option>
+                <option>Bellvile South Police Station</option>
+                <option>Bishop Lavis Police Station</option>
+                <option>Bothasig Police Station</option>
+                <option>Brackenfell Police Station</option>
+                <option>Camps Bay Police Station</option>
+                <option>Cape Town Airport Police Station</option>
+                <option>Cape Town Central Police Station</option>
+                <option>Claremont Police Station</option>
+                <option>Delft Police Station</option>
+                <option>Diep River Police Station</option>
+                <option>Durbanville Police Station</option>
+                <option>Elsies River Police Station</option>
+                <option>Fish Hoek Police Station</option>
+                <option>Goodwood Police Station</option>
+                <option>Grassy Park Police Station</option>
+                <option>Gugulethu Police Station</option>
+                <option>Harare Police Station (Satellite)</option>
+                <option>Hout Bay Police Station</option>
+                <option>Kensington Police Station</option>
+                <option>Khayelitsha Police Station</option>
+                <option>Kirstenhof Police Station</option>
+                <option>Kleinvlei Police Station</option>
+                <option>Kuils River Police Station</option>
+                <option>Langa Police Station</option>
+                <option>Lansdowne Police Station</option>
+                <option>Lingelethu West Police Station (satellite)</option>
+                <option>Macassar Police Station</option>
+                <option>Maitland Police Station</option>
+                <option>Manenberg Police Station</option>
+                <option>Mfuleni Police Station (satellite)</option>
+                <option>Milnerton Police Station</option>
+                <option>Mitchells Plain Police Station</option>
+                <option>Mowbray Police Station</option>
+                <option>Muizenberg Police Station</option>
+                <option>Nyanga Police Station</option>
+                <option>Ocean View Police Station</option>
+                <option>Parow Police Station</option>
+                <option>Phillipi East Police Station (satellite)</option>
+                <option>Phillipi Police Station</option>
+                <option>Pinelands Police Station</option>
+                <option>Ravensmead Police Station</option>
+                <option>Rondebosch Police Station</option>
+                <option>Sea Point Police Station</option>
+                <option>Simon's Town Police Station</option>
+                <option>Sir Lowry's Pass Police Station (satellite of Somerset West)</option>
+                <option>Somerset West Police Station</option>
+                <option>Steenberg Police Station</option>
+                <option>Stellenbosch Police Station</option>
+                <option>Strand Police Station</option>
+                <option>Strandfontein Police Station</option>
+                <option>Table Bay Harbour Police Station</option>
+                <option>Table View Police Station</option>
+                <option>Woodstock Police Station</option>
+                <option>Wynberg Police Station</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="division">Division </label>
+              <div class="col-sm-10"></div>
+              <select name="division">
+                <option>Crime Combating and Investigation Division</option>
+                <option>Visible Policing Division</option>
+                <option>Internal Stability Division</option>
+                <option>Community Relations Division</option>
+                <option>Supporting Services Division</option>
+                <option>Human Resources Management Division</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="rank">Rank </label>
+              <div class="col-sm-10"></div>
+              <select name="rank">
+                <option>General</option>
+                <option>Lieutenant General</option>
+                <option>Major General</option>
+                <option>Brigadier</option>
+                <option>Colonel</option>
+                <option>Lieutenant Colonel</option>
+                <option>Captain</option>
+                <option>Warrant</option>
+                <option>Sergeant</option>
+                <option>Constable</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-4">
+                <button class="btn btn-primary pull-right" type="submit">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+      <% if(!error.isEmpty()){
+        	  out.println("<div class='container alert alert-danger' style='width:120px; margin-top:10px;'>" + error +"'</div>'");
+          }
+      %>
+  </body>
+</html>
+
+    
+
+
