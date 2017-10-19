@@ -73,7 +73,7 @@
                 <div class="table-responsive" styl="height: 80%; overflow-y: scroll;">
                   <table class="table table-list-search" id="reportTable">
                     <thead>
-                            <%
+                      <%
                         try{
                             Class.forName("com.mysql.jdbc.Driver").newInstance();
                             Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/capewatchdb", "root", "");
