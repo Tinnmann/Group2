@@ -53,7 +53,7 @@
         <li><a href="reports.jsp">Reports</a></li>
         <li class="active"><a href="stats.jsp">Statistics</a></li>
         <li>
-                         <a href="#" onclick= "document.getElementById('DriverClass').submit(); ">
+                         <a href="#" onclick= "document.getElementById('DriverClass').submit();">
                                                 <i class="fa fa-fw fa-desktop"></i> Process Data</a>
                         <form id="DriverClass" action="DriverClass" method="post" role="form"></form>            
         </li>

@@ -192,13 +192,8 @@ public class DriverClass extends HttpServlet {
 				disconnectedGraphs.add(subgraph);
 			}else{
 				HCS(subgraph,cutGraph,true);
-			}
-			
+			}	
 		}
-		
-		
-		
-		
 	}        
         
 	public static CutGraph MINCUT (Graph graph){
