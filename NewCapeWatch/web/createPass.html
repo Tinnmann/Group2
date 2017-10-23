@@ -14,7 +14,7 @@
     <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid"></div>
       <div class="navbar-header">
-        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html"><img src="images/sheriff.svg" alt="Police logo" id="badge"></a>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html"><img src="images/CapeWatchLogo.png" alt="Police logo" id="badge"></a><a class="navbar-text" href="index." id="whiteText">Cape Watch </a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-links">
         <ul class="nav navbar-nav navbar-right"></ul>
@@ -22,7 +22,6 @@
           <li><a href="index.html">Home</a></li>
           <li class="active"><a href="login.html">Login</a></li>
           <li><a href="profile.html">Profile</a></li>
-          <li><a href="reports.html">Reports</a></li>
           <li><a href="stats.html">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
@@ -32,22 +31,20 @@
     <div class="container">
       <div class="login-div">                   
         <div class="text-center">
-          <h4>Login</h4>
+          <h4>Create New Password</h4>
           <div class="login-form-1">
-              <form class="text-left" method="POST" action="login" id="login-form" role = "form">
+              <form method="POST" action="createPass" class="text-left" id="login-form">
               <div class="login-form-main-message"></div>
               <div class="main-login-form">
                 <div class="login-group">
                   <div class="form-group">
-                    <input class="form-control" type="email" placeholder="Email" name="email" id="email">
+                    <input class="form-control" type="password" placeholder="New Password" name="password">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="password" placeholder="Password" name="password" id="password">
+                    <input class="form-control" type="password" placeholder="Re-enter Password" name="password">
                   </div>
                 </div>
                 <button class="login-button" type="submit" name="submit"><i class="glyphicon glyphicon-chevron-right"></i></button>
-                <p class="marginTops text-center" id="whiteText">New user?    <a href="register.html">Create account</a></p>
-                <div class="text-center" id="whiteText"><a href="#">Forgot password?</a></div>
               </div>
             </form>
           </div>
