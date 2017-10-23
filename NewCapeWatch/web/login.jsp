@@ -93,9 +93,8 @@ if(session.getAttribute("mustlogIn") != null ){
           <li class="active"><a href="login.jsp">Login</a></li>
           <li><a href="profile.jsp">Profile</a></li>
           <li><a href="reports.jsp">Reports</a></li>
-          <li><a href="stats.html">Statistics</a></li>
+          <li><a href="stats.jsp">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
-          <li><a href="relatedCrimes.html">Related Crimes</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
       </div>

@@ -162,9 +162,8 @@
           <li><a href="login.jsp">Login</a></li>
           <li class="active"><a href="profile.jsp">Profile</a></li>
           <li><a href="reports.jsp">Reports</a></li>
-          <li><a href="stats.html">Statistics</a></li>
+          <li><a href="stats.jsp">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
-          <li><a href="relatedCrimes.html">Related Crimes</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
       </div>
@@ -342,7 +341,7 @@ while(rs1.next()){
                             <h4 style="color: #9D0D0D">Statistics</h4>
                           </div>
                             <p class="card-text">View the current <b>crime statistics</b> of the greater Cape Town area</p>
-                            <a href="stats.html" class="btn btn-danger" style="margin-left: 39px">Statistics  <i class="glyphicon glyphicon-share-alt"></i></a>
+                            <a href="stats.jsp" class="btn btn-danger" style="margin-left: 39px">Statistics  <i class="glyphicon glyphicon-share-alt"></i></a>
                         </div>
                     </div>
 

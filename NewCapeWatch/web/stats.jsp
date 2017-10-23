@@ -58,7 +58,6 @@
                         <form id="DriverClass" action="DriverClass" method="post" role="form"></form>            
         </li>
         <li><a href="hotspots.html">Hotspots</a></li>
-        <li><a href="relatedCrimes.html">Related Crimes</a></li>
         <li><a href="contact.jsp">Contact Us</a></li>
       </ul>
     </div>
