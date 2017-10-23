@@ -73,9 +73,10 @@ public class ChangePassword extends HttpServlet {
         try{
             if (officerID != null && isResetPasswordVerified != null){
                 //update password if the status is in reset password or forgot password
-                UserDAO.updatePassword(officerID, password); //IF YOU WANT TO HASH IT CHANGE TO inputPassword
+                UserDAO.updatePassword(officerID, inputPassword); //IF YOU WANT TO HASH IT CHANGE TO inputPassword
                 sp.setCode(0);
                 sp.setMessage("changed successfully");
+                request.getRequestDispatcher("/login.html").forward(request, response);
             }
             else{
                 sp.setCode(-1);

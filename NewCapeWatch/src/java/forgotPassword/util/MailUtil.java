@@ -1,7 +1,10 @@
 
 package forgotPassword.util;
 
+import static com.sun.xml.ws.client.ContentNegotiation.none;
+import static java.nio.file.Files.size;
 import java.util.Properties;
+import static javafx.scene.text.Font.font;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -10,6 +13,7 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import static javax.ws.rs.client.Entity.text;
 
 /**
  *
@@ -74,11 +78,11 @@ public class MailUtil {
         StringBuilder bodyText = new StringBuilder();
         
         bodyText.append("<div>")
-                .append("To complete your registration, please activate your email address by clicking the below link: <br/><br/> ")
+                .append("To complete your registration, please activate your account by clicking the below link: <br/><br/> ")
                 .append("Please click <a href=\"")
                 .append(link)
                 .append("\"+>here</a> or open the link in your browser<br/>")
-                .append("<br/><br/> Thanks, <br/> Xmeagol Software.");
+                .append("<br/><br/> Thank you, <br/> Xmeagol Software.<br/><br/>");
     
         //Send message
         Message message = new MimeMessage(session);

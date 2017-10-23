@@ -11,7 +11,7 @@
 
 	session.invalidate();
 session = request.getSession();
-response.sendRedirect("login.jsp");
+response.sendRedirect("login.html");
 
 
 %>

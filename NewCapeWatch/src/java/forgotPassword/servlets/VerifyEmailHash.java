@@ -64,7 +64,7 @@ public class VerifyEmailHash extends HttpServlet {
                 UserDAO.updateStatus(officerID, "active");
                 UserDAO.updateEmailVerificationHash(officerID, null);
                 //forward request
-                //request.getRequestDispatcher("/login.html").forward(request, response);
+                request.getRequestDispatcher("/login.html").forward(request, response);
             }                
             else {
                 message = "Wrong email address???";

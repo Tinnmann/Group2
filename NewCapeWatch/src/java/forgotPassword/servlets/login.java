@@ -51,6 +51,7 @@ public class login extends HttpServlet {
                     request.getSession().setAttribute("userName", user.getNAME()+" "+user.getSURNAME());
                     sp.setCode(0);
                     sp.setMessage("Success");
+                    request.getRequestDispatcher("/profile.jsp").forward(request, response);
                 }
                 //if user's account is unverified - "new" or in the process of resetting password - "resetPassword" they cant log in
                 else if(user.getSTATUS().equalsIgnoreCase("new") || user.getSTATUS().equalsIgnoreCase("resetPassword")){

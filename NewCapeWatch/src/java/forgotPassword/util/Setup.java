@@ -11,7 +11,7 @@ public class Setup {
     //DB setup
     public static final String DB_URL = "jdbc:mysql://localhost:3306/capewatchdb";
     public static final String DB_USERNAME = "root";
-    public static final String DB_PASSWORD = "sqlPass"; //needs to be changed if on another pc
+    public static final String DB_PASSWORD = ""; //needs to be changed if on another pc
     public static final String DB_TABLE = "police_user";
     
     //mail setup
@@ -21,7 +21,7 @@ public class Setup {
     public static final String MAIL_SMTP_PORT = "587";
     
     //link redirect
-    public static final String MAIL_LINK = "http://localhost:8080/ForgotPassword_emailLink/VerifyEmailHash";
+    public static final String MAIL_LINK = "http://localhost:8080/NewCapeWatch/VerifyEmailHash";
     
 public static final String SALT = "$2a$10$DOWSDz/CyKaJ40hslrk5fe";
 
