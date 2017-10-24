@@ -2,13 +2,9 @@
 						Muizenberg,Steenberg,GrassyPark,Kirstenhof,Parow,Nyanga,ElsiesRiver,HoutBay,PhilippiCentral,BishopLavis,Gugulethu,Goodwood,
 						Dieprivier,Manenberg,Milnerton,Wynberg,Langa,Lansdowne,Athlone,Mowbray,Claremont,Pinelands,Maitland,Rondebosch,SeaPoint,
 						Woodstock,CapeTownCentral} */
-						
-<<<<<<< HEAD
-	var colors = {Atlantis:"",Strand:"",NoordHoek:"",FishHoek:"",Harare:"",Kraaifontein:"",LingelethuWest:"",Khayelitsha:"",Mfuleni:"",Delft:"",MitchellsPlain:"",PhillippiEast:"",Muizenberg:"",Steenberg:"",GrassyPark:"",Kirstenhof:"",Parow:"",Nyanga:"",ElsiesRiver:"",HoutBay:"",					  PhilippiCentral:"",BishopLavis:"",Gugulethu:"",Goodwood:"",Dieprivier:"",Manenberg:"",Milnerton:"",Wynberg:"",Langa:"",Lansdowne:"",					 Athlone:"",Mowbray:"",Claremont:"",Pinelands:"",Maitland:"",Rondebosch:"",SeaPoint:"",Woodstock:"",CapeTownCentral:""};
-=======
+
 	var colors = {Atlantis:"",Strand:"",NoordHoek:"",FishHoek:"",Harare:"",Kraaifontein:"",LingelethuWest:"",Khayelitsha:"",Mfuleni:"",Delft:"",MitchellsPlain:"",PhillippiEast:"",Muizenberg:"",Steenberg:"",GrassyPark:"",Kirstenhof:"",Parow:"",Nyanga:"",ElsiesRiver:"",HoutBay:"",					  PhilippiCentral:"",BishopLavis:"",Gugulethu:"",Goodwood:"",Dieprivier:"",Manenberg:"",Milnerton:"",Wynberg:"",Langa:"",Lansdowne:"",					 Athlone:"",Mowbray:"",Claremont:"",Pinelands:"",Maitland:"",Rondebosch:"",SeaPoint:"",Woodstock:"",CapeTownCentral:"",Belhar:"",                                  Bellville:"",BellvilleSouth:"",Bothasig:"",Brackenfell:"",CampsBay:"",Durbanville:"",Kensington:"",Kleinvlei:"",KuilsRivier:"",Macassar:"",                                   OceansView:"",Ravensmead:"",SimonsTown:"",SomersetWest:"",Stellenbosch:"",Strandfontein:"",TableView:""};
->>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
-						
+
 	var coordinates = {Atlantis:{lat:{lat1:-33.471857, lat2:-33.608355},lng:{lng1:18.446434, lng2:18.520935}},
 					   Strand:{lat:{lat1:-34.095505, lat2:-34.136435},lng:{lng1:18.830722, lng2:18.862823}},
 					   NoordHoek:{lat:{lat1:-34.083236, lat2:-34.118416},lng:{lng1: 18.366030, lng2:18.399675}},
@@ -47,9 +43,6 @@
 					   Rondebosch:{lat:{lat1:-33.957765, lat2:-33.969369},lng:{lng1:18.475219, lng2:18.481313}},
 					   SeaPoint:{lat:{lat1:-33.923388, lat2:-33.910781},lng:{lng1:18.390588, lng2:18.386168}},
 					   Woodstock:{lat:{lat1:-33.927092, lat2:-33.927983},lng:{lng1:18.449554, lng2:18.452129}},
-<<<<<<< HEAD
-					   CapeTownCentral:{lat:{lat1:-33.928181, lat2:-33.915931},lng:{lng1:18.420294, lng2: 18.421968}}
-=======
 					   CapeTownCentral:{lat:{lat1:-33.928181, lat2:-33.915931},lng:{lng1:18.420294, lng2: 18.421968}},
                                            SimonsTown:{lat:{lat1:-34.14349, lat2:-34.24289},lng:{lng1:18.34820, lng2: 18.51849}},
                                            Belhar:{lat:{lat1:-33.91979, lat2:-33.96963},lng:{lng1:18.58329, lng2: 18.66843}},
@@ -69,77 +62,263 @@
                                            Stellenbosch:{lat:{lat1:-33.88452, lat2:-33.98422},lng:{lng1:18.78405, lng2: 18.95433}},
                                            TableView:{lat:{lat1:-33.79969, lat2:-33.84960},lng:{lng1:18.45205, lng2: 18.53720}},
                                            Strandfontein:{lat:{lat1:-31.72999, lat2:-31.78108},lng:{lng1:18.18469, lng2: 18.26983}}
-                                           
->>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
+
 					  };
-						
+
 	//variables to be used to show information on the map
 	var locationClusters;
 	var locationStatistics;
 	var crimes;
 	var morning; var noon; var evening; var night;
 	var Sunday; var Monday; var Tuesday; var Wednesday; var Thursday; var Friday; var Saturday;
-	
-	
+
+
 	//getLocationClusters();
 	//getLocationStatistics();
 	//getGraphTotals();
-	
+
 	//this calls variables for statistics and clusters
-	
-	
+
+
 	var content;
-	
+
 	var map;
-	
+
 	function initialize() {
-			
+		var styledMapType = new google.maps.StyledMapType(
+			[
+				{
+					"elementType": "geometry",
+					"stylers": [
+						{
+							"color": "#212121"
+						}
+					]
+				},
+				{
+					"elementType": "labels.icon",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#757575"
+						}
+					]
+				},
+				{
+					"elementType": "labels.text.stroke",
+					"stylers": [
+						{
+							"color": "#212121"
+						}
+					]
+				},
+				{
+					"featureType": "administrative",
+					"elementType": "geometry",
+					"stylers": [
+						{
+							"color": "#757575"
+						}
+					]
+				},
+				{
+					"featureType": "administrative.country",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#9e9e9e"
+						}
+					]
+				},
+				{
+					"featureType": "administrative.land_parcel",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "administrative.locality",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#bdbdbd"
+						}
+					]
+				},
+				{
+					"featureType": "poi",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#757575"
+						}
+					]
+				},
+				{
+					"featureType": "poi.park",
+					"elementType": "geometry",
+					"stylers": [
+						{
+							"color": "#181818"
+						}
+					]
+				},
+				{
+					"featureType": "poi.park",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#616161"
+						}
+					]
+				},
+				{
+					"featureType": "poi.park",
+					"elementType": "labels.text.stroke",
+					"stylers": [
+						{
+							"color": "#1b1b1b"
+						}
+					]
+				},
+				{
+					"featureType": "road",
+					"elementType": "geometry.fill",
+					"stylers": [
+						{
+							"color": "#2c2c2c"
+						}
+					]
+				},
+				{
+					"featureType": "road",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#8a8a8a"
+						}
+					]
+				},
+				{
+					"featureType": "road.arterial",
+					"elementType": "geometry",
+					"stylers": [
+						{
+							"color": "#373737"
+						}
+					]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "geometry",
+					"stylers": [
+						{
+							"color": "#3c3c3c"
+						}
+					]
+				},
+				{
+					"featureType": "road.highway.controlled_access",
+					"elementType": "geometry",
+					"stylers": [
+						{
+							"color": "#4e4e4e"
+						}
+					]
+				},
+				{
+					"featureType": "road.local",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#616161"
+						}
+					]
+				},
+				{
+					"featureType": "transit",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#757575"
+						}
+					]
+				},
+				{
+					"featureType": "water",
+					"elementType": "geometry",
+					"stylers": [
+						{
+							"color": "#000000"
+						}
+					]
+				},
+				{
+					"featureType": "water",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#3d3d3d"
+						}
+					]
+				}
+			],
+			{name: 'Styled Map'});
 		//alert('init');
 		var mapCanvas = document.getElementById('map');
-		
-		
+
+
                 var mapOptions = {
 		  center: new google.maps.LatLng(-33.975415, 18.575200),
 		  zoom: 11,
 		  mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
-                
+
 		map = new google.maps.Map(mapCanvas, mapOptions);
-		
-<<<<<<< HEAD
-		getVariables("http://localhost:8080/Capstone-final/js/GraphTotals.txt","totals");
-=======
+
 		getVariables("http://localhost:8080/NewCapeWatch/js/GraphTotals.txt","totals");
->>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
-		  
+		map.mapTypes.set('styled_map', styledMapType);
+		map.setMapTypeId('styled_map');
+
+
+
 	}
-	
+
 	function newMap(){
 		var mapCanvas = document.getElementById('map');
-		
+
 		var mapOptions = {
 		  center: new google.maps.LatLng(-33.975415, 18.575200),
 		  zoom: 11,
 		  mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
-                
+
 		map = new google.maps.Map(mapCanvas, mapOptions);
-	
+
 	}
-		
+
     function getVariables(url,type)
     {   //alert('get vars');
         var textfile;
         if (window.XMLHttpRequest)
-        { 
-            textfile = new XMLHttpRequest(); 
+        {
+            textfile = new XMLHttpRequest();
         }
-        
+
         textfile.onreadystatechange = function ()
-        {   
+        {
             if (textfile.readyState == 4 && textfile.status == 200)
-            { 
-                content = textfile.responseText; 
+            {
+                content = textfile.responseText;
                 //alert(content);
                 if (type =="clusters"){
 
@@ -159,25 +338,16 @@
                 }else if (type =="totals"){
                         createTotals(content);
 
-<<<<<<< HEAD
                         getVariables("http://localhost:8080/Capstone-final/js/GraphStatistics.txt","statistics");
                         getVariables("http://localhost:8080/Capstone-final/js/ClusterStatistics.txt","clusters");
-=======
-                        getVariables("http://localhost:8080/NewCapeWatch/js/GraphStatistics.txt","statistics");
-                        getVariables("http://localhost:8080/NewCapeWatch/js/ClusterStatistics.txt","clusters");
->>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
                 }
             }
         }
         textfile.open("GET", url, true);
         textfile.send();
     }
-	
-<<<<<<< HEAD
+
 	function createTotals(totals){
-=======
-    function createTotals(totals){
->>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 		var lines = totals.split("\n");
         for (var i = 0, len = lines.length; i < len; i++) {
 			var line = lines[i].split("=");
@@ -193,7 +363,6 @@
 			}else if (line[0] == "night"){
 				night= parseInt(line[1]);
 				//alert("night "+night);
-<<<<<<< HEAD
 			}else if (line[0] == "sunday"){
 				Sunday= parseInt(line[1]);
 				//alert("sun "+sunday);
@@ -215,43 +384,35 @@
 			}else if (line[0] == "saturday"){
 				Saturday= parseInt(line[1]);
 				//alert("sat "+saturday);
-=======
->>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
 			}else if (line[0] == "crimes"){
 				crimes= parseInt(line[1]);
 				//alert("sat "+saturday);
 			}
-<<<<<<< HEAD
-            
+
         }
 		//alert('after tots');
 	}
-=======
-        }
-		//alert('after tots');
-    }
->>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
-	
+
 
 function getMaxCrimes(type){
 		var maxCrimes = 0;
 		for (var location in locationStatistics) {
 			var crimeNum = locationStatistics[location][type];
-			
+
 			if (crimeNum > maxCrimes){
 				maxCrimes = crimeNum;
 			}
 		}
 		return maxCrimes;
 	}
-	
+
 	function showGraphStatistics(type){
 		newMap();
 		//alert('in show');
-		
+
                 //Number of gangs in the area
                 //alert ("the length "+Object.keys( locationStatistics).length);
-                
+
 		for (var location in locationStatistics) {
 			//get percentage of location
                         //alert("1");
@@ -261,19 +422,19 @@ function getMaxCrimes(type){
 			// alert("3");
 			var perc = (num/maxCrimes)*100;
 			//alert(location+" "+num);
-			
+
 			//get the coordinate to put the circle on the map
 			var coordinate = getCoordinates(location,1,1);
 			var lat = coordinate["lat"];
 			var lng = coordinate["lng"];
-			
+
 			//depending on the relative number of crimes committed get a color code
 			var color = getColor(perc);
-			
+
 			var amsterdam=new google.maps.LatLng(lat,lng);
 			//Now put the boundaries
 			var coords = location+"Coords";
-			
+
 			//first put the boundary before the information
 			var bermudaTriangle = new google.maps.Polygon({
 				paths: eval(coords),
@@ -284,10 +445,10 @@ function getMaxCrimes(type){
 				fillOpacity: 0.35
 			});
 			bermudaTriangle.setMap(map);
-			
+
 			var image = 'fonts/'+color.substring(1)+'_stats.PNG';
-			
-                      
+
+
                         var beachMarker;
                         if (num >= 10){
                             beachMarker = new google.maps.Marker({
@@ -297,7 +458,7 @@ function getMaxCrimes(type){
 				label: "*"
                             });
                         }else{
-                            
+
                             beachMarker = new google.maps.Marker({
 				position: amsterdam,
 				map: map,
@@ -305,9 +466,9 @@ function getMaxCrimes(type){
 				label: ''+num
                             });
                         }
-                        
-			
-			
+
+
+
 			var content = document.createElement("DIV");
 			if (type =="crimes"){
 				content.innerHTML = '<div class="crime-stats" style="height:100px;width:200px;" >'+location+'<br>Crimes : '+num+'<br>Total Crimes : '+crimes+'</div>';
@@ -316,49 +477,49 @@ function getMaxCrimes(type){
 			} else{
 				content.innerHTML = '<div class="crime-stats" style="height:100px;width:300px;" >'+location+'<br>On : '+type+'<br>Crimes : '+num+'<br>Total Crimes On '+type+' : '+eval(type)+'</div>';
 			}
-			
+
 			//alert(content.innerHTML);
 			var infowindow = new google.maps.InfoWindow({
 				content: content,
 				maxWidth: 5000
 			});
-			
+
 			 // Open the infowindow on marker click
 			(function(beachMarker,infowindow) {google.maps.event.addListener(beachMarker, "click", function() {
 				//alert('clicked');
 				infowindow.open(map, beachMarker );
-				
+
 			}); }(beachMarker,infowindow));
-				
+
 		}
 	}
-	
+
 	function showClusterStatistics(){
 		newMap();
 		//alert('in cluster show'+locationClusters["Wynberg"]["gang7"]["perc"]);
-		
+
 		for (var location in locationClusters) {
-			
+
 			//Number of gangs in the area
 			var gangNum = Object.keys( locationClusters[location] ).length;
 			//get percentage of location
 			var num = parseInt (locationStatistics[location]["crimes"]);
 			var maxCrimes = getMaxCrimes("crimes");
-			
+
 			var perc = (num/maxCrimes)*100;
-			
+
 			//get the coordinate to put the circle on the map
 			var coordinate = getCoordinates(location,1,1);
 			var lat = coordinate["lat"];
 			var lng = coordinate["lng"];
-			
+
 			//depending on the relative number of crimes committed get a color code
 			var color = getColor(perc);
-			
+
 			var amsterdam=new google.maps.LatLng(lat,lng);
 			//Now put the boundaries
 			var coords = location+"Coords";
-			
+
 			//first put the boundary before the information
 			var bermudaTriangle = new google.maps.Polygon({
 				paths: eval(coords),
@@ -369,10 +530,10 @@ function getMaxCrimes(type){
 				fillOpacity: 0.35
 			});
 			bermudaTriangle.setMap(map);
-			
+
 			var image = 'fonts/'+color.substring(1)+'_cluster.png';
 			//alert('clust '+image);
-                        
+
                         var beachMarker;
                         if (gangNum >= 10){
                             beachMarker = new google.maps.Marker({
@@ -381,66 +542,66 @@ function getMaxCrimes(type){
 				icon: image,
 				label: "*"
                             });
-                        }else{  
+                        }else{
                              beachMarker = new google.maps.Marker({
 				position: amsterdam,
 				map: map,
 				icon: image,
 				label: ''+ gangNum
                             });
-                        } 
-                        
+                        }
+
                         var pieDiv = document.getElementById(location);
-                        
+
                         var content;
-                        
+
                         if(pieDiv != null){
                            content = pieDiv;
                         }else{
                            content = document.createElement("DIV");
                         }
-                       
+
 			content.innerHTML = '<div id="'+location+'" style="height:100px;width:300px;" class="overlay '+location+'"></div>';
 			document.getElementById("temp").appendChild(content);
-		
+
 			var piechart = createPieChart(location);
 			piechart.render();
-			
-			
+
+
 			//alert(content.innerHTML);
 			var infowindow = new google.maps.InfoWindow({
 				content: content,
 				maxWidth: 5000
 			});
-			
+
 			 // Open the infowindow on marker click
 			(function(beachMarker,infowindow,piechart) {google.maps.event.addListener(beachMarker, "click", function() {
 				//alert('clicked');
 				infowindow.open(map, beachMarker );
-				
+
 			}); }(beachMarker,infowindow,piechart));
-			
-			
+
+
 		}
-		
+
 	}
-	
-	
-	
+
+
+
 	function createPieChart(location){
-	
+
 		var chartPoints = new Array();
-		
+
 		for (var gang in locationClusters[location]) {
 			//alert(locationClusters[location][gang]["perc"]);
 			var point = {y:parseInt (locationClusters[location][gang]["perc"]),legendText:gang,label:gang,location:location}
-			
+
 			chartPoints.push(point);
-		
+
 		}
-		
+
 		//alert(chartPoints[0]["y"]+" "+chartPoints[0]["legendText"]);
-		
+
 		var chart = new CanvasJS.Chart(location,
 		{
 			backgroundColor: "transparent",
@@ -456,29 +617,29 @@ function getMaxCrimes(type){
 				horizontalAlign: "left",
 				fontSize: 14,
 				 fontColor: "#800000",
-				fontFamily: "Helvetica"        
+				fontFamily: "Helvetica"
 			},
 			theme: "theme2",
 			data: [
-			{        
-				type: "pie", 
+			{
+				type: "pie",
 				click: onClick,
-				indexLabelFontFamily: "Garamond",       
+				indexLabelFontFamily: "Garamond",
 				indexLabelFontSize: 20,
 				indexLabelFontColor: "#fff",
 				indexLabel: "{label} {y}%",
 				indexLabelLineColor: "#fff",
-				startAngle:-20,      
+				startAngle:-20,
 				showInLegend: true,
 				toolTipContent:"{legendText} {y}%",
 				dataPoints: chartPoints
 			}
 			]
 		});
-		
+
 		return chart;
 	}
-	
+
 	function onClick(e){
 		//alert('clicked');
 		//alert(  e.dataSeries.type + ", dataPoint { x:" + e.dataPoint.location + ", y: "+ e.dataPoint.y + " }" );
@@ -486,9 +647,9 @@ function getMaxCrimes(type){
 		document.getElementById("google-map-overlay").innerHTML = html;
 		document.getElementById("google-map-overlay").scrollIntoView();
 	}
-	
 
-	
+
+
 	function getColor(perc){
 		var color;
 		if (perc > 80){
@@ -501,27 +662,27 @@ function getMaxCrimes(type){
 			color = "#BA0EF9";
 		} else if (perc <= 20 ){
 			color = "#0E1DF9";
-		} 
-		
+		}
+
 		return color;
 	}
-	
+
 	function getCoordinates(location,numItems,numItem){
-		
+
 		var lat1 = coordinates[location]["lat"]["lat1"];
 		var lat2 = coordinates[location]["lat"]["lat2"];
 		var lng1 = coordinates[location]["lng"]["lng1"];
 		var lng2 = coordinates[location]["lng"]["lng2"];
-		
+
 		var lat = ( Math.abs(lat1 - lat2)/(numItems + 1) *numItem ) + Math.min(lat1,lat2);
 		var lng = ( Math.abs(lng1 - lng2)/(numItems + 1) *numItem ) + Math.min(lng1,lng2);
-		
+
 		var coordinate = {lat:lat,lng:lng};
-		
+
 		return coordinate;
-		
+
 	}
-	
+
 	// Define the LatLng coordinates for the polygon's path.
 	var AtlantisCoords = [
 		{lat: -33.510797, lng:18.426521},
@@ -543,7 +704,7 @@ function getMaxCrimes(type){
 		{lat: -33.532549, lng:18.473556},
 		{lat:-33.520529, lng:18.453300}
 	];
-		
+
 	var StrandCoords = [
 		{lat: -34.101617, lng:18.810981},
 		{lat: -34.100622, lng:18.812869},
@@ -569,7 +730,7 @@ function getMaxCrimes(type){
 		{lat: -34.123928, lng:18.828586}
 	];
 
-	
+
 	var NoordHoekCoords = [
 		{lat: -34.095959, lng:18.357275},
 		{lat: -34.088496, lng:18.359592},
@@ -599,7 +760,7 @@ function getMaxCrimes(type){
 		{lat: -34.095801, lng:18.360119}
 	];
 
-	
+
 	var FishHoekCoords = [
 		{lat: -34.132713, lng:18.401933},
 		{lat: -34.119000, lng:18.401675},
@@ -615,7 +776,7 @@ function getMaxCrimes(type){
 		{lat: -34.145358, lng:18.421244}
 	];
 
-	
+
 	var HarareCoords = [
 		{lat: -34.058367, lng:18.661154},
 		{lat: -34.056731, lng:18.662056},
@@ -632,7 +793,7 @@ function getMaxCrimes(type){
 		{lat: -34.062527, lng:18.676904}
 	];
 
-	
+
 	var KraaifonteinCoords = [
 		{lat: -33.835385, lng:18.675035},
 		{lat: -33.835385, lng:18.679154},
@@ -669,14 +830,14 @@ function getMaxCrimes(type){
 		{lat: -33.838521, lng:18.680013}
 	];
 
-	
+
 	var LingelethuWestCoords = [
 		{lat: -34.040761, lng:18.659199},
 		{lat: -34.040369, lng:18.660679},
 		{lat:-34.042556, lng:18.663040},
 		{lat: -34.043801, lng:18.659306}
 	];
-	
+
 	var KhayelitshaCoords = [
 		{lat: -33.987081, lng:18.647306},
 		{lat: -33.985658, lng:18.668936},
@@ -700,7 +861,7 @@ function getMaxCrimes(type){
 		{lat: -33.995906, lng:18.637865}
 	];
 
-	
+
 	var MfuleniCoords = [
 		{lat: -34.005316, lng:18.646389},
 		{lat: -34.002613, lng:18.650166},
@@ -726,7 +887,7 @@ function getMaxCrimes(type){
 		{lat: -34.004605, lng:18.670937}
 	];
 
-		
+
 	var DelftCoords = [
 		{lat: -33.997863, lng:18.625157},
 		{lat: -33.960140, lng:18.634255},
@@ -740,7 +901,7 @@ function getMaxCrimes(type){
 		{lat: -33.998930, lng:18.629276}
 	];
 
-	
+
 	var MitchellsPlainCoords = [
 		{lat: -34.090888, lng:18.552127},
 		{lat: -34.088897, lng:18.549037},
@@ -765,7 +926,7 @@ function getMaxCrimes(type){
 		{lat: -34.082500, lng:18.578735}
 	];
 
-	
+
 	var PhillippiEastCoords = [
 		{lat: -34.073565, lng:18.533291},
 		{lat: -34.017238, lng:18.521275},
@@ -787,7 +948,7 @@ function getMaxCrimes(type){
 		{lat: -34.073280, lng:18.533120}
 	];
 
-	
+
 	var MuizenbergCoords = [
 		{lat: -34.116330, lng:18.457717},
 		{lat:-34.113772, lng:18.463296},
@@ -817,9 +978,9 @@ function getMaxCrimes(type){
 		{lat: -34.103894, lng:18.483895},
 		{lat: -34.109580, lng:18.470420},
 		{lat:-34.118036, lng:18.459691}
-	];	
+	];
 
-	
+
 	var SteenbergCoords = [
 		{lat: -34.075500, lng:18.463879},
 		{lat: -34.069243, lng:18.463600},
@@ -830,7 +991,7 @@ function getMaxCrimes(type){
 		{lat: -34.075002, lng:18.478985}
 	];
 
-	
+
 	var GrassyParkCoords = [
 		{lat: -34.096335, lng:18.510392},
 		{lat: -34.084110, lng:18.507302},
@@ -848,7 +1009,7 @@ function getMaxCrimes(type){
 		{lat:-34.088943, lng:18.549016}
 	];
 
-	
+
 	var KirstenhofCoords = [
 		{lat: -34.078924, lng:18.447060},
 		{lat: -34.075583, lng:18.446717},
@@ -857,8 +1018,8 @@ function getMaxCrimes(type){
 		{lat: -34.065949, lng:18.458733},
 		{lat: -34.079102, lng:18.456158}
 	];
-	
-	
+
+
 	var ParowCoords = [
 		{lat: -33.857700, lng:18.557320},
 		{lat: -33.862546, lng:18.567104},
@@ -890,7 +1051,7 @@ function getMaxCrimes(type){
 		{lat:-33.903732, lng:18.570881},
 		{lat: -33.888200, lng:18.564014}
 	];
-	
+
 	var NyangaCoords = [
 		{lat: -34.001437, lng:18.569723},
 		{lat: -34.001046, lng:18.573715},
@@ -902,7 +1063,7 @@ function getMaxCrimes(type){
 		{lat: -34.001010, lng:18.586546},
 		{lat: -34.002113, lng:18.569766}
 	];
-	
+
 	var ElsiesRiverCoords = [
 		{lat: -33.936737, lng:18.566697},
 		{lat: -33.928120, lng:18.566439},
@@ -917,7 +1078,7 @@ function getMaxCrimes(type){
 		{lat: -33.936880, lng:18.578370}
 	];
 
-	
+
 	var HoutBayCoords = [
 		{lat: -34.095823, lng:18.357368},
 		{lat:-34.095397, lng:18.351703},
@@ -958,7 +1119,7 @@ function getMaxCrimes(type){
 		{lat: -34.079030, lng:18.375431},
 		{lat: -34.088199, lng:18.359378}
 	];
-	
+
 	var PhilippiCentralCoords = [
 		{lat: -34.073565, lng:18.533291},
 		{lat: -34.017238, lng:18.521275},
@@ -979,7 +1140,7 @@ function getMaxCrimes(type){
 		{lat: -34.061193, lng:18.583760},
 		{lat: -34.073280, lng:18.533120}
 	];
-		
+
 	var BishopLavisCoords = [
 		{lat: -33.949008, lng:18.566542},
 		{lat: -33.943241, lng:18.566628},
@@ -996,7 +1157,7 @@ function getMaxCrimes(type){
 		{lat: -33.950183, lng:18.572850},
 		{lat: -33.949222, lng:18.572850}
 	];
-	
+
 	var GugulethuCoords = [
 		{lat: -33.993990, lng:18.559268},
 		{lat: -33.964382, lng:18.562101},
@@ -1015,8 +1176,8 @@ function getMaxCrimes(type){
 		{lat: -33.994915, lng:18.562272},
 		{lat: -33.993777, lng:18.560727}
 	];
-	
-		
+
+
 	var GoodwoodCoords = [
 		{lat: -33.904844, lng:18.501716},
 		{lat: -33.898290, lng:18.504463},
@@ -1041,8 +1202,8 @@ function getMaxCrimes(type){
 		{lat: -33.916384, lng:18.522831},
 		{lat: -33.901282, lng:18.521972}
 	];
-	
-		
+
+
 	var DieprivierCoords = [
 		{lat: -34.070183, lng:18.457835},
 		{lat: -34.042708, lng:18.463392},
@@ -1056,9 +1217,9 @@ function getMaxCrimes(type){
 		{lat: -34.053369, lng:18.470343},
 		{lat: -34.069285, lng:18.464313}
 	];
-	
 
-	
+
+
 	var WoodstockCoords = [
 		{lat: -33.931864, lng: 18.440198},
 		{lat: -33.927876, lng: 18.440713},
@@ -1074,7 +1235,7 @@ function getMaxCrimes(type){
 		{lat: -33.936884, lng:18.453201},
 		{lat: -33.932790, lng:18.446035}
 	];
-	
+
 	var SeaPointCoords = [
 		{lat: -33.924385, lng:18.376341},
 		{lat: -33.921928, lng:18.376126},
@@ -1094,7 +1255,7 @@ function getMaxCrimes(type){
 		{lat: -33.926197, lng:18.381566},
 		{lat: -33.924238, lng:18.379365}
 	];
-	
+
 	var RondeboschCoords = [
 		{lat: -33.954490, lng:18.458825},
 		{lat: -33.954490, lng:18.464747},
@@ -1112,7 +1273,7 @@ function getMaxCrimes(type){
 		{lat: -33.961111, lng:18.459941},
 		{lat: -33.959118, lng:18.456078}
 	];
-	
+
 	var MaitlandCoords = [
 		{lat: -33.927321, lng:18.476602},
 		{lat: -33.917635, lng:18.478318},
@@ -1133,7 +1294,7 @@ function getMaxCrimes(type){
 		{lat: -33.927534, lng:18.481666},
 		{lat: -33.926324, lng:18.481322}
 	];
-	
+
 	var PinelandsCoords = [
 		{lat: -33.929296, lng:18.507692},
 		{lat: -33.922103, lng:18.506405},
@@ -1149,7 +1310,7 @@ function getMaxCrimes(type){
 		{lat: -33.943751, lng:18.490955},
 		{lat: -33.933497, lng:18.492500}
 	];
-	
+
 	var ClaremontCoords = [
 		{lat: -33.976834, lng:18.467146},
 		{lat: -33.983336, lng:18.467745},
@@ -1163,14 +1324,14 @@ function getMaxCrimes(type){
 		{lat: -33.989548, lng:18.471890},
 		{lat: -33.992032, lng:18.468544},
 		{lat: -33.990583, lng:18.461153},
-		{lat: -33.995511, lng:18.4577070},	
+		{lat: -33.995511, lng:18.4577070},
 		{lat:-33.986359, lng:18.451514},
 		{lat: -33.984372, lng:18.452962},
 		{lat: -33.982384, lng:18.452413},
 		{lat: -33.980893, lng:18.453961},
 		{lat: -33.981431, lng:18.456109}
 	];
-	
+
 	var MowbrayCoords = [
 		{lat: -33.951946, lng:18.465782},
 		{lat: -33.946713, lng:18.466082},
@@ -1184,7 +1345,7 @@ function getMaxCrimes(type){
 		{lat: -33.948457, lng:18.501745},
 		{lat: -33.949810, lng:18.502861},
 		{lat: -33.951163, lng:18.502046},
-		{lat: -33.953584, lng:18.495909},	
+		{lat: -33.953584, lng:18.495909},
 		{lat:-33.957748, lng:18.497239},
 		{lat: -33.957642, lng:18.495050},
 		{lat: -33.951626, lng:18.483377},
@@ -1192,7 +1353,7 @@ function getMaxCrimes(type){
 		{lat:-33.951590, lng:18.469310},
 		{lat: -33.950063, lng:18.469526}
 	];
-	
+
 	var AthloneCoords = [
 		{lat: -33.968390, lng:18.494188},
 		{lat: -33.964724, lng:18.495475},
@@ -1205,7 +1366,7 @@ function getMaxCrimes(type){
 		{lat:-33.973479, lng:18.501398},
 		{lat: -33.968568, lng:18.501526}
 	];
-	
+
 	var LansdowneCoords = [
 		{lat: -33.988944, lng:18.489677},
 		{lat: -33.988375, lng:18.489591},
@@ -1219,7 +1380,7 @@ function getMaxCrimes(type){
 		{lat: -33.989798, lng:18.495685},
 		{lat: -33.988838, lng:18.492638}
 	];
-	
+
 	var LangaCoords = [
 		{lat:-33.947700, lng:18.516643},
 		{lat: -33.942396, lng:18.516943},
@@ -1238,7 +1399,7 @@ function getMaxCrimes(type){
 		{lat: -33.949623, lng:18.518660},
 		{lat: -33.947807, lng:18.518789}
 	];
-	
+
 	var WynbergCoords = [
 		{lat: -34.000660, lng:18.449004},
 		{lat: -33.994185, lng:18.455399},
@@ -1252,7 +1413,7 @@ function getMaxCrimes(type){
 		{lat: -34.004183, lng:18.480590},
 		{lat: -34.006388, lng:18.478788},
 		{lat: -34.014499, lng:18.481277},
-		{lat: -34.015638, lng:18.471449},	
+		{lat: -34.015638, lng:18.471449},
 		{lat:-34.013041, lng:18.470247},
 		{lat: -34.014748, lng:18.467115},
 		{lat: -34.013752, lng:18.457416},
@@ -1260,7 +1421,7 @@ function getMaxCrimes(type){
 		{lat:-34.003862, lng:18.451665},
 		{lat: -34.003934, lng:18.450506}
 	];
-	
+
 	var MilnertonCoords = [
 		{lat: -33.889677, lng:18.482807},
 		{lat: -33.868015, lng:18.489159},
@@ -1274,13 +1435,13 @@ function getMaxCrimes(type){
 		{lat: -33.846917, lng:18.527782},
 		{lat: -33.843495, lng:18.537567},
 		{lat: -33.847345, lng:18.554905},
-		{lat: -33.888537, lng:18.564003},	
+		{lat: -33.888537, lng:18.564003},
 		{lat:-33.890105, lng:18.546493},
 		{lat: -33.885402, lng:18.527267},
 		{lat: -33.900934, lng:18.508900},
 		{lat: -33.892385, lng:18.497227}
 	];
-	
+
 	var ManenbergCoords = [
 		{lat: -34.000228, lng:18.549648},
 		{lat: -33.984786, lng:18.548704},
@@ -1289,7 +1450,7 @@ function getMaxCrimes(type){
 		{lat: -33.973825, lng:18.561407},
 		{lat: -34.002078, lng:18.558317}
 	];
-	
+
 	var CapeTownCentralCoords = [
 		{lat: -33.925456, lng:18.411237},
 		{lat: -33.918904, lng:18.417589},
@@ -1303,7 +1464,7 @@ function getMaxCrimes(type){
 		{lat: -33.922892, lng:18.422739},
 		{lat: -33.925377, lng:18.425860},
 		{lat: -33.929203, lng:18.421680},
-		{lat: -33.929754, lng:18.422344},	
+		{lat: -33.929754, lng:18.422344},
 		{lat:-33.931051, lng:18.421328},
 		{lat: -33.931602, lng:18.419922},
 		{lat: -33.931018, lng:18.417851},
@@ -1311,83 +1472,80 @@ function getMaxCrimes(type){
 		{lat: -33.930208, lng:18.412616},
 		{lat: -33.927323, lng:18.413670}
 	];
-<<<<<<< HEAD
-=======
-        
-        
+
+
         var BelharCoords = [
          //   {lat: , lng:},
         ];
-        
+
         var BellvilleCoords = [
-            
+
         ];
-        
+
         var BellvilleSouthCoords = [
-            
-        ];        
-        
+
+        ];
+
         var BothasigCoords = [
-            
-        ];        
-        
+
+        ];
+
         var BrackenfellCoords = [
-            
+
         ];
-        
+
         var CampsBayCoords = [
-            
+
         ];
-        
+
         var DurbanvilleCoords = [
-            
+
         ];
-        
+
         var KensingtonCoords = [
-            
+
         ];
-        
+
         var KleinvleiCoords = [
-            
+
         ];
-        
+
         var KuilsRivierCoords = [
-            
+
         ];
-        
+
         var MacassarCoords = [
-            
+
         ];
-        
+
         var OceanViewCoords = [
-            
+
         ];
-        
+
         var RavensmeadCoords = [
-            
+
         ];
-        
+
         var SimonsTownCoords = [
-            
+
         ];
-        
+
         var SomersetWestCoords = [
-            
+
         ];
-        
+
         var StellenboschCoords = [
-            
+
         ];
-        
+
 
         var StrandfonteinCoords = [
-            
+
         ];
-        
+
         var TableViewCoords = [
-            
-        ];        
->>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0
+
+        ];
 	/*
 	locationDist.put("Cape Town Central",0.65);
          */

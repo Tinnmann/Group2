@@ -20,11 +20,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 
-
 <%
-
-
-
 String email = request.getParameter("email");
 session.putValue("email", email);
 String password = request.getParameter("password");
@@ -76,7 +72,6 @@ if(session.getAttribute("mustlogIn") != null ){
 	error = error + session.getAttribute("mustlogIn").toString();
 	session.invalidate();
 }
-
 %>
 
 <nav class="navbar navbar-default navbar-inverse">
@@ -122,12 +117,10 @@ if(session.getAttribute("mustlogIn") != null ){
             </form>
           </div>
           <br>
-
           <% if(!error.isEmpty()){
         	  out.println("<div class='container alert alert-danger' style='width:120px; margin-top:10px;'>" + error +"'</div>'");
-          }
-        	  %>
-
+            }
+        	%>
         </div>
       </div>
     </div>
