@@ -45,19 +45,14 @@
       <a class="navbar-text" href="index." id="whiteText">Cape Watch</a>
     </div>
     <div class="collapse navbar-collapse" id="navbar-links">
-      <ul class="nav navbar-nav navbar-right"></ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.html">Home</a></li>
         <li><a href="login.jsp">Login</a></li>
         <li><a href="profile.jsp">Profile</a></li>
         <li><a href="reports.jsp">Reports</a></li>
         <li class="active"><a href="stats.jsp">Statistics</a></li>
-        <li>
-                         <a href="#" onclick= "document.getElementById('DriverClass').submit();">
-                                                <i class="fa fa-fw fa-desktop"></i> Process Data</a>
-                        <form id="DriverClass" action="DriverClass" method="post" role="form"></form>            
-        </li>
         <li><a href="hotspots.html">Hotspots</a></li>
+        <li><a href="relatedCrimes.html">Related Crimes</a></li>
         <li><a href="contact.jsp">Contact Us</a></li>
       </ul>
     </div>
@@ -66,28 +61,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
-
-        <div class="search-bar">
-          <label class="btn btn-link" id="menu-toggle" style="color: white">
-                <i class="glyphicon glyphicon-search" aria-hidden="true" style="padding-right:6px;"></i>
-                Search Menu
-              </a>
-            </div>
-
-            <!-- Seacrh menu fields -->
-            <div id="filter-menu">
-              <form method="post">
-                <label class="control-label" style="color: white; border-top: 1px solid white; padding-top: 20px">Enter the name of a suburb</label>
-                <input type="text" class="form-control txt-auto" name="suburb" id="suburb" placeholder="e.g. Sea Point" style="text-align:center; width: 250px; border-radius:5px;">
-                <br>
-                <label class="control-label" style="color: white">Type of Crime</label>
-                <input type="text" class="form-control txt-auto" name="crime" id="crime" placeholder="e.g. Murder" style="text-align:center; width:250px; border-radius:5px;">
-                <br>
-                <button type="button" class="btn btn-sm btn-secondary" id="filter-btn">Submit</button>
-              </form>
-        </div>
         <!-- Heading -->
-        <div id="headings">
+        <div id="headings" style="margin-top: 10px;">
           <h1 id="header-center-white">STATISTICS</h1>
         </div>
       </div>
@@ -111,23 +86,16 @@
                     Statement st = conn.createStatement();
                     ResultSet rs = st.executeQuery(q);
                     //ResultSet rt= st.executeQuery(r);
-
                     String crimeType= "";
                     int count=0;
                     String status="";
-
-
                     out.println("<tr><th>Crimes</th><th>Numbers</th><tr>");
-
                     while(rs.next()){
                         crimeType=rs.getString(1);
                         //count = rt.getInt(1);
                         count=rs.getInt(2);
                         out.println("<tr><td>" + crimeType + "</td><td>" + count + "</td></tr>");
                     }
-
-
-
                   }catch(Exception e){
                       System.out.println(e);
                   }
@@ -135,7 +103,12 @@
 
           </table>
         </div>
+        <button type="button" id="process Data" class="btn btn-secondary" href="#Processing" onclick= "document.getElementById('DriverClass').submit();">
+            Proccess Data
+            <form id="DriverClass" action="DriverClass" method="post" role="form"></form>  
+          </button>
       </div>
+
     </div>
     <div class="row">
       <div class="col-sm-6" id="PrecinctStats">
@@ -172,13 +145,13 @@
                 data: [{
                   dataPoints: [
                     { x: 1, y: 297571, label: "Murder"},
-                    { x: 2, y: 267017,  label: "Assault" },
-                    { x: 3, y: 175200,  label: "Carjacking"},
-                    { x: 4, y: 154580,  label: "Vehicle theft"},
-                    { x: 5, y: 116000,  label: "Robbery"},
-                    { x: 6, y: 97800, label: "Arson"},
-                    { x: 7, y: 20682,  label: "Property Damage"},
-                    { x: 8, y: 20350,  label: "Attempted Murder"}
+                    { x: 2, y: 267017,  label: "Saudi" },
+                    { x: 3, y: 175200,  label: "Canada"},
+                    { x: 4, y: 154580,  label: "Iran"},
+                    { x: 5, y: 116000,  label: "Russia"},
+                    { x: 6, y: 97800, label: "UAE"},
+                    { x: 7, y: 20682,  label: "US"},
+                    { x: 8, y: 20350,  label: "China"}
                   ]
                 }]
               });
@@ -188,7 +161,11 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div>
 
+      </div>
+    </div>
   </div>
 </body>
 

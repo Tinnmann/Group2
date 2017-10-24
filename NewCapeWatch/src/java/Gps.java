@@ -127,37 +127,7 @@ public class Gps {
             double weightedVars[] = new double[6];
             weightedVars[0] = c1;            //lattitude
             weightedVars[1] = c2;            //longitude
-            switch(item[0])
-            {
-                case "Monday":                       //weighted days
-                    weightedVars[2]= 0;
-                    weightedVars[3]= 25;
-                    break;
-                case "Tuesday":
-                    weightedVars[2]= 19.55;
-                    weightedVars[3]= 15.59;
-                    break;
-                case "Wednesday":
-                    weightedVars[2]= 24.38;
-                    weightedVars[3]= 5.56;
-                    break;
-                case "Thursday":
-                    weightedVars[2]= 10.85;
-                    weightedVars[3]= -22.53;
-                    break;
-                case "Friday":
-                    weightedVars[2]= -10.85;
-                    weightedVars[3]= -22.53;
-                    break;
-                case "Saturday":
-                    weightedVars[2]= -24.38;
-                    weightedVars[3]= -5.56;
-                    break;
-                case "Sunday":
-                    weightedVars[2]= -19.55;
-                    weightedVars[3]= 15.59;
-                    break;
-            }
+            
             switch(item[1])                            
             {
                 case "morning":                           //weighted times
@@ -227,7 +197,7 @@ public class Gps {
           	  
               for(int m=0;m<weights.size();m++)
               {
-                  for(count=0;count<6;count++)
+                  for(count=0;count<4;count++)
                   {
                       dif= weights.get(l)[count] - weights.get(m)[count];//Calculate distance between
                       diffSqre = Math.pow(dif, 2);                        //crime nodes
@@ -240,7 +210,6 @@ public class Gps {
                      edges.get(l).add(m, -1.0);
                     
                     edgeConnectivity.add(new int[]{l,m});
-
                 }else{ 
                 
                 	if (answer ==0){

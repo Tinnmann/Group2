@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DriverClass extends HttpServlet {
 
-	private static int cutoff = 140;
+	private static int cutoff = 100;
 	
 	private static double[][] distancesArr = new double[][]{
 											
