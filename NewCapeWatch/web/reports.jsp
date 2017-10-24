@@ -266,58 +266,7 @@
                           </optgroup>
                         </select>
                       </div>
-                      <label class="col-sm-2 control-label" for="crimeType">Crime ID</label>
-                      <div class="col-sm-10">
-                        <select name="crimeID" id="modal-select">
-                          <optgroup label="Contact Crimes (Crimes against the person)">
-                            <option value="CC1">Murder</option>
-                            <option value="CC2">Sexual offences</option>
-                            <option value="CC3">Attempted Murder</option>
-                            <option value="CC4">Assault with the intent to inflict grievous bodily harm</option>
-                            <option value="CC5">Common assault</option>
-                            <option value="CC6">Common robbery</option>
-                            <option value="CC7">Robbery with aggravating circumstances</option>
-                          </optgroup>
-                          <optgroup label="Contact related crimes">
-                            <option value="CR1">Arson</option>
-                            <option value="CR2">Malicious damage to property</option>
-                          </optgroup>
-                          <optgroup label="Property Related crimes">
-                            <option value="PR1">Burglary at non-residential premises</option>
-                            <option value="PR2">Burglary at residential premises</option>
-                            <option value="PR3">Theft of motor vehicle and motorcycle</option>
-                            <option value="PR4">Theft out of or from motor vehicle</option>
-                            <option value="PR5">Stock-theft</option>
-                          </optgroup>
-                          <optgroup label="Crime detected as a result of police action">
-                            <option value="CPA1">Illegal possession of firearms and ammunition</option>
-                            <option value="CPA2">Drug related crime</option>
-                            <option value="CPA3">Driving under the influence of alcohol or drugs</option>
-                            <option value="CPA4">Sexual offences as a result of police action</option>
-                          </optgroup>
-                          <optgroup label="Other serious crimes">
-                            <option value="OS1">All theft not mentioned elsewhere</option>
-                            <option value="OS2">Commercial crime</option>
-                            <option value="OS3">Shoplifting</option>
-                          </optgroup>
-                          <optgroup label="Subcategories of aggravated robbery">
-                            <option value="AR1">Carjacking</option>
-                            <option value="AR2">Truck hijacking</option>
-                            <option value="AR3">Robbery at residential premises</option>
-                            <option value="AR4">Robbery at non-residential premises</option>
-                            <option value="AR5">Bank robbery</option>
-                            <option value="AR6">Robbery of cash in transit</option>
-                          </optgroup>
-                          <optgroup label="Other ">
-                            <option value="OC1">Culpable homicide</option>
-                            <option value="OC2">Public violence</option>
-                            <option value="OC3">Crimen injuria</option>
-                            <option value="OC4">Neglect and ill-treatment of children</option>
-                            <option value="OC5">Kidnapping</option>
-                          </optgroup>
-                        </select>
-                      </div>
-                    </div>
+                   
                     <div class="form-group">
                       <h3 class="col-sm-12 text-center" id="header2">Injured Party (optional)</h3>
                     </div>
@@ -363,7 +312,24 @@
                         <button class="btn btn-default" type="submit" onclick="submitForm()">Submit</button>
                       </div>
                     </div>
+                         <% 
+                             int crimeType = request.getParameter("crimeType");
+                             
+
+
+
+
+String user= "root";
+String pass= "";
+Class.forName("com.mysql.jdbc.Driver");
+java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/capewatchdb", user, pass);
+Statement st= conn.createStatement();
+ResultSet rs = st.executeQuery("SELECT * FROM type_of_crime where crimeName='"+crimeType+"'");
+                            crimeID = rs.getString(1);
+                             /%>
+                        
                   </form>
+                       
                 </div>
               </div>
             </div>

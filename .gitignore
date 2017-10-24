@@ -20,6 +20,10 @@
 /NewCapeWatch/dist/
 /ForgotPassword/build/
 /ForgotPassword/dist/
+<<<<<<< HEAD
+/ForgotPassword/nbproject/private/
+=======
 /ForgotPassword/nbproject/private/
 /ForgotPassword_emailLinkHash/ForgotPassword_emailLink/build/
 /ForgotPassword_emailLinkHash/ForgotPassword_emailLink/dist/
+>>>>>>> 03130175cd8378a2ff7c7f291b0749420e4d43c0

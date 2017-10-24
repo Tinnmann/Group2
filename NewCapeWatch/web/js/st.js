@@ -289,6 +289,8 @@
 		map.mapTypes.set('styled_map', styledMapType);
 		map.setMapTypeId('styled_map');
 
+
+
 	}
 
 	function newMap(){
@@ -336,8 +338,8 @@
                 }else if (type =="totals"){
                         createTotals(content);
 
-                        getVariables("http://localhost:8080/NewCapeWatch/js/GraphStatistics.txt","statistics");
-                        getVariables("http://localhost:8080/NewCapeWatch/js/ClusterStatistics.txt","clusters");
+                        getVariables("http://localhost:8080/Capstone-final/js/GraphStatistics.txt","statistics");
+                        getVariables("http://localhost:8080/Capstone-final/js/ClusterStatistics.txt","clusters");
                 }
             }
         }
@@ -345,7 +347,7 @@
         textfile.send();
     }
 
-    function createTotals(totals){
+	function createTotals(totals){
 		var lines = totals.split("\n");
         for (var i = 0, len = lines.length; i < len; i++) {
 			var line = lines[i].split("=");
@@ -361,13 +363,35 @@
 			}else if (line[0] == "night"){
 				night= parseInt(line[1]);
 				//alert("night "+night);
+			}else if (line[0] == "sunday"){
+				Sunday= parseInt(line[1]);
+				//alert("sun "+sunday);
+			}else if (line[0] == "monday"){
+				Monday= parseInt(line[1]);
+				//alert("mon "+monday);
+			}else if (line[0] == "tuesday"){
+				Tuesday= parseInt(line[1]);
+				//alert("tue "+tuesday);
+			}else if (line[0] == "wednesday"){
+				Wednesday= parseInt(line[1]);
+				//alert("wed "+wednesday);
+			}else if (line[0] == "thursday"){
+				Thursday= parseInt(line[1]);
+				//alert("thur "+thursday);
+			}else if (line[0] == "friday"){
+				Friday= parseInt(line[1]);
+				//alert("fri "+friday);
+			}else if (line[0] == "saturday"){
+				Saturday= parseInt(line[1]);
+				//alert("sat "+saturday);
 			}else if (line[0] == "crimes"){
 				crimes= parseInt(line[1]);
 				//alert("sat "+saturday);
 			}
+
         }
 		//alert('after tots');
-    }
+	}
 
 
 function getMaxCrimes(type){

@@ -1,9 +1,3 @@
-<%--
-    Document   : stats
-    Created on : 11 Oct 2017, 5:40:41 AM
-    Author     : TINASHE
---%>
-
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <%@page import="javax.sql.*"%>
@@ -61,8 +55,6 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
-            <!-- Seacrh menu fields -->
-
         <!-- Heading -->
         <div id="headings" style="margin-top: 10px;">
           <h1 id="header-center-white">STATISTICS</h1>
@@ -112,13 +104,11 @@
 
           </table>
         </div>
-
-        <div class="process-data">
-          <label class="btn btn-default" id="menu-toggle" name="processData">
-                <i aria-hidden="true" style="padding-right:6px;"></i>
-                Process data
-            </div>
+        <button type="button" id="process Data" class="btn btn-secondary">
+            Proccess Data
+          </button>
       </div>
+
     </div>
     <div class="row">
       <div class="col-sm-6" id="PrecinctStats">
@@ -171,7 +161,11 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div>
 
+      </div>
+    </div>
   </div>
 </body>
 

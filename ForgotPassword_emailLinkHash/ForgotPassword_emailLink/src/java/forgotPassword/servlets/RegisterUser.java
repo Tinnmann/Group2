@@ -101,7 +101,6 @@ public class RegisterUser extends HttpServlet {
             } catch (DBException | MessagingException e){
                 sp.setCode(-1);
                 sp.setMessage(e.getMessage());
-                e.printStackTrace();
                 output = Utils.toJson(sp);
             }
             
@@ -110,7 +109,8 @@ public class RegisterUser extends HttpServlet {
         PrintWriter pw = response.getWriter();
         pw.write(output);
         pw.flush();
-        pw.close();        
+        pw.close();      
+
     }
 
     //validate fields are populated
