@@ -61,17 +61,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
-
-        <div class="search-bar">
-          <label class="btn btn-default" id="menu-toggle">
-                <i aria-hidden="true" style="padding-right:6px;"></i>
-                Process data
-            </div>
-
             <!-- Seacrh menu fields -->
 
         <!-- Heading -->
-        <div id="headings">
+        <div id="headings" style="margin-top: 10px;">
           <h1 id="header-center-white">STATISTICS</h1>
         </div>
       </div>
@@ -119,6 +112,12 @@
 
           </table>
         </div>
+
+        <div class="process-data">
+          <label class="btn btn-default" id="menu-toggle" name="processData">
+                <i aria-hidden="true" style="padding-right:6px;"></i>
+                Process data
+            </div>
       </div>
     </div>
     <div class="row">
