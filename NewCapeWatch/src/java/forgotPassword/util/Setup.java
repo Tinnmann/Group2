@@ -11,7 +11,7 @@ public class Setup {
     //DB setup
     public static final String DB_URL = "jdbc:mysql://localhost:3306/capewatchdb";
     public static final String DB_USERNAME = "root";
-    public static final String DB_PASSWORD = ""; //needs to be changed if on another pc
+    public static final String DB_PASSWORD = "sqlPass"; //needs to be changed if on another pc
     public static final String DB_TABLE = "police_user";
     
     //mail setup

@@ -1,3 +1,4 @@
+<%@page import="forgotPassword.util.Setup"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,10 +33,10 @@ String x = request.getParameter("submit");
 
 String error ="";
 
-String user= "root";
-String pass= "";
+String user= Setup.DB_USERNAME;
+String pass= Setup.DB_PASSWORD;
 Class.forName("com.mysql.jdbc.Driver");
-java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/capewatchdb", user, pass);
+java.sql.Connection conn = DriverManager.getConnection(Setup.DB_URL, user, pass);
 Statement st= conn.createStatement();
 ResultSet rs = st.executeQuery("SELECT * FROM police_user where email='"+email+"'");
 
@@ -60,7 +61,7 @@ if(rs.next()){
 
 	response.sendRedirect("profile.jsp");
 	String name = rs.getString(2);
-	String id = rs.getString(1);
+	String id = rs.getString(1); //officer id
 	session = request.getSession();
 	session.setAttribute("username", id);
 
@@ -72,7 +73,7 @@ if(rs.next()){
 }
 
 if(session.getAttribute("mustlogIn") != null ){
-	
+
 	error = error + session.getAttribute("mustlogIn").toString();
 	session.invalidate();
 }
@@ -123,8 +124,8 @@ if(session.getAttribute("mustlogIn") != null ){
             </form>
           </div>
           <br>
-          
-          <% if(!error.isEmpty()){ 
+
+          <% if(!error.isEmpty()){
         	  out.println("<div class='container alert alert-danger' style='width:120px; margin-top:10px;'>" + error +"'</div>'");
           }
         	  %>

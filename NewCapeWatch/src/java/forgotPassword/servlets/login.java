@@ -47,8 +47,8 @@ public class login extends HttpServlet {
                 //if user's account is active they can log in
                 if (user.getSTATUS().equalsIgnoreCase("active") ){
                     //start session for user
-                    request.getSession().setAttribute("user", user.getOFFICERID());
-                    request.getSession().setAttribute("userName", user.getNAME()+" "+user.getSURNAME());
+                    request.getSession().setAttribute("username", user.getOFFICERID());
+                    //request.getSession().setAttribute("userName", user.getNAME()+" "+user.getSURNAME());
                     sp.setCode(0);
                     sp.setMessage("Success");
                     request.getRequestDispatcher("/profile.jsp").forward(request, response);
