@@ -258,43 +258,5 @@ public class UserDAO {
         return user;
     }
 
-    /*public static UserPojo fetchDetails(String officerID) throws DBException {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
 
-        UserPojo user = null;
-
-        try {
-            conn = DBConnect.getConnection();
-            ps = conn.prepareStatement("SELECT name, surname, division, rank, policeStation, email, officerID, password FROM police_user WHERE officerID = ?");
-            ps.setString(1, officerID);
-
-            rs = ps.executeQuery();
-
-            if (rs != null) {
-                while (rs.next()) {
-                    user = new UserPojo();
-
-                    user.setNAME(rs.getString(1));
-                    user.setSURNAME(rs.getString(2));
-                    user.setDIVISION(rs.getString(3));
-                    user.setRANK(rs.getString(4));
-                    user.setPOLICESTATION(rs.getString(5));
-                    user.setEMAIL(rs.getString(6));
-                    user.setPASSWORD(rs.getString(7));
-                    user.setOFFICERID(rs.getString(8)); //there are 10 columns but if you say 10 it breaks
-                    user.setSTATUS(rs.getString(9));
-                }
-            }
-
-            DBConnect.close(conn, ps, rs);
-        } catch (ClassNotFoundException | SQLException e) {
-            DBConnect.close(conn, ps, rs);
-            Logger.getLogger(RegisterUser.class.getName()).log(Level.SEVERE, null, e);
-            throw new DBException("Excepion while accessing database");
-        }
-
-        return user;
-    }*/
 }

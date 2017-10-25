@@ -26,9 +26,7 @@
         <%@ page import="java.sql.PreparedStatement" %>
         <%@ page import="java.sql.ResultSet" %>
         <%
-
             session = request.getSession(false);
-
             String name = "";
             String officerID = "";
             String surname = "";
@@ -37,9 +35,9 @@
             String rank = "";
             String policeStation = "";
             String password = "";
-
+            
             String error = "";
-
+            
             String name1 = "";
             String officerID1 = "";
             String surname1 = "";
@@ -49,17 +47,15 @@
             String policeStation1 = "";
             String password1 = "";
             String password2 = "";
-
             if (session.getAttribute("username") != null) { //what is username?
                 String id = session.getAttribute("username").toString();
-
                 String user = Setup.DB_USERNAME;
                 String pass = Setup.DB_PASSWORD;
                 Class.forName("com.mysql.jdbc.Driver");
                 java.sql.Connection conn = DriverManager.getConnection(Setup.DB_URL, user, pass);
                 Statement st = conn.createStatement();
                 ResultSet rs = st.executeQuery("SELECT * FROM police_user where officerID='" + id + "'");
-               
+
                 while (rs.next()) {
                     officerID = rs.getString("OfficerID");
                     name = rs.getString("name");
@@ -70,9 +66,7 @@
                     policeStation = rs.getString("policeStation");
                     password = rs.getString("password");
                 }
-
                 String save = request.getParameter("submit");
-
                 name1 = request.getParameter("name1");
                 surname1 = request.getParameter("surname1");
                 division1 = request.getParameter("division1");
@@ -81,59 +75,37 @@
                 policeStation1 = request.getParameter("policeStation1");
                 password1 = request.getParameter("password1");
                 password2 = request.getParameter("password2");
-
                 if ("confirm".equals(save)) {
-
                     if (name1.isEmpty() == false) {
-
                         st.executeUpdate("UPDATE police_user SET name='" + name1 + "' where officerID='" + id + "'");
-
                     } else if (surname1.isEmpty() == false) {
-
                         st.executeUpdate("UPDATE police_user SET surname='" + surname1 + "' where officerID='" + id + "'");
-
                     } else if (email1.isEmpty() == false) {
-
                         st.executeUpdate("UPDATE police_user SET email='" + email1 + "' where officerID='" + id + "'");
-
                     } else if (division1.isEmpty() == false) {
-
                         st.executeUpdate("UPDATE police_user SET division='" + division1 + "' where officerID='" + id + "'");
-
                     }
                     if (rank1.isEmpty() == false) {
-
                         st.executeUpdate("UPDATE police_user SET rank='" + rank1 + "' where officerID='" + id + "'");
-
                     }
                     if (policeStation1.isEmpty() == false) {
-
                         st.executeUpdate("UPDATE police_user SET policeStation='" + policeStation1 + "' where officerID='" + id + "'");
-
                     }
-
                     if (password1.isEmpty() == false && password2.isEmpty() == false && password1.equals(password2)) {
-
                         st.executeUpdate("UPDATE police_user SET password='" + password1 + "' where officerID='" + id + "'");
-
                     } else if (password1.isEmpty() == false && password2.isEmpty() == false && !password1.equals(password2)) {
-
                         error = error + "<p>Passwords were not the same - Please try again</p>";
-
                     }
-
                 }
-
             } else {
                 String mustlogIn = "You must log in to access your profile!";
                 session = request.getSession();
                 session.setAttribute("mustlogIn", mustlogIn);
                 response.sendRedirect("login.html");
-
             }
-
-
         %>
+
+
 
 
 
