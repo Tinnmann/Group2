@@ -1,9 +1,3 @@
-<%--
-    Document   : stats
-    Created on : 11 Oct 2017, 5:40:41 AM
-    Author     : TINASHE
---%>
-
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <%@page import="javax.sql.*"%>
@@ -47,11 +41,12 @@
     <div class="collapse navbar-collapse" id="navbar-links">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.html">Home</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.jsp">Login</a></li>
         <li><a href="profile.jsp">Profile</a></li>
         <li><a href="reports.jsp">Reports</a></li>
         <li class="active"><a href="stats.jsp">Statistics</a></li>
         <li><a href="hotspots.html">Hotspots</a></li>
+        <li><a href="relatedCrimes.html">Related Crimes</a></li>
         <li><a href="contact.jsp">Contact Us</a></li>
       </ul>
     </div>
@@ -69,11 +64,11 @@
 
     <div class="row">
       <div class="col-sm-4 col-sm-offset-1">
-        <h4 class="text-center">Regions Concerned</h4>
+        <h4 class="text-center" style="font-size: 32px;">Regions Concerned</h4>
         <img src="region.png" id="regionmap">
       </div>
       <div class="col-sm-6">
-        <h4 class="text-center">Feeds</h4>
+        <h4 class="text-center" style="font-size: 32px;">Feeds</h4>
         <div class="table-responsive" style="height: 300px; overflow-y: scroll">
           <table class="table table-striped" style="font-size:15px;">
               <%
@@ -85,16 +80,23 @@
                     Statement st = conn.createStatement();
                     ResultSet rs = st.executeQuery(q);
                     //ResultSet rt= st.executeQuery(r);
+
                     String crimeType= "";
                     int count=0;
                     String status="";
+
+
                     out.println("<tr><th>Crimes</th><th>Numbers</th><tr>");
+
                     while(rs.next()){
                         crimeType=rs.getString(1);
                         //count = rt.getInt(1);
                         count=rs.getInt(2);
                         out.println("<tr><td>" + crimeType + "</td><td>" + count + "</td></tr>");
                     }
+
+
+
                   }catch(Exception e){
                       System.out.println(e);
                   }
@@ -102,9 +104,8 @@
 
           </table>
         </div>
-        <button type="button" id="process Data" class="btn btn-secondary" href="#Processing" onclick= "document.getElementById('DriverClass').submit();">
+        <button type="button" id="process Data" class="btn btn-secondary">
             Proccess Data
-            <form id="DriverClass" action="DriverClass" method="post" role="form"></form>  
           </button>
       </div>
 
@@ -121,6 +122,7 @@
             window.onload = function() {
               var chart = new CanvasJS.Chart("locationCrime", {
                 animationEnabled: true,
+                theme: "light2",
                 title: {
                   text: "Location Crime"
                 },
@@ -140,6 +142,7 @@
               });
               chart.render();
               var cchart = new CanvasJS.Chart("TypeOfCrime", {
+                theme: "light2",
                 title:{ text: "Type of Crime"},
                 data: [{
                   dataPoints: [
