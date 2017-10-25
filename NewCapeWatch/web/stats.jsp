@@ -64,11 +64,11 @@
 
     <div class="row">
       <div class="col-sm-4 col-sm-offset-1">
-        <h4 class="text-center">Regions Concerned</h4>
+        <h4 class="text-center" style="font-size: 32px;">Regions Concerned</h4>
         <img src="region.png" id="regionmap">
       </div>
       <div class="col-sm-6">
-        <h4 class="text-center">Feeds</h4>
+        <h4 class="text-center" style="font-size: 32px;">Feeds</h4>
         <div class="table-responsive" style="height: 300px; overflow-y: scroll">
           <table class="table table-striped" style="font-size:15px;">
               <%
