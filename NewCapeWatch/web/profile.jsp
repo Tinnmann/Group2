@@ -1,4 +1,6 @@
 
+<%@page import="forgotPassword.model.UserPojo"%>
+<%@page import="forgotPassword.dao.UserDAO"%>
 <%@page import="forgotPassword.util.Setup"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -42,6 +44,8 @@
 	String policeStation1 = "";
 	String password1 = "";
 	String password2 = "";
+        
+        UserPojo userPojo = UserDAO.verifyLogin(email, password);
 
 		if(session.getAttribute("username") != null ) { //what is username?
 			String id = session.getAttribute("username").toString();
@@ -57,14 +61,14 @@
 
 			while(rs.next()){
 
-			officerID= rs.getString(1);
-			name = rs.getString(2);
-		         surname = rs.getString(3);
-		         email = rs.getString(6); //change these to user.getEmail etc
-		         division = rs.getString(4);
-		         rank = rs.getString(5);
-		         policeStation = rs.getString(6);
-		         password = rs.getString(8);
+			officerID= rs.getString(userPojo.getOFFICERID());
+			name = rs.getString(userPojo.getNAME());
+		         surname = rs.getString(userPojo.getSURNAME());
+		         email = rs.getString(userPojo.getEMAIL()); //change these to user.getEmail etc
+		         division = rs.getString(userPojo.getDIVISION());
+		         rank = rs.getString(userPojo.getRANK());
+		         policeStation = rs.getString(userPojo.getPOLICESTATION());
+		         password = rs.getString(userPojo.getPASSWORD());
 			}
 
 
