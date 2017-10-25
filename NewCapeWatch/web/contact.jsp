@@ -61,10 +61,12 @@
         <a class="navbar-text" href="index." id="whiteText">Cape Watch</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-links">
+        <ul class="nav navbar-nav navbar-right"></ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
           <li><a href="login.html">Login</a></li>
           <li><a href="profile.jsp">Profile</a></li>
+          <li><a href="reports.jsp">Reports</a></li>
           <li><a href="stats.jsp">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li class="active"><a href="contact.jsp">Contact Us</a></li>

@@ -86,7 +86,7 @@
       </div>
       <div class="col-sm-6">
         <h4 class="text-center">Feeds</h4>
-        <div class="table-responsive" style="height: 300px; overflow-y: scroll">
+        <div class="table-responsive">
           <table class="table table-striped" style="font-size:15px;">
             <thead>
               <tr>
@@ -121,14 +121,13 @@
             window.onload = function () {
             //Better to construct options first and then pass it as a parameter
               	var options = {
-                  theme: "light2",
               		title: {
               			text: "Type of Crime"
               		},
                               animationEnabled: true,
               		data: [
               		{
-              			type: "column", //change it to line, area, bar, pie, etc
+              			type: "bar", //change it to line, area, bar, pie, etc
               			dataPoints: [
               				{ x: 10, y: 10 },
               				{ x: 20, y: 11 },
