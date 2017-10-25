@@ -211,7 +211,7 @@ public class Stats {
 	    
 	    System.out.println(script);
 	    
-            //C:\Users\Tinnman\Desktop\Capstone-final\build\web\js
+            //C:\Users\Tinashe\Desktop\Group2\NewCapeWatch\build\web\js
 	    PrintWriter out = new PrintWriter("C:/Users/TINASHE/Desktop/Group2/NewCapeWatch/build/web/js/ClusterStatistics.txt");
 	    out.println(script);
 	    out.close();

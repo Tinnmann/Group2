@@ -157,7 +157,7 @@
           <form method="post" >
             <div class="row">
               <div class="col-sm-12">
-                <div class="table-responsive">
+                <div class="table-responsive" style="max-height: 80vh; overflow-y: scroll;">
                   <table class="table table-list-search" id="reportTable">
                             <%
                             
