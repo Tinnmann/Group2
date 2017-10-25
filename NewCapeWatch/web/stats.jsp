@@ -122,6 +122,7 @@
             window.onload = function() {
               var chart = new CanvasJS.Chart("locationCrime", {
                 animationEnabled: true,
+                theme: "light2",
                 title: {
                   text: "Location Crime"
                 },
@@ -141,6 +142,7 @@
               });
               chart.render();
               var cchart = new CanvasJS.Chart("TypeOfCrime", {
+                theme: "light2",
                 title:{ text: "Type of Crime"},
                 data: [{
                   dataPoints: [
