@@ -12,11 +12,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initialize" type="text/javascript"></script>
 
   </head>
-
-  <body class="hotspots-background">
+  <body style="background: black;"> 
     <nav class="navbar navbar-default navbar-inverse">
       <div class="container-fluid"></div>
       <div class="navbar-header">
@@ -30,7 +28,6 @@
           <img src="images/CapeWatchLogo.png" alt="Police logo" id="badge"></a><a class="navbar-text" href="index." id="whiteText">Cape Watch</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-links">
-        <ul class="nav navbar-nav navbar-right"></ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
           <li><a href="login.html">Login</a></li>
@@ -41,6 +38,19 @@
         </ul>
       </div>
     </nav>
+    <div id="particles-js">
+      <style>
+      canvas {
+        display:block;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1)),#333333;
+        background-size: cover;
+        position: fixed;
+        z-index: -1;
+      }
+      </style>
+    </div>
+    <script type="text/javascript" src="particles.js"></script>
+    <script type="text/javascript" src="app.js"></script>
     <div class="mainContent">
     <h1 class="text-center" id="bold-h1">HOTSPOTS</h1>
     <hr />
