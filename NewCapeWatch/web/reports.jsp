@@ -37,12 +37,10 @@
       <div class="collapse navbar-collapse" id="navbar-links">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
-          <li><a href="login.jsp">Login</a></li>
+          <li><a href="login.html">Login</a></li>
           <li><a href="profile.jsp">Profile</a></li>
-          <li class="active"><a href="reports.jsp">Reports</a></li>
           <li><a href="stats.jsp">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
-          <li><a href="relatedCrimes.html">Related Crime</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
       </div>
@@ -71,9 +69,12 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="table-responsive" styl="height: 80%; overflow-y: scroll;">
+                  <p>
+
+                  </p>
                   <table class="table table-list-search" id="reportTable">
                     <thead>
-                            <%
+                      <%
                         try{
                             Class.forName("com.mysql.jdbc.Driver").newInstance();
                             Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/capewatchdb", "root", "");
@@ -91,7 +92,11 @@
                             String status= "";
 
                             out.println("<tr><th>Report ID</th><th>Officer ID:</th><th>Date</th><th>Location</th><th>Time</th><th>Crime Type</th><th>Status</th><th>Details</th><tr>");
+                      %>
+                            </thead>
+                            <tbody>
 
+                            <%
                             while (rs.next()){
                                 reportID = rs.getInt(1);
                                 crimeID = rs.getString(2);
@@ -101,16 +106,16 @@
                                 time = rs.getString(6);
                                 crimeType = rs.getString(7);
                                 status = rs.getString(8);
-                                out.println("<tbody><tr><td><label name="reportID">" + reportID + "</label></td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-primary'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td></tr></tbody>");
+                                out.println("<tr><td><label name="reportID">" + reportID + "</label></td><td>" + postedBy + "</td><td>" + date+ "</td><td>"+location+"</td><td>"+time+"</td><td>"+crimeType+"</td><td><div"+" class='currentStatus'><span class='label label-primary'>"+ status+"</span> <button class='btn btn-default' type='button' name='editButton' data-toggle='modal' data-target='#editModal' id='editButton'><i class='glyphicon glyphicon-pencil'>" +"</i></button></div></td><td><button "+"class='btn btn-success btn-xs' type='button' data-title='Details' data-toggle='modal' data-target='#detailsModal'> <span class='glyphicon glyphicon-zoom-in'></span> </button> </td></tr>");
                             }
-                        %>
-                        <%
+
+
                         }
                         catch(Exception e){
                             System.out.println(e);
                         }
                         %>
-                          </thead>
+                        </tbody>
                     </table>
               </div>
             </div>
@@ -266,7 +271,7 @@
                           </optgroup>
                         </select>
                       </div>
-                   
+
                     <div class="form-group">
                       <h3 class="col-sm-12 text-center" id="header2">Injured Party (optional)</h3>
                     </div>
@@ -312,9 +317,9 @@
                         <button class="btn btn-default" type="submit" onclick="submitForm()">Submit</button>
                       </div>
                     </div>
-                         <% 
+                         <%
                              int crimeType = request.getParameter("crimeType");
-                             
+
 
 
 
@@ -327,9 +332,9 @@ Statement st= conn.createStatement();
 ResultSet rs = st.executeQuery("SELECT * FROM type_of_crime where crimeName='"+crimeType+"'");
                             crimeID = rs.getString(1);
                              /%>
-                        
+
                   </form>
-                       
+
                 </div>
               </div>
             </div>

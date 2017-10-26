@@ -76,6 +76,7 @@ public class ChangePassword extends HttpServlet {
                 UserDAO.updatePassword(officerID, password); //IF YOU WANT TO HASH IT CHANGE TO inputPassword
                 sp.setCode(0);
                 sp.setMessage("changed successfully");
+                request.getRequestDispatcher("/login.html").forward(request, response);
             }
             else{
                 sp.setCode(-1);
