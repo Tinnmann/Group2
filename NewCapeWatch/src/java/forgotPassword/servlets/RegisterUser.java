@@ -16,6 +16,7 @@ import forgotPassword.util.Utils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.mail.MessagingException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -89,11 +90,14 @@ public class RegisterUser extends HttpServlet {
                     UserDAO.insertNewUser(user);
                     
                     //send verification mail
+                    response.sendRedirect("/messageToUser.jsp");
                     MailUtil.sendRegistrationLink(officerID, email, hash);
                     
                     sp.setCode(0);
                     sp.setMessage("Link sent");
                     output = Utils.toJson(sp);
+                    response.sendRedirect("/messageToUser.jsp");
+                      
                 } else {
                     sp.setCode(-1);
                     sp.setMessage("Email already exists");
@@ -106,10 +110,15 @@ public class RegisterUser extends HttpServlet {
             
         //}
         //show output 
-        PrintWriter pw = response.getWriter();
-        pw.write(output);
-        pw.flush();
-        pw.close();      
+        if (output != null){
+            request.setAttribute("message", output);
+            request.getRequestDispatcher("/messageToUser.jsp").forward(request, response);	
+
+        }
+//       PrintWriter pw = response.getWriter();
+//        pw.write(output);
+//        pw.flush();
+//        pw.close();      
 
     }
 

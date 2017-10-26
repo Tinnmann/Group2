@@ -27,6 +27,7 @@
         <%@ page import="java.sql.ResultSet" %>
         <%
             session = request.getSession(false);
+            
             String name = "";
             String officerID = "";
             String surname = "";
@@ -47,6 +48,7 @@
             String policeStation1 = "";
             String password1 = "";
             String password2 = "";
+            
             if (session.getAttribute("username") != null) { //what is username?
                 String id = session.getAttribute("username").toString();
                 String user = Setup.DB_USERNAME;
@@ -129,7 +131,6 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="login.html">Login</a></li>
                     <li class="active"><a href="profile.jsp">Profile</a></li>
-                    <li><a href="reports.jsp">Reports</a></li>
                     <li><a href="stats.jsp">Statistics</a></li>
                     <li><a href="hotspots.html">Hotspots</a></li>
                     <li><a href="contact.jsp">Contact Us</a></li>
@@ -152,9 +153,9 @@
                             <div class="card-body">
                                 <h4 class="card-title" style="color:black; opacity:0.8;"><i class="glyphicon glyphicon-user" style="color: white"><em><% out.println(" " + name + " " + surname); %></i></em></h4>
                                 <h6 class="card-subtitle mb-2 text-muted" id="date" style="text-align:right; color: white"></h6>
-                                <p class="card-text list-group-item"><b>Officier ID :  <span style="opacity:0.8; color:#88171B;"><% out.println(officerID); %></span> </b> </p>
+                                <p class="card-text list-group-item"><b>Officer ID :  <span style="opacity:0.8; color:#88171B;"><% out.println(officerID); %></span> </b> </p>
                                 <p class="card-text list-group-item"><b>Name :  <span style="opacity:0.8; color:#88171B;"><% out.println(name); %></span></b> </p>
-                                <p class="card-text list-group-item"><b>Surame:  <span style="opacity:0.8; color:#88171B;"><% out.println(surname); %></span></b> </p>
+                                <p class="card-text list-group-item"><b>Surname:  <span style="opacity:0.8; color:#88171B;"><% out.println(surname); %></span></b> </p>
                                 <p class="card-text list-group-item"><b>Email:  <span style="opacity:0.8; color:#88171B;"><% out.println(email); %></span></b> </p>
                                 <p class="card-text list-group-item"><b>Division:  <span style="opacity:0.8; color:#88171B;"><% out.println(division); %></span></b> </p>
                                 <p class="card-text list-group-item"><b>Rank:  <span style="opacity:0.8; color:#88171B;"><% out.println(rank); %></span></b> </p>
@@ -217,12 +218,12 @@
                                                         <select class="form-control" name="division1" style="width: 150px;">
 
                                                             <option value="<% out.println(division); %>"></option>
-                                                            <option value="Prevention">Prevention</option>
-                                                            <option value="Criminal Record">Criminal Record</option>
-                                                            <option value="Forensic Science">Forensic Science</option>
-                                                            <option value="Management">Management</option>
-                                                            <option value="Operational Response">Operational Response</option>
-                                                            <option value="Protection Security">Protection and Security</option>
+                                                            <option value="Crime Combating and Investigation Division">Crime Combating and Investigation Division</option>
+                                                            <option value="Visible Policing Division">Visible Policing Division</option>
+                                                            <option value="Internal Stability Division">Internal Stability Division</option>
+                                                            <option value="Community Relations Division">Community Relations Division</option>
+                                                            <option value="Supporting Services Division">Supporting Services Division</option>
+                                                            <option value="Human Resources Management Division">Human Resources Management Division</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -295,7 +296,7 @@
                                     <div class="card-title">
                                         <h4 style="color: #9D0D0D">Reports</h4>
                                     </div>
-                                    <p class="card-text text-center">Go to the <b>Reports</b> page to view reports or file a new case report</p>
+                                    <p class="card-text text-center">Go to the <b>Reports</b> page to view reports or to add a new report</p>
                                     <a href="reports.jsp" class="btn btn-danger" style="margin-left: 39px">Reports  <i class="glyphicon glyphicon-share-alt"></i></a>
 
                                 </div>
@@ -307,7 +308,7 @@
                                     <div class="card-title">
                                         <h4 style="color: #9D0D0D">Statistics</h4>
                                     </div>
-                                    <p class="card-text">View the current <b>crime statistics</b> of the greater Cape Town area</p>
+                                    <p class="card-text">View the current <b>Crime Statistics</b> for the Greater Cape Town Area</p>
                                     <a href="stats.jsp" class="btn btn-danger" style="margin-left: 39px">Statistics  <i class="glyphicon glyphicon-share-alt"></i></a>
                                 </div>
                             </div>
@@ -318,7 +319,7 @@
                                     <div class="card-title">
                                         <h4 style="color: #9D0D0D">Hotspots</h4>
                                     </div>
-                                    <p class="card-text">View the latest crime rates per area on the <b>hotspots</b> page</p>
+                                    <p class="card-text">View the latest crime rates per area on the <b>Hotspots</b> page</p>
                                     <a href="hotspots.html" class="btn btn-danger" style="margin-left: 39px">Hotspots  <i class="glyphicon glyphicon-share-alt"></i></a>
                                 </div>
                             </div>
@@ -329,7 +330,7 @@
                                     <div class="card-title">
                                         <h4 style="color: #9D0D0D">Contact Us</h4>
                                     </div>
-                                    <p class="card-text"> Visit the <b>contact us</b> page to get in touch with the developers</p>
+                                    <p class="card-text"> Visit the <b>Contact Us</b> page to get in touch with the developers</p>
                                     <a href="contact.jsp" class="btn btn-danger" style="margin-left: 35px">Contact Us  <i class="glyphicon glyphicon-share-alt"></i></a>
                                 </div>
                             </div>

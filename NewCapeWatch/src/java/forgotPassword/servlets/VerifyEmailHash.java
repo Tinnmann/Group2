@@ -67,7 +67,7 @@ public class VerifyEmailHash extends HttpServlet {
                 request.getRequestDispatcher("/login.html").forward(request, response);
             }                
             else {
-                message = "Wrong email address???";
+                message = "Something went wrong";
             }
         } catch (DBException ex) {
             Logger.getLogger(VerifyEmailHash.class.getName()).log(Level.SEVERE, null, ex);

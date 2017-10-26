@@ -89,9 +89,9 @@ public class ChangePassword extends HttpServlet {
             sp.setMessage(e.getMessage());
         }
         
-        PrintWriter pw = response.getWriter();
+        /*PrintWriter pw = response.getWriter();
         pw.write(Utils.toJson(sp));
         pw.flush();
-        pw.close();
+        pw.close();*/
     }
 }
