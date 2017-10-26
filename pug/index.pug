@@ -10,6 +10,7 @@ html(lang="en")
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa'  crossorigin='anonymous')
         link(rel='stylesheet' href='css/style.css')
         link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet")
         
     body
 
@@ -21,8 +22,10 @@ html(lang="en")
                   span.icon-bar
                   span.icon-bar
                   span.icon-bar
-                a(href="index.html").navbar-brand
-                  img(src="images/sheriff.svg", alt="Police logo")#badge  
+                a(href="index.html").navbar-brand 
+                  img(src="images/CapeWatchLogo.png", alt="Police logo")#badge 
+                a(href="index.").navbar-text#whiteText
+                  |Cape Watch
                                   
             .collapse.navbar-collapse#navbar-links
               ul.nav.navbar-nav.navbar-right
@@ -33,9 +36,7 @@ html(lang="en")
                 li
                   a(href="profile.html") Profile
                 li
-                  a(href="reports.html") Reports
-                li
-                  a(href="statistics.html") Statistics
+                  a(href="stats.html") Statistics
                 li
                   a(href="hotspots.html") Hotspots
                 li
@@ -47,6 +48,3 @@ html(lang="en")
                       h1.text-center#h1 Cape Watch
                       h4.text-center Cape Town Police System and Statistics 
                       
-                    footer.footer
-                      
-                      p &copy 2017 Xmeagol

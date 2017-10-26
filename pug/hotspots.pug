@@ -2,9 +2,11 @@ doctype html
 html(lang="en")
   head
     include includes/head.pug
+    script(src="particles.js-master/demo/js/app.js")
+    link(href=href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet")
     
     
-  body
+  body.hotspots-background
     include includes/nav.pug
       ul.nav.navbar-nav.navbar-right
         li
@@ -12,12 +14,28 @@ html(lang="en")
         li
           a(href="login.html") Login
         li
-          a(href="profile.html") Profile
-        li
-          a(href="reports.html") Reports
+          a(href="profile.jsp") Profile
         li
           a(href="stats.html") Statistics
         li.active
           a(href="hotspots.html") Hotspots
         li
-          a(href="contact.html") Contact Us
+          a(href="contact.jsp") Contact Us
+    
+    h1.text-center#bold-h1 HOTSPOTS
+    h3.text-center#white-H3 CRIME HOTSPOTS OF THE GREATER CAPE TOWN AREA
+      .row
+        .col-lg-6.col-lg-offset-3
+          div#map
+            script.
+              function initMap() {
+                var westernCape = {lat: -33.937666, lng: 18.442271};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 10,
+                  center: westernCape
+                });          
+              }
+            script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&callback=initMap"
+            type="text/javascript")
+        
+  
