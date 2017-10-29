@@ -51,7 +51,7 @@
 
   <div class="center" id="headerc">
     <div class="middle">
-      <div class="row content">
+      <div class="row content" style="background-color:#474545;">
         <div class="col-sm-2 left-side">
       </div>
 
