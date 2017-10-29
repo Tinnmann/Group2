@@ -27,7 +27,7 @@
         <%@ page import="java.sql.ResultSet" %>
         <%
             session = request.getSession(false);
-            
+
             String name = "";
             String officerID = "";
             String surname = "";
@@ -36,9 +36,9 @@
             String rank = "";
             String policeStation = "";
             String password = "";
-            
+
             String error = "";
-            
+
             String name1 = "";
             String officerID1 = "";
             String surname1 = "";
@@ -48,7 +48,7 @@
             String policeStation1 = "";
             String password1 = "";
             String password2 = "";
-            
+
             if (session.getAttribute("username") != null) { //what is username?
                 String id = session.getAttribute("username").toString();
                 String user = Setup.DB_USERNAME;
@@ -144,21 +144,21 @@
                     <div class="col-sm-6">
 
                         <div style="background-color: rgb(136, 23, 27); padding-left: 5px; border-radius: 10px">
-                            <h1 style="color:white;"> Welcome Back, <% out.println(name); %> </h1>
+                            <h1 style="color:white; font-size: 30px;"> Welcome Back, <% out.println(name); %> </h1>
                         </div>
-                        <button type="button" class="btn btn-default" name="logout">
+                        <button type="button" class="btn btn-default " name="logout">
                             <a href="logout.jsp" style="color: black "> <b>Logout</b> </a>
                         </button>
                         <div class="card" style="width: 100%;">
                             <div class="card-body">
-                                <h4 class="card-title" style="color:black; opacity:0.8;"><i class="glyphicon glyphicon-user" style="color: white"><em><% out.println(" " + name + " " + surname); %></i></em></h4>
+                                <h4 class="card-title" style="color:white; opacity:0.8;"><i class="glyphicon glyphicon-user" style="color: white"></i><% out.println(" " + name + " " + surname); %></h4>
                                 <h6 class="card-subtitle mb-2 text-muted" id="date" style="text-align:right; color: white"></h6>
-                                <p class="card-text list-group-item"><b>Officer ID :  <span style="opacity:0.8; color:#88171B;"><% out.println(officerID); %></span> </b> </p>
-                                <p class="card-text list-group-item"><b>Name :  <span style="opacity:0.8; color:#88171B;"><% out.println(name); %></span></b> </p>
-                                <p class="card-text list-group-item"><b>Surname:  <span style="opacity:0.8; color:#88171B;"><% out.println(surname); %></span></b> </p>
-                                <p class="card-text list-group-item"><b>Email:  <span style="opacity:0.8; color:#88171B;"><% out.println(email); %></span></b> </p>
-                                <p class="card-text list-group-item"><b>Division:  <span style="opacity:0.8; color:#88171B;"><% out.println(division); %></span></b> </p>
-                                <p class="card-text list-group-item"><b>Rank:  <span style="opacity:0.8; color:#88171B;"><% out.println(rank); %></span></b> </p>
+                                <p class="card-text list-group-item "><b>Officer ID :  <span style="opacity:0.8; color:#88171B;"><% out.println(officerID); %></span> </b> </p>
+                                <p class="card-text list-group-item "><b>Name :  <span style="opacity:0.8; color:#88171B;"><% out.println(name); %></span></b> </p>
+                                <p class="card-text list-group-item "><b>Surname:  <span style="opacity:0.8; color:#88171B;"><% out.println(surname); %></span></b> </p>
+                                <p class="card-text list-group-item "><b>Email:  <span style="opacity:0.8; color:#88171B;"><% out.println(email); %></span></b> </p>
+                                <p class="card-text list-group-item "><b>Division:  <span style="opacity:0.8; color:#88171B;"><% out.println(division); %></span></b> </p>
+                                <p class="card-text list-group-item "><b>Rank:  <span style="opacity:0.8; color:#88171B;"><% out.println(rank); %></span></b> </p>
 
                                 <br>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="background-color: #9D0D0D; border-color: rgb(136, 23, 27)">Edit Profile</button>
@@ -189,27 +189,27 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="date">Name</label>
                                                 <div class="col-sm-4">
-                                                    <input name="name1" placeholder="<% out.println(name); %>" type="text"/>
+                                                    <input name="name1" placeholder="<% out.println(name); %>" type="text" style="width: 150px;"/>
                                                 </div>
                                                 <label class="col-sm-2 control-label" for="location">Surname</label>
                                                 <div class="col-sm-4">
-                                                    <input name="surname1" placeholder="<% out.println(surname); %>" type="text"/>
+                                                    <input style="width: 150px;" name="surname1" placeholder="<% out.println(surname); %>" type="text"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="password">New Password</label>
                                                 <div class="col-sm-4">
-                                                    <input name="password1" placeholder=""  type="password"/>
+                                                    <input style="width: 150px;" name="password1" placeholder=""  type="password"/>
                                                 </div>
                                                 <label class="col-sm-2 control-label" for="location">Re-enter Password</label>
                                                 <div class="col-sm-4">
-                                                    <input name="password2" placeholder="" type="password"/>
+                                                    <input style="width: 150px;" name="password2" placeholder="" type="password"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="time">Email</label>
                                                 <div class="col-sm-4">
-                                                    <input type="email" placeholder="<% out.println(email); %>" name="email1"/>
+                                                    <input style="width: 150px;" type="email" placeholder="<% out.println(email); %>" name="email1"/>
                                                 </div>
                                                 <label class="col-sm-2 control-label" for="crimeType">Division</label>
                                                 <div class="col-sm-4">
@@ -271,19 +271,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <br>
-
-
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button class="btn btn-danger" id="save" value="confirm" name="submit" type="submit" >Save changes</button>
                                     </div>
-
                                     </form>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <button class="btn btn-danger" id="save" value="confirm" name="submit" type="submit" >Save changes</button>
+                                    </div>
                                 </div>
-                                <div class="modal-footer">
 
-                                </div>
                             </div>
                         </div>
 
