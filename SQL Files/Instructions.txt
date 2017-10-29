@@ -1,0 +1,8 @@
+To add the database to your MySQL server:
+Server -> Data Import -> 'Import from Self Contained File'
+
+select 'CapeWatchDb.sql' 
+
+Start Import
+
+All data should be there 

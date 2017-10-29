@@ -1,0 +1,90 @@
+@import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+@import url(https://fonts.googleapis.com/css?family=Lusitana);
+
+html, body {
+height: 100%;
+padding: 0;
+margin: 0;
+}
+
+#header {
+position: fixed;
+height: 100%;
+right: 0;
+left: 0;
+top: 0;
+
+.center {
+  background: rgba(0,0,0,0.25);
+  text-align: center;
+  position: absolute;
+  color: #FFFFFF;
+  color: #F5F7FA;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+
+  .middle {
+    position: absolute;
+    margin-top: -8em;
+    right: 0;
+    left: 0;
+    top: 50%;
+  }
+}
+}
+
+$pageTopDecrease: 20px;
+$hrBoxBorderLength: 40px;
+$hrBgColor: #48CFAD;
+$hrColor: #FFFFFF;
+$hrSize: 5px;
+
+#pageHr {
+background: $hrColor;
+position: relative;
+height: $hrSize;
+display: block;
+right: 0px;
+left: 0px;
+top: 90%;
+z-index: 1;
+
+> i {
+  margin: -($hrBoxBorderLength/2+$hrSize);
+  border: $hrSize solid $hrColor;
+  height: $hrBoxBorderLength;
+  width: $hrBoxBorderLength;
+  background: $hrBgColor;
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  @include transform(rotate(45deg));
+
+  > i {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    line-height: $hrBoxBorderLength*0.92;
+    font-size: $hrBoxBorderLength/2;
+    height: $hrBoxBorderLength;
+    width: $hrBoxBorderLength;
+    text-align: center;
+    position: absolute;
+    color: $hrColor;
+    display: block;
+    @include transform(rotate(-45deg));
+  }
+}
+}
+
+#page {
+  border-top: $pageTopDecrease solid $hrColor;
+  background: rgb(217, 237, 247);
+  position: relative;
+  margin-top: -($pageTopDecrease);
+  height: 130%;
+  top: 90%;
+}

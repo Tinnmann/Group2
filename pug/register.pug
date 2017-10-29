@@ -13,13 +13,11 @@ html(lang="en")
         li
           a(href="profile.html") Profile
         li
-          a(href="reports.html") Reports
-        li
           a(href="stats.html") Statistics
         li
           a(href="hotspots.html") Hotspots
         li
-          a(href="contact.html") Contact Us
+          a(href="contact.jsp") Contact Us
           
           
     .container
@@ -47,7 +45,7 @@ html(lang="en")
               label(for="password").col-sm-2.control-label Confirm Password
               .col-sm-10  
                 input(type="password" name="password" required).form-control
-            
+    
             .form-group
               label(for="name").col-sm-2.control-label Name
               .col-sm-4
@@ -56,48 +54,30 @@ html(lang="en")
               label(for="surname").col-sm-2.control-label Surname 
               .col-sm-4
                 input(type="text" name="surname" required).form-control
-                            
+                 
             .form-group
               label(for="department").col-sm-2.control-label Police Station 
               .col-sm-10
-                .dropdown
-                  button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true").btn.btn-default.dropdown-toggle#dropdownMenu1 Select Station
-                    span.caret
-                  ul(aria-labelledby="dropdownMenu1").dropdown-menu
-                    li
-                      a(href="#") Somehow
-                      a(href="#") this
-                      a(href="#") needs
-                      a(href="#") to be 
-                      a(href="#") dynamic
-
-                  
+              - var stations = [ "Athlone Police Station", "Belhar Police Station (satellite)", "Bellvile Police Station", "Bellvile South Police Station", "Bishop Lavis Police Station", "Bothasig Police Station", "Brackenfell Police Station", "Camps Bay Police Station", "Cape Town Airport Police Station", "Cape Town Central Police Station", "Claremont Police Station", "Delft Police Station", "Diep River Police Station", "Durbanville Police Station", "Elsies River Police Station", "Fish Hoek Police Station", "Goodwood Police Station", "Grassy Park Police Station", "Gugulethu Police Station","Harare Police Station (Satellite)", "Hout Bay Police Station", "Kensington Police Station", "Khayelitsha Police Station", "Kirstenhof Police Station", "Kleinvlei Police Station", "Kuils River Police Station", "Langa Police Station", "Lansdowne Police Station", "Lingelethu West Police Station (satellite)","Macassar Police Station", "Maitland Police Station", "Manenberg Police Station", "Mfuleni Police Station (satellite)", "Milnerton Police Station","Mitchells Plain Police Station", "Mowbray Police Station", "Muizenberg Police Station", "Nyanga Police Station", "Ocean View Police Station", "Parow Police Station","Phillipi East Police Station (satellite)", "Phillipi Police Station", "Pinelands Police Station", "Ravensmead Police Station", "Rondebosch Police Station", "Sea Point Police Station", "Simon's Town Police Station", "Sir Lowry's Pass Police Station (satellite of Somerset West)", "Somerset West Police Station","Steenberg Police Station", "Stellenbosch Police Station", "Strand Police Station", "Strandfontein Police Station", "Table Bay Harbour Police Station","Table View Police Station", "Woodstock Police Station", "Wynberg Police Station"];
+                select(name="station")
+                  each val in stations
+                    option= val
+                
             .form-group
               label(for="division").col-sm-2.control-label Division 
-              .col-sm-4
-                .dropdown
-                  button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true").btn.btn-default.dropdown-toggle#dropdownMenu1 Select Division
-                    span.caret
-                  ul(aria-labelledby="dropdownMenu1").dropdown-menu
-                    li
-                      a(href="#") Somehow
-                      a(href="#") this
-                      a(href="#") needs
-                      a(href="#") to be 
-                      a(href="#") dynamic
-    
+              .col-sm-10
+              - var divisions = ["Crime Combating and Investigation Division", "Visible Policing Division", "Internal Stability Division", "Community Relations Division", "Supporting Services Division", "Human Resources Management Division"];
+                select(name="division")
+                  each val in divisions
+                    option= val
+              
+            .form-group        
               label(for="rank").col-sm-2.control-label Rank 
-              .col-sm-4
-                .dropdown
-                  button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true").btn.btn-default.dropdown-toggle#dropdownMenu1 Select Rank
-                    span.caret
-                  ul(aria-labelledby="dropdownMenu1").dropdown-menu
-                    li
-                      a(href="#") Somehow
-                      a(href="#") this
-                      a(href="#") needs
-                      a(href="#") to be 
-                      a(href="#") dynamic
+              .col-sm-10
+              - var ranks = ["General", "Lieutenant General", "Major General", "Brigadier", "Colonel", "Lieutenant Colonel", "Captain", "Warrant", "Sergeant", "Constable"];
+                select(name="rank")
+                  each val in ranks
+                    option= val
                 
             .form-group
               .col-sm-offset-3.col-sm-4

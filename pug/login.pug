@@ -14,13 +14,11 @@ html(lang="en")
         li
           a(href="profile.html") Profile
         li
-          a(href="reports.html") Reports
-        li
           a(href="stats.html") Statistics
         li
           a(href="hotspots.html") Hotspots
         li
-          a(href="contact.html") Contact Us
+          a(href="contact.jsp") Contact Us
       
     .container
       
@@ -36,21 +34,21 @@ html(lang="en")
                 
                   .form-group
                   
-                    input(type="email" placeholder="Email").form-control#llg_username
+                    input(type="email" placeholder="Email" name="email").form-control#lg_email
                   
                   .form-group
                   
-                    input(type="password" placeholder="Password").form-control#lg_password
+                    input(type="password" placeholder="Password" name="password").form-control#lg_password
                     
-                button(type="submit").login-button
+                button(type="submit" name="submit").login-button
                   i.glyphicon.glyphicon-chevron-right
                 
                 p.marginTops.text-center#whiteText
-                  |new user?    
-                  a(href="register.html") Create Account
+                  |New user?    
+                  a(href="register.html") Create account
                   
                 .text-center#whiteText
-                  a(href="#") Forgot Password?
+                  a(href="forgotPass.html") Forgot password?
                   
                   
 

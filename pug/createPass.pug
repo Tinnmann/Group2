@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+  head
+    include includes/head.pug
+    
+    
+  body.image-background
+    include includes/nav.pug
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="index.html") Home
+        li.active
+          a(href="login.html") Login
+        li
+          a(href="profile.html") Profile
+        li
+          a(href="stats.html") Statistics
+        li
+          a(href="hotspots.html") Hotspots
+        li
+          a(href="contact.jsp") Contact Us
+      
+    .container
+      
+      .login-div                    
+        .text-center
+          h4 Create New Password
+          
+          .login-form-1
+            form(id="login-form").text-left
+              .login-form-main-message
+              .main-login-form
+                .login-group
+                
+                  .form-group
+                  
+                    input(type="password" placeholder="New Password" name="password").form-control
+                  
+                  .form-group
+                  
+                    input(type="password" placeholder="Re-enter Password" name="password").form-control
+                    
+                button(type="submit" name="submit").login-button
+                  i.glyphicon.glyphicon-chevron-right

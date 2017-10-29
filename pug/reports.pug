@@ -1,11 +1,13 @@
 html(lang="en")
   head
     include includes/head.pug
-    script(type="text/javascript" src="node_modules/jquery/dist/")
+    script(type="text/javascript" src="js/jquery.min.js")
     script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css")
     script(type="text/javascript" src="js/datepicker.js")
     script(type="text/javascript" src="js/tableFilter.js")
+    script(type="text/javascript" src="js/reset.js")
+    script(type="text/javascript" src="js/addVictim.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
 
   body.backgroundcolor
@@ -24,7 +26,9 @@ html(lang="en")
         li
           a(href="hotspots.html") Hotspots
         li
-          a(href="contact.html") Contact Us
+          a(href="relatedCrimes.html") Related Crime
+        li
+          a(href="contact.jsp") Contact Us
           
   .container 
     .row
@@ -39,63 +43,66 @@ html(lang="en")
                   span.input-group-btn
                     button(type="submit").btn.btn-default
                       i.glyphicon.glyphicon-search
-            
-          .row
-            .col-sm-12
-              .table-responsive
-                table.table.table-list-search
-                  thead
-                    tr
-                      th CrimeID
-                      th Posted By:
-                      th Date
-                      th Location
-                      th Time
-                      th Crime Type
-                      th Status
-                      th Details
-                      th Edit
-                  tbody
-                    tr
-                      td test
-                      td test
-                      td test
-                      td test
-                      td test
-                      td test
-                      td 
-                        span.label.label-danger Open
-                      td
-                        button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
-                          span.glyphicon.glyphicon-zoom-in
-                      td 
-                        button(type="button" data-title="Edit" data-toggle="modal" data-target="#editModal").btn.btn-warning.btn-xs 
-                          span.glyphicon.glyphicon-pencil
-                        
-                        
-                    tr
-                      td test
-                      td test
-                      td test
-                      td test
-                      td test
-                      td test
-                      td 
-                        span.label.label-primary closed
-                      td
+          
+          .span3  
+            .row
+              .col-sm-12
+                .table-responsive
+                  table.table.table-list-search#reportTable
+                    thead
+                      tr
+                        th CrimeID
+                        th Posted By:
+                        th Date
+                        th Location
+                        th Time
+                        th Crime Type
+                        th Status
+                        th Details
+                        th Delete
+                    tbody
+                      tr
+                        td test
+                        td test
+                        td test
+                        td test
+                        td test
+                        td test
+                        td 
+                          .currentStatus
+                            span.label.label-warning Open
+                            button(type = "button" name="editButton" data-toggle="modal" data-target="#editModal").btn.btn-default#editButton
+                              i.glyphicon.glyphicon-pencil
+                        td
                           button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
                             span.glyphicon.glyphicon-zoom-in
-                      td 
-                        button(type="button" data-title="Edit" data-toggle="modal" data-target="#editModal").btn.btn-warning.btn-xs 
-                          span.glyphicon.glyphicon-pencil
+                        td 
+                          button(type="button" name="delete").btn.btn-danger.btn-xs 
+                            span.glyphicon.glyphicon-remove
+                          
+                          
+                      tr
+                        td test
+                        td test
+                        td test
+                        td test
+                        td test
+                        td test
+                        td 
+                          .currentStatus
+                            span.label.label-primary closed
+                            button(type = "button" name="editButton" data-toggle="modal" data-target="#editModal").btn.btn-default#editButton
+                              i.glyphicon.glyphicon-pencil
+                        td
+                            button(type="button" data-title="Details" data-toggle="modal" data-target="#detailsModal").btn.btn-success.btn-xs 
+                              span.glyphicon.glyphicon-zoom-in
+                        td 
+                          button(type="button" name="delete").btn.btn-danger.btn-xs 
+                            span.glyphicon.glyphicon-remove
           .row
-            .col-sm-6
+            .col-sm-3
               button(type="button" data-toggle="modal" data-target="#myModal").btn.btn-info submit a Report 
-          br
-          .row
-            .col-sm-6
-              button(type="button").btn.btn-info upload a file
-    
+              
           div(role="dialog").modal.fade#myModal
             .modal-dialog
       
@@ -104,107 +111,233 @@ html(lang="en")
                   button(type="button" data-dismiss="modal").close &times
                         
                 .modal-body
-                  form(method="post" action="#").form-horizontal
+                  form(method="post" action="#" name="report-form")#report-form.form-horizontal
                     
+                      .form-group
+                        label(for ="officerID").col-sm-2.control-label Officer ID
+                        .col-sm-4
+                          input(type="text" name="officerID" required)
+                         
                       .form-group
                         label(for="date").col-sm-2.control-label Date
                         .col-sm-4
                           input(id="date" name="date" placeholder="MM/DD/YYYY" type="text" data-date-end-date="0d" required)
-                        
-                      
+                            
                         label(for="location").col-sm-2.control-label Location
                         .col-sm-4
-                          input(type="text" name="location" required)
-                          
+                          select(name="location" required)#modal-select
+                            option Athlone
+                            option Belhar
+                            option Bellville
+                            option Bellville South
+                            option Bishop Lavis
+                            option Bothasig
+                            option Brackenfell
+                            option Camps Bay
+                            option Cape Town Central
+                            option Cape Town Central
+                            option Claremont
+                            option Delft
+                            option Diep Rivier
+                            option Durbanville
+                            option Elsies River
+                            option Fish Hoek
+                            option Goodwood
+                            option Grassy Park
+                            option Gugulethu
+                            option Harare
+                            option Hout Bay
+                            option Kensington
+                            option Khayelitsha
+                            option Kirstenhof
+                            option Kleinvlei
+                            option Kraaifontein
+                            option Kuils Rivier
+                            option Langa
+                            option Lansdowne
+                            option Lingelethu-West
+                            option Macassar
+                            option Maitland
+                            option Manenberg
+                            option Mfuleni
+                            option Milnerton
+                            option Mitchells Plain
+                            option Mowbray
+                            option Muizenberg
+                            option Nyanga
+                            option Ocean View
+                            option Parow
+                            option Philippi
+                            option Philippi East
+                            option Pinelands
+                            option Ravensmead
+                            option Rondebosch
+                            option Sea Point
+                            option Simon’s Town
+                            option Somerset West
+                            option Somerset West
+                            option Steenberg
+                            option Stellenbosch
+                            option Strand
+                            option Strandfontein
+                            option Table Bay Harbour
+                            option Table View
+                            option Woodstock
+                            option Wynberg
+                        
                       .form-group
                         label(for="time").col-sm-2.control-label Time
                         .col-sm-4
                           input(type="time" name="time" required)
-                          
                       
-                        label(for="crimeType").col-sm-2.control-label Crime Type
+                        label(for="status").col-sm-2.control-label Status
                         .col-sm-4
-                          input(type="text" name="crimeType" required)
+                          select#modal-select
+                            option(value="open" name="open") open
+                            option(value="closed" name="closed") closed
+                      
+                      .form-group
+                        label(for="crimeType").col-sm-2.control-label Crime Type
+                        .col-sm-10
+                          select(name = "crimeType")#modal-select
+                            optgroup(label="Contact Crimes (Crimes against the person)")
+                              option Murder
+                              option Sexual offences
+                              option Attempted Murder
+                              option Assault with the intent to inflict grievous bodily harm
+                              option Common assault
+                              option Common robbery
+                              option Robbery with aggravating circumstances
+                            optgroup(label="Contact related crimes")
+                              option Arson
+                              option Malicious damage to property
+                            optgroup(label="Property Related crimes")
+                              option Burglary at non-residential premises
+                              option Burglary at residential premises
+                              option Theft of motor vehicle and motorcycle
+                              option Theft out of or from motor vehicle
+                              option Stock-theft
+                            optgroup(label="Crime detected as a result of police action")
+                              option Illegal possession of firearms and ammunition
+                              option Drug related crime
+                              option Driving under the influence of alcohol or drugs
+                              option Sexual offences as a result of police action
+                            optgroup(label="Other serious crimes")
+                              option All theft not mentioned elsewhere
+                              option Commercial crime
+                              option Shoplifting
+                            optgroup(label="Subcategories of aggravated robbery")
+                              option Carjacking
+                              option Truck hijacking
+                              option Robbery at residential premises
+                              option Robbery at non-residential premises
+                              option Bank robbery
+                              option Robbery of cash in transit
+                            optgroup(label="Other ")
+                              option Culpable homicide
+                              option Public violence
+                              option Crimen injuria
+                              option Neglect and ill-treatment of children
+                              option Kidnapping
+                                              
+                      .form-group
+                        h3.col-sm-12.text-center#header2 Injured Party (optional)
+                                  
+                      .form-group
+                        input(type="hidden" name="counter" value="1")
+                        #victim-menu
+                          #victim
+                            .form-group
+                              label(for="gender").col-sm-2.control-label Gender
+                              .col-sm-4
+                                select#modal-select
+                                  option(value="female" name="female") female
+                                  option(value="male" name="male") male
+                                  option(value="other" name="other") other
+                
+                              label(for="race").col-sm-2.control-label Race
+                              .col-sm-4
+                                select#modal-select
+                                  option(value="white" name="white") white
+                                  option(value="black" name="black") black
+                                  option(value="coloured" name="coloured") coloured
+                                  option(value="asian" name="asian") asian
+                                  option(value="indian" name="indian") indian
+                                  option(value="other" name="other") other
+                            .form-group
+                              label(for="age").col-sm-2.control-label Age 
+                              .col-sm-4
+                                input(type="number" min="1" max="100" name="age") 
+                      
+                      .form-group
+                        label.btn#button-toggle
+                          i(aria-hidden="true").glyphicon.glyphicon-plus#icon-padding
+                          |Add Injured Party
                           
                       .form-group
-                          label(for="status").col-sm-2.control-label Status
-                          .col-sm-4
-                            select
-                              option(value="open").label.label-danger open
-                              option(value="closed").label.label-primary closed          
-                      .form-group
-                        .col-sm-7.col-sm-offset-5   
-                          button(type="submit").btn.btn-default Submit
+                        .col-sm-2.col-sm-offset-5   
+                          button(type="submit" onclick="submitForm()").btn.btn-default Submit
                                                 
-                          
-          div(role="dialog").modal.fade#editModal
-            .modal-dialog
-      
-              .modal-content
-                .modal-header.text-center#header Edit a report
-                  button(type="button" data-dismiss="modal").close &times
-                        
-                .modal-body
-                  form(method="post" action="#").form-horizontal
-                    
-                      .form-group
-                        label(for="date").col-sm-2.control-label Date
-                        .col-sm-4
-                          input(id="date" name="date" placeholder="MM/DD/YYYY" type="text" data-date-end-date="0d" required)    
-                        label(for="location").col-sm-2.control-label Location
-                        .col-sm-4
-                          input(type="text" name="location" required)
-                          
-                      .form-group
-                        label(for="time").col-sm-2.control-label Time
-                        .col-sm-4
-                          input(type="time" name="time" required)
-                          
-                      
-                        label(for="crimeType").col-sm-2.control-label Crime Type
-                        .col-sm-4
-                          input(type="text" name="crimeType" required)
-                          
-                      .form-group
-                          label(for="status").col-sm-2.control-label Status
-                          .col-sm-4
-                            select
-                              option(value="open").label.label-danger open
-                              option(value="closed").label.label-primary closed
-                      .form-group
-                        .col-sm-7.col-sm-offset-5   
-                          button(type="submit").btn.btn-default Submit
-                          
           div(role="dialog").modal.fade#detailsModal
             .modal-dialog
               .modal-content
                 .modal-header.text-center#header More Details
                   button(type="button" data-dismiss="modal").close &times
                         
-                .modal-body      
-                  label.col-sm-2.control-label Date:
-                  .col-sm-4
-                    label(for="date") test
+                .modal-body 
+                  .row
+                    .col-sm-6
+                      label.control-label Date:
+                      label(for="date" name="date").detailsLabel test
                   
-                
-                  label.col-sm-2.control-label Location:
-                  .col-sm-4
-                    label(for="location") test          
-                
-                  label.col-sm-2.control-label Time:
-                  .col-sm-4
-                    label(for="time") test
-                    
-                
-                  label.col-sm-2.control-label Crime Type:
-                  .col-sm-4
-                    label(for="crimeType") test
-                    
+                    .col-sm-6
+                      label.control-label Location:
+                      label(for="location" name="location").detailsLabel test 
+                  
+                  .row
+                    .col-sm-6
+                      label.control-label Injured party age:
+                      label(for="time" name="time" min="0" max="100").detailsLabel test
+                    .col-sm-6
+                      label.control-label Injured party race:
+                      label(for="time" name="time").detailsLabel test
+                  
               
-                  label.col-sm-2.control-label Status:
-                  .col-sm-4
-                    label(for="status").label.label-danger Open
-                
+                  .row
+                    .col-sm-6
+                      label.control-label Injured party gender:
+                      label(for="time" name="time").detailsLabel test
+                      
+                    .col-sm-6
+                      label.control-label Crime Type:
+                      label(for="crimeType" name="crimeType").detailsLabel test
+                      
+                  .row  
+                    .col-sm-6
+                      label.control-label Status:
+                      label(for="status" name="status").detailsLabel Open
+                    
+                .modal-footer
+                  button(type="button" data-dismiss="modal"  role="button").btn.btn-default Close
+                    
+          div(role="dialog").modal.fade#editModal
+            .modal-dialog
+              .modal-content
+                .modal-header.text-center#header Edit Status
+                  button(type="button" data-dismiss="modal").close &times
+                  
+                .modal-body
+                  form(action="" method="post" name="Status-form")
+                    .row
+                      .form-group
+                        label(for="status").col-sm-2.control-label.status-font Status
+                        .col-sm-4
+                          select#modal-select
+                            option(value="open" name="open") open
+                            option(value="closed" name="closed") closed
+                            
+                        .col-sm-2.col-sm-offset-2
+                            button(type="submit" onclick="submitForm()").btn.btn-default Submit
       
                     
                   

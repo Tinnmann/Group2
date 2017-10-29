@@ -14,13 +14,11 @@ html(lang="en")
         li
           a(href="profile.html") Profile
         li
-          a(href="reports.html") Reports
-        li
           a(href="stats.html") Statistics
         li
-          a(href="hotspots.html") Hotspots
+          a(href="../NewCapewatch/web/hotspots.html") Hotspots
         li.active
-          a(href="contact.html") Contact Us
+          a(href="../NewCapewatch/web/contact.jsp") Contact Us
           
     section#contact      
       .container
@@ -37,17 +35,17 @@ html(lang="en")
                 .row
                   .col-md-6
                     .form-group
-                      input(type="text" placeholder="Enter your name" required="" data-validation-required-message="Please enter your name.").form-control#name
+                      input(type="text" placeholder="Enter your name" required="" data-validation-required-message="Please enter your name." name="name").form-control#name
                     .form-group
-                      input(type="email" placeholder="Enter your email" required="" data-validation-required-message="Please enter your E-mail address")#email
+                      input(type="email" placeholder="Enter your email" required="" data-validation-required-message="Please enter your E-mail address" name="email").form-control#email
                                   
                   .col-md-6
                     .form-group
-                      textarea(placeholder="Your message..." required="" data-validation-required-message="Please enter a message").form-control#message
+                      textarea(placeholder="Your message..." required="" data-validation-required-message="Please enter a message" name="message").form-control#message
                   
                   .col-lg-12.text-center.col-sm-offset-3
                     div#success
-                      button(type="submit").btn.btn-xl.get.btn-warning Send Message
+                      button(type="submit" name="submit").btn.btn-xl.get.btn-warning Send Message
                       
           .col-md-4#whiteText
             p Xmeagol is a website and software solutions company based in Cape Town, South Africa. 

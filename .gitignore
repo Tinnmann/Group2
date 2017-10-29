@@ -1,6 +1,17 @@
+/node_modules/*
+/nbproject/private/
+/NewCapeWatch/nbproject/private/
 <<<<<<< HEAD
-/node_modules/*
-/CapeWatchSystem/nbproject/private/
+/NewCapeWatch/build/
 =======
-/node_modules/*
->>>>>>> 8e4e2be40e230b8039cab8b05fcc88495656d3fb
+/JSP_Test/build/
+/JSP_Test/dist/
+/JSP_Test/nbproject/private/
+/old_email_tests/EmailTest_frontend/build/
+/old_email_tests/EmailTest_frontend/dist/
+/old_email_tests/EmailTest_frontend/nbproject/private/
+/old_email_tests/emailtest/nbproject/private/
+/NewCapeWatch/dist/
+/ForgotPassword/build/
+/ForgotPassword/dist/
+>>>>>>> 5f0ccf3dc3cddf30e580fcd76c42f7ee448d7f18

@@ -13,10 +13,17 @@
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>
+<<<<<<< HEAD
                 <root id="src.dir" name="Source Packages"/>
             </source-roots>
             <test-roots>
                 <root id="test.src.dir" name="Test Packages"/>
+=======
+                <root id="src.dir"/>
+            </source-roots>
+            <test-roots>
+                <root id="test.src.dir"/>
+>>>>>>> 5f0ccf3dc3cddf30e580fcd76c42f7ee448d7f18
             </test-roots>
         </data>
     </configuration>

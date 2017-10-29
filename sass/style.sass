@@ -2,7 +2,7 @@
 //landing page styling:
 
 header
-  background:linear-gradient(rgba(0, 0, 0, 0.90),rgba(255, 255, 255, 0.60))
+  background: linear-gradient(rgba(0, 0, 0, 0.90),rgba(255, 255, 255, 0.60))
   background-color: lightgrey
   height: 100vh
   background-size: cover
@@ -14,13 +14,26 @@ header
   margin-bottom: 0
 
 .header
-  background:linear-gradient(rgba(0, 0, 0, 0.6),rgba(255, 255, 255, 0.3)), url(../images/CT_city.jpg)
+  background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(255, 255, 255, 0.3)), url(../images/CT_city.jpg)
   height: 100vh
   background-size: cover
 
 .navbar-inverse
   background-color: #191919 !important
+
+.navbar
+  border-radius: 0
+
+.navbar-brand
+  padding-right: 0px !important
+
+.navbar-text
+  margin-left: 0px
+
 //basic styling for each page:
+html
+  overflow: auto
+
 h1
   padding-bottom: 10px
 
@@ -38,9 +51,15 @@ h1
 h4
   font-size: 25px
   color: white
+  font-family: 'Open Sans', sans-serif
 
 h2
   margin-top: 3%
+  font-family: 'Open Sans', sans-serif
+
+.border-bottom
+  border-bottom: 1px solid white
+  padding-bottom: 10px
 
 #badge
   width: 35px
@@ -55,8 +74,9 @@ h2
   font-size: 20px
   font-weight: bold
 
-.container-fluid
-  padding: 0
+#header2
+  font-size: 16px
+  margin-bottom: 18px
 
 .navbar
   margin-bottom: 0
@@ -157,6 +177,13 @@ h2
 .login-form-1 .login-button.clicked.error
   color: #e74c3c
 
+#forgot
+  margin-bottom: 15px
+
+#subtext
+  color: white
+  margin-bottom: 25px
+  font-family: 'Open Sans', sans-serif
 //register form styling:
 .main-login
   background-color: #fff
@@ -169,6 +196,16 @@ h2
   padding-left: 15px
   padding-right: 15px
 
+select
+  height: 40px
+  width: 420px
+@media all and (max-width: 600px)
+  select
+     width: 420px; max-width: 100%
+
+#modal-select
+  height: 40px
+  width: 100%
 
 //reports page
 #system-search
@@ -178,12 +215,28 @@ h2
   background-color: white
   border-radius: 5px
 
+.detailsLabel
+  margin-left: 10px
+
+#editButton
+  border: none
+
+.status-font
+  margin-top: 7px
+
+.span3
+  height: 100% auto !important
+  overflow: scroll
+
+#icon-padding
+  padding-right: 8px
+
+#victim-menu
+
+
 //contact us
 .contactUS
   margin-bottom: 20px
-
-html
-  height: 100%
 
 .world_background
   background-color: #222222
@@ -219,24 +272,24 @@ section#contact .form-control:focus
 section#contact ::-webkit-input-placeholder
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif
   font-weight: 700
-  color: #eeeeee
+  color: #686a6d
 
 section#contact :-moz-placeholder
   /* Firefox 18- */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif
   font-weight: 700
-  color: #eeeeee
+  color: #686a6d
 
 section#contact ::-moz-placeholder
   /* Firefox 19+ */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif
   font-weight: 700
-  color: #eeeeee
+  color: #686a6d
 
 section#contact :-ms-input-placeholder
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif
   font-weight: 700
-  color: #eeeeee
+  color: #686a6d
 
 section#contact .text-danger
   color: #e74c3c
@@ -279,3 +332,121 @@ section#contact .text-danger
   height: 20px
   background: #ffffff
   border-radius: 5px
+
+//hotspots styling
+#map
+  height: 400px
+  width: 100%
+  margin-top: 50px
+  border-radius: 5px
+
+#bold-h1
+  font-weight: bold
+  font-size: 35px
+  margin-top: 20px
+  color: #ddd226
+  font-family: 'Open sans', sans-serif
+  text-shadow: 2px 2px 8px #000000
+
+#white-H3
+  color: white
+  font-family: 'Jura', sans-serif
+  font-size: 18px
+  text-shadow: 2px 2px 8px #000000
+
+.hotspots-background
+  background-image: linear-gradient(rgba(0, 0, 0, 0.80),rgba(255, 255, 255, 0.10)),url(../images/belYellow.jpg)
+  background-size: cover
+  height: 100vh
+
+.row
+  margin-right: 0
+  margin-left: 0
+
+#yellow
+  background-color: rgb(16, 16, 16)
+  border-color: black
+  margin-top: 20px
+
+//stats page styling
+.container-fluid
+  background-image: linear-gradient(rgba(0, 0, 0, 0.80),rgba(255, 255, 255, 0.10))
+  padding: 0
+
+#headings
+  background-image: linear-gradient(rgba(0, 0, 0, 0.40),rgba(0, 0, 0, 0.40)), url(../statBackground.jpg)
+  filter: grayscale(70%)
+  background-position: center
+  background-size: cover
+  width: 100%
+  height: 300px
+
+#header-center-white
+  text-align: center
+  color: white
+  margin-top: 0
+  line-height: 300px
+  font-family: 'Open Sans', sans-serif
+  font-size: 40px
+
+.search-bar
+  margin-top: 25px
+  margin-bottom: 25px
+  font-family: 'Open Sans', sans-serif
+
+//stats search bar
+#sidebar-wrapper
+  z-index: 1
+  position: fixed
+  width: 0
+  height: 100%
+  overflow-y: hidden
+  background: #EAEAEA
+
+#wrapper.menuDisplayed #sidebar-wrapper
+  width: 250px
+
+#wrapper.menuDisplayed #page-content-wrapper
+  padding-left: 250px
+
+.sidebar-nav
+  padding: 0
+  list-style: none
+
+.sidebar-nav li
+  text-indent: 20px
+  line-height: 40px
+  display: block
+  text-decoration: none
+  color: black
+
+#regionmap
+  width: 100%
+  height: auto
+
+#filter-menu
+  display: none
+//realted crimes
+
+.related-background
+  background-image: linear-gradient(rgba(0, 0, 0, 0.80),rgba(255, 255, 255, 0.10)),url(../images/crimeScene.jpg)
+  background-size: cover
+  height: 100vh
+
+.open-sans
+  font-family: 'Open Sans', sans-serif
+//footer
+#footer2
+  background: rgb(16, 16, 16)
+  color: #d9d9d9
+  padding: 10px 10px 1px 10px
+
+#WhereWeStay
+  float: right
+  padding-right: 20px !important
+
+#UsMap
+ width: 200
+ height: 117
+ border: 0
+ margin-top: 25px
