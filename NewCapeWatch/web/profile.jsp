@@ -16,8 +16,21 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/style.css">
+        
+        <style type="text/css">
+    
+    
+     .card-text.profile:hover {
+	font-size:17px;
+	font-style: oblique;
+	text-transform: capitalize;
+     }
+     
+   
+    
+    </style>
     </head>
-    <body style="background-image: linear-gradient(rgba(0, 0, 0, 0.80),rgba(255, 255, 255, 0.10))">
+    <body>
 
 
         <%@ page import="java.sql.*" %>
@@ -137,28 +150,32 @@
                 </ul>
             </div>
         </nav>
-        <section>
+        <section style="background-image: linear-gradient(rgba(0, 0, 0, 0.80),rgba(255, 255, 255, 0.10))">
             <div class="container">
                 <div class="row">
 
                     <div class="col-sm-6">
 
-                        <div style="background-color: rgb(136, 23, 27); padding-left: 5px; border-radius: 10px">
-                            <h1 style="color:white; font-size: 30px;"> Welcome Back, <% out.println(name); %> </h1>
-                        </div>
-                        <button type="button" class="btn btn-default " name="logout">
-                            <a href="logout.jsp" style="color: black "> <b>Logout</b> </a>
+                        <div style="padding-left: 5px; border-radius: 10px; display:inline-block; width:100%;background-color: rgb(136, 23, 27);">
+                            <h1 style="color:white; font-size: 30px; float:left;"> Welcome Back, <% out.println(name); %> </h1>
+                            <button type="button" class="btn btn-default " name="logout" style="float: right; margin-top:22px;  margin-right:10px;">
+                            <a href="logout.jsp" style="color: black;"> <b><em>Logout</em></b> </a>
                         </button>
+                        </div>
+                        <br>
+                        
+                        
                         <div class="card" style="width: 100%;">
-                            <div class="card-body">
-                                <h4 class="card-title" style="color:white; opacity:0.8;"><i class="glyphicon glyphicon-user" style="color: white"></i><% out.println(" " + name + " " + surname); %></h4>
+                        <h4 class="card-title" style="color:white; opacity:0.8;"><i class="glyphicon glyphicon-user" style="color: white"></i><% out.println(" " + name + " " + surname); %></h4>
                                 <h6 class="card-subtitle mb-2 text-muted" id="date" style="text-align:right; color: white"></h6>
-                                <p class="card-text list-group-item "><b>Officer ID :  <span style="opacity:0.8; color:#88171B;"><% out.println(officerID); %></span> </b> </p>
-                                <p class="card-text list-group-item "><b>Name :  <span style="opacity:0.8; color:#88171B;"><% out.println(name); %></span></b> </p>
-                                <p class="card-text list-group-item "><b>Surname:  <span style="opacity:0.8; color:#88171B;"><% out.println(surname); %></span></b> </p>
-                                <p class="card-text list-group-item "><b>Email:  <span style="opacity:0.8; color:#88171B;"><% out.println(email); %></span></b> </p>
-                                <p class="card-text list-group-item "><b>Division:  <span style="opacity:0.8; color:#88171B;"><% out.println(division); %></span></b> </p>
-                                <p class="card-text list-group-item "><b>Rank:  <span style="opacity:0.8; color:#88171B;"><% out.println(rank); %></span></b> </p>
+                                
+                            <div class="card-body" style="padding-top: 30px; letter-spacing:2px; text-transform: uppercase;">
+                                <p class="card-text list-group-item profile" ><b>Officer ID :  <span style=" color:#88171B; float:right;"><% out.println(officerID); %></span> </b> </p>
+                                <p class="card-text list-group-item profile" ><b>Name :  <span style="color:#88171B; float:right;"><% out.println(name); %></span></b> </p>
+                                <p class="card-text list-group-item profile" ><b>Surname:  <span style="color:#88171B; float:right;"><% out.println(surname); %></span></b> </p>
+                                <p class="card-text list-group-item profile" ><b>Email:  <span style="color:#88171B; float:right;"><% out.println(email); %></span></b> </p>
+                                <p class="card-text list-group-item profile" ><b>Division:  <span style="color:#88171B; float:right;"><% out.println(division); %></span></b> </p>
+                                <p class="card-text list-group-item profile"><b>Rank:  <span style="color:#88171B; float:right;"><% out.println(rank); %></span></b> </p>
 
                                 <br>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="background-color: #9D0D0D; border-color: rgb(136, 23, 27)">Edit Profile</button>
