@@ -20,7 +20,7 @@
         <style type="text/css">
     
     
-     .card-text:hover {
+     .card-text.profile:hover {
 	font-size:17px;
 	font-style: oblique;
 	text-transform: capitalize;
