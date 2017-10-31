@@ -37,7 +37,7 @@
           var detailDate = currentRow.find("td:eq(2)").html();
           var detailLocation = currentRow.find("td:eq(3)").html();
           var detailCrimeType = currentRow.find("td:eq(5)").html();
-          var detailStatus = currentRow.find("td:eq(6)").html();
+          var detailStatus = currentRow.find("td:eq(6)").text();
 
           $('#dateD').html(detailDate);
           $('#locationD').html(detailLocation);
@@ -183,6 +183,11 @@
                   <div class="table-responsive" style="max-height: 80vh; overflow-y: scroll;">
                     <table class="table table-list-search" id="reportTable">
                     <%
+                    
+                    String id="";
+                    if (session.getAttribute("officerid") != null) { //what is username?
+                         id = session.getAttribute("officerid").toString();
+                    }
 
                         String error = "";
                         String test = "";
@@ -232,12 +237,12 @@
                             String time1 = request.getParameter("time");
                             String status1 = request.getParameter("status");
                             String crimeType1 = request.getParameter("crimeType");
-                            String crimeID1 = request.getParameter("crimeID");
+                            
                             String gender1 = request.getParameter("gender");
                             String race1 = request.getParameter("race");
                             String age1 = request.getParameter("age");
 
-                            String sql = "insert into crime_case(crimeID,userID,date,location,time,crimeType,status) values('" + crimeID1 + "','" + userID1 + "','" + date1 + "','" + location1 + "','" + time1 + "','" + crimeType1 + "','" + status1 + "')";
+                            String sql = "insert into crime_case(crimeID,userID,date,location,time,crimeType,status) values((select crimeID FROM type_of_crime where crimeName='"+crimeType1 +"'),'" + id + "','" + date1 + "','" + location1 + "','" + time1 + "','" + crimeType1 + "','" + status1 + "')";
                             int generatedKey = 0;
                             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
