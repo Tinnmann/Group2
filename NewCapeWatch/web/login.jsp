@@ -62,8 +62,10 @@ if(rs.next()){
 	response.sendRedirect("profile.jsp");
 	String name = rs.getString(2);
 	String id = rs.getString(1); //officer id
+	String officerid = rs.getString(2);
 	session = request.getSession();
 	session.setAttribute("username", id);
+	session.setAttribute("officerid", officerid);
 
 	} else if(rs.getString(7).equals(email) && password.isEmpty() == false){
 
