@@ -45,35 +45,13 @@ public class RegisterUser extends HttpServlet {
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmpassword");
 
-        /*CHANGE: DETAILS NOW GOTTEN FROM DB
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
-        String policeStation = request.getParameter("policeStation");
-        String division = request.getParameter("division");
-        String rank = request.getParameter("rank");*/
         StatusPojo sp = new StatusPojo();
 
         String output = "";
 
-        /*if(!validate(officerID, email, password, confirmPassword, name, surname, policeStation, division, rank)){
-            sp.setCode(-1);
-            sp.setMessage("Missing a field");
-            output = Utils.toJson(sp);
-        }
-        /*else if (!passwordMatch(password, confirmPassword)){
-            sp.setCode(-1);
-            sp.setMessage("Passwords do not match");
-            output = Utils.toJson(sp);
-        }
-        else{*/
         UserPojo user = new UserPojo();
         user.setOFFICERID(officerID);
         user.setEMAIL(email);
-        /* user.setNAME(name);
-            user.setSURNAME(surname);
-            user.setPOLICESTATION(policeStation);
-            user.setDIVISION(division);
-            user.setRANK(rank);*/
 
         //generate password hash
         user.setPASSWORD(BCrypt.hashpw(password, Setup.SALT));
@@ -83,11 +61,11 @@ public class RegisterUser extends HttpServlet {
 
         //generate hash for password
         user.setEMAILVERIFICATIONHASH(BCrypt.hashpw(hash, Setup.SALT));
-
+        
         //email verification
         try {
             //check if email does not exist in DB before registering
-            if (!UserDAO.emailExists(email)) {
+
                 UserDAO.registerUser(user);
 
                 //send verification mail
@@ -96,12 +74,9 @@ public class RegisterUser extends HttpServlet {
                 sp.setCode(0);
                 sp.setMessage("Link sent");
                 output = Utils.toJson(sp);
-                response.sendRedirect("/messageToUser.jsp");
+                //response.sendRedirect("/messageToUser.jsp");
+                
 
-            } else {
-                sp.setCode(-1);
-                sp.setMessage("Email already exists");
-            }
         } catch (DBException | MessagingException e) {
             sp.setCode(-2);
             sp.setMessage("Unknown error, check server log.");
@@ -110,15 +85,15 @@ public class RegisterUser extends HttpServlet {
 
         //}
         //show output 
-        if (output != null) {
-            request.setAttribute("message", output);
-            request.getRequestDispatcher("/messageToUser.jsp").forward(request, response);
-
-        }
-//       PrintWriter pw = response.getWriter();
-//        pw.write(output);
-//        pw.flush();
-//        pw.close();      
+//        if (output != null) {
+//            request.setAttribute("message", output);
+//            request.getRequestDispatcher("/NewCapeWatch/messageToUser.jsp").forward(request, response);
+//
+//        }
+       PrintWriter pw = response.getWriter();
+        pw.write(output);
+        pw.flush();
+        pw.close();      
 
     }
 

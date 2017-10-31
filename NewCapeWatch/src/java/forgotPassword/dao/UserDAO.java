@@ -184,7 +184,7 @@ public class UserDAO {
         return verified;
     }
 
-   /* public static String insertNewUser(UserPojo user) throws DBException {
+    /* public static String insertNewUser(UserPojo user) throws DBException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -217,22 +217,22 @@ public class UserDAO {
 
         return id;
     }*/
-    
-    public static String registerUser(UserPojo user) throws DBException{
+    public static String registerUser(UserPojo user) throws DBException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
+
         String id = user.getOFFICERID();
-        
+
         try {
             conn = DBConnect.getConnection();
             conn.setAutoCommit(false);
-            ps = conn.prepareStatement("UPDATE police_user SET email = ?, password = ? WHERE OfficerID = ?");
+            ps = conn.prepareStatement("UPDATE police_user SET email = ?, password = ?, email_verification_hash = ? WHERE OfficerID = ?");
             ps.setString(1, user.getEMAIL());
             ps.setString(2, user.getPASSWORD());
-            ps.setString(3, id);
-            
+            ps.setString(3, user.getEMAILVERIFICATIONHASH());
+            ps.setString(4, id);
+
             ps.executeUpdate();
             conn.commit();
             DBConnect.close(conn, ps, rs);
@@ -283,6 +283,5 @@ public class UserDAO {
 
         return user;
     }
-
 
 }

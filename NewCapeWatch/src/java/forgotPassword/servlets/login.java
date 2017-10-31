@@ -45,11 +45,11 @@ public class login extends HttpServlet {
             //get user details 
             UserPojo user = UserDAO.verifyLogin(email, password);
             if (user != null) {
+
                 //if user's account is active they can log in
                 if (user.getSTATUS().equalsIgnoreCase("active")) {
                     //start session for user
                     request.getSession().setAttribute("username", user.getOFFICERID());
-                    //request.getSession().setAttribute("userName", user.getNAME()+" "+user.getSURNAME());
                     sp.setCode(0);
                     sp.setMessage("Success");
                     request.setAttribute("userMessage", "Sucessfully logged in");
@@ -73,10 +73,10 @@ public class login extends HttpServlet {
             LOGGER.log(Level.SEVERE, e.toString(), e);
 
         }
-       /* PrintWriter pw = response.getWriter();
+        PrintWriter pw = response.getWriter();
         pw.write(Utils.toJson(sp));
         pw.flush();
-        pw.close();*/
+        pw.close();
     }
 
 }
