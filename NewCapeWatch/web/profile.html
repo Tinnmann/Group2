@@ -65,78 +65,107 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                         <h4 class="modal-title text-center" id="exampleModalLabel" style="color: black">Edit Profile</h4>
+
                       </div>
+
                       <div class="modal-body">
-                        <form class="form-horizontal" method="post" action="updateProfile.php">
-                            <div class="form-group">
-                                  <label class="col-sm-2 control-label" for="date">Name</label>
-                                  <div class="col-sm-4">
-                                    <input name="name" type="text" style="height: 34; width: 150;"/>
-                                  </div>
-                                  <label class="col-sm-2 control-label" for="location">Surname</label>
-                                  <div class="col-sm-4">
-                                    <input name="surname" type="text"/>
-                                  </div>
+                        <form class="form-horizontal" method="post" action="profile.jsp">
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label" for="date">Name</label>
+                            <div class="col-sm-4">
+                              <input name="name1" placeholder="<% out.println(name); %>" type="text" pattern="^[A-Z]{1}[a-z]+[a-zA-Z\-\s]+" title="Invalid input" style="width: 150px;"/>
                             </div>
-                            <div class="form-group">
-                                  <label class="col-sm-2 control-label" for="time">Email</label>
-                                  <div class="col-sm-4">
-                                    <input type="email" name="email"/>
-                                  </div>
-                                  <label class="col-sm-2 control-label" for="crimeType">Division</label>
-                                  <div class="col-sm-4">
-                                    <div class="dropdown dropdown-content">
-
-                                        <select class="form-control" name="rank" style="width: 160px;">
-
-                                            <option value=""></option>
-                                            <option value="prevention">Prevention</option>
-                                            <option value="criminalRecord">Criminal Record</option>
-                                            <option value="forensicScience">Forensic Science</option>
-                                            <option value="management">Management</option>
-                                            <option value="operational response">Operational Response</option>
-                                            <option value="protectionSecurity">Protection and Security</option>
-                                        </select>
-                                    </div>
-                                  </div>
+                            <label class="col-sm-2 control-label" for="location">Surname</label>
+                            <div class="col-sm-4">
+                              <input style="width: 150px;" name="surname1" placeholder="<% out.println(surname); %>" type="text" pattern="^[A-Z]{1}['a-z]+[a-zA-Z\-\s]+" title="Invalid input"/>
                             </div>
-
-                            <div class="form-group">
-                                  <label class="col-sm-2 control-label" for="status">Rank</label>
-                                  <div class="col-sm-4">
-                                    <div class="dropdown dropdown-content">
-
-                                        <select class="form-control" name="rank">
-                                            <option value=""></option>
-                                            <option value="chef">General</option>
-                                            <option value="lieutnantGeneral">Lieutnant-General</option>
-                                            <option value="majorGeneral">Major-General</option>
-                                            <option value="brigadier">Brigadier</option>
-                                            <option value="colonel">Colonel</option>
-                                            <option value="major">Major</option>
-                                            <option value="lieutenant">Lieutenant</option>
-                                            <option value="sergeant">Sergeant</option>
-                                        </select>
-                                    </div>
-                                  </div>
-                                <label class="col-sm-2 control-label" >Police Station </label>
-                                  <div class="col-sm-4">
-                                    <div class="dropdown">
-                                      <select class="form-control" style="width:150px;" name="policeStation">
-                                          <option value=""></option>
-                                        //
-                                        </select>
-                                    </div>
-                                  </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label" for="password">New Password</label>
+                            <div class="col-sm-4">
+                              <input style="width: 150px;" name="password1" placeholder="" pattern="[A-Za-z0-9]{5,16}" title="Password should be 5 - 16 characters long with no special characters" type="password"/>
                             </div>
+                            <label class="col-sm-2 control-label" for="location">Re-enter Password</label>
+                            <div class="col-sm-4">
+                              <input style="width: 150px;" name="password2" placeholder="" pattern="[A-Za-z0-9]{5,16}" title="Password should be 5 - 16 characters long with no special characters" type="password"/>
+                            </div>
+                            <script>
+                              var password = document.getElementById("password"),
+                                confirm_password = document.getElementById("password2");
 
-                    </form>
-                      </div>
+                              function validatePassword() {
+                                if (password.value != password2.value) {
+                                  confirm_password.setCustomValidity("Passwords don't match");
+                                } else {
+                                  confirm_password.setCustomValidity('');
+                                }
+                              }
+                              password.onchange = validatePassword;
+                              confirm_password.onkeyup = validatePassword;
+                            </script>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label" for="time">Email</label>
+                            <div class="col-sm-4">
+                              <input style="width: 150px;" type="email" placeholder="<% out.println(email); %>" name="email1"/>
+                            </div>
+                            <label class="col-sm-2 control-label" for="crimeType">Division</label>
+                            <div class="col-sm-4">
+                              <div class="dropdown dropdown-content">
+
+                                <select class="form-control" name="division1" style="width: 150px;">
+
+                                  <option value="<% out.println(division); %>"></option>
+                                  <option value="Crime Combating and Investigation Division">Crime Combating and Investigation Division</option>
+                                  <option value="Visible Policing Division">Visible Policing Division</option>
+                                  <option value="Internal Stability Division">Internal Stability Division</option>
+                                  <option value="Community Relations Division">Community Relations Division</option>
+                                  <option value="Supporting Services Division">Supporting Services Division</option>
+                                  <option value="Human Resources Management Division">Human Resources Management Division</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label" for="status">Rank</label>
+                            <div class="col-sm-4">
+                              <div class="dropdown dropdown-content">
+
+                                <select class="form-control" name="rank1" style="width: 150px;">
+                                  <option value="<% out.println(rank); %>"></option>
+                                  <option value="Chef">General</option>
+                                  <option value="Lieutnant General">Lieutnant-General</option>
+                                  <option value="Major-General">Major-General</option>
+                                  <option value="Brigadier">Brigadier</option>
+                                  <option value="Colonel">Colonel</option>
+                                  <option value="Major">Major</option>
+                                  <option value="Lieutenant">Lieutenant</option>
+                                  <option value="Sergeant">Sergeant</option>
+                                </select>
+                              </div>
+                            </div>
+                            <label class="col-sm-2 control-label">Police Station
+                            </label>
+                            <div class="col-sm-4">
+                              <div class="dropdown">
+                                <select class="form-control" style="width:150px;" name="policeStation1">
+                                  <option value="<% out.println(policeStation); %>"></option>
+                                  <% String user = Setup.DB_USERNAME; String pass = Setup.DB_PASSWORD; Class.forName("com.mysql.jdbc.Driver"); java.sql.Connection conn = DriverManager.getConnection(Setup.DB_URL, user, pass); Statement st = conn.createStatement(); ResultSet rs1 =
+                                  st.executeQuery("SELECT policestation FROM police_station"); while (rs1.next()) { out.println("<option value=" + rs1.getString(1) + ">" + rs1.getString(1) + "</option>"); } %>
+
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger" name="save">Save changes</button>
+                        <button class="btn btn-danger" id="save" value="confirm" name="submit" type="submit">Save changes</button>
                       </div>
                     </div>
+
                   </div>
                 </div>
 

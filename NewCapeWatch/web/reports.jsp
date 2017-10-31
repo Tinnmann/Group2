@@ -394,7 +394,7 @@
                       <div class="form-group">
                         <label class="col-sm-2 control-label" for="time">Time</label>
                         <div class="col-sm-4">
-                          <input type="time" name="time"/>
+                          <input type="time" name="time" placeholder="HH:MM" pattern="^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$" title="Time should be input as HH:MM" required/>
                         </div>
                         <label class="col-sm-2 control-label" for="status">Status</label>
                         <div class="col-sm-4">
@@ -492,7 +492,7 @@
                               <label class="col-sm-2 control-label" for="age">Age
                               </label>
                               <div class="col-sm-4">
-                                <input type="number" min="1" max="100" name="age"/>
+                                <input type="number" min="0" max="100" name="age"/>
                               </div>
                             </div>
                           </div>

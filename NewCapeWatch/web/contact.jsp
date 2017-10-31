@@ -78,7 +78,7 @@
           <div class="about_us">
             <h1>Contact Us</h1>
             <div class="titleline-icon"></div>
-            <p>Send us a message </p>
+            <p class="larger-text">Send us a message </p>
           </div>
         </div>
         <div class="row">
@@ -88,7 +88,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input class="form-control" type="text" placeholder="Enter your name" required="" data-validation-required-message="Please enter your name." id="name" name="name">
+                      <input class="form-control" type="text" placeholder="Enter your name" required="" pattern="^[A-Z]{1}[a-z]+[a-zA-Z\-\s]+" title="Please enter your name" data-validation-required-message="Please enter your name." id="name" name="name">
                     </div>
                     <div class="form-group">
                       <input type="email" placeholder="Enter your email" required="" data-validation-required-message="Please enter your E-mail address" id="email" name="email">
@@ -120,9 +120,13 @@
             </div>
           </div>
           <div class="col-md-4" id="whiteText">
-            <p>
-              Xmeagol is a website and software solutions company based in Cape Town, South Africa. Created due to a group project.</p><br>We offer services in:
-            <ul>
+            <p class="large-text">
+              Xmeagol is a website and software solutions company based in Cape Town, South Africa. Created due to a group project.</p>
+              <br>
+                <p class="large-text">
+                    We offer services in:
+                </p>
+            <ul class="large-text">
               <li>Web design</li>
               <li>Web development</li>
               <li>Software development</li>

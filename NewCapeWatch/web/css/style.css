@@ -386,26 +386,26 @@
 
  .titleline-icon {
    position: relative;
-   max-width: 100px;
+   max-width: 125px;
    border-top: 4px double #F99700;
    margin: 20px auto 20px;
  }
 
  .titleline-icon:after {
    position: absolute;
-   top: -11px;
+   top: -15px;
    left: 0;
    right: 0;
    margin: auto;
    font-family: 'Orbitron', sans-serif;
    content: "\Xmeagol";
-   font-size: 10px;
+   font-size: 15px;
    line-height: 2;
    color: #F99700;
    text-align: center;
    vertical-align: middle;
-   width: 50px;
-   height: 20px;
+   width: 80px;
+   height: 25px;
    background: #ffffff;
    border-radius: 5px;
  }
@@ -543,7 +543,9 @@
  }
 
  /*for presentaion*/
-
+.large-text{
+  font-size: 18px;
+}
  .larger-text {
    font-size: 20px;
  }
