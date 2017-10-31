@@ -27,15 +27,16 @@ import javax.servlet.http.HttpServletResponse;
  * @author Sydney Twigg
  */
 public class RegisterUser extends HttpServlet {
-    public RegisterUser(){
+
+    public RegisterUser() {
         super();
     }
-    
+
 
     /*TO DO WHEN I'M MORE AWAKE
         - Fix link: officerID=null DONE~
         - Make sure DB gets updated with hash
-    */
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //get values from form
@@ -43,16 +44,17 @@ public class RegisterUser extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmpassword");
+
+        /*CHANGE: DETAILS NOW GOTTEN FROM DB
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         String policeStation = request.getParameter("policeStation");
         String division = request.getParameter("division");
-        String rank = request.getParameter("rank");
-        
+        String rank = request.getParameter("rank");*/
         StatusPojo sp = new StatusPojo();
-        
+
         String output = "";
-        
+
         /*if(!validate(officerID, email, password, confirmPassword, name, surname, policeStation, division, rank)){
             sp.setCode(-1);
             sp.setMessage("Missing a field");
@@ -64,55 +66,53 @@ public class RegisterUser extends HttpServlet {
             output = Utils.toJson(sp);
         }
         else{*/
-            UserPojo user = new UserPojo();
-            user.setOFFICERID(officerID);
-            user.setEMAIL(email);
-            user.setNAME(name);
+        UserPojo user = new UserPojo();
+        user.setOFFICERID(officerID);
+        user.setEMAIL(email);
+        /* user.setNAME(name);
             user.setSURNAME(surname);
             user.setPOLICESTATION(policeStation);
             user.setDIVISION(division);
-            user.setRANK(rank);
-            
-            
-            //generate password hash
-            user.setPASSWORD(BCrypt.hashpw(password, Setup.SALT));
-            
-            //generate hash - email verification
-            String hash = Utils.prepareRandomString(30);
-            
-            //generate hash for password
-            user.setEMAILVERIFICATIONHASH(BCrypt.hashpw(hash, Setup.SALT));
-            
-            //email verification
-            try{
-                //check if email does not exist in DB before registering
-                if(!UserDAO.emailExists(email)){
-                    UserDAO.insertNewUser(user);
-                    
-                    //send verification mail
-                    response.sendRedirect("/messageToUser.jsp");
-                    MailUtil.sendRegistrationLink(officerID, email, hash);
-                    
-                    sp.setCode(0);
-                    sp.setMessage("Link sent");
-                    output = Utils.toJson(sp);
-                    response.sendRedirect("/messageToUser.jsp");
-                      
-                } else {
-                    sp.setCode(-1);
-                    sp.setMessage("Email already exists");
-                }
-            } catch (DBException | MessagingException e){
-                sp.setCode(-1);
-                sp.setMessage(e.getMessage());
+            user.setRANK(rank);*/
+
+        //generate password hash
+        user.setPASSWORD(BCrypt.hashpw(password, Setup.SALT));
+
+        //generate hash - email verification
+        String hash = Utils.prepareRandomString(30);
+
+        //generate hash for password
+        user.setEMAILVERIFICATIONHASH(BCrypt.hashpw(hash, Setup.SALT));
+
+        //email verification
+        try {
+            //check if email does not exist in DB before registering
+            if (!UserDAO.emailExists(email)) {
+                UserDAO.registerUser(user);
+
+                //send verification mail
+                MailUtil.sendRegistrationLink(officerID, email, hash);
+
+                sp.setCode(0);
+                sp.setMessage("Link sent");
                 output = Utils.toJson(sp);
+                response.sendRedirect("/messageToUser.jsp");
+
+            } else {
+                sp.setCode(-1);
+                sp.setMessage("Email already exists");
             }
-            
+        } catch (DBException | MessagingException e) {
+            sp.setCode(-2);
+            sp.setMessage("Unknown error, check server log.");
+            output = Utils.toJson(sp);
+        }
+
         //}
         //show output 
-        if (output != null){
+        if (output != null) {
             request.setAttribute("message", output);
-            request.getRequestDispatcher("/messageToUser.jsp").forward(request, response);	
+            request.getRequestDispatcher("/messageToUser.jsp").forward(request, response);
 
         }
 //       PrintWriter pw = response.getWriter();
@@ -123,62 +123,61 @@ public class RegisterUser extends HttpServlet {
     }
 
     //validate fields are populated
-    public static boolean validate(String id, String email, String pw, String cPw, String name, String sname, String policeStation, String division, String rank){
-        if (id == null){
+    public static boolean validate(String id, String email, String pw, String cPw, String name, String sname, String policeStation, String division, String rank) {
+        if (id == null) {
             System.out.println("id");
             return false;
         }
-        if (email == null){
-                        System.out.println("email");
+        if (email == null) {
+            System.out.println("email");
 
             return false;
         }
-        if (pw == null){
-                        System.out.println("pw");
+        if (pw == null) {
+            System.out.println("pw");
 
             return false;
         }
-        if (cPw == null){
-                        System.out.println("cpw");
+        if (cPw == null) {
+            System.out.println("cpw");
 
             return false;
         }
-        if (name == null){
-                        System.out.println("name");
+        if (name == null) {
+            System.out.println("name");
 
             return false;
         }
-        if (sname == null){
-                        System.out.println("sname");
+        if (sname == null) {
+            System.out.println("sname");
 
             return false;
         }
-        if (policeStation == null){            System.out.println("police station");
+        if (policeStation == null) {
+            System.out.println("police station");
 
             return false;
         }
-        if (division == null){
-                        System.out.println("div");
+        if (division == null) {
+            System.out.println("div");
 
             return false;
         }
-        if (rank == null){
-                        System.out.println("rank");
+        if (rank == null) {
+            System.out.println("rank");
 
             return false;
         }
         return true;
     }
-    
-    public static boolean passwordMatch(String password, String confirmPassword){
-        
-        if (password.matches(confirmPassword)){
+
+    public static boolean passwordMatch(String password, String confirmPassword) {
+
+        if (password.matches(confirmPassword)) {
             return true;
         }
-        
+
         return false;
     }
-    
-
 
 }
