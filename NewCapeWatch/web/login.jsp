@@ -62,8 +62,10 @@ if(rs.next()){
 	response.sendRedirect("profile.jsp");
 	String name = rs.getString(2);
 	String id = rs.getString(1); //officer id
+	String officerid = rs.getString(2);
 	session = request.getSession();
 	session.setAttribute("username", id);
+	session.setAttribute("officerid", officerid);
 
 	} else if(rs.getString(7).equals(email) && password.isEmpty() == false){
 
@@ -94,7 +96,7 @@ if(session.getAttribute("mustlogIn") != null ){
           <li class="active"><a href="login.jsp">Login</a></li>
           <li><a href="profile.jsp">Profile</a></li>
           <li><a href="reports.jsp">Reports</a></li>
-          <li><a href="stats.jsp">Statistics</a></li>
+          <li><a href="stats3.jsp">Statistics</a></li>
           <li><a href="hotspots.html">Hotspots</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>

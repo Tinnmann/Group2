@@ -141,7 +141,7 @@
                         <a href="profile.jsp">Profile</a>
                       </li>
                       <li>
-                        <a href="stats.jsp">Statistics</a>
+                        <a href="stats3.jsp">Statistics</a>
                       </li>
                       <li>
                         <a href="hotspots.html">Hotspots</a>

@@ -143,7 +143,7 @@
             <a href="reports.jsp">Reports</a>
           </li>
           <li>
-            <a href="stats.jsp">Statistics</a>
+            <a href="stats3.jsp">Statistics</a>
           </li>
           <li>
             <a href="hotspots.html">Hotspots</a>
@@ -318,12 +318,6 @@
                   <!-- MODAL SUBMIT REPORT-->
                   <div class="modal-body">
                     <form class="form-horizontal" method="post" action="reports.jsp" id="report-form">
-                      <div class="form-group">
-                        <label class="col-sm-2 control-label" for="officerID">Officer ID</label>
-                        <div class="col-sm-4">
-                          <input type="text" name="userID"/>
-                        </div>
-                      </div>
                       <div class="form-group">
                         <label class="col-sm-2 control-label" for="date">Date</label>
                         <div class="col-sm-4">
