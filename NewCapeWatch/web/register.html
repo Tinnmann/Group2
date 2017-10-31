@@ -61,6 +61,20 @@
             <div class="col-sm-9">
               <input class="form-control inputs larger-text" placeholder="Confirm Password" type="password" name="password" pattern="[A-Za-z0-9]{5,16}" title="Password should be 5 - 16 characters long with no special characters" required id="confirmpassword">
             </div>
+            <script>
+              var password = document.getElementById("password"),
+                confirm_password = document.getElementById("confirmpassword");
+
+              function validatePassword() {
+                if (password.value != confirmpassword.value) {
+                  confirm_password.setCustomValidity("Passwords don't match");
+                } else {
+                  confirm_password.setCustomValidity('');
+                }
+              }
+              password.onchange = validatePassword;
+              confirm_password.onkeyup = validatePassword;
+            </script>
             <div class="col-sm-1"></div>
           </div>
           <button class="login-button" type="submit" name="submit" style="margin-top: 8px;top: 277.6px;right: -10px;"><i class="glyphicon glyphicon-chevron-right"></i></button>
