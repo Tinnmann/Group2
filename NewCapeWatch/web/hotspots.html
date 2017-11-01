@@ -32,7 +32,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="login.html">Login</a></li>
           <li><a href="profile.jsp">Profile</a></li>
-          <li><a href="stats.jsp">Statistics</a></li>
+          <li><a href="stat3.jsp">Statistics</a></li>
           <li class="active"><a href="hotspots.html">Hotspots</a></li>
           <li><a href="contact.jsp">Contact Us</a></li>
         </ul>
@@ -61,29 +61,43 @@
             <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initialize" type="text/javascript"></script>
           </div>
+          <div style="text-align:center;">
+            <br />
+            <button type="button" id="process Data" class="btn btn-info btn-process" data-toggle="tooltip" title="Process new data" href="#Processing" onclick= "document.getElementById('DriverClass').submit();">
+                Proccess Data
+                <form id="DriverClass" action="DriverClass" method="post" role="form"></form>
+              </button>
+              <script>
+              $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+              });
+              </script>
+          </div>
+
         </div>
         <div class="col-sm-3">
           <div class="map-filters">
             <h2 class="big-text" id="whiteText" style="font-family: 'Open Sans', sans-serif; ">Filters:</h2>
               <div class="form-group">
                 <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle btn-same" type="button" id="time-menu" data-toggle="dropdown">Time
+                  <button class="btn btn-default dropdown-toggle btn-same" type="button" id="time-menu" data-toggle="dropdown" style="padding-left: 17px;padding-right: 17px;">Time
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="time-menu">
                     <li><a href="#Time" onclick="showGraphStatistics('morning');">Morning</a></li>
-                    <li><a href="#Time" onclick="showGraphStatistics('noon');">Noon</a></li>
+                    <li><a href="#Time" onclick="showGraphStabtn-primary tistics('noon');">Noon</a></li>
                     <li><a href="#Time" onclick="showGraphStatistics('evening');">Evening</a></li>
                     <li><a href="#Time" onclick="showGraphStatistics('night');">Night</a></li>
                   </ul>
                 </div>
               </div>
               <div class="form-group">
-                <button id="time-menu" class="btn btn-default btn-same"name="Crime" onclick="showGraphStatistics('crimes');">Crime</button>
+                <button id="time-menu" class="btn btn-default btn-same"name="Crime" onclick="showGraphStatistics('crimes');" style="padding-left: 19px;padding-right: 19px;">Crime</button>
               </div>
               <div class="form-group">
                   <button id="time-menu" class="btn btn-default btn-same" name="Clusters" onclick="showClusterStatistics();">Clusters</button>
               </div>
+
           </div>
         </div>
       </div>
