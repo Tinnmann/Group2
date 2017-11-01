@@ -12,6 +12,7 @@
   <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/stats.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -49,7 +50,7 @@
   <div class="container-fluid text-center" >
 
   </div>
-    <div class="row content">
+    <div class="row content" style="background-color:#474545;">
       <div class="col-sm-2 left-side">
       </div>
 
@@ -73,24 +74,33 @@
           <div class="panel-body">
               <div class="table-responsive" style="height: 300px; overflow-y: scroll">
                 <table class="table table-hover" style="font-size: 20px;">
-                  <thead>
-                    <tr>
-                      <th>Crimes</th>
-                      <th>
-                        Numbers
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        test
-                      </td>
-                      <td>
-                        test
-                      </td>
-                    </tr>
-                  </tbody>
+                  <%
+                    try{
+                      Class.forName("com.mysql.jdbc.Driver").newInstance();
+                      Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/capewatchdb", "root", "");
+                      String q = "SELECT crimeType, COUNT(crimeType) FROM crime_case GROUP BY crimeType";
+                      //String r = "SELECT `COUNT(crimeType)`";
+                      Statement st = conn.createStatement();
+                      ResultSet rs = st.executeQuery(q);
+                      //ResultSet rt= st.executeQuery(r);
+
+                      String crimeType= "";
+                      int count=0;
+                      String status="";
+
+
+                      out.println("<thead><tr><th>Crimes</th><th>Numbers</th><tr></thead>");
+
+                      while(rs.next()){
+                        crimeType=rs.getString(1);
+                        //count = rt.getInt(1);
+                        count=rs.getInt(2);
+                        out.println("<tbody><tr><td>" + crimeType + "</td><td>" + count + "</td></tr></tbody>");
+                      }
+                    }catch(Exception e){
+                      System.out.println(e);
+                      }
+                  %>
                 </table>
               </div>
             </div>
@@ -99,64 +109,80 @@
 
 
 
-        <div name="graph" id="TypeOfCrime" style="height: 400px; margin-top: 50px;"></div>
-        <br />
-        <div name="graph"id="locationCrime" style="height: 400px;  margin-top: 50px;"></div>
-
-        <script>
-          window.onload = function() {
-            var chart = new CanvasJS.Chart("locationCrime", {
-              animationEnabled: true,
-              theme: "light2",
-              title: {
-                text: "Crime by Location"
-              },
-              data: [{
-                type: "pie",
-                startAngle: 240,
-                yValueFormatString: "##0.00\"%\"",
-                indexLabel: "{label} {y}",
-                indexLabelFontSize: 25,
-                dataPoints: [
-                  {y: 79.45, label: "Camps Bay"},
-                  {y: 7.31, label: "Greenpoint"},
-                  {y: 7.06, label: "Milnerton"},
-                  {y: 4.91, label: "Wynberg"},
-                  {y: 1.26, label: "Others (etc.. thers so many)"}
-                ]
-              }]
-            });
-            chart.render();
-            var cchart = new CanvasJS.Chart("TypeOfCrime", {
-              theme: "light2",
-              title:{ text: "Type of Crime"},
-              axisX:{
-                labelFontSize: 25
-              },
-              axisY:{
-                labelFontSize: 25
-              },
-              data: [{
-                dataPoints: [
-                  { x: 1, y: 297571, label: "Murder"},
-                  { x: 2, y: 267017,  label: "Saudi" },
-                  { x: 3, y: 175200,  label: "Canada"},
-                  { x: 4, y: 154580,  label: "Iran"},
-                  { x: 5, y: 116000,  label: "Russia"},
-                  { x: 6, y: 97800, label: "UAE"},
-                  { x: 7, y: 20682,  label: "US"},
-                  { x: 8, y: 20350,  label: "China"}
-                ]
-              }]
-            });
-            cchart.render();
-          }
-        </script>
 </div>
       <div class="col-sm-2 right-side">
       </div>
 
     </div>
+    <div class="row content" style="background: rgb(217, 237, 247);">
+
+      <div class="col-sm-2">
+
+      </div>
+
+      <div class="col-sm-8">
+
+
+            <div name="graph" id="TypeOfCrime" style="height: 400px; margin-top: 50px;"></div>
+            <br />
+            <div name="graph"id="locationCrime" style="height: 400px;  margin-top: 50px;"></div>
+
+            <script>
+              window.onload = function() {
+                var chart = new CanvasJS.Chart("locationCrime", {
+                  animationEnabled: true,
+                  theme: "light2",
+                  title: {
+                    text: "Crime by Location"
+                  },
+                  data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##0.00\"%\"",
+                    indexLabel: "{label} {y}",
+                    indexLabelFontSize: 25,
+                    dataPoints: [
+                      {y: 79.45, label: "Camps Bay"},
+                      {y: 7.31, label: "Greenpoint"},
+                      {y: 7.06, label: "Milnerton"},
+                      {y: 4.91, label: "Wynberg"},
+                      {y: 1.26, label: "Others (etc.. thers so many)"}
+                    ]
+                  }]
+                });
+                chart.render();
+                var cchart = new CanvasJS.Chart("TypeOfCrime", {
+                  theme: "light2",
+                  title:{ text: "Type of Crime"},
+                  axisX:{
+                    labelFontSize: 25
+                  },
+                  axisY:{
+                    labelFontSize: 25
+                  },
+                  data: [{
+                    dataPoints: [
+                      { x: 1, y: 297571, label: "Murder"},
+                      { x: 2, y: 267017,  label: "Saudi" },
+                      { x: 3, y: 175200,  label: "Canada"},
+                      { x: 4, y: 154580,  label: "Iran"},
+                      { x: 5, y: 116000,  label: "Russia"},
+                      { x: 6, y: 97800, label: "UAE"},
+                      { x: 7, y: 20682,  label: "US"},
+                      { x: 8, y: 20350,  label: "China"}
+                    ]
+                  }]
+                });
+                cchart.render();
+              }
+            </script>
+                  </div>
+
+                  <div class="col-sm-2">
+
+                  </div>
+            </div>
+
   </div>
   </body>
   </html>
