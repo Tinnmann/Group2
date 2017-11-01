@@ -143,7 +143,7 @@
             <a href="reports.jsp">Reports</a>
           </li>
           <li>
-            <a href="stats3.jsp">Statistics</a>
+            <a href="stat3.jsp">Statistics</a>
           </li>
           <li>
             <a href="hotspots.html">Hotspots</a>
@@ -183,7 +183,7 @@
                   <div class="table-responsive" style="max-height: 80vh; overflow-y: scroll;">
                     <table class="table table-list-search" id="reportTable">
                     <%
-                    
+
                     String id="";
                     if (session.getAttribute("officerid") != null) { //what is username?
                          id = session.getAttribute("officerid").toString();
@@ -237,7 +237,7 @@
                             String time1 = request.getParameter("time");
                             String status1 = request.getParameter("status");
                             String crimeType1 = request.getParameter("crimeType");
-                            
+
                             String gender1 = request.getParameter("gender");
                             String race1 = request.getParameter("race");
                             String age1 = request.getParameter("age");

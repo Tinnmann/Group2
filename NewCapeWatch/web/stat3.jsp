@@ -42,9 +42,9 @@
     <div class="collapse navbar-collapse" id="navbar-links">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.html">Home</a></li>
-        <li class="active"><a href="login.html">Login</a></li>
+        <li ><a href="login.html">Login</a></li>
         <li><a href="profile.jsp">Profile</a></li>
-        <li><a href="stats.jsp">Statistics</a></li>
+        <li class="active"><a href="stat3.jsp">Statistics</a></li>
         <li><a href="hotspots.html">Hotspots</a></li>
         <li><a href="contact.jsp">Contact Us</a></li>
       </ul>
@@ -125,30 +125,87 @@
       <div class="col-sm-8">
 
 
-           
+
         	 <div class="col-lg-12" id="PrecinctStats" style="margin-top:10%;">
-            
+
        	 <canvas id="mycanvas" class="widgetcanvas"></canvas>
-                          
+
               </div>
-              
-              
-              
+
+
+
               <div id="searchSuburb" style="text-align:center; padding:15px; margin:10px; font-size:20px;">
-              
-                      <label style="letter-spacing:2px; text-transform:uppercase; font-weight:400;">Suburb:</label>
+
+                      <label class="big-text"style="letter-spacing:2px; font-weight:400; margin-bottom: 2%;">Select a location:</label>
                       <br>
-                      <input type="text" name="suburb" id="editS"/>
+                      <select name="location" required="required" id="editS" style=>
+                        <option value="Athlone">Athlone</option>
+                        <option value="Belhar">Belhar</option>
+                        <option value="Bellville">Bellville</option>
+                        <option value="Bellville South">Bellville South</option>
+                        <option value="Bishop Lavis">Bishop Lavis</option>
+                        <option value="Bothasig">Bothasig</option>
+                        <option value="Brackenfell">Brackenfell</option>
+                        <option value="Camps Bay">Camps Bay</option>
+                        <option value="Cape Town Central">Cape Town Central</option>
+                        <option value="Claremont">Claremont</option>
+                        <option value="Delft">Delft</option>
+                        <option value="Diep Rivier">Diep Rivier</option>
+                        <option value="Durbanville">Durbanville</option>
+                        <option value="Elsies River">Elsies River</option>
+                        <option value="Fish Hoek">Fish Hoek</option>
+                        <option value="Goodwood">Goodwood</option>
+                        <option value="Grassy Park">Grassy Park</option>
+                        <option value="Gugulethu">Gugulethu</option>
+                        <option value="Harare">Harare</option>
+                        <option value="Hout Bay">Hout Bay</option>
+                        <option value="Kensington">Kensington</option>
+                        <option value="Khayelitsha">Khayelitsha</option>
+                        <option value="Kirstenhof">Kirstenhof</option>
+                        <option value="Kleinvlei">Kleinvlei</option>
+                        <option value="Kraaifontein">Kraaifontein</option>
+                        <option value="Kuils Rivier">Kuils Rivier</option>
+                        <option value="Langa">Langa</option>
+                        <option value="Lansdowne">Lansdowne</option>
+                        <option value="Lingelethu-West">Lingelethu-West</option>
+                        <option value="Macassar">Macassar</option>
+                        <option value="Maitland">Maitland</option>
+                        <option value="Manenberg">Manenberg</option>
+                        <option value="Mfuleni">Mfuleni</option>
+                        <option value="Milnerton">Milnerton</option>
+                        <option value="Mitchells Plain">Mitchells Plain</option>
+                        <option value="Mowbray">Mowbray</option>
+                        <option value="Muizenberg">Muizenberg</option>
+                        <option value="Nyanga">Nyanga</option>
+                        <option value="Ocean View">Ocean View</option>
+                        <option value="Parow">Parow</option>
+                        <option value="Philippi">Philippi</option>
+                        <option value="Philippi East">Philippi East</option>
+                        <option value="Pinelands">Pinelands</option>
+                        <option value="Ravensmead">Ravensmead</option>
+                        <option value="Rondebosch">Rondebosch</option>
+                        <option value="Sea Point">Sea Point</option>
+                        <option value="Simon's Town">Simon’s Town</option>
+                        <option value="Somerset West">Somerset West</option>
+                        <option value="Steenberg">Steenberg</option>
+                        <option value="Stellenbosch">Stellenbosch</option>
+                        <option value="Strand">Strand</option>
+                        <option value="Strandfontein">Strandfontein</option>
+                        <option value="Table Bay Harbour">Table Bay Harbour</option>
+                        <option value="Table View">Table View</option>
+                        <option value="Woodstock">Woodstock</option>
+                        <option value="Wynberg">Wynberg</option>
+                      </select>
                       <br>
-                      <div style="padding:10px;">
-                        <button class="btn" id="buttonS">Search</button>
+                      <div  class="wrap"style="padding:10px;">
+                        <button class="button larger-text" style="border-radius: 20px;" id="buttonS">Search</button>
                         </div>
-            
+
                     </div>
-             
-              
+
+
               <div class="col-lg-12" id="PrecinctStats" style="padding:0 20%;">
-              
+
               <canvas id="mycanvas2" class="widgetcanvas"></canvas>
             </div>
         </div>
@@ -164,18 +221,18 @@
                     var total = [];
 
                     for (var i in data) {
-                  	  
+
                   	  console.log(data[i]);
-                  	  
+
                   	  for (var j in data[i]){
                   		  area.push(data[i][j].area);
                   		  total.push(data[i][j].total);
                   	  }
-                  	 
+
                   	 }
-                    
-          		 
-                 console.log(area); 
+
+
+                 console.log(area);
                  console.log(total);
 
 
@@ -189,7 +246,7 @@
                                 hoverBackgroundColor: 'rgb(103, 144, 211)',
                                 hoverBorderColor: 'rgba(200, 200, 200,0.9)',
                                 data : total
-                                
+
                             }
                         ]
                     };
@@ -211,18 +268,18 @@
                     console.log(data);
                 }
             });
-            
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+
           	$('#buttonS').click(function(){
-          		
+
           		var suburb = $("#editS").val();
-          		
+
           		$.ajax({
                       type: 'GET',
                       data: {suburb: suburb},
@@ -234,18 +291,18 @@
                           var total = [];
 
                           for (var i in data) {
-                        	  
+
                         	  console.log(data[i]);
-                        	  
+
                         	  for (var j in data[i]){
                         		  area.push(data[i][j].area);
                         		  total.push(data[i][j].total);
                         	  }
-                        	 
+
                         	 }
-                          
-                		 
-                       console.log(area); 
+
+
+                       console.log(area);
                        console.log(total);
 
 
@@ -260,7 +317,7 @@
                                       hoverBackgroundColor: 'rgb(136, 23, 27)',
                                       hoverBorderColor: 'rgba(200, 200, 200,0.9)',
                                       data : total
-                                      
+
                                   }
                               ]
                           };
@@ -290,12 +347,12 @@
                           console.log(data);
                       }
                     });
-          		
-          		
-          		
+
+
+
           	});
-            
-            
+
+
             </script>
                   </div>
 

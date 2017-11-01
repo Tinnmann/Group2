@@ -90,34 +90,34 @@
                     if (name1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET name='" + name1 + "' where officerID='" + id + "'");
                         success = success+ "<p>- Name has been  successfuly changed</p>";
-                    
+
                     } else if (surname1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET surname='" + surname1 + "' where officerID='" + id + "'");
                         success = success+ "<p>- Surname has been  successfuly changed</p>";
-                    
+
                     } else if (email1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET email='" + email1 + "' where officerID='" + id + "'");
                         success = success+ "<p>- Email has been  successfuly changed</p>";
-                    
+
                     } else if (division1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET division='" + division1 + "' where officerID='" + id + "'");
                         success = success+ "<p>- Division has been  successfuly changed</p>";
-                    
+
                     }
                     if (rank1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET rank='" + rank1 + "' where officerID='" + id + "'");
                         success = success+ "<p>- Rank has been  successfuly changed</p>";
-                    
+
                     }
                     if (policeStation1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET policeStation='" + policeStation1 + "' where officerID='" + id + "'");
                         success = success+ "<p>- The police Station has been  successfuly changed</p>";
-                    
+
                     }
                     if (password1.isEmpty() == false && password2.isEmpty() == false && password1.equals(password2)) {
                         st.executeUpdate("UPDATE police_user SET password='" + password1 + "' where officerID='" + id + "'");
                         success = success+ "<p>- Password has been  successfuly changed</p>";
-                    
+
                     } else if (password1.isEmpty() == false && password2.isEmpty() == false && !password1.equals(password2)) {
                         error = error + "<p>Passwords were not the same - Please try again</p>";
                     }
@@ -156,7 +156,7 @@
                         <a href="profile.jsp">Profile</a>
                       </li>
                       <li>
-                        <a href="stats3.jsp">Statistics</a>
+                        <a href="stat3.jsp">Statistics</a>
                       </li>
                       <li>
                         <a href="hotspots.html">Hotspots</a>
@@ -193,7 +193,7 @@
                               <i class="glyphicon glyphicon-user" style="color: white"></i><% out.println(" " + name + " " + surname); %></h4>
                             <h6 class="card-subtitle mb-2 text-muted" id="date" style="text-align:right; color: white"></h6>
 
-                            <div class="card-body" style="padding-top: 30px; letter-spacing:2px; text-transform: capitalize;">
+                            <div class="card-body" style="padding-top: 30px; text-transform: capitalize;">
                               <p class="card-text list-group-item profile">
                                 <b>Officer ID :
                                   <span style=" color:#88171B; float:right;"><% out.println(officerID); %></span>
@@ -227,11 +227,11 @@
 
                               <br>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="background-color: #9D0D0D; border-color: rgb(136, 23, 27)">Edit Profile</button>
-                                
+
                                     <a href="#" class="card-link"></a>
                                   </div>
                             <br>
-                                  <% if (!error.isEmpty()) { out.println("<div class='container alert alert-danger' style='width:220px;text-align:center; margin-top:10px;height:70px;'>" + error + "'</div>'"); } 
+                                  <% if (!error.isEmpty()) { out.println("<div class='container alert alert-danger' style='width:220px;text-align:center; margin-top:10px;height:70px;'>" + error + "'</div>'"); }
                                   if (!success.isEmpty()) {
                                     out.println("<div class='container alert alert-success' style='width:220px;text-align:center; margin-top:10px;'>" + success + "'</div>'");
                                 }%>
