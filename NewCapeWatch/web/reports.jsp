@@ -409,48 +409,48 @@
                           <select name="crimeType" id="modal-select">
                             <optgroup label="Contact Crimes (Crimes against the person)">
                               <option value="Murder">Murder</option>
-                              <option value="Sexual Offence">Sexual offences</option>
-                              <option value="Attempted murder">Attempted Murder</option>
-                              <option value="Assault">Assault with the intent to inflict grievous bodily harm</option>
-                              <option value="Common Assault">Common assault</option>
-                              <option value="Common Robbery">Common robbery</option>
-                              <option value="Robbery">Robbery with aggravating circumstances</option>
+                              <option value="Sexual offences">Sexual offences</option>
+                              <option value="Attempted Murder">Attempted Murder</option>
+                              <option value="Assault with the intent to inflict grievous bodily harm">Assault with the intent to inflict grievous bodily harm</option>
+                              <option value="Common assault">Common assault</option>
+                              <option value="Common robbery">Common robbery</option>
+                              <option value="Robbery with aggravating circumstances">Robbery with aggravating circumstances</option>
                             </optgroup>
                             <optgroup label="Contact related crimes">
                               <option value="Arson">Arson</option>
-                              <option value="Property Damage">Malicious damage to property</option>
+                              <option value="Malicious damage to property">Malicious damage to property</option>
                             </optgroup>
                             <optgroup label="Property Related crimes">
-                              <option value="Burglary non-res">Burglary at non-residential premises</option>
-                              <option value="Burglary res">Burglary at residential premises</option>
-                              <option value="Vehicle theft">Theft of motor vehicle and motorcycle</option>
-                              <option value="Theft from vehicle">Theft out of or from motor vehicle</option>
+                              <option value="Burglary at non-residential premises">Burglary at non-residential premises</option>
+                              <option value="Burglary at residential premises">Burglary at residential premises</option>
+                              <option value="Theft of motor vehicle and motorcycle">Theft of motor vehicle and motorcycle</option>
+                              <option value="Theft out of or from motor vehicle">Theft out of or from motor vehicle</option>
                               <option value="Stock-theft">Stock-theft</option>
                             </optgroup>
                             <optgroup label="Crime detected as a result of police action">
-                              <option value="Illegal Firearms">Illegal possession of firearms and ammunition</option>
-                              <option value="Drug related">Drug related crime</option>
-                              <option value="Driving Alcohol">Driving under the influence of alcohol or drugs</option>
-                              <option value="Sexual Off Police">Sexual offences as a result of police action</option>
+                              <option value="Illegal possession of firearms and ammunition">Illegal possession of firearms and ammunition</option>
+                              <option value="Drug related crime">Drug related crime</option>
+                              <option value="Driving under the influence of alcohol or drugs">Driving under the influence of alcohol or drugs</option>
+                              <option value="Sexual offences as a result of police action">Sexual offences as a result of police action</option>
                             </optgroup>
                             <optgroup label="Other serious crimes">
-                              <option value="Theft">All theft not mentioned elsewhere</option>
-                              <option value="Commercial Crime">Commercial crime</option>
+                              <option value="All theft not mentioned elsewhere">All theft not mentioned elsewhere</option>
+                              <option value="Commercial crime">Commercial crime</option>
                               <option value="Shoplifting">Shoplifting</option>
                             </optgroup>
                             <optgroup label="Subcategories of aggravated robbery">
                               <option value="Carjacking">Carjacking</option>
-                              <option value="Truck Hijacking">Truck hijacking</option>
-                              <option value="Robbery res">Robbery at residential premises</option>
-                              <option value="Robbery non-res">Robbery at non-residential premises</option>
+                              <option value="Truck hijacking">Truck hijacking</option>
+                              <option value="Robbery at residential premises">Robbery at residential premises</option>
+                              <option value="Robbery at non-residential premises">Robbery at non-residential premises</option>
                               <option value="Bank robbery">Bank robbery</option>
-                              <option value="Robbery trans">Robbery of cash in transit</option>
+                              <option value="RRobbery of cash in transit">Robbery of cash in transit</option>
                             </optgroup>
                             <optgroup label="Other ">
                               <option value="Culpable homicide">Culpable homicide</option>
                               <option value="Public violence">Public violence</option>
-                              <option value="Crimen Injuria">Crimen injuria</option>
-                              <option value="Child Neglect">Neglect and ill-treatment of children</option>
+                              <option value="Crimen injuria">Crimen injuria</option>
+                              <option value="Neglect and ill-treatment of children">Neglect and ill-treatment of children</option>
                               <option value="Kidnapping">Kidnapping</option>
                             </optgroup>
                           </select>
