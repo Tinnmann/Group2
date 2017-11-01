@@ -26,22 +26,21 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DriverClass extends HttpServlet {
 
-	private static int cutoff = 100;
+	private static int cutoff = 140;
 	
 	private static double[][] distancesArr = new double[][]{
 											
-                                {0,1,-1,-1,-1,-1,-1,-1,-1,-1,1,1},
-                                {1,0,1,-1,-1,-1,-1,-1,-1,-1,-1,1},
-                                {-1,1,0,1,-1,-1,-1,-1,-1,-1,1,1},
-                                {-1,-1,1,0,1,1,-1,-1,-1,1,-1,-1},
-                                {-1,-1,-1,1,0,1,-1,-1,-1,-1,-1,-1},
-                                {-1,-1,-1,1,1,0,1,-1,-1,-1,-1,-1},
-                                {-1,-1,-1,-1,-1,1,0,1,1,1,-1,-1},
-                                {-1,-1,-1,-1,-1,-1,1,0,1,1,-1,-1},
-                                {-1,-1,-1,-1,-1,-1,1,1,0,1,-1,-1},
-                                {-1,-1,-1,1,-1,-1,1,1,1,0,1,-1},
-                                {1,-1,1,-1,-1,-1,-1,-1,-1,1,0,1},
-                                {1,1,1,-1,-1,-1,-1,-1,-1,-1,1,0}
+                                {0,1,-1,-1,-1,-1,-1,-1,-1,-1},
+                                {1,0,1,-1,-1,-1,-1,-1,-1,-1},
+                                {-1,1,0,1,-1,-1,-1,-1,-1,-1},
+                                {-1,-1,1,0,1,1,-1,-1,-1,1},
+                                {-1,-1,-1,1,0,1,-1,-1,-1,-1},
+                                {-1,-1,-1,1,1,0,1,-1,-1,-1},
+                                {-1,-1,-1,-1,-1,1,0,1,1,1},
+                                {-1,-1,-1,-1,-1,-1,1,0,1,1},
+                                {-1,-1,-1,-1,-1,-1,1,1,0,1},
+                                {-1,-1,-1,1,-1,-1,1,1,1,0}
+                                
 
                                             };
 	public static ArrayList<int[]> edges = new ArrayList<int[]>();
@@ -113,7 +112,7 @@ public class DriverClass extends HttpServlet {
 		}
 		
 		testgraph.edges = edges;
-		
+		System.out.print(testgraph.edges);
 		clonedGraph = cloneGraph(testgraph);
 		//MINCUT(testgraph);
 		
@@ -140,7 +139,7 @@ public class DriverClass extends HttpServlet {
 		
 		for (int i=0;i<disconnectedGraphs.size();i++){
 			System.out.println("\n############### Disconnected "+i+"###############");
-//			printGraph(disconnectedGraphs.get(i));
+			printGraph(disconnectedGraphs.get(i));
 		}
 		
 		long endTime   = System.currentTimeMillis();
@@ -494,6 +493,21 @@ public class DriverClass extends HttpServlet {
 		
 		return clone;
 	}  
+ 
+	public static void printGraph(Graph graph){
+		
+		ArrayList<CrimeCase> crimes = graph.getCrimeCases();
+		HashMap<String,String> locations = Gps.getLocations();
+		
+		for (int i=0;i<crimes.size();i++){
+			System.out.println((i+1)+
+					String.format("%0$5s", ". ID: "+crimes.get(i).id)+
+					String.format("%0$25s", ", Location: "+crimes.get(i).location)+
+					String.format("%0$17s",", Distance :"+locations.get(crimes.get(i).location)+
+					String.format("%0$17s",", Date :"+crimes.get(i).date)+
+					String.format("%0$14s",", Time :"+crimes.get(i).time)) );
+		}
+	}
         
 	public static void printGraph(CutGraph graph){
 		
@@ -509,5 +523,7 @@ public class DriverClass extends HttpServlet {
 			}
 		}
 		
-	}        
+	} 
+
+
 }
