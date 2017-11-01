@@ -46,6 +46,7 @@
             String password = "";
 
             String error = "";
+            String success = "";
 
             String name1 = "";
             String officerID1 = "";
@@ -88,21 +89,35 @@
                 if ("confirm".equals(save)) {
                     if (name1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET name='" + name1 + "' where officerID='" + id + "'");
+                        success = success+ "<p>- Name has been  successfuly changed</p>";
+                    
                     } else if (surname1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET surname='" + surname1 + "' where officerID='" + id + "'");
+                        success = success+ "<p>- Surname has been  successfuly changed</p>";
+                    
                     } else if (email1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET email='" + email1 + "' where officerID='" + id + "'");
+                        success = success+ "<p>- Email has been  successfuly changed</p>";
+                    
                     } else if (division1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET division='" + division1 + "' where officerID='" + id + "'");
+                        success = success+ "<p>- Division has been  successfuly changed</p>";
+                    
                     }
                     if (rank1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET rank='" + rank1 + "' where officerID='" + id + "'");
+                        success = success+ "<p>- Rank has been  successfuly changed</p>";
+                    
                     }
                     if (policeStation1.isEmpty() == false) {
                         st.executeUpdate("UPDATE police_user SET policeStation='" + policeStation1 + "' where officerID='" + id + "'");
+                        success = success+ "<p>- The police Station has been  successfuly changed</p>";
+                    
                     }
                     if (password1.isEmpty() == false && password2.isEmpty() == false && password1.equals(password2)) {
                         st.executeUpdate("UPDATE police_user SET password='" + password1 + "' where officerID='" + id + "'");
+                        success = success+ "<p>- Password has been  successfuly changed</p>";
+                    
                     } else if (password1.isEmpty() == false && password2.isEmpty() == false && !password1.equals(password2)) {
                         error = error + "<p>Passwords were not the same - Please try again</p>";
                     }
@@ -152,7 +167,7 @@
                     </ul>
                   </div>
                 </nav>
-                <section style="background-image: linear-gradient(rgba(0, 0, 0, 0.80),rgba(255, 255, 255, 0.10))">
+                <section style="background-image: linear-gradient(to right, #434343 0%, black 100%);">
                   <div class="container">
                     <div class="row">
 
@@ -178,7 +193,7 @@
                               <i class="glyphicon glyphicon-user" style="color: white"></i><% out.println(" " + name + " " + surname); %></h4>
                             <h6 class="card-subtitle mb-2 text-muted" id="date" style="text-align:right; color: white"></h6>
 
-                            <div class="card-body" style="padding-top: 30px; letter-spacing:2px; text-transform: uppercase;">
+                            <div class="card-body" style="padding-top: 30px; letter-spacing:2px; text-transform: capitalize;">
                               <p class="card-text list-group-item profile">
                                 <b>Officer ID :
                                   <span style=" color:#88171B; float:right;"><% out.println(officerID); %></span>
@@ -212,11 +227,15 @@
 
                               <br>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="background-color: #9D0D0D; border-color: rgb(136, 23, 27)">Edit Profile</button>
-                                <br>
-                                  <% if (!error.isEmpty()) { out.println("<div class='container alert alert-danger' style='width:220px;text-align:center; margin-top:10px;height:70px;'>" + error + "'</div>'"); } %>
-                                  <br>
+                                
                                     <a href="#" class="card-link"></a>
                                   </div>
+                            <br>
+                                  <% if (!error.isEmpty()) { out.println("<div class='container alert alert-danger' style='width:220px;text-align:center; margin-top:10px;height:70px;'>" + error + "'</div>'"); } 
+                                  if (!success.isEmpty()) {
+                                    out.println("<div class='container alert alert-success' style='width:220px;text-align:center; margin-top:10px;'>" + success + "'</div>'");
+                                }%>
+                                  <br>
                                 </div>
 
                                 <!-- Modal -->
@@ -236,7 +255,7 @@
                                           <div class="form-group">
                                             <label class="col-sm-2 control-label" for="date">Name</label>
                                             <div class="col-sm-4">
-                                              <input name="name1" placeholder="<% out.println(name); %>" type="text" pattern="^[A-Z]{1}[a-z]+[a-zA-Z\-\s]+" title="Invalid input" style="width: 150px;"/>
+                                              <input name="name1" placeholder="<% out.println(name); %>" type="text" pattern="^[A-Z]{1}[a-z]+[a-zA-Z\-\s]+" title="Invalid input: Name should start with a capital letter and contains no digits." style="width: 150px;"/>
                                             </div>
                                             <label class="col-sm-2 control-label" for="location">Surname</label>
                                             <div class="col-sm-4">
@@ -278,7 +297,7 @@
 
                                                 <select class="form-control" name="division1" style="width: 150px;">
 
-                                                  <option value="<% out.println(division); %>"></option>
+                                                  <option value=""></option>
                                                   <option value="Crime Combating and Investigation Division">Crime Combating and Investigation Division</option>
                                                   <option value="Visible Policing Division">Visible Policing Division</option>
                                                   <option value="Internal Stability Division">Internal Stability Division</option>
@@ -296,7 +315,7 @@
                                               <div class="dropdown dropdown-content">
 
                                                 <select class="form-control" name="rank1" style="width: 150px;">
-                                                  <option value="<% out.println(rank); %>"></option>
+                                                  <option value=""></option>
                                                   <option value="Chef">General</option>
                                                   <option value="Lieutnant General">Lieutnant-General</option>
                                                   <option value="Major-General">Major-General</option>
@@ -313,7 +332,7 @@
                                             <div class="col-sm-4">
                                               <div class="dropdown">
                                                 <select class="form-control" style="width:150px;" name="policeStation1">
-                                                  <option value="<% out.println(policeStation); %>"></option>
+                                                  <option value=""></option>
                                                   <% String user = Setup.DB_USERNAME; String pass = Setup.DB_PASSWORD; Class.forName("com.mysql.jdbc.Driver"); java.sql.Connection conn = DriverManager.getConnection(Setup.DB_URL, user, pass); Statement st = conn.createStatement(); ResultSet rs1 =
                                                   st.executeQuery("SELECT policestation FROM police_station"); while (rs1.next()) { out.println("<option value=" + rs1.getString(1) + ">" + rs1.getString(1) + "</option>"); } %>
 
