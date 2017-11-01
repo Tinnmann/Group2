@@ -104,15 +104,7 @@ public class Stats {
 				stats.put("noon", new ArrayList<CrimeCase>() );
 				stats.put("evening", new ArrayList<CrimeCase>() );
 				stats.put("night", new ArrayList<CrimeCase>() );
-				
-//				stats.put("Sunday", new ArrayList<CrimeCase>() );
-//				stats.put("Monday", new ArrayList<CrimeCase>() );
-//				stats.put("Tuesday", new ArrayList<CrimeCase>() );
-//				stats.put("Wednesday", new ArrayList<CrimeCase>() );
-//				stats.put("Thursday", new ArrayList<CrimeCase>() );
-//				stats.put("Friday", new ArrayList<CrimeCase>() );
-//				stats.put("Saturday", new ArrayList<CrimeCase>() );
-//				
+								
 				graphStatistics.put(crime.location, stats);
 				
 				//add to the crimes type
@@ -145,27 +137,7 @@ public class Stats {
 		else if (hours>=21 && hours<24){
                     crime.time="night";
                     graphStatistics.get(crime.location).get("night").add(crime);
-                }                
-                
-		
-		
-		
-		//add the days array
-//		if (crime.date.equals("Sunday"))
-//			graphStatistics.get(crime.location).get("Sunday").add(crime);
-//		else if (crime.date.equals("Monday"))
-//			graphStatistics.get(crime.location).get("Monday").add(crime);
-//		else if (crime.date.equals("Tuesday"))
-//			graphStatistics.get(crime.location).get("Tuesday").add(crime);
-//		else if (crime.date.equals("Wednesday"))
-//			graphStatistics.get(crime.location).get("Wednesday").add(crime);
-//		else if (crime.date.equals("Thursday"))
-//			graphStatistics.get(crime.location).get("Thursday").add(crime);
-//		else if (crime.date.equals("Friday"))
-//			graphStatistics.get(crime.location).get("Friday").add(crime);
-//		else if (crime.date.equals("Saturday"))
-//			graphStatistics.get(crime.location).get("Saturday").add(crime);
-		
+                }                	
 	}
 	
 	public void printClusterStatistics(HashMap<String,ArrayList<Cluster>> stats) throws FileNotFoundException{
@@ -236,9 +208,7 @@ public class Stats {
 		//var crimes=300; var morning=10;..; var night=30; var sunday=30;..; saturday=20;
 		
 		int crimes=0, morning=0,noon = 0,evening=0,night=0;
-		
-		//int sunday=0,monday=0,tuesday=0,wednesday=0,thursday=0,friday=0,saturday=0;
-		
+				
 		String script = "{";
 		//iterate the locations putting the cluster in those
 		for ( String location : graphStatistics.keySet() ) {

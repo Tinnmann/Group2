@@ -552,6 +552,9 @@
 			}else if (line[0] == "night"){
 				night= parseInt(line[1]);
 				//alert("night "+night);
+			}else if (line[0] == "crimes"){
+				crimes= parseInt(line[1]);
+				//alert("sat "+saturday);
 			}
 
         }
@@ -639,9 +642,7 @@ function getMaxCrimes(type){
 				content.innerHTML = '<div class="crime-stats" style="height:100px;width:200px;" >'+location+'<br>Crimes : '+num+'<br>Total Crimes : '+crimes+'</div>';
 			} else if (type =="morning" || type=="noon" || type=="evening" || type == "night") {
 				content.innerHTML = '<div class="crime-stats" style="height:100px;width:300px;" >'+location+'<br>At : '+type+'<br>Crimes : '+num+'<br>Total Crimes at '+type+' : '+eval(type)+'</div>';
-			} else{
-				content.innerHTML = '<div class="crime-stats" style="height:100px;width:300px;" >'+location+'<br>On : '+type+'<br>Crimes : '+num+'<br>Total Crimes On '+type+' : '+eval(type)+'</div>';
-			}
+			} 
 
 			//alert(content.innerHTML);
 			var infowindow = new google.maps.InfoWindow({

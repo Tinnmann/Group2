@@ -109,6 +109,20 @@ public class Gps {
         {
             date = entry.date;
             time = entry.time;
+            int hours = Integer.parseInt(time.substring(0,time.indexOf(":")));
+                if(hours>=0 && hours <12){
+                    time="morning";
+                }
+		else if (hours>=12 && hours<16){
+                    time="noon";
+                    
+                }
+		else if (hours>=16 && hours<21){
+                    time="evening";
+                }
+		else if (hours>=21 && hours<24){
+                    time="night";
+                }
             location = entry.location;
 
             crimes.add(new String[]{date,time,location});
@@ -124,7 +138,7 @@ public class Gps {
             String[] coords = numbers.split(" ");//get coordinates from hashmap
             double c1 = Double.parseDouble(coords[0]);
             double c2 = Double.parseDouble(coords[1]);
-            double weightedVars[] = new double[6];
+            double weightedVars[] = new double[4];
             weightedVars[0] = c1;            //lattitude
             weightedVars[1] = c2;            //longitude
             

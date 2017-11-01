@@ -9,7 +9,7 @@ public class Setup {
     //class to store all of the DB/Email settings that will be used to reset a user's password
     
     //DB setup
-    public static final String DB_URL = "jdbc:mysql://localhost:3306/capewatchdb";
+    public static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/capewatchdb";
     public static final String DB_USERNAME = "root";
     public static final String DB_PASSWORD = ""; //needs to be changed if on another pc
     public static final String DB_TABLE = "police_user";
