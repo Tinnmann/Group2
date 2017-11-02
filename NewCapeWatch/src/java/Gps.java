@@ -218,7 +218,8 @@ public class Gps {
                       diffTot+=diffSqre;
                   }
                   answer = Math.sqrt(diffTot);
-                  if(0.0<answer && answer>5)               //set cut-off to determine connectivity
+                  System.out.println(answer);
+                  if(0.0<answer && answer>58)               //set cut-off to determine connectivity
                 {
                 	
                      edges.get(l).add(m, -1.0);

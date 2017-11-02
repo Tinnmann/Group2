@@ -248,7 +248,7 @@
 
                             if ("confirm".equals(save)) {
 
-                                if (date1.isEmpty() == false && location1.isEmpty() == false && time1.isEmpty() == false && status1.isEmpty() == false && crimeType1.isEmpty() == false && crimeID1.isEmpty() == false) {
+                                if (date1.isEmpty() == false && location1.isEmpty() == false && time1.isEmpty() == false && status1.isEmpty() == false && crimeType1.isEmpty() == false) {
 
                                     ps.executeUpdate();
                                     ResultSet rs1 = ps.getGeneratedKeys();

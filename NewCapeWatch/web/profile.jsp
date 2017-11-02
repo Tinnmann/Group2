@@ -378,7 +378,7 @@
                                             <p class="card-text">View the current
                                               <b>Crime Statistics</b>
                                               for the Greater Cape Town Area</p>
-                                            <a href="stats.jsp" class="btn btn-danger" style="margin-left: 39px">Statistics
+                                            <a href="stat3.jsp" class="btn btn-danger" style="margin-left: 39px">Statistics
                                               <i class="glyphicon glyphicon-share-alt"></i>
                                             </a>
                                           </div>

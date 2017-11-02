@@ -100,7 +100,8 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>login.html</welcome-file>
-         <welcome-file>stats.jsp</welcome-file>
+        <welcome-file>stats.jsp</welcome-file>
+        <welcome-file>hotspots.html</welcome-file>
     </welcome-file-list>
 
     <session-config>

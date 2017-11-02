@@ -17,7 +17,7 @@ String location = request.getParameter("suburb");
 String error ="";
 
 String user= "root";
-String pass= "root";
+String pass= "";
 Class.forName("com.mysql.jdbc.Driver");
 java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/capewatchdb", user, pass);
 Statement st= conn.createStatement();

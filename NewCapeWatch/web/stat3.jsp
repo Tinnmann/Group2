@@ -81,7 +81,7 @@
                   <%
                     try{
                     	String user= "root";
-                    	String pass= "root";
+                    	String pass= "";
                     	Class.forName("com.mysql.jdbc.Driver");
                     	java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/capewatchdb", user, pass);
 					String q = "SELECT crimeType, COUNT(crimeType) FROM crime_case GROUP BY crimeType";

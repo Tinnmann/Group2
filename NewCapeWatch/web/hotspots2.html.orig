@@ -1,0 +1,221 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cape Watch</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!--script src="particles.js-master/demo/js/app.js"></script-->
+    <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initialize" type="text/javascript"></script>
+    <script src="js/st.js"></script>
+  </head>
+  <body class="hotspots-background">
+    <nav class="navbar navbar-default navbar-inverse">
+      <div class="container-fluid"></div>
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          <img src="images/CapeWatchLogo.png" alt="Police logo" id="badge"></a><a class="navbar-text" href="index." id="whiteText">Cape Watch</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-links">
+        <ul class="nav navbar-nav navbar-right"></ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.jsp">Login</a></li>
+          <li><a href="profile.jsp">Profile</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a href="stats.jsp">Statistics</a></li>
+          <li class="active"><a href="hotspots.html">Hotspots</a></li>
+          <li><a href="relatedCrimes.html">Related Crimes</a></li>
+          <li><a href="contact.jsp">Contact Us</a></li>
+        </ul>
+        <ul class="nav navbar-nav side-nav">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" id="time-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <i class="fa fa-fw fa-bar-chart-o"></i>Time
+                  <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="time-menu">
+                    <li ><a href="#Time" onclick="showGraphStatistics('morning');">Morning</a></li>
+                    <li ><a href="#Time" onclick="showGraphStatistics('noon');">Noon</a></li>
+                    <li ><a href="#Time" onclick="showGraphStatistics('evening');">Evening</a></li>
+                    <li ><a href="#Time" onclick="showGraphStatistics('night');">Night</a></li>
+                </ul>
+            </li>
+
+            <li >
+                    <a href="#Crimes" onclick="showGraphStatistics('crimes');">Crimes</a>
+            </li>
+
+            <li >
+                    <a href="#Clusters" onclick="showClusterStatistics();">Clusters</a>
+            </li>
+
+        </ul>
+      </div>
+    </nav>
+    <h1 class="text-center" id="bold-h1">HOTSPOTS</h1>
+    <h3 class="text-center" id="white-H3">CRIME HOTSPOTS OF THE GREATER CAPE TOWN AREA   </h3>
+
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+          <div class="map" id="map">
+               <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initialize" type="text/javascript"></script>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="map-filters">
+          <h2 style="font-family: Jura, sans-serif;" id="whiteText">Filters:</h2>
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle btn-same" type="button" id="time-menu" data-toggle="dropdown">Time
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="time-menu">
+                  <li><a href="#Time" onclick="showGraphStatistics('morning');">Morning</a></li>
+                  <li><a href="#Time" onclick="showGraphStatistics('noon');">Noon</a></li>
+                  <li><a href="#Time" onclick="showGraphStatistics('evening');">Evening</a></li>
+                  <li><a href="#Time" onclick="showGraphStatistics('night');">Night</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group">
+              <button id="time-menu" class="btn btn-default btn-same"name="Crime" onclick="showGraphStatistics('crimes');">Crime</button>
+            </div>
+            <div class="form-group">
+                <button id="time-menu" class="btn btn-default btn-same" name="Clusters" onclick="showClusterStatistics();">Clusters</button>
+            </div>
+        </div>
+      </div>
+
+    <script type="text/javascript" >
+            //alert ('setting the map');
+            google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cape Watch</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!--script src="particles.js-master/demo/js/app.js"></script-->
+    <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initialize" type="text/javascript"></script>
+    <script src="js/st.js"></script>
+  </head>
+  <body class="hotspots-background">
+    <nav class="navbar navbar-default navbar-inverse">
+      <div class="container-fluid"></div>
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          <img src="images/CapeWatchLogo.png" alt="Police logo" id="badge"></a><a class="navbar-text" href="index." id="whiteText">Cape Watch</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-links">
+        <ul class="nav navbar-nav navbar-right"></ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.jsp">Login</a></li>
+          <li><a href="profile.jsp">Profile</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a href="stats.jsp">Statistics</a></li>
+          <li class="active"><a href="hotspots.html">Hotspots</a></li>
+          <li><a href="relatedCrimes.html">Related Crimes</a></li>
+          <li><a href="contact.jsp">Contact Us</a></li>
+        </ul>
+        <ul class="nav navbar-nav side-nav">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" id="time-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <i class="fa fa-fw fa-bar-chart-o"></i>Time
+                  <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="time-menu">
+                    <li ><a href="#Time" onclick="showGraphStatistics('morning');">Morning</a></li>
+                    <li ><a href="#Time" onclick="showGraphStatistics('noon');">Noon</a></li>
+                    <li ><a href="#Time" onclick="showGraphStatistics('evening');">Evening</a></li>
+                    <li ><a href="#Time" onclick="showGraphStatistics('night');">Night</a></li>
+                </ul>
+            </li>
+
+            <li >
+                    <a href="#Crimes" onclick="showGraphStatistics('crimes');">Crimes</a>
+            </li>
+
+            <li >
+                    <a href="#Clusters" onclick="showClusterStatistics();">Clusters</a>
+            </li>
+
+        </ul>
+      </div>
+    </nav>
+    <h1 class="text-center" id="bold-h1">HOTSPOTS</h1>
+    <h3 class="text-center" id="white-H3">CRIME HOTSPOTS OF THE GREATER CAPE TOWN AREA   </h3>
+
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+          <div class="map" id="map">
+               <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeLE1ieHNmeZ8E9Xf2D5XHLhGRLBJyCPA&amp;callback=initialize" type="text/javascript"></script>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="map-filters">
+          <h2 style="font-family: Jura, sans-serif;" id="whiteText">Filters:</h2>
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle btn-same" type="button" id="time-menu" data-toggle="dropdown">Time
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="time-menu">
+                  <li><a href="#Time" onclick="showGraphStatistics('morning');">Morning</a></li>
+                  <li><a href="#Time" onclick="showGraphStatistics('noon');">Noon</a></li>
+                  <li><a href="#Time" onclick="showGraphStatistics('evening');">Evening</a></li>
+                  <li><a href="#Time" onclick="showGraphStatistics('night');">Night</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group">
+              <button id="time-menu" class="btn btn-default btn-same"name="Crime" onclick="showGraphStatistics('crimes');">Crime</button>
+            </div>
+            <div class="form-group">
+                <button id="time-menu" class="btn btn-default btn-same" name="Clusters" onclick="showClusterStatistics();">Clusters</button>
+            </div>
+        </div>
+      </div>
+
+    <script type="text/javascript" >
+            //alert ('setting the map');
+            google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </body>
+</html>
+>>>>>>> 1b35b4a43b440f01841f8ef09df5dc5cc6ba9881

@@ -8,8 +8,10 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/st.js"></script>
+    <script type="text/javascript" src="js/canvasjs.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/stylemap.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
 
@@ -85,26 +87,48 @@
                   </button>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="time-menu">
                     <li><a href="#Time" onclick="showGraphStatistics('morning');">Morning</a></li>
-                    <li><a href="#Time" onclick="showGraphStabtn-primary tistics('noon');">Noon</a></li>
+                    <li><a href="#Time" onclick="showGraphStatistics('noon');">Noon</a></li>
                     <li><a href="#Time" onclick="showGraphStatistics('evening');">Evening</a></li>
                     <li><a href="#Time" onclick="showGraphStatistics('night');">Night</a></li>
                   </ul>
                 </div>
               </div>
               <div class="form-group">
-                <button id="time-menu" class="btn btn-default btn-same"name="Crime" data-toggle="tooltip" title="View the crime rate for locations based on the type of crime" onclick="showGraphStatistics('crimes');" style="padding-left: 19px;padding-right: 19px;">Crime</button>
+                <button id="time-menu" class="btn btn-default btn-same" name="Crime" data-toggle="tooltip" title="View the crime rate per location" onclick="showGraphStatistics('crimes');" style="padding-left: 19px;padding-right: 19px;">Crime</button>
               </div>
               <div class="form-group">
-                  <button id="time-menu" class="btn btn-default btn-same" name="Clusters" data-toggle="tooltip" title="View locations of related crimes" onclick="showClusterStatistics();">Clusters</button>
+                  <button id="time-menu" class="btn btn-default btn-same" name="Clusters" data-toggle="tooltip" title="View related crimes in each location" onclick="showClusterStatistics();">Related Crimes</button>
               </div>
 
           </div>
         </div>
       </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="text-center big-text" id="whiteText" style="font-family: 'Open Sans', sans-serif; ">Additional Information</h3>
+                        <div style="display:none" class ="temp" id="temp"></div>
+                        
+                        <div style="display:block"id="google-map-overlay"></div>
+                    </div>
+                </div>    
     </div>
     <script type="text/javascript" >
       //alert ('setting the map');
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+  
+     <script src="js/jquery.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+
+    <!-- Flot Charts JavaScript -->
+    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
+    <script src="js/plugins/flot/jquery.flot.js"></script>
+    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="js/plugins/flot/flot-data.js"></script>    
   </body>
 </html>

@@ -114,7 +114,7 @@ public class CollectCrimes
 	                " date VARCHAR(20), " + 
 	                " location VARCHAR(30), " + 
 	                " time VARCHAR(10), " + 
-	                " crimeType VARCHAR(20), " + 
+	                " crimeType VARCHAR(100), " + 
 	                " status VARCHAR(10) ) " ; 
 	    	 
 	    	 //Assuming that a graph is an arraylist
