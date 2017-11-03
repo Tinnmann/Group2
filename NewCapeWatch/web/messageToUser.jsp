@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : messageToUser
     Created on : 13 Oct 2017, 2:41:07 PM
     Author     : Sydney Twigg
@@ -38,7 +38,7 @@
         </nav>
         <div class="container">
             <div class="row" style="margin-top: 3%;">
-                <div class="col-lg-6 col-lg-push-3 col-md-12">
+                <div class="col-lg-6 col-lg-push-3">
                     <h2 class="text-center bigger-text" id="whiteText" style="margin-bottom: 30px;"><%String header = (String) request.getAttribute("header");%> <%=header%></h2>
                     <div style="width: 500px; margin: auto;">
                         <div class="jumbotron">
@@ -50,7 +50,7 @@
                             </p>
                         </div>
                     </div>
-                    <button onclick="goBack()">Go Back</button>
+                    <button class="btn btn-warning col-sm-2 col-sm-push-5" style="text-align: center" onclick="goBack()">Go Back <i class="glyphicon glyphicon-share-alt"></i></button>
                     <script>
                         function goBack() {
                             window.history.back();
