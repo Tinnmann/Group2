@@ -1,7 +1,7 @@
 
 .overlay{
-	min-height:500px;
-	min-width:500px;
+	min-height:300px;
+	min-width:400px;
 	opacity: 1;
 	display:block;
 	overflow: hidden !important; 
@@ -88,12 +88,12 @@ table .topRow td{
 .cluster-Steenberg{background-color:rosybrown;color:#fff}
 .cluster-GrassyPark{background-color:seashell}
 .cluster-Kirstenhof{background-color:purple;color:#fff}
-.cluster-Parow{background-color:royalblue;color:#fff}
+.cluster-Parow{background-color:white}
 .cluster-Nyanga{background-color:saddlebrown;color:#fff}
 .cluster-ElsiesRiver{background-color:beige}
 .cluster-HoutBay{background-color:bisque}
 .cluster-PhilippiCentral{background-color:blueviolet;color:#fff}
-.cluster-BishopLavis{background-color:burlywood;color:#fff}
+.cluster-BishopLavis{background-color:blue}
 .cluster-Gugulethu{background-color:hotpink}
 .cluster-Goodwood{background-color:khaki}
 .cluster-Dieprivier{background-color:navajowhite}
@@ -110,5 +110,8 @@ table .topRow td{
 .cluster-Rondebosch{background-color:floralwhite}
 .cluster-SeaPoint{background-color:forestgreen;color:#fff}
 .cluster-Woodstock{background-color:fuchsia;color:#fff}
-.cluster-CapeTownCentral{background-color:tan}
+.cluster-CapeTownCentral{background-color:blue}
+.cluster-Bellville{background-color:pink}
+.cluster-BellvilleSouth{background-color:indigo}
+.cluster-Ravensmead{background-color:violet}
 

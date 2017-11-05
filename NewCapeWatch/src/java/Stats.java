@@ -59,7 +59,7 @@ public class Stats {
 		
 		for (int i=0;i<clusters.size();i++){
 			
-			Cluster cluster = new Cluster(clusters.get(i).getCrimeCases(),"gang"+i);
+			Cluster cluster = new Cluster(clusters.get(i).getCrimeCases(),"cluster"+i);
 			
 			//all the locations the cluster is working on
 			HashMap<String,ArrayList<CrimeCase>> crimesCommitted = cluster.createStatistics();

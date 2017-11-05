@@ -639,15 +639,15 @@ function getMaxCrimes(type){
 
 			var content = document.createElement("DIV");
 			if (type =="crimes"){
-				content.innerHTML = '<div class="crime-stats" style="height:100px;width:200px;" >'+location+'<br>Crimes : '+num+'<br>Total Crimes : '+crimes+'</div>';
+				content.innerHTML = '<div class="crime-stats" style="height:80px;width:150px;" >'+location+'<br>Crimes : '+num+'<br>Percentage : '+perc+'</div>';
 			} else if (type =="morning" || type=="noon" || type=="evening" || type == "night") {
-				content.innerHTML = '<div class="crime-stats" style="height:100px;width:300px;" >'+location+'<br>At : '+type+'<br>Crimes : '+num+'<br>Total Crimes at '+type+' : '+eval(type)+'</div>';
+				content.innerHTML = '<div class="crime-stats" style="height:100px;width:200px;" >'+location+'<br>At : '+type+'<br>Crimes : '+num+'<br>Percentage of the crimes at '+type+' : '+eval(perc)+'</div>';
 			} 
 
 			//alert(content.innerHTML);
 			var infowindow = new google.maps.InfoWindow({
 				content: content,
-				maxWidth: 5000
+				maxWidth: 3000
 			});
 
 			 // Open the infowindow on marker click
@@ -727,7 +727,7 @@ function getMaxCrimes(type){
                            content = document.createElement("DIV");
                         }
 
-			content.innerHTML = '<div id="'+location+'" style="height:100px;width:300px;" class="overlay '+location+'"></div>';
+			content.innerHTML = '<div id="'+location+'" style="height:175px;width:225px;" class="overlay '+location+'"></div>';
 			document.getElementById("temp").appendChild(content);
 
 			var piechart = createPieChart(location);
@@ -737,7 +737,7 @@ function getMaxCrimes(type){
 			//alert(content.innerHTML);
 			var infowindow = new google.maps.InfoWindow({
 				content: content,
-				maxWidth: 5000
+				maxWidth: 300
 			});
 
 			 // Open the infowindow on marker click

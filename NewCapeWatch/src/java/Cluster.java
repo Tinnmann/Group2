@@ -8,9 +8,9 @@ public class Cluster {
 	public String clusterName;
 	
 	//create html to be shown in browser for cluster
-	private String html = "<tr class=\"topRow\"><td><h1>Date</h1></td><td><h1>Time</h1></td><td><h1>CrimeID</h1></td>" +
-			"<td><h1>CrimeType</h1></td><td><h1>ReportID</h1></td><td><h1>UserID</h1></td>" +
-			"<td><h1>Status</h1></td><td><h1>Location</h1></td></tr>";
+	private String html = "<tr class=\"topRow\"><td><h1>Date</h1></td><td><h1>Time</h1></td>" +
+			"<td><h1>CrimeType</h1></td>" +
+			"<td><h1>Location</h1></td></tr>";
 	
 	//is a list of all the locations this group committed crimes in and the numbers
 	//key is the location and the list crimes committed in there
@@ -35,10 +35,9 @@ public class Cluster {
 				crimesCommitted.put(location,loc);
 			}
 			
-			html = html+"<tr class=\"cluster-"+location+"\"><td><h1>"+crime.date+"</h1></td><td><h1>"+
-					crime.time+"</h1></td><td><h1>"+crime.crimeID+"</h1></td>" +
-					"<td><h1>"+crime.crimeType+"</h1></td><td><h1>"+crime.reportID+"</h1></td><td><h1>"+
-					crime.userID+"</h1></td><td><h1>"+crime.status+"</h1></td><td><h1>"+
+			html = html+"<tr class=\"cluster-"+location.replaceAll("[^a-zA-Z]", "")+"\"><td><h1>"+crime.date+"</h1></td><td><h1>"+
+					crime.time+"</h1></td>" +
+					"<td><h1>"+crime.crimeType+"</h1></td>"+"<td><h1>"+
 					crime.location+"</h1></td></tr>";
 			
 		}
