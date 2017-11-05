@@ -156,7 +156,7 @@ public class UserDAO {
         }
     }
 
-    public static boolean emailExists(String email) throws DBException {
+    public static boolean idExists(String id) throws DBException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -165,8 +165,8 @@ public class UserDAO {
 
         try {
             conn = DBConnect.getConnection();
-            ps = conn.prepareStatement("SELECT 1 FROM police_user WHERE email=?");
-            ps.setString(1, email);
+            ps = conn.prepareStatement("SELECT 1 FROM police_user WHERE OfficerID=?");
+            ps.setString(1, id);
             rs = ps.executeQuery();
 
             if (rs != null) {

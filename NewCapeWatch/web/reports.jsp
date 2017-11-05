@@ -185,8 +185,8 @@
                     <%
 
                     String id="";
-                    if (session.getAttribute("officerid") != null) { //what is username?
-                         id = session.getAttribute("officerid").toString();
+                    if (session.getAttribute("username") != null) { 
+                         id = session.getAttribute("username").toString();
                     }
 
                         String error = "";

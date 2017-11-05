@@ -27,56 +27,57 @@ import javax.servlet.http.HttpServletResponse;
  * @author Sydney Twigg
  */
 public class ForgotPassword extends HttpServlet {
+
     private static final Logger LOGGER = Logger.getLogger(ForgotPassword.class.getName());
-    	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String output = "";
+        String header = "";
         //get email + officerID from user input
         String inputEmail = request.getParameter("email");
         String officerID = request.getParameter("officerID");
-        
+
         StatusPojo sp = new StatusPojo();
-        
+
         try {
             //get user details from the email
             UserPojo up = UserDAO.selectUser(inputEmail);
-            
-            if (up != null){
+
+            if (up != null) {
                 //create verification hash
                 String hash = Utils.prepareRandomString(30);
-                
+
                 //update verification hash in the DB
                 UserDAO.updateVerificationReset(inputEmail, BCrypt.hashpw(hash, Setup.SALT));
-                
+
                 //send email to user
                 MailUtil.sendResetPasswordLink(up.getOFFICERID() + "", inputEmail, hash);
-                
+
                 //set status
-                sp.setCode(0);
-                sp.setMessage("Email sent");
+                sp.setMessage("An email has been sent to your registered email, please click the link to reset your password.");
+                output = sp.getMessage();
+                header = "Password Reset Successful";
+            } else {
+                sp.setMessage("The entered email does not exist.");
+                output = sp.getMessage();
+                header = "Error";
             }
-            else {
-                sp.setCode(-1);
-                sp.setMessage("Email does not exist");
-            }
-        } 
-        catch (DBException | MessagingException e){
+        } catch (DBException | MessagingException e) {
             LOGGER.info(e.getMessage());
             sp.setCode(-2);
             sp.setMessage(e.getMessage());
-            e.printStackTrace();
+            output = sp.getMessage();
+            header = "Error";
         }
-       /* PrintWriter pw = response.getWriter();
-        pw.write(Utils.toJson(sp));
-        pw.flush();
-        pw.close();*/
+        //redirect to show success/error
+        request.setAttribute("message", output);
+        request.setAttribute("header", header);
+        request.getRequestDispatcher("/messageToUser.jsp").forward(request, response);
 
     }
-    
-    
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -85,7 +86,7 @@ public class ForgotPassword extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ForgotPassword</title>");            
+            out.println("<title>Servlet ForgotPassword</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ForgotPassword at " + request.getContextPath() + "</h1>");

@@ -32,11 +32,6 @@ public class RegisterUser extends HttpServlet {
         super();
     }
 
-
-    /*TO DO WHEN I'M MORE AWAKE
-        - Fix link: officerID=null DONE~
-        - Make sure DB gets updated with hash
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //get values from form
@@ -48,6 +43,7 @@ public class RegisterUser extends HttpServlet {
         StatusPojo sp = new StatusPojo();
 
         String output = "";
+        String header = "";
 
         UserPojo user = new UserPojo();
         user.setOFFICERID(officerID);
@@ -61,39 +57,34 @@ public class RegisterUser extends HttpServlet {
 
         //generate hash for password
         user.setEMAILVERIFICATIONHASH(BCrypt.hashpw(hash, Setup.SALT));
-        
+
         //email verification
         try {
-            //check if email does not exist in DB before registering
-
+            if (UserDAO.idExists(officerID)) {
                 UserDAO.registerUser(user);
 
                 //send verification mail
                 MailUtil.sendRegistrationLink(officerID, email, hash);
 
-                sp.setCode(0);
-                sp.setMessage("Link sent");
-                output = Utils.toJson(sp);
-                //response.sendRedirect("/messageToUser.jsp");
-                
+                sp.setMessage("A link has been sent to your registered email, please click the link to activate your account.");
+                output = sp.getMessage();
+                header = "Successful Registration";
 
+            } else {
+                header = "Error";
+                sp.setMessage("The Officer ID entered does not exist");
+                output = sp.getMessage();
+            }
         } catch (DBException | MessagingException e) {
-            sp.setCode(-2);
+            header = "Error";
             sp.setMessage("Unknown error, check server log.");
             output = Utils.toJson(sp);
         }
-
-        //}
-        //show output 
-//        if (output != null) {
-//            request.setAttribute("message", output);
-//            request.getRequestDispatcher("/NewCapeWatch/messageToUser.jsp").forward(request, response);
-//
-//        }
-       PrintWriter pw = response.getWriter();
-        pw.write(output);
-        pw.flush();
-        pw.close();      
+        
+        //redirect to show success/error
+        request.setAttribute("message", output);
+        request.setAttribute("header", header);
+        request.getRequestDispatcher("/messageToUser.jsp").forward(request, response);
 
     }
 

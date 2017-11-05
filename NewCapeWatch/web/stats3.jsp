@@ -1,3 +1,8 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="forgotPassword.util.Setup"%>
 <html lang="en">
 
 <head>
@@ -77,7 +82,7 @@
                   <%
                     try{
                       Class.forName("com.mysql.jdbc.Driver").newInstance();
-                      Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/capewatchdb", "root", "");
+                      Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/capewatchdb", Setup.DB_USERNAME, Setup.DB_PASSWORD);
                       String q = "SELECT crimeType, COUNT(crimeType) FROM crime_case GROUP BY crimeType";
                       //String r = "SELECT `COUNT(crimeType)`";
                       Statement st = conn.createStatement();
