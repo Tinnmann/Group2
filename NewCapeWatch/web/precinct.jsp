@@ -1,3 +1,4 @@
+<%@page import="forgotPassword.util.Setup"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -14,8 +15,8 @@ String detail_reportID = request.getParameter("detailID");
 
 String error ="";
 
-String user= "root";
-String pass= "";
+String user= Setup.DB_USERNAME;
+String pass=Setup.DB_PASSWORD;
 Class.forName("com.mysql.jdbc.Driver");
 java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/capewatchdb", user, pass);
 Statement st= conn.createStatement();
