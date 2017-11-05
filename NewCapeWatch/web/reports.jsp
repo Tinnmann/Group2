@@ -232,7 +232,7 @@
 
                                                     String save = request.getParameter("submit");
 
-                                                    String userID1 = request.getParameter("userID");
+                                                    
                                                     String date1 = request.getParameter("date");
                                                     String location1 = request.getParameter("location");
                                                     String time1 = request.getParameter("time");
@@ -242,6 +242,45 @@
                                                     String gender1 = request.getParameter("gender");
                                                     String race1 = request.getParameter("race");
                                                     String age1 = request.getParameter("age");
+                                                    
+                                                    String gender2 = request.getParameter("gender2");
+                            String race2 = request.getParameter("race2");
+                            String age2 = request.getParameter("age2");
+                            
+                            String gender3 = request.getParameter("gender3");
+                            String race3 = request.getParameter("race2");
+                            String age3 = request.getParameter("age3");
+                            
+                            String gender4 = request.getParameter("gender4");
+                            String race4 = request.getParameter("race4");
+                            String age4 = request.getParameter("age4");
+                            
+                            
+                            String gender5 = request.getParameter("gender5");
+                            String race5 = request.getParameter("race2");
+                            String age5 = request.getParameter("age5");
+                            
+                            String gender6 = request.getParameter("gender6");
+                            String race6 = request.getParameter("race6");
+                            String age6 = request.getParameter("age6");
+                            
+                            String gender7 = request.getParameter("gender7");
+                            String race7 = request.getParameter("race7");
+                            String age7 = request.getParameter("age7");
+                            
+                            String gender8 = request.getParameter("gender8");
+                            String race8 = request.getParameter("race8");
+                            String age8 = request.getParameter("age8");
+                            
+                            
+                            String gender9 = request.getParameter("gender9");
+                            String race9 = request.getParameter("race9");
+                            String age9 = request.getParameter("age9");
+                            
+                            String gender10 = request.getParameter("gender10");
+                            String race10 = request.getParameter("race10");
+                            String age10 = request.getParameter("age10");
+
 
                                                     String sql = "insert into crime_case(crimeID,userID,date,location,time,crimeType,status) values((select crimeID FROM type_of_crime where crimeName='" + crimeType1 + "'),'" + id + "','" + date1 + "','" + location1 + "','" + time1 + "','" + crimeType1 + "','" + status1 + "')";
                                                     int generatedKey = 0;
@@ -270,6 +309,34 @@
 
                                                             st.executeUpdate("insert into injured_party(reportID,age,race,gender,area) values('" + generatedKey + "','" + age1 + "','" + race1 + "','" + gender1 + "','" + location1 + "')");
 
+                                                        }
+                                                        
+                                                        if (gender2.isEmpty() == false && age2.isEmpty() == false && race2.isEmpty() == false && location1.isEmpty() == false) {
+                                                            st.executeUpdate("insert into injured_party(reportID,age,race,gender,area) values('" + generatedKey + "','" + age2 + "','" + race2 + "','" + gender2 + "','" + location1 + "')");
+                                                        }
+                                                        if (gender3.isEmpty() == false && age3.isEmpty() == false && race3.isEmpty() == false && location1.isEmpty() == false) {
+                                                            st.executeUpdate("insert into injured_party(reportID,age,race,gender,area) values('" + generatedKey + "','" + age3 + "','" + race3 + "','" + gender3 + "','" + location1 + "')");
+                                                        }
+                                                        if (gender4.isEmpty() == false && age4.isEmpty() == false && race4.isEmpty() == false && location1.isEmpty() == false) {
+                                                            st.executeUpdate("insert into injured_party(reportID,age,race,gender,area) values('" + generatedKey + "','" + age4 + "','" + race4 + "','" + gender4 + "','" + location1 + "')");
+                                                        }
+                                                        if (gender5.isEmpty() == false && age5.isEmpty() == false && race5.isEmpty() == false && location1.isEmpty() == false) {
+                                                            st.executeUpdate("insert into injured_party(reportID,age,race,gender,area) values('" + generatedKey + "','" + age5 + "','" + race5 + "','" + gender5 + "','" + location1 + "')");
+                                                        }
+                                                        if (gender6.isEmpty() == false && age6.isEmpty() == false && race6.isEmpty() == false && location1.isEmpty() == false) {
+                                                            st.executeUpdate("insert into injured_party(reportID,age,race,gender,area) values('" + generatedKey + "','" + age6 + "','" + race6 + "','" + gender6 + "','" + location1 + "')");
+                                                        }
+                                                        if (gender7.isEmpty() == false && age7.isEmpty() == false && race7.isEmpty() == false && location1.isEmpty() == false) {
+                                                            st.executeUpdate("insert into injured_party(reportID,age,race,gender,area) values('" + generatedKey + "','" + age7 + "','" + race7 + "','" + gender7 + "','" + location1 + "')");
+                                                        }
+                                                        if (gender8.isEmpty() == false && age8.isEmpty() == false && race8.isEmpty() == false && location1.isEmpty() == false) {
+                                                            st.executeUpdate("insert into injured_party(reportID,age,race,gender,area) values('" + generatedKey + "','" + age8 + "','" + race8 + "','" + gender8 + "','" + location1 + "')");
+                                                        }
+                                                        if (gender9.isEmpty() == false && age9.isEmpty() == false && race9.isEmpty() == false && location1.isEmpty() == false) {
+                                                            st.executeUpdate("insert into injured_party(reportID,age,race,gender,area) values('" + generatedKey + "','" + age8 + "','" + race9 + "','" + gender9 + "','" + location1 + "')");
+                                                        }
+                                                        if (gender10.isEmpty() == false && age10.isEmpty() == false && race10.isEmpty() == false && location1.isEmpty() == false) {
+                                                            st.executeUpdate("insert into injured_party(reportID,age,race,gender,area) values('" + generatedKey + "','" + age10 + "','" + race10 + "','" + gender10 + "','" + location1 + "')");
                                                         }
 
                                                     }
@@ -467,8 +534,8 @@
                                                     <div id="victim">
                                                         <div class="form-group">
                                                             <label class="col-sm-2 control-label" for="gender">Gender</label>
-                                                            <div class="col-sm-4">
-                                                                <select id="modal-select" name="gender">
+                                                            <div class="col-sm-4" id="genderid">
+                                                                <select id="modal-select" name="gender" class="genderid">
                                                                     <option value=""></option>
                                                                     <option value="female">Female</option>
                                                                     <option value="male">Male</option>
@@ -476,7 +543,7 @@
                                                                 </select>
                                                             </div>
                                                             <label class="col-sm-2 control-label" for="race">Race</label>
-                                                            <div class="col-sm-4" style="padding-right: 30px;">
+                                                            <div class="col-sm-4" style="padding-right: 30px;" id="raceid">
                                                                 <select id="modal-select" name="race">
                                                                     <option value=""></option>
                                                                     <option value="white">White</option>
@@ -491,7 +558,7 @@
                                                         <div class="form-group">
                                                             <label class="col-sm-2 control-label" for="age">Age
                                                             </label>
-                                                            <div class="col-sm-4">
+                                                            <div class="col-sm-4"  id="ageid">
                                                                 <input type="number" min="0" max="100" name="age"/>
                                                             </div>
                                                         </div>
@@ -516,7 +583,7 @@
                         <!-- MODAL VIEW DETAILS -->
 
                         <div class="modal fade" role="dialog" id="detailsModal">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog" style="width:80% !important;">
                                 <form method="post">
                                     <div class="modal-content">
                                         <div class="modal-header text-center" id="header">More Details
