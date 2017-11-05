@@ -8,6 +8,7 @@
  *
  * @author TINASHE
  */
+import forgotPassword.util.Setup;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -184,7 +185,7 @@ public class Stats {
 	    System.out.println(script);
 	    
             //C:\Users\Tinashe\Desktop\Group2\NewCapeWatch\build\web\js
-	    PrintWriter out = new PrintWriter("C:/Users/TINASHE/Desktop/Group2/NewCapeWatch/build/web/js/ClusterStatistics.txt");
+	    PrintWriter out = new PrintWriter(Setup.FILE_PATH + "/Group2/NewCapeWatch/build/web/js/ClusterStatistics.txt");
 	    out.println(script);
 	    out.close();
 		
@@ -260,11 +261,11 @@ public class Stats {
 	    System.out.println(script);
 	    System.out.println(totals);
 	    
-	    PrintWriter out = new PrintWriter("C:/Users/TINASHE/Desktop/Group2/NewCapeWatch/build/web/js/GraphStatistics.txt");
+	    PrintWriter out = new PrintWriter(Setup.FILE_PATH + "/Group2/NewCapeWatch/build/web/js/GraphStatistics.txt");
 	    out.println(script);
 	    out.close();
 	    
-	    out = new PrintWriter("C:/Users/TINASHE/Desktop/Group2/NewCapeWatch/build/web/js/GraphTotals.txt");
+	    out = new PrintWriter(Setup.FILE_PATH + "/Group2/NewCapeWatch/build/web/js/GraphTotals.txt");
 	    out.println(totals);
 	    out.close();
 	    

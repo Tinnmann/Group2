@@ -1,3 +1,4 @@
+<%@page import="forgotPassword.util.Setup"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <%@page import="javax.sql.*"%>
@@ -80,8 +81,8 @@
                 <table class="table table-hover" style="font-size: 20px;">
                   <%
                     try{
-                    	String user= "root";
-                    	String pass= "";
+                    	String user= Setup.DB_USERNAME;
+                    	String pass= Setup.DB_PASSWORD;
                     	Class.forName("com.mysql.jdbc.Driver");
                     	java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/capewatchdb", user, pass);
 					String q = "SELECT crimeType, COUNT(crimeType) FROM crime_case GROUP BY crimeType";
