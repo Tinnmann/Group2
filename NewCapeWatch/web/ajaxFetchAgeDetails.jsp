@@ -2,8 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 
-<%@ page import="java.sql.*" %>
+  
+      <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
+ <%@ page import="java.util.*" %>
 
 
 <%
@@ -19,15 +21,19 @@
     Statement st = conn.createStatement();
     ResultSet rs = st.executeQuery("SELECT * FROM injured_party where reportID='" + detail_reportID + "'");
 
-    String[] detailsCrimeCase = new String[3];
+         String age= "";
+         List ages = new LinkedList();
 
     String age = "";
 
     while (rs.next()) {
-        age = rs.getString(2);
+           age = rs.getString(2);
+   	ages.add(age)
     }
 
-    out.print(age);
+    String list = Arrays.toString(ages.toArray()).replace("[", "").replace("]", "");
 
+	out.print(list);
+	
 
 %>
