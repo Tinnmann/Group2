@@ -1,9 +1,17 @@
 $(document).ready(function(){
-  var x = 0;
 
+	 var x = 1;
+
+	
   function addVictim() {
+	  
     $('#victim-menu').append($('#victim').clone());
-    $('input[name="counter"]').val(x);
+     x= x+1;
+    $("#ageid").find("input").attr("name", "age" + x);
+    $("#raceid").find("select").attr("name", "race" + x);
+    $("#genderid").find("select").attr("name", "gender" + x);
+
+  
   }
   // addVictim(); // Makes sure there is always a field available.
   $("#button-toggle").click(function(){
