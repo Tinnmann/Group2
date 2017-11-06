@@ -1,7 +1,4 @@
-/* var coordinates = {Atlantis,Strand,NoordHoek,FishHoek,Harare,Kraaifontein,LingelethuWest,Khayelitsha,Mfuleni,Delft,MitchellsPlain,PhillippiEast,
-						Muizenberg,Steenberg,GrassyPark,Kirstenhof,Parow,Nyanga,ElsiesRiver,HoutBay,PhilippiCentral,BishopLavis,Gugulethu,Goodwood,
-						Dieprivier,Manenberg,Milnerton,Wynberg,Langa,Lansdowne,Athlone,Mowbray,Claremont,Pinelands,Maitland,Rondebosch,SeaPoint,
-						Woodstock,CapeTownCentral} */
+
 
 	var colors = {Atlantis:"",Strand:"",NoordHoek:"",FishHoek:"",Harare:"",Kraaifontein:"",LingelethuWest:"",Khayelitsha:"",Mfuleni:"",Delft:"",MitchellsPlain:"",PhillippiEast:"",Muizenberg:"",Steenberg:"",GrassyPark:"",Kirstenhof:"",Parow:"",Nyanga:"",ElsiesRiver:"",HoutBay:"",					  PhilippiCentral:"",BishopLavis:"",Gugulethu:"",Goodwood:"",Dieprivier:"",Manenberg:"",Milnerton:"",Wynberg:"",Langa:"",Lansdowne:"",					 Athlone:"",Mowbray:"",Claremont:"",Pinelands:"",Maitland:"",Rondebosch:"",SeaPoint:"",Woodstock:"",CapeTownCentral:"",Belhar:"",                                  Bellville:"",BellvilleSouth:"",Bothasig:"",Brackenfell:"",CampsBay:"",Durbanville:"",Kensington:"",Kleinvlei:"",KuilsRivier:"",Macassar:"",                                   OceansView:"",Ravensmead:"",SimonsTown:"",SomersetWest:"",Stellenbosch:"",Strandfontein:"",TableView:""};
 
@@ -65,7 +62,7 @@
 
 					  };
 
-	//variables to be used to show information on the map
+	//variables to be used for displaying map info
 	var locationClusters;
 	var locationStatistics;
 	var crimes;
@@ -508,16 +505,12 @@
             if (textfile.readyState == 4 && textfile.status == 200)
             {
                 content = textfile.responseText;
-                //alert(content);
                 if (type =="clusters"){
 
                         locationClusters = eval("("+content+")");
-                        //alert('locclust !!' + locationClusters);
-                        //showClusterStatistics();
-                        //alert(locationClusters["Wynberg"]["gang8"]);
+
                 }else if (type == "statistics"){
                         locationStatistics = eval("("+content+")");
-                        //alert(locationStatistics["Wynberg"]["crimes"]);
 
                         //first get the max number of crimes commited in any area
                         getMaxCrimes();
@@ -666,7 +659,7 @@ function getMaxCrimes(type){
 
 		for (var location in locationClusters) {
 
-			//Number of gangs in the area
+			//Number of clusters in the area
 			var gangNum = Object.keys( locationClusters[location] ).length;
 			//get percentage of location
 			var num = parseInt (locationStatistics[location]["crimes"]);
